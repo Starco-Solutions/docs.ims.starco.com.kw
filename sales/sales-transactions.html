@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Sales Transactions | IMS User Guide</title>
+<meta content="IMS Sales Transactions guide: transaction type, item/barcode scanning, customer and Star Rewards information, payments, discounts, coupons, item images, totals, gift receipts and save/print workflow." name="description"/>
+<link href="https://ims.starco.com.kw/sales/sales-transactions.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Sales Transactions","url":"https://ims.starco.com.kw/sales/sales-transactions.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a class="active" href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a class="active" href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Sales</a> › Sales Transactions</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/sales.webp"/><h1>Sales Transactions</h1></div>
+<p class="lead">Sales Transactions is the main IMS POS workspace. It brings item scanning, transaction type, customer and loyalty information, payment, discounts, receipt totals and printing into one screen while keeping the active Store, POS, POS Date and user visible at all times.</p>
+<div class="callout"><strong>Open the screen</strong>Main toolbar → Sales Transactions.</div>
+<figure class="screenshot">
+<img alt="IMS Sales Transaction screen with four sold items, transaction type, customer details, payment details and receipt totals" src="../assets/images/sales-transactions.webp"/>
+<figcaption>A normal Sales transaction with item images enabled. Each item card shows its price/discount result while the right side holds receipt, customer and payment information.</figcaption>
+</figure>
+<h2 id="start-context">Starting a transaction and Store selection</h2>
+<p>When the user has access to more than one Store, IMS can show the Branch Selection step before Sales Transactions opens. The list contains the Stores available for transactions and only the transaction types allowed by the user's Group Policy.</p>
+<p>For a Return/Credit Return, the same start step can also accept the original sales Branch and Receipt No. so IMS can verify that the original invoice exists and still contains refundable items before loading Sales Transactions.</p>
+<div class="callout tip"><strong>Single-Store users</strong>When only one eligible Store is available, IMS can bypass the Branch Selection dialog and open the permitted transaction workflow directly.</div>
+<h2 id="transaction-type">Transaction Type</h2>
+<p>The buttons at the upper-right switch the POS workflow between:</p>
+<div class="table-wrap"><table><thead><tr><th>Type</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Sales</td><td>Normal cash/payment-type retail sale.</td></tr>
+<tr><td>Refund / Exchange</td><td>Receipt-based refund workflow and, when exchange sizes are enabled, the exchange workflow.</td></tr>
+<tr><td>Credit Sales</td><td>Customer credit sale, subject to the appropriate user permission and customer requirements.</td></tr>
+<tr><td>Credit Return</td><td>Return against the credit-sales workflow.</td></tr>
+</tbody></table></div>
+<p>If the active user's Group Policy does not allow the selected transaction type, IMS requests authorization from a permitted user before changing mode.</p>
+<h2 id="refund-exchange">Refund / Exchange workflow</h2>
+<p><strong>Refund / Exchange</strong> is tied to an existing sales receipt. IMS first identifies the original receipt and only loads sold lines that are still eligible to be returned; the cashier then chooses the required item(s), or enters the size-exchange workflow when that option is used.</p>
+<figure class="screenshot">
+<img alt="IMS refund workflow showing selection of the original sales receipt followed by selection of the specific items to return" src="../assets/images/sales-refund-workflow.webp"/>
+<figcaption>Refunds begin from the original receipt. IMS then presents the remaining refundable lines so the cashier can select the required items.</figcaption>
+</figure>
+<h3 id="select-receipt">1. Select the original receipt</h3>
+<p>The <strong>Sales Receipt</strong> dialog asks for the original <strong>Branch</strong> and <strong>Receipt No.</strong>. The browse button can be used for the receipt-search workflow.</p>
+<p>The browse workflow can also locate original Cash Sales by <strong>customer phone number</strong>. IMS lists matching receipts (most recent first) with their Branch, date and Receipt No., allowing the cashier to select the correct original sale when the customer does not know the receipt number.</p>
+<p>IMS verifies that the receipt exists and that it still contains at least one positive-quantity line that has not already been marked as refunded. If no refundable lines remain, the return is stopped instead of creating another refund against the same item(s).</p>
+<h3 id="return-eligibility">2. IMS checks whether the receipt can be returned</h3>
+<p>Before item selection, IMS applies the return/exchange controls attached to the original transaction. These checks can include:</p>
+<div class="table-wrap"><table><thead><tr><th>Control</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Financial period</td><td>The financial period for the original receipt must still permit the return. A receipt in a closed financial period is rejected.</td></tr>
+<tr><td>Return period</td><td>IMS checks the Store's configured return days against the original sale date. Users with the unrestricted-return permission can bypass the normal day restriction.</td></tr>
+<tr><td>Offers / promotions</td><td>Some offers can require all affected items to be refunded so the offer can be recalculated correctly. IMS warns the cashier before doing this.</td></tr>
+<tr><td>Promotion-issued vouchers</td><td>If a promotion issued a voucher from the original receipt, IMS can cancel the unused voucher when refunding. If that voucher has already been used, IMS can restrict the receipt to size exchange only.</td></tr>
+<tr><td>Voucher-paid receipt</td><td>A receipt paid by a voucher can require the complete receipt to be refunded rather than allowing arbitrary partial-line removal.</td></tr>
+<tr><td>Loyalty-points payment</td><td>A receipt paid with Star Rewards points can require a full refund so the points/payment reversal remains consistent.</td></tr>
+</tbody></table></div>
+<h3 id="change-sizes">3. Refund or change sizes</h3>
+<p>For a normal cash return, when <strong>Enable exchange sizes</strong> is active in System Settings and the receipt is eligible for exchange, IMS asks <strong>“Do you want to change sizes?”</strong>.</p>
+<p>Select <strong>Yes</strong> to continue into the dedicated size-exchange workflow. Select <strong>No</strong> to continue as a refund and choose the sold lines to return.</p>
+<h4 id="exchange-size-screen">Exchange Size screen</h4>
+<figure class="screenshot">
+<img alt="IMS Exchange Size screen showing the original item being returned on the left and a replacement size being sold on the right" src="../assets/images/sales-exchange-size.webp"/>
+<figcaption>Exchange Size creates a linked return-and-sale transaction: the original unit appears with negative quantity and the replacement unit with positive quantity.</figcaption>
+</figure>
+<p>The left <strong>Return Receipt</strong> side accepts only items that exist on the original receipt and have not already been used in this exchange. The right <strong>Sales Receipt</strong> side accepts a replacement item only when it matches the returned item's Style; when <strong>Exchange sizes based on item color</strong> is enabled in System Settings, Color must match as well.</p>
+<p>The replacement cannot be the exact same Item Code, and IMS checks that sufficient balance exists in the current Store unless that Store is configured to ignore balance. Save becomes available only when the number of returned units equals the number of replacement units.</p>
+<p>The new exchange receipt keeps the original selling values used by the returned line while replacing the item/size identity, updates stock balances, marks the original line as refunded/exchanged, writes the exchange to the activity log, prints the exchange receipt and then returns Sales Transactions to a new transaction.</p>
+<h3 id="select-return-items">4. Select the item(s) to return</h3>
+<p>The item-selection screen shows the original receipt's refundable lines with Item Code, Description, Style, Color, Size, Qty, original price, discounts, net amount and Sales Man/Lady. Check the required lines, use <strong>Select All</strong> when appropriate, or scan a barcode to select a matching line.</p>
+<p>At least one item must be selected. Depending on the original offer/payment rules, IMS may force all lines to be selected rather than allowing a partial return.</p>
+<h3 id="loaded-refund">5. Complete the refund transaction</h3>
+<figure class="screenshot">
+<img alt="IMS Sales Transaction screen in Refund and Exchange mode with two items loaded from the original receipt" src="../assets/images/sales-refund-transaction.webp"/>
+<figcaption>The selected items are loaded into a new Refund / Exchange transaction while the original receipt reference remains visible in red.</figcaption>
+</figure>
+<p>The return receives its own new Receipt No. The red reference message identifies the original Store, receipt number, sale date and time so the cashier can see exactly which sale is being reversed.</p>
+<p>Once the original lines are loaded, normal item entry/import is disabled: the refund is based on the selected original receipt lines rather than newly scanned merchandise.</p>
+<h3 id="refund-payment-rules">Refund payment methods</h3>
+<p>The payment dropdown in <strong>Refund / Exchange</strong> is deliberately different from the normal Sales payment list. IMS loads only active payment methods configured with <strong>Allow in Refund</strong>. Payment methods that are not marked for refunds do not appear.</p>
+<p>This behavior comes from the Sales Payment Types setup, where each payment type has its own refund eligibility. A method can therefore be available for normal sales but unavailable as a refund method.</p>
+<div class="callout tip"><strong>Refund-only payment methods</strong>A payment type can also be configured as <strong>Only Refund</strong>. Pure refund lists can include those methods, while payment lists used for an exchange/balance settlement can exclude refund-only methods where a normal payment component is required.</div>
+<p>The application loads refund payments by selecting active payment methods whose refund flag is enabled.</p>
+<h3 id="refund-summary">Refund workflow at a glance</h3>
+<ol class="steps">
+<li>Select <strong>Refund / Exchange</strong>.</li>
+<li>Select the original Branch and Receipt No.</li>
+<li>IMS confirms that refundable lines remain and validates financial-period/return-policy rules.</li>
+<li>If enabled and appropriate, choose whether this is a size exchange.</li>
+<li>For a refund, select the original line(s) to return.</li>
+<li>Review the new return receipt and select an allowed refund payment method.</li>
+<li>Save or Save and Print the refund transaction.</li>
+</ol>
+<h2 id="receipt">Receipt Details</h2>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Receipt No.</td><td>The IMS receipt/invoice number assigned to the current transaction.</td></tr>
+<tr><td>Sales Man</td><td>The salesperson attached to the receipt. IMS initially uses the Store's default Sales Man/Lady when available.</td></tr>
+<tr><td>Client ID / Category / Name</td><td>The customer identity and category associated with the transaction.</td></tr>
+<tr><td>Client Phone / Email</td><td>Customer contact details used by sales, loyalty and receipt-delivery workflows.</td></tr>
+<tr><td>Guest - No phone</td><td>Allows an eligible cash transaction to continue without a customer phone number after confirmation.</td></tr>
+<tr><td>Client's Info</td><td>Opens the customer/Star Rewards transaction-information dialog.</td></tr>
+<tr><td>Star Card</td><td>Associates a Special/Star Card with eligible cash transactions for card payment or recharge workflows.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>Phone number rules</strong>IMS does not treat “Guest - No phone” as a universal bypass. Credit transactions, credit/exchange-note operations and Star Card use can require a customer phone number.</div>
+<h2 id="items">Sold Items Details</h2>
+<p>Items can be added by scanning/entering an <strong>Item Code or Barcode</strong>, setting Qty and clicking <strong>Add</strong>. IMS searches the primary barcode, Item Code and additional-barcode records before treating the item as not found.</p>
+<p>For inventory items, IMS checks the Store balance unless the Store is configured to ignore balance. Service Items follow their service-price workflow instead of the normal stock-balance path.</p>
+<p>In the card view shown above, each sold line can display:</p>
+<div class="table-wrap"><table><thead><tr><th>Information</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Item image</td><td>The Style/Color image when available.</td></tr>
+<tr><td>Item Code and Description</td><td>The sold SKU and item description.</td></tr>
+<tr><td>Style / Color / Size</td><td>Fashion-retail variant information for the item.</td></tr>
+<tr><td>Qty</td><td>Quantity on the line.</td></tr>
+<tr><td>Orig.</td><td>Original retail price.</td></tr>
+<tr><td>Disc.</td><td>Item discount percentage.</td></tr>
+<tr><td>Curr.</td><td>Current selling price after the item-level markdown.</td></tr>
+<tr><td>Inv Disc.</td><td>Invoice/customer-level discount amount allocated to the line.</td></tr>
+<tr><td>Net</td><td>Final line net amount.</td></tr>
+</tbody></table></div>
+<p>Use the red <strong>X</strong> on a line to remove an unsaved item from the current receipt. <strong>Show Images</strong> controls whether the image-oriented item presentation is used.</p>
+<h3 id="service-items">Service Item pricing</h3>
+<p>Service Items do not follow the normal stock-balance workflow. When a Service Item has a configurable price, IMS opens the Service Item Price dialog. The entered value must meet the item's configured minimum price before the line can be accepted.</p>
+<p>Service-item lines can therefore be used for operational charges/services whose price is entered at transaction time while still respecting the minimum allowed value defined in Manage → Service Items.</p>
+<h3 id="salesman-assignment">Sales Man/Lady assignment</h3>
+<p>The receipt starts with the selected/default Sales Man/Lady, but IMS also supports assigning Sales Man/Lady at item level. The Sales Man search can be restricted to the current Store and can be used to apply one salesperson to the receipt or a different salesperson to an individual line where required.</p>
+<h2 id="scan-options">Scanning and notifications</h2>
+<p>The Notifications area contains local POS scanning preferences. <strong>Previously scanned item</strong> can warn the cashier before adding more quantity of an item already on the receipt. The balance-related option follows the Store's stock-balance configuration.</p>
+<p>The lower item summary shows <strong>Total Quantity</strong> plus Original Price, Current Price and Net Price totals for the selected/current receipt.</p>
+<h2 id="payment">Payment Details</h2>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Type</td><td>Selects the payment method. The available choices come from the active Sales Payment Types and can include direct tenders, Multiple, Gift Voucher, StarReward Cash, Star Card, Exchange Note and Credit Note. In <strong>Refund / Exchange</strong> mode, the list is filtered to active payment methods configured as allowed in refund.</td></tr>
+<tr><td>… beside Type</td><td>This is <strong>not</strong> a general payment-details button. It becomes available for payment workflows that need an additional dialog, principally <strong>Multiple</strong>, <strong>Credit Note</strong> and <strong>Exchange Note</strong>.</td></tr>
+<tr><td>Currency</td><td>The transaction currency. Currency changing is shown only when the user's permission allows it.</td></tr>
+<tr><td>Total</td><td>Receipt total before invoice-level deductions.</td></tr>
+<tr><td>Disc.</td><td>Current invoice/customer discount.</td></tr>
+<tr><td>Coupon</td><td>Discount-coupon information applied to the receipt.</td></tr>
+<tr><td>Un-Taxed</td><td>Net amount before VAT where VAT is enabled.</td></tr>
+<tr><td>Final amount</td><td>The final payable/refundable amount displayed prominently at the bottom of Payment Details.</td></tr>
+</tbody></table></div>
+<figure class="screenshot compact-shot">
+<img alt="IMS Sales Transaction payment type list showing Multiple, direct card and bank payments, Star Card, Gift Voucher, StarReward Cash, Exchange Note and Credit Note" src="../assets/images/sales-payment-types.webp"/>
+<figcaption>Payment Type contains both ordinary tenders and special payment workflows. Special types can start their own workflow immediately when selected.</figcaption>
+</figure>
+<h3 id="payment-selection">What happens when a Payment Type is selected</h3>
+<p>Payment selection is event-driven in Sales Transactions. Ordinary payment methods are selected directly, while special payment types immediately start the additional workflow they require. In refund mode, only refund-enabled payment methods appear in the dropdown.</p>
+<div class="table-wrap"><table><thead><tr><th>Payment selection</th><th>IMS behavior</th></tr></thead><tbody>
+<tr><td>Ordinary direct payment</td><td>The payment is selected directly. The <strong>…</strong> payment button remains disabled because no split/note workflow is required. For <strong>Cash</strong>, IMS uses the Cash Payment Calc when the receipt is completed so the cashier can enter the amount received and see the change/balance.</td></tr>
+<tr><td>Multiple</td><td>The <strong>Multiple Payments Select</strong> window opens immediately. The <strong>…</strong> button remains available so the split can be reviewed or changed.</td></tr>
+<tr><td>Credit Note</td><td>The Credit Note selection workflow opens immediately. A customer phone number is required when a Credit Note is used/issued in the sale.</td></tr>
+<tr><td>Exchange Note</td><td>The Exchange Note dialog opens immediately. If the note does not cover the full receipt, IMS moves the transaction into Multiple payment so the balance can be paid by another method.</td></tr>
+<tr><td>Gift Voucher / voucher payment</td><td>The voucher-redemption dialog opens immediately; the cashier does not first press the <strong>…</strong> button. If the voucher covers the receipt, it can remain the payment. If it covers only part of the receipt, IMS changes to Multiple and carries the redeemed voucher amount into the split-payment window.</td></tr>
+<tr><td>StarReward Cash</td><td>IMS requires a validated customer and opens the loyalty redemption workflow immediately. A partial points redemption becomes part of a Multiple payment; a full redemption can cover the receipt directly.</td></tr>
+<tr><td>Star Card</td><td>A Star Card must already be selected on the transaction. If its balance covers the sale, it can pay directly. If the balance is insufficient, IMS automatically changes to Multiple and preloads the available Star Card balance so the remainder can use another payment method.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>The popup is intentionally automatic</strong>Selecting Multiple, Credit Note, Exchange Note, a Voucher payment or StarReward Cash can immediately open the relevant dialog. The cashier normally does not select the type and then separately press the payment-details button.</div>
+<h3 id="cash-payment-calc">Cash Payment Calc</h3>
+<p>When completing a Sales Transaction using <strong>Cash</strong>, IMS opens the Cash Payment Calc so the cashier can enter the amount physically received from the customer before confirming the receipt.</p>
+<figure class="screenshot compact-shot">
+<img alt="IMS Cash Payment Calc showing Amount, Paid and Balance" src="../assets/images/sales-cash-payment-calc.webp"/>
+<figcaption>Enter the cash received in Paid. Balance shows the difference between the tendered cash and the receipt amount.</figcaption>
+</figure>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Amount</td><td>The cash amount due for the current receipt.</td></tr>
+<tr><td>Paid</td><td>The physical cash amount received from the customer.</td></tr>
+<tr><td>Balance</td><td>The difference between Paid and Amount. When the customer pays more than the receipt amount, this is the cash change to return.</td></tr>
+</tbody></table></div>
+<p>Click <strong>OK</strong> to confirm the cash calculation and continue completing the transaction, or <strong>Cancel</strong> to return to Sales Transactions without accepting the entered tendered amount.</p>
+<h3 id="payment-auth">Bank/card authorization codes</h3>
+<p>Payment methods configured as a Bank/card terminal can require an <strong>Authorization Code</strong> before the receipt is saved. IMS records the authorization together with the Payment Type, amount, Store and Receipt No.</p>
+<p>The code must be six characters and IMS checks that the same authorization has not already been used for that payment method. With <strong>Multiple</strong> payment, IMS requests an authorization code for each terminal/card component that requires one.</p>
+<p>The recorded code becomes useful later in Transactions Expert, where an authorized user can find the original Cash Sale by Authorization Code and Bank even without knowing its Receipt No.</p>
+<h3 id="multiple-payment">Multiple Payments</h3>
+<figure class="screenshot">
+<img alt="IMS Multiple Payments Select window with cash, K-NET and card amounts, Credit Note and Exchange Note options, Redeem Voucher, Redeem Points, totals and variance" src="../assets/images/sales-multiple-payments.webp"/>
+<figcaption>A split payment must reconcile Payments Total with Invoice Total. The same window can also add Credit/Exchange Notes and launch Voucher or Star Rewards redemption.</figcaption>
+</figure>
+<p>The Multiple Payments window lists the active payment methods that can participate in the split. Enter the amount against each required payment method until <strong>Payments Total</strong> equals <strong>Invoice Total</strong>. <strong>Variance</strong> shows the difference, and OK is enabled only when the payment allocation is valid.</p>
+<p>The window can also incorporate special value sources:</p>
+<div class="table-wrap"><table><thead><tr><th>Action</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Add Credit Note(s)</td><td>Expands the Credit Note area so eligible notes can be found and selected as part of the payment.</td></tr>
+<tr><td>Add Exchange Note</td><td>Opens the Exchange Note selector and adds its accepted amount to the payment total.</td></tr>
+<tr><td>Redeem Voucher</td><td>Opens the voucher selector. Voucher payment rows are populated by IMS from the validated voucher(s), rather than typed manually.</td></tr>
+<tr><td>Redeem Points</td><td>Available when Star Rewards is enabled. Opens the loyalty redemption workflow and places the redeemed StarReward Cash amount into the payment allocation.</td></tr>
+</tbody></table></div>
+<p>Voucher and Star Rewards amounts are controlled by their redemption workflows; they are not ordinary manually typed payment rows.</p>
+<h3 id="payment-reset">When IMS resets a special payment</h3>
+<p>Special payments are tied to the current receipt value and customer state. If the Net Total changes after a Multiple/Credit/Exchange Note, voucher, loyalty redemption or insufficient-balance Star Card allocation has already been prepared, IMS can clear that allocation and require the payment to be entered again.</p>
+<p>Changing the customer can also invalidate loyalty or other customer-dependent payment data. IMS therefore recalculates the transaction and may warn that the payment has been reset.</p>
+<h2 id="vat">VAT in Sales Transactions</h2>
+<p>When VAT is enabled, Sales Transactions shows <strong>VAT Base</strong>, <strong>VAT %</strong> and <strong>VAT Amount</strong> in Payment Details. Sales VAT is inclusive: the customer-facing transaction amount already includes VAT, and IMS separates the configured VAT portion from that amount.</p>
+<div class="table-wrap"><table><thead><tr><th>Value</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>VAT Base</td><td>The portion of the VAT-inclusive transaction amount before VAT.</td></tr>
+<tr><td>VAT %</td><td>The configured System Settings VAT percentage used by the current sale.</td></tr>
+<tr><td>VAT Amount</td><td>The VAT extracted from the inclusive amount, using the configured VAT Round increment when one is set.</td></tr>
+</tbody></table></div>
+<p>For a Return/Credit Return loaded from an original receipt, IMS uses the original invoice's VAT percentage/base/amount together with earlier returns. This keeps partial or repeated returns within the original sale's VAT totals even if the current VAT settings have changed.</p>
+<div class="callout tip"><strong>Star Card payment</strong>For the supported cash-sale Star Card workflow, IMS can reduce the amount used for final VAT extraction by the applicable Star Card amount before the receipt is saved.</div>
+<h2 id="discounts">Discounts, coupons and promotions</h2>
+<p>IMS keeps item markdown, manual/customer invoice discount, coupon discount and promotional offer logic separate so the final receipt can be recalculated consistently as the transaction changes.</p>
+<h3>Manual receipt discount</h3>
+<p>The discount workflow can accept either a <strong>percentage</strong> or a <strong>discount amount</strong>. The user cannot exceed his/her configured discount limit unless another authorized user approves the action.</p>
+<p>By default the manual discount is calculated on eligible full-price lines. Users whose policy permits it can choose to <strong>apply the discount on already discounted items</strong>; IMS then recalculates the discount base accordingly.</p>
+<h3>Discount Coupons</h3>
+<p>A coupon is validated against the configured Discount Coupon definition: Store eligibility, expiry date, required discount/Star Card where applicable and whether the coupon may apply to already discounted items. Loyalty-generated coupons are additionally validated against the current customer and previous-use state.</p>
+<h3>Special Offers</h3>
+<p>Active Special Offers are applied through the offer engine rather than entered manually. Depending on the configured offer, IMS can apply item/receipt discounts, free items, bundle/step pricing or cashback behavior. Some offer types deliberately prevent an additional manual discount while the offer is active.</p>
+<h3>Give Away / cashback voucher issuance</h3>
+<p>When a qualifying promotion requires a preprinted voucher, IMS asks the cashier to enter the voucher number. The number is checked against the configured prefix/serial range and duplicate use. IMS then uses the offer's amount and expiry rule to issue the voucher against the receipt.</p>
+<p><strong>Remove all discounts and use Gift voucher only</strong> restores the item prices for the receipt and restricts payment to the Gift Voucher workflow after confirmation.</p>
+<h2 id="customer-loyalty">Customers, Star Rewards and Star Cards</h2>
+<h3 id="customer-search">Customer search</h3>
+<p>Customer Search can look up VIP/privileged customers by <strong>ID, Name, Phone or Staff ID</strong>. Guest/Loyalty customer search can use Name or Phone. Selecting a customer can load the customer's category, receipt discount, credit information, phone/email and Star Rewards registration/tier values into the transaction.</p>
+<p>Credit Sales/Credit Returns do not allow the normal Guest selection because an authorized credit customer is required.</p>
+<h3 id="client-info">Client's Info</h3>
+<p>The Client's Info dialog validates the Country Code/phone and email and links the phone number to the corresponding customer/Loyalty profile when available. If a valid phone number does not yet have a basic Loyalty customer record, IMS can create the basic phone/name profile used by the Sales/Rewards workflow.</p>
+<p>For an existing profile, the screen can show Star Rewards registration state, Tier, available reward value/points, tier discount, last transaction and progress toward the next tier. The transaction also receives the customer's current earn multiplier.</p>
+<p>Changing the customer after points/vouchers/special payments have already been prepared can invalidate those values, so IMS may reset the redemption/payment and recalculate the receipt.</p>
+<h3 id="loyalty-redeem">Star Rewards redemption</h3>
+<p>When Star Rewards redemption is selected, IMS uses the customer's configured redemption method. If OTP/barcode validation is required, the customer code/card is validated before points are converted to a redeemable amount. The configured minimum redemption amount is also enforced.</p>
+<p>If the available reward value is larger than the receipt, IMS limits redemption to the receipt value. A partial redemption becomes one component of Multiple Payments; a full redemption can cover the receipt directly.</p>
+<h3 id="star-card">Star Card</h3>
+<p>Before a Star Card can be used, IMS checks the card/profile state. The workflow can reject a suspended or expired card, a one-time card that has already been consumed, or a zero-balance card when it is not being used for an allowed recharge operation.</p>
+<p>If the card is linked to a customer, IMS can load that customer's phone/profile into the transaction. When a valid card balance is lower than the receipt value, IMS moves the transaction to Multiple Payments and preloads the available Star Card balance.</p>
+<h2 id="import">Import Items</h2>
+<p><strong>Import Items</strong> loads many item lines into the current Sales Transaction from a tab-delimited text file. The action is available only when the active user has the transaction-import permission and the current Sales view supports importing.</p>
+<h3>Current file format</h3>
+<p>The first line is treated as a header. Each following line contains:</p>
+<div class="table-wrap"><table><thead><tr><th>Column</th><th>Required value</th></tr></thead><tbody>
+<tr><td>1 — Item Code</td><td>IMS Item Code. It must exist as a normal inventory item.</td></tr>
+<tr><td>2 — Qty</td><td>Positive integer quantity.</td></tr>
+<tr><td>3 — Price</td><td>Required only when <strong>Force System's Prices</strong> is not selected. The price cannot be negative.</td></tr>
+</tbody></table></div>
+<p>The importer validates the file before loading the transaction. It checks Item Code, Qty, optional imported price and duplicate-row conditions. Validation errors are written to an Error Log beside the import file.</p>
+<h3>Import settings</h3>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Force System's Prices</td><td>Uses the current IMS original/current price and discount instead of the file price.</td></tr>
+<tr><td>Ignore Store's Balance</td><td>Allows the imported quantity to proceed without blocking on the current Store balance. This is forced for return transaction types.</td></tr>
+<tr><td>Show Balance Warning</td><td>When Store balance is being checked, lets the user confirm an imported quantity that is higher than the recorded balance instead of silently accepting it.</td></tr>
+</tbody></table></div>
+<p>After the lines are loaded, Sales Transactions recalculates the receipt using the normal item, discount, customer and payment rules.</p>
+<h2 id="transaction-date">Transaction date override</h2>
+<p>Users with the <strong>Change Sales Transaction Date</strong> permission can open the date-change control from Sales Transactions. The selected date must belong to an open financial period.</p>
+<p>The date can be applied to the current transaction, and the dialog also supports applying the working date to subsequent transactions in the same working session. IMS visually warns when the working/POS date differs from the Server Date so the operator is aware that the receipt is being entered with an overridden transaction date.</p>
+<h2 id="save-print">Save and Print</h2>
+<div class="table-wrap"><table><thead><tr><th>Action</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>New F5</td><td>Starts a new transaction/receipt.</td></tr>
+<tr><td>Save and Print F8</td><td>Saves the transaction and prints the applicable receipt.</td></tr>
+<tr><td>Save</td><td>Saves without using the normal Save-and-Print action. Availability depends on the user's transaction-date permission/workflow.</td></tr>
+<tr><td>Print Gift Receipt</td><td>Produces the gift-receipt output for an eligible cash sale.</td></tr>
+</tbody></table></div>
+<p>Before saving, IMS rechecks the database connection, background blocking/maintenance state, payment/customer requirements, Star Card/loyalty conditions and other rules relevant to the selected transaction type. Cash receipts can invoke Cash Payment Calc, while configured Bank/card payments can require Authorization Codes before the transaction is committed.</p>
+<h2 id="status">POS context</h2>
+<p>The bottom status bar keeps the operational context visible: <strong>Store, POS No., POS Date</strong> and <strong>Active User</strong>. This is especially important for users who have access to more than one Store.</p>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="open-close-pos.html"><div>←</div><div><strong>Open/Close POS</strong><span>The POS shift must be active before normal Sales Transactions can be processed.</span></div></a>
+<a class="doc-link" href="../manage/special-offers.html"><div>↗</div><div><strong>Special Offers</strong><span>Offer definitions can automatically change item or receipt pricing in Sales Transactions.</span></div></a>
+<a class="doc-link" href="../manage/discount-coupons.html"><div>↗</div><div><strong>Discount Coupons</strong><span>Coupon definitions used by the Sales Transaction discount workflow.</span></div></a>
+<a class="doc-link" href="../system/group-policies.html"><div>↗</div><div><strong>Group Policies</strong><span>Controls transaction types, discounts, currency changes, deletion/printing and other Sales rights.</span></div></a>
+<a class="doc-link" href="../financial/vat-tax-configuration.html"><div>↗</div><div><strong>VAT &amp; Tax Configuration</strong><span>System VAT rate/rounding and the complete purchase/sales VAT workflow.</span></div></a></div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

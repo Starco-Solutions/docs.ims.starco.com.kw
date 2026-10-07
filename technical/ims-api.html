@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IMS API | IMS Documentation</title>
+<meta name="description" content="Central service layer used by IMS for secure bootstrap, Global administration and the read-only External Business API v1 through route-separated security boundaries.">
+<link rel="canonical" href="https://ims.starco.com.kw/technical/ims-api.html">
+<link rel="stylesheet" href="../assets/css/docs.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS API","url":"https://ims.starco.com.kw/technical/ims-api.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" type="button" data-mobile-nav>Menu</button>
+<nav class="topnav" aria-label="Primary"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a class="active" href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
+</div></header>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../index.html">Documentation home</a><a href="../getting-started/main-screen.html">Getting started</a><a href="../system/index.html">System</a><a href="../integration/index.html">Integration</a><h3>Technical</h3><a href="index.html">Technical Overview</a><a href="architecture.html">IMS Architecture</a><a href="multi-company.html">Multi-Company Architecture</a><a href="security.html">Security Architecture</a><a href="secure-bootstrap.html">Secure Bootstrap</a><a href="ims-global.html">IMS Global</a><a class="active" href="ims-api.html">IMS API</a><a href="api-v1/index.html">Business API v1</a><a href="secret-vault.html">Secret Vault</a><a href="system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a></aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Technical › IMS API</div>
+<span class="badge">IMS Build 9.4.4.0 technical baseline</span>
+<h1>IMS API</h1>
+<p class="lead">Central service layer used by IMS for secure bootstrap, Global administration and the read-only External Business API v1 through route-separated security boundaries.</p>
+<h2>Current responsibilities</h2><p>IMS.Api is the trusted service boundary used by the client/administration applications for workstation checks, global authentication, company authorization/routing, Global Administrator sessions, company/user/workstation administration, system version management and protected secret access.</p>
+<h2>Global administration</h2><p>IMS Global does not write global administration data by opening ims_global directly. Its Companies, Users, Workstations and System Version operations are mediated through authenticated Global Admin API calls. Database runtime/provisioning information is also requested through that authorized service boundary.</p>
+<h2>Business API v1</h2><p>The External Business API v1 is a live, read-only contract separate from Bootstrap and Global administration. External clients authenticate with <code>X-IMS-API-Key</code>, are restricted to assigned companies/scopes and read approved business data through <code>/api/v1/companies/{companyId}/...</code> routes.</p>
+<p>The business contract covers stores, items, suppliers, sales, purchases, inventory/balances/movements, transfers, adjustments/depreciation, markdowns, promotions and discount-coupon event metadata. External clients do not receive direct PostgreSQL access.</p>
+<div class="callout tip"><strong>Developer documentation</strong>See the <a href="api-v1/index.html">Business API v1 Developer Guide</a> for quick-start calls, authentication, complete endpoint reference, business semantics, errors/rate limits and downloadable request collections.</div>
+<div class="callout tip"><strong>Separation matters</strong>Do not treat Global administration endpoints as the public/business integration API. They exist to operate the IMS platform securely.</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div><script src="../assets/js/docs.js"></script></body></html>

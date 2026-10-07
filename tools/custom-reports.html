@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Custom Reports | IMS User Guide</title>
+<meta content="IMS Custom Reports guide: create reusable reports from Custom Views, control ownership and user access, select fields, headers, formats, aggregations and Order By, then run them through User-Defined Reports or Reporting Scheduler." name="description"/>
+<link href="https://ims.starco.com.kw/tools/custom-reports.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Custom Reports","url":"https://ims.starco.com.kw/tools/custom-reports.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a class="active" href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a class="active" href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Tools</a> › Custom Reports</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/tools.webp"/><h1>Custom Reports</h1></div>
+<p class="lead">Custom Reports turns an approved Custom View into a reusable user-facing report definition. The report owner chooses the source, name, access scope, fields, headers, formatting, calculations and sorting; authorized users can then run the finished report from Reports → User-Defined Reports.</p>
+<div class="callout"><strong>Open the screen</strong>Tools → Custom Reports.</div>
+<div class="callout warning"><strong>Required first</strong>A database administrator creates the base PostgreSQL reporting view first. That view is then registered and classified in Tools → Custom Views before it can be selected as a Custom Report type.</div>
+<figure class="screenshot">
+<img alt="IMS Custom Reports screen with New Report window and user access selection" src="../assets/images/tools-custom-reports.webp"/>
+<figcaption>Custom Reports manages the report definition, ownership and user access.</figcaption>
+</figure>
+<h2 id="workflow">Custom Reporting workflow</h2>
+<div class="table-wrap"><table><thead><tr><th>Step</th><th>Responsibility</th></tr></thead><tbody>
+<tr><td>1. Base database view</td><td>The database administrator creates and validates the required <code>vw_...</code> PostgreSQL reporting view.</td></tr>
+<tr><td>2. Custom View</td><td>An authorized report administrator registers that database view in Tools → Custom Views and assigns IMS field types.</td></tr>
+<tr><td>3. Custom Report</td><td>The report owner creates the report definition, chooses who can access it and configures the report fields.</td></tr>
+<tr><td>4. User-Defined Report</td><td>Authorized users run the active report from Reports → User-Defined Reports.</td></tr>
+<tr><td>5. Optional scheduling</td><td>Eligible reports can be connected to Tools → Reporting Scheduler for automated file delivery.</td></tr>
+</tbody></table></div>
+<h2 id="list">Custom Reports list</h2>
+<p>The main screen shows the report ID, Report Name, Report Description, report type/Display Name, Report Owner, Creation Date, last modifying user and Last Modified Date.</p>
+<p>The filter area organizes the list by <strong>Report Type</strong>, <strong>Active / In Active</strong>, <strong>My Reports</strong>, <strong>Shared Reports</strong> and <strong>Others Reports</strong>. Report-administrator access provides the broader administration view, while normal Custom Report access is limited by report ownership/sharing rules.</p>
+<h2 id="new">Create a report</h2>
+<ol class="steps">
+<li>Click <strong>New</strong>.</li>
+<li>Enter a <strong>Report Name</strong> and optional Report Description.</li>
+<li>Select the required <strong>Report Type</strong>. The available types come from active Custom Views.</li>
+<li>Enable <strong>Is Active</strong> when the report is ready to be made available to users.</li>
+<li>Choose whether the report is <strong>Visible to all users</strong> or shared with selected users.</li>
+<li>Click <strong>Save</strong>.</li>
+<li>Select the report and open <strong>Report Fields</strong> to design the output.</li>
+</ol>
+<p>The user who creates a report becomes its Report Owner. The report owner remains part of the report's access list when access is restricted to selected users.</p>
+<h2 id="access">Report access</h2>
+<p>Enable <strong>Visible to all users</strong> when every authorized User-Defined Reports user should be able to use the report. When it is cleared, the lower access area lets the owner select individual IMS users.</p>
+<p>Users can be located by ID, User Name, Login Name, Phone No. or Email Address. Select a user to add that account to the report's access list; selected users can be removed from the list before saving.</p>
+<div class="callout tip"><strong>Share the report definition, not the database</strong>Users receive access to the IMS report definition. They do not need direct database-administration access to the underlying PostgreSQL view.</div>
+<h2 id="report-fields">Configure Report Fields</h2>
+<p>Select one report in the main list and click <strong>Report Fields</strong>. This is where the report output is designed.</p>
+<figure class="screenshot">
+<img alt="IMS Reports Fields screen with Available Fields, selected Report Fields and Order By" src="../assets/images/tools-custom-report-fields.webp"/>
+<figcaption>The Reports Fields screen separates the source fields, selected output columns and sort order.</figcaption>
+</figure>
+<div class="table-wrap"><table><thead><tr><th>Area</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Available Fields</td><td>Fields exposed by the selected Custom View, including supported Store/Supplier Custom Attributes.</td></tr>
+<tr><td>Report Fields</td><td>The fields included in the final report and their presentation/calculation settings.</td></tr>
+<tr><td>Order By</td><td>Selected report fields used to define the report's sort sequence.</td></tr>
+</tbody></table></div>
+<p>Drag a field from <strong>Available Fields</strong> into <strong>Report Fields</strong>. Report Fields can then be reordered with the up/down controls. A selected Report Field can also be dragged into <strong>Order By</strong>, where its sort priority can be reordered independently.</p>
+<p>IMS requires at least <strong>two Report Fields</strong> before the report-field definition can be saved.</p>
+<h2 id="field-settings">Report Field settings</h2>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Field Name</td><td>The source column from the Custom View.</td></tr>
+<tr><td>Header</td><td>The column heading users see in the finished report. If left blank, IMS derives a heading from the field name.</td></tr>
+<tr><td>Field Type</td><td>The metadata inherited from Custom Views, such as Text, Numeric, LocalCurrency, Percent, StoreID, SupplierID or TransDate.</td></tr>
+<tr><td>Custom Format</td><td>Overrides the normal display format associated with the Field Type.</td></tr>
+<tr><td>Function</td><td>Optional aggregation: None, Sum, Average, Count, Min or Max.</td></tr>
+</tbody></table></div>
+<h2 id="calculations">Calculations and grouping</h2>
+<p>Aggregation functions are intended for compatible fields. Text, StoreID and SupplierID fields are kept as non-aggregated dimensions.</p>
+<p>When at least one report field uses an aggregation function, IMS treats the other non-aggregated fields as grouping fields. This makes it possible to build summaries such as sales by Store, Supplier, Brand, Style, period or other dimensions exposed by the underlying Custom View.</p>
+<h2 id="attributes">Store and Supplier Custom Attributes</h2>
+<p>If the Custom View contains a field classified as <strong>SupplierID</strong>, IMS adds the defined Supplier Custom Attributes to Available Fields. If it contains a <strong>StoreID</strong>, Store Custom Attributes are added in the same way.</p>
+<p>This lets report owners extend a report with business classifications maintained in IMS without asking the database administrator to add each attribute as a dedicated database-view column.</p>
+<h2 id="order">Order By</h2>
+<p>Drag one or more selected Report Fields into the <strong>Order By</strong> area. The top-to-bottom sequence determines the report's sort priority. Use the up/down controls to change that priority.</p>
+<h2 id="edit">Edit an existing report</h2>
+<p>Use <strong>Edit</strong> to change the Report Name, Description, Active state, access list or Report Type.</p>
+<div class="callout warning"><strong>Changing Report Type</strong>Changing the underlying Custom View of an existing report is a structural change. IMS warns that the saved Report Fields will be reset and scheduled tasks for that report will be cancelled/disabled so the report can be rebuilt against its new source.</div>
+<h2 id="delete">Delete a report</h2>
+<p>A Custom Report cannot be deleted while it is still used by one or more Reporting Scheduler tasks. IMS lists the scheduled task names and requires those tasks to be deleted first.</p>
+<p>After dependencies are cleared and the user confirms deletion, IMS removes the report's user-sharing records, Report Fields, Order By definition and report header, and records the deletion in the IMS activity log.</p>
+<h2 id="downstream">Where the report is used</h2>
+<div class="doc-list">
+<a class="doc-link" href="../reports/user-defined-reports.html"><div>↗</div><div><strong>User-Defined Reports</strong><span>Runs active Custom Reports using the saved field, format, calculation and sort definitions.</span></div></a>
+<a class="doc-link" href="custom-views.html"><div>←</div><div><strong>Custom Views</strong><span>Defines the approved data source and Field Types used by Custom Reports.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

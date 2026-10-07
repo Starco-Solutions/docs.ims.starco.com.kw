@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Item Movement | IMS User Guide</title>
+<meta content="IMS Item Movement guide: trace one item across purchases, returns, transfers, sales, depreciation, stock adjustments and opening balance, with optional store running balance and online-order reference." name="description"/>
+<link href="https://ims.starco.com.kw/inventory/item-movement.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Item Movement","url":"https://ims.starco.com.kw/inventory/item-movement.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a class="active" href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a class="active" href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Inventory</a> › Item Movement</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/inventory.webp"/><h1>Item Movement</h1></div>
+<p class="lead">Item Movement is the transaction history for one inventory item. It brings purchases, purchase returns, stock transfers, sales and returns, stock depreciation, stock adjustments and the opening balance into one chronological view so users can trace how an item's quantity moved through IMS.</p>
+<div class="callout"><strong>Open the screen</strong>Inventory → Item Movement.</div>
+<figure class="screenshot report-shot">
+<img alt="IMS Item Movement showing a selected store, item information, product image, transaction history, running balance and online order column" src="../assets/images/inventory-item-movement.webp"/>
+<figcaption>With a Store selected, Item Movement adds a running Balance and Online Order reference to the chronological transaction history.</figcaption>
+</figure>
+<h2 id="find-item">Find the item</h2>
+<p>Enter an <strong>Item Code</strong>, the item's main <strong>Barcode</strong>, or an <strong>alternate barcode</strong>, then run the search. IMS resolves the value to one inventory Item Code before loading the movement history.</p>
+<p>If the item is found, the Item Info panel shows its <strong>Season, Style, Description, Color Code, Color Name, Size, Original Price and Current Price</strong>, together with the stored Style + Color product image when available.</p>
+<h2 id="store-filter">All stores or one store</h2>
+<p>The Store filter is optional. Leave Store blank to review the item's history across all accessible locations. Enter a Store ID to trace the item specifically through that location.</p>
+<div class="table-wrap"><table><thead><tr><th>Store selection</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>No Store selected</td><td>Shows the item's movements across stores. Because there is no single location balance to calculate, the Balance and Online Order columns are hidden.</td></tr>
+<tr><td>Specific Store selected</td><td>Shows movements relevant to that location, including transfers sent from or received by the store. IMS also shows the running Balance and Online Order columns.</td></tr>
+</tbody></table></div>
+<p>If the logged-in user has access to only one center/store, IMS automatically fills that location and locks the Store ID field.</p>
+<h2 id="date-filter">Filter by date</h2>
+<p><strong>Date From</strong> and <strong>To</strong> each have an <strong>Any</strong> option. Leave both as Any to review the complete recorded history. Clear either Any checkbox to apply that boundary to the movement date.</p>
+<div class="callout tip"><strong>Running Balance and date filters</strong>When a specific Store is selected, Balance is calculated from the movements included in the current result. For the clearest full balance trail, leave <strong>Date From = Any</strong> so the opening balance and earlier movements are not excluded.</div>
+<h2 id="sources">Transactions included</h2>
+<p>IMS collects the item's history from the inventory and sales transaction tables and combines the rows into one date/time sequence.</p>
+<div class="table-wrap"><table><thead><tr><th>Movement</th><th>Qty treatment</th><th>What Store / To represent</th></tr></thead><tbody>
+<tr><td>Purchase</td><td>Positive receipt quantity.</td><td>Store is the receiving location.</td></tr>
+<tr><td>Purchase Return</td><td>Shown as a negative receipt quantity.</td><td>Store is the location returning the stock.</td></tr>
+<tr><td>Stock Transfer</td><td>The transfer quantity is shown on the transaction row; direction is understood from Store and To.</td><td>Store is the source and To is the destination.</td></tr>
+<tr><td>Cash / Credit Sale</td><td>Sale quantity is positive; sales returns are represented as negative quantities in the transaction data.</td><td>Store is the selling location; To contains the customer name when available, otherwise it may be blank/Guest depending on the transaction.</td></tr>
+<tr><td>Stock Depreciation</td><td>Recorded write-off quantity; it reduces the selected store's running balance.</td><td>Store is the depreciating location.</td></tr>
+<tr><td>Stock Adjustment</td><td>Uses the signed adjustment quantity: positive adds stock and negative reduces it.</td><td>Store is the adjusted location.</td></tr>
+<tr><td>Opening Balance</td><td>Uses the item's recorded first/opening quantity.</td><td>Store is the location where the opening quantity was established.</td></tr>
+</tbody></table></div>
+<h2 id="columns">Item Details columns</h2>
+<div class="table-wrap"><table><thead><tr><th>Column</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Trans. Date</td><td>Transaction date and time.</td></tr>
+<tr><td>Trans. Type</td><td>Purchase, Purchase Return, Stock Transfer, sale/return type, Depreciation, Stock Adjustment or Opening Balance.</td></tr>
+<tr><td>Trans. No</td><td>The source transaction/voucher number.</td></tr>
+<tr><td>Store</td><td>The store/location associated with the movement; for transfers this is the sending location.</td></tr>
+<tr><td>To</td><td>Transfer destination or customer, depending on the transaction type.</td></tr>
+<tr><td>Qty</td><td>Transaction quantity using the source transaction's sign/direction rules.</td></tr>
+<tr><td>Value</td><td>Transaction value. The source differs by transaction type: purchase/transfer local value, sales net value, inventory cost for depreciation/adjustments, or opening quantity × opening average cost.</td></tr>
+<tr><td>Balance</td><td>Running quantity for the selected Store. Visible only when one Store is selected.</td></tr>
+<tr><td>Online Order</td><td>Online-order reference when the underlying inventory movement carries one. Visible only in the selected-Store view.</td></tr>
+</tbody></table></div>
+<h2 id="balance">How the Store Balance is calculated</h2>
+<p>When a Store is selected, IMS sorts the combined movement history by transaction date and time and calculates a running quantity:</p>
+<div class="table-wrap"><table><thead><tr><th>Movement relative to selected Store</th><th>Balance effect</th></tr></thead><tbody>
+<tr><td>Opening Balance</td><td>Adds the opening quantity.</td></tr>
+<tr><td>Purchase</td><td>Adds received quantity.</td></tr>
+<tr><td>Purchase Return</td><td>Uses its negative quantity, therefore reducing balance.</td></tr>
+<tr><td>Stock Adjustment</td><td>Adds the signed adjustment quantity.</td></tr>
+<tr><td>Sale</td><td>Subtracts sold quantity.</td></tr>
+<tr><td>Sales Return</td><td>The transaction quantity is negative, so subtracting it adds the returned quantity back.</td></tr>
+<tr><td>Stock Depreciation</td><td>Subtracts the depreciated quantity.</td></tr>
+<tr><td>Stock Transfer sent from the Store</td><td>Subtracts transfer quantity.</td></tr>
+<tr><td>Stock Transfer received by the Store</td><td>Adds transfer quantity.</td></tr>
+</tbody></table></div>
+<h2 id="value-permission">Value visibility</h2>
+<p>The Value column is cost-sensitive. Users without permission to view COGS/cost information do not see it. The movement quantities and transaction history remain available according to normal access rights.</p>
+<h2 id="workflow">Typical tracing workflow</h2>
+<ol class="steps">
+<li>Enter the Item Code or scan a barcode.</li>
+<li>Leave Store blank to inspect the complete cross-store journey, or enter a Store ID to calculate that store's running balance.</li>
+<li>Leave Date From/To as Any for the complete history, or limit the required period.</li>
+<li>Run the search.</li>
+<li>Confirm the item identity from Season, Style, Color, Size, prices and image.</li>
+<li>Read the movement grid chronologically to trace purchases, transfers, sales, returns and stock corrections.</li>
+<li>When investigating a store discrepancy, use the Balance column to identify the transaction after which the quantity changed unexpectedly.</li>
+</ol>
+<h2 id="example">Reading a transfer in Item Movement</h2>
+<p>For a Stock Transfer, read <strong>Store → To</strong> as the movement direction. In a selected destination-store view, a transfer from another store increases Balance. A later sale from the selected store reduces it. This makes the screen useful for following the physical path of a single SKU from receiving through transfer and sale.</p>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="stock-level.html"><div>←</div><div><strong>Stock Level</strong><span>See the current or historical summarized balance before drilling into one item's transaction history.</span></div></a>
+<a class="doc-link" href="stock-transfer.html"><div>↗</div><div><strong>Stock Transfer</strong><span>Creates transfer movements that appear in Item Movement.</span></div></a>
+<a class="doc-link" href="stock-depreciation.html"><div>↗</div><div><strong>Stock Depreciation</strong><span>Inventory write-offs are included in the movement history.</span></div></a>
+<a class="doc-link" href="stock-adjustments.html"><div>↗</div><div><strong>Stock Adjustments</strong><span>Signed stock corrections are included in the movement history.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

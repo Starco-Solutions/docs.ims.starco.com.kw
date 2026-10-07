@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Reporting Scheduler | IMS User Guide</title>
+<meta content="IMS Reporting Scheduler guide: automate Custom Reports by Day, Week or Month; apply Store/Supplier criteria; export TXT, CSV or XLSX; deliver by Email and/or FTP; and review execution results." name="description"/>
+<link href="https://ims.starco.com.kw/tools/reporting-scheduler.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Reporting Scheduler","url":"https://ims.starco.com.kw/tools/reporting-scheduler.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a class="active" href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a class="active" href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Tools</a> › Reporting Scheduler</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/tools.webp"/><h1>Reporting Scheduler</h1></div>
+<p class="lead">Reporting Scheduler automates delivery of IMS Custom Reports. A task links one Custom Report to a scheduled period, report criteria, output file format and delivery destination. The IMS Autos service runs active tasks on the server and records the result of every execution.</p>
+<div class="callout"><strong>Open the screen</strong>Tools → Reporting Scheduler.</div>
+<figure class="screenshot">
+<img alt="IMS Reports Scheduler showing task settings, report criteria, email and FTP delivery, and execution results" src="../assets/images/tools-reporting-scheduler.webp"/>
+<figcaption>A scheduled task combines a Custom Report, filtering criteria, file settings, execution time and one or both delivery methods.</figcaption>
+</figure>
+<h2 id="prerequisite">Required first</h2>
+<p>Reporting Scheduler works on reports already created in <strong>Tools → Custom Reports</strong>. If no Custom Reports exist, IMS asks the administrator to create a Custom Report first.</p>
+<p>The quality of a scheduled task therefore depends on the complete reporting chain: DBA-created database view → Custom View → Custom Report → Reporting Scheduler.</p>
+<h2 id="task-info">Task information</h2>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>ID</td><td>IMS scheduled-task identifier.</td></tr>
+<tr><td>Is Active</td><td>Controls whether IMS Autos should execute this task.</td></tr>
+<tr><td>Name</td><td>Short task name shown in the Tasks list.</td></tr>
+<tr><td>Description</td><td>Business description of the scheduled delivery.</td></tr>
+<tr><td>Created By / On</td><td>User and date/time that created the task.</td></tr>
+<tr><td>Modified By / On</td><td>Most recent task modification information.</td></tr>
+</tbody></table></div>
+<p>Name and Description are mandatory when saving a task.</p>
+<h2 id="report-settings">Select the report and date field</h2>
+<p><strong>Report</strong> selects the Custom Report to generate. The scheduler reads the field metadata of that report's Custom View to determine which scheduling criteria are available.</p>
+<p>A field classified as <strong>TransDate</strong> can be selected as the Date Field. IMS Autos uses that field to retrieve the correct transaction period for Daily, Weekly or Monthly execution.</p>
+<h2 id="where">Fields in Where Clause</h2>
+<p>The scheduler exposes fields classified as <strong>StoreID</strong> or <strong>SupplierID</strong> as task criteria. Select one of those fields, then use <strong>+</strong> to choose the stores or suppliers that should be included in the scheduled report.</p>
+<p>The selected values appear in the Where Clause list. Use <strong>-</strong> to remove selected values.</p>
+<div class="callout tip"><strong>At least one criterion</strong>A scheduled task must have at least one Store/Supplier Where Clause selection. This keeps automated deliveries scoped to a defined business audience or reporting requirement.</div>
+<h2 id="files">Output file settings</h2>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>File Prefix</td><td>Text placed at the beginning of the generated file name.</td></tr>
+<tr><td>Date Format</td><td>Controls how the report period date is written into the file name. If omitted, IMS uses a default date format.</td></tr>
+<tr><td>File Type</td><td>Text (Tab delimited) <code>.txt</code>, CSV (Comma delimited) <code>.csv</code>, or Excel Workbook <code>.xlsx</code>.</td></tr>
+<tr><td>Remove Header</td><td>Omits the report-column header row from the exported file when required by an integration/import format.</td></tr>
+</tbody></table></div>
+<p>Daily file names use the prefix plus the transaction date. Weekly and Monthly files include both the beginning and ending dates of the exported period.</p>
+<h2 id="schedule">Export Every and Export Time</h2>
+<p>Tasks can run on one of three schedules:</p>
+<div class="table-wrap"><table><thead><tr><th>Schedule</th><th>Normal period exported</th></tr></thead><tbody>
+<tr><td>Day</td><td>The previous day's transactions.</td></tr>
+<tr><td>Week</td><td>A weekly period. On a new task, the scheduled weekly execution is triggered on Sunday.</td></tr>
+<tr><td>Month</td><td>The previous monthly period. On a new task, monthly execution is triggered on the first day of the month.</td></tr>
+</tbody></table></div>
+<p><strong>Export Time</strong> sets the clock time at which the IMS Autos service checks and executes the task.</p>
+<p>The service also uses the last successfully retrieved transaction date when determining the next period, allowing the scheduler to catch up across missed reporting periods instead of blindly regenerating the last successful file.</p>
+<h2 id="email">Send by email</h2>
+<p>Scheduled reports can be delivered by email using the IMS SMTP configuration.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>To</td><td>One or more recipients selected from IMS Email Contacts.</td></tr>
+<tr><td>Cc</td><td>Optional CC recipients selected from IMS Email Contacts.</td></tr>
+<tr><td>Reply To</td><td>Reply address used for the scheduled report email.</td></tr>
+<tr><td>Subject</td><td>Base email subject. IMS Autos appends the relevant report date or date range.</td></tr>
+<tr><td>Message</td><td>Email body text.</td></tr>
+</tbody></table></div>
+<p>To use email delivery, <strong>To</strong>, <strong>Reply To</strong> and <strong>Subject</strong> must all be supplied. IMS validates the Reply To email-address format before saving.</p>
+<h2 id="ftp">Export to FTP</h2>
+<p>The same generated report file can be uploaded to an FTP destination. Enter the FTP Server, User ID and Password.</p>
+<p>All three FTP fields are required when FTP delivery is used. The stored FTP password is encrypted by IMS.</p>
+<h2 id="delivery">Email, FTP or both</h2>
+<p>A task must use at least one delivery method: <strong>Email or FTP</strong>. Both can be configured on the same task.</p>
+<p>If only part of an Email or FTP configuration has been entered, IMS warns the administrator and offers to continue using only the fully configured delivery method.</p>
+<div class="callout tip"><strong>Integration use</strong>FTP delivery is useful for scheduled third-party integrations where another system expects a recurring TXT, CSV or Excel extract. Email delivery is useful for routine operational and management reporting.</div>
+<h2 id="results">Task Results</h2>
+<p>The lower grid is the execution history for the selected task. It shows:</p>
+<div class="table-wrap"><table><thead><tr><th>Column</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Schedule</td><td>Daily, Weekly or Monthly.</td></tr>
+<tr><td>Exec. Date</td><td>Date/time IMS Autos executed the task.</td></tr>
+<tr><td>Trans. Date</td><td>Last transaction date included in that generated period.</td></tr>
+<tr><td>File Name</td><td>Name of the generated TXT, CSV or XLSX file.</td></tr>
+<tr><td>State</td><td>Succeeded or Failed.</td></tr>
+<tr><td>Action Details</td><td>Delivery result, such as successful Email/FTP or the stage that failed.</td></tr>
+</tbody></table></div>
+<p>IMS records failures separately for report generation, file writing and Email/FTP delivery. This makes the scheduler history useful for checking whether a task ran and where a failed automation stopped.</p>
+<h2 id="autos">Executed by IMS Autos</h2>
+<p>Reporting Scheduler stores the task definition; the background execution is performed by the <strong>IMS Autos</strong> service on the server. Active scheduled tasks are checked by the service, the Custom Report is generated for the required period, the file is written in the selected format, and the configured Email/FTP delivery is attempted.</p>
+<h2 id="new">Create a scheduled task</h2>
+<ol class="steps">
+<li>Click <strong>New</strong>.</li>
+<li>Enter the task Name and Description.</li>
+<li>Select the Custom Report and Date Field.</li>
+<li>Add at least one Store/Supplier Where Clause criterion.</li>
+<li>Set File Prefix, Date Format, File Type and Remove Header as required.</li>
+<li>Choose Day, Week or Month and set the Export Time.</li>
+<li>Configure Email, FTP, or both.</li>
+<li>Leave <strong>Is Active</strong> enabled when the task should run automatically.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<h2 id="edit-delete">Edit, deactivate or delete</h2>
+<p>Use <strong>Edit</strong> to change the report, criteria, schedule, output or destinations. Clear <strong>Is Active</strong> when the definition should be retained but automatic execution should stop.</p>
+<p><strong>Delete</strong> permanently removes the selected task together with its saved Where Clause criteria, Email recipient mappings and Task Results history after confirmation.</p>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="custom-reports.html"><div>←</div><div><strong>Custom Reports</strong><span>Defines the report fields, formatting, aggregation and sorting that the scheduler generates.</span></div></a>
+<a class="doc-link" href="ims-autos.html"><div>↗</div><div><strong>IMS Autos</strong><span>The server-side service that executes active Reporting Scheduler tasks.</span></div></a>
+<a class="doc-link" href="../reports/user-defined-reports.html"><div>↗</div><div><strong>User-Defined Reports</strong><span>Runs the same Custom Report definitions interactively inside IMS.</span></div></a>
+<a class="doc-link" href="../manage/email-contacts.html"><div>↗</div><div><strong>Email Contacts</strong><span>Maintains recipient addresses used by scheduled Email delivery.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

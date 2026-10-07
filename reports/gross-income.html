@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Gross Income | IMS User Guide</title>
+<meta content="How to use IMS Gross Income to analyze beginning inventory, purchases, transfers, adjustments, depreciation, COGS, ending inventory, net sales, markup and gross profit by supplier or store." name="description"/>
+<link href="https://ims.starco.com.kw/reports/gross-income.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Gross Income User Guide","url":"https://ims.starco.com.kw/reports/gross-income.html","about":"IMS gross income, inventory cost and gross profit reporting","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a class="active" href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a class="active" href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a><a href="../index.html#inventory">Inventory</a><a href="../index.html#financial">Financial</a><a href="../index.html#reports">Reports</a><a href="../index.html#manage">Manage</a><a href="../index.html#tools">Tools</a><a href="../index.html#system">System</a><a href="../index.html#shopify">Shopify</a><a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Reports › Gross Income</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/reports.webp"/><h1>Gross Income</h1></div>
+<p class="lead">Gross Income combines sales, inventory cost and stock movement information to explain gross profit for a selected period. The report can be analyzed by <strong>Supplier</strong> or by <strong>Store</strong>, and includes beginning inventory, purchases, COGS, ending inventory, markup, discount rate, net sales, gross profit and gross profit margin.</p>
+<div class="callout"><strong>Open the report</strong>Reports → Gross Income</div>
+<figure class="screenshot"><img alt="IMS Reports menu with Gross Income selected" src="../assets/images/gross-income-menu.webp"/><figcaption>Path: Reports → Gross Income.</figcaption></figure>
+<h2 id="start">Default reporting period</h2>
+<p>When Gross Income opens, IMS automatically sets the date range to the full year of the current IMS Working Date: <strong>1 January through 31 December</strong>. Change Date From and To when a shorter or different period is required.</p>
+<h2 id="modes">Choose Supplier or Store analysis</h2>
+<p>The two modes answer different questions and also change which stock-movement columns are available.</p>
+<div class="table-wrap"><table><thead><tr><th>Mode</th><th>Use it for</th><th>Extra behavior</th></tr></thead><tbody>
+<tr><td>Suppliers</td><td>Analyze inventory investment, sales cost and profitability by supplier.</td><td>Store transfers, stock adjustments and depreciation are not displayed as separate columns.</td></tr>
+<tr><td>Stores</td><td>Analyze inventory movement and profitability by store.</td><td>Adds Transfer In, Transfer Out, Adjustments and Depreciation to the report.</td></tr>
+</tbody></table></div>
+<h2 id="supplier-mode">Supplier view</h2>
+<figure class="screenshot"><img alt="IMS Gross Income supplier view" src="../assets/images/gross-income-suppliers.webp"/><figcaption>Supplier mode. Select one supplier or All Suppliers and run Get Detailed Report.</figcaption></figure>
+<h3>Run by supplier</h3>
+<ol class="steps">
+<li>Select <strong>Suppliers</strong>.</li>
+<li>Select the required supplier, or select <strong>All Suppliers</strong>.</li>
+<li>Select Date From and To.</li>
+<li>Click <strong>Get Detailed Report</strong>.</li>
+<li>Review the detail rows and totals.</li>
+</ol>
+<p>When <strong>All Suppliers</strong> is selected, IMS disables the individual supplier selector and displays the Supplier column so each supplier can appear as a separate row.</p>
+<h2 id="store-mode">Store view</h2>
+<figure class="screenshot"><img alt="IMS Gross Income store view" src="../assets/images/gross-income-stores.webp"/><figcaption>Store mode exposes transfers, adjustments and depreciation because these movements affect the store's inventory value.</figcaption></figure>
+<h3>Run by store</h3>
+<ol class="steps">
+<li>Select <strong>Stores</strong>.</li>
+<li>Select the required store, or select <strong>All Stores</strong>.</li>
+<li>Select Date From and To.</li>
+<li>Click <strong>Get Detailed Report</strong>.</li>
+<li>Review the inventory movements, sales and profitability figures.</li>
+</ol>
+<p>When Store mode is selected, supplier selection is disabled. When All Stores is selected, IMS disables the individual store selector and displays the Store column.</p>
+<h2 id="transactions">Sales included</h2>
+<p>Gross Income includes IMS sales and return transaction codes <strong>51, 52, 53 and 54</strong>. The sales source therefore includes both cash and credit activity together with their corresponding returns.</p>
+<h2 id="columns">Report columns</h2>
+<div class="table-wrap"><table><thead><tr><th>Column</th><th>Meaning in IMS</th></tr></thead><tbody>
+<tr><td>Supplier / Store</td><td>The analyzed supplier or store when the corresponding All option is used.</td></tr>
+<tr><td>Begin. Inv.</td><td>Beginning inventory value calculated by IMS from opening inventory and movements before the requested period.</td></tr>
+<tr><td>Net Purchases</td><td>Net purchase cost recorded within the requested period.</td></tr>
+<tr><td>Transfer In</td><td>Inventory cost transferred into a store during the requested period. Store mode only.</td></tr>
+<tr><td>Transfer Out</td><td>Inventory cost transferred out of a store during the requested period. Store mode only.</td></tr>
+<tr><td>Adjustments</td><td>Stock adjustment cost within the period. Store mode only.</td></tr>
+<tr><td>Depreciation</td><td>Depreciation cost within the period. Store mode only.</td></tr>
+<tr><td>COGS</td><td>Cost of Goods Sold: Full Cost + Discounted Cost from the sales activity.</td></tr>
+<tr><td>End. Inv.</td><td>Ending inventory value after the period's purchases, sales cost and applicable stock movements.</td></tr>
+<tr><td>M. Up</td><td>Average Mark Up in this report: Net Sales ÷ COGS.</td></tr>
+<tr><td>Full Amt</td><td>Sales amount from full-price sales lines.</td></tr>
+<tr><td>Disc. Amt</td><td>Sales amount from discounted sales lines.</td></tr>
+<tr><td>ADR</td><td>Average Discount Rate supplied by the IMS daily-sales data for the report grouping.</td></tr>
+<tr><td>Net Sales</td><td>Full Amt + Disc. Amt.</td></tr>
+<tr><td>G. Profit</td><td>Gross Profit = Net Sales − COGS.</td></tr>
+<tr><td>GPM</td><td>Gross Profit Margin = Gross Profit ÷ Net Sales.</td></tr>
+</tbody></table></div>
+<h2 id="inventory-formulas">Inventory-value calculation</h2>
+<p>Gross Income reconstructs inventory value from the IMS movement history rather than simply reading one closing balance. The exact calculation differs between Supplier and Store mode.</p>
+<h3>Supplier mode</h3>
+<div class="callout"><strong>Beginning Inventory</strong>Opening inventory cost before the period + net purchases before the period + opening inventory dated inside the period − sales cost before the period.</div>
+<div class="callout"><strong>Ending Inventory</strong>Beginning Inventory + Net Purchases within the period − COGS within the period.</div>
+<h3>Store mode</h3>
+<div class="callout"><strong>Beginning Inventory</strong>Opening inventory before + purchases before + opening inventory dated inside the period + transfers in before + adjustments before − sales cost before − transfers out before − depreciation before.</div>
+<div class="callout"><strong>Ending Inventory</strong>Beginning Inventory + Net Purchases + Transfer In + Adjustments − COGS − Transfer Out − Depreciation.</div>
+<p>These are the formulas used by this IMS report. They are worth understanding when reconciling Gross Income against other inventory or finance reports, because Store mode explicitly incorporates internal stock movements and depreciation.</p>
+<h2 id="profit">Profitability calculations</h2>
+<div class="table-wrap"><table><thead><tr><th>KPI</th><th>Formula used by Gross Income</th></tr></thead><tbody>
+<tr><td>COGS</td><td>Full Cost + Discounted Cost</td></tr>
+<tr><td>Net Sales</td><td>Full Amt + Disc. Amt</td></tr>
+<tr><td>Gross Profit</td><td>Net Sales − COGS</td></tr>
+<tr><td>M. Up</td><td>Net Sales ÷ COGS</td></tr>
+<tr><td>GPM</td><td>Gross Profit ÷ Net Sales</td></tr>
+</tbody></table></div>
+<h2 id="totals">Totals at the bottom</h2>
+<p>The summary fields total the generated report and show <strong>Beg. Inv, Net Pur., COGS, End Inv., Mark Up, Full Amt, Disc Amt, Net Amt, Gross Profit</strong> and <strong>GP. Margin</strong>.</p>
+<p>For the complete report, IMS calculates Mark Up and GP Margin again from the overall totals rather than averaging the individual row percentages:</p>
+<ul>
+<li><strong>Total Mark Up = Total Net Sales ÷ Total COGS</strong></li>
+<li><strong>Total GP Margin = Total Gross Profit ÷ Total Net Sales</strong></li>
+</ul>
+<h2 id="performance">Generating the report</h2>
+<p>Gross Income gathers several datasets to reconstruct inventory and profitability. Supplier mode loads opening inventory, prior purchases, prior sales cost, period purchases and period sales. Store mode additionally loads transfers, adjustments and depreciation before and within the selected period.</p>
+<p>While this work is running, IMS displays a progress indicator and disables the criteria panel. The report runs asynchronously so the UI can update while the datasets are processed.</p>
+<h2 id="no-sales">Period with inventory but no sales</h2>
+<p>In Store mode, if the selected store has inventory/movement information but no sales rows for the selected period, IMS can still create a zero-sales row so that the inventory values remain available for analysis.</p>
+<h2 id="print">Printing</h2>
+<p>The Gross Income form contains an older <strong>Print Simple View</strong> implementation, but the button is currently hidden in the supplied IMS build. For the current user workflow, use <strong>Get Detailed Report</strong> and review the result on screen.</p>
+<h2 id="permissions">Permissions</h2>
+<p>The Gross Income item in the Reports menu is permission controlled. If it is not visible, the user's IMS access policy does not grant permission to view Gross Income.</p>
+<h2 id="examples">Common questions this report can answer</h2>
+<div class="card-grid">
+<article class="card"><div class="eyebrow">Supplier</div><h3>Which supplier generates more gross profit?</h3><p>Select Suppliers → All Suppliers and compare Net Sales, G. Profit and GPM.</p></article>
+<article class="card"><div class="eyebrow">Inventory</div><h3>How did store inventory value move?</h3><p>Use Store mode and review Begin. Inv., purchases, transfers, adjustments, depreciation, COGS and End. Inv.</p></article>
+<article class="card"><div class="eyebrow">Margin</div><h3>Which store has the stronger margin?</h3><p>Select Stores → All Stores and compare M. Up, G. Profit and GPM.</p></article>
+<article class="card"><div class="eyebrow">Reconciliation</div><h3>Why did ending inventory change?</h3><p>Use Store mode so purchases, transfers, adjustments, depreciation and COGS are visible separately.</p></article>
+</div>
+<section id="supplier-master-data">
+<h2>Supplier master data</h2>
+<p>Supplier mode uses the supplier definitions maintained in <a href="../manage/suppliers.html">Manage → Suppliers</a>. Selecting All Suppliers therefore produces one profitability/inventory row for each applicable supplier master.</p>
+</section>
+<h2 id="related">Related reports</h2>
+<div class="doc-list">
+<a class="doc-link" href="store-sales-report.html"><div>↗</div><div><strong>Store Sales Report</strong><span>Analyze store sales, COGS, gross profit and retail KPIs by period.</span></div></a>
+<a class="doc-link" href="main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Analyze sales using supplier, store, merchandise and transaction criteria.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main>
+</div>
+<script src="../assets/js/docs.js"></script>
+</body>
+</html>

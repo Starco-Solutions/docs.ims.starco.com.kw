@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Store Sales Report | IMS User Guide</title>
+<meta content="How to use the IMS Store Sales Report: store and transaction filters, daily/weekly/monthly/yearly/hourly analysis, returns, traffic, conversion rate, KPIs and report output." name="description"/>
+<link href="https://ims.starco.com.kw/reports/store-sales-report.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Store Sales Report User Guide","url":"https://ims.starco.com.kw/reports/store-sales-report.html","about":"IMS Store Sales Report","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a class="active" href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div>
+</header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a class="active" href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Reports › Store Sales Report</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/reports.webp"/><h1>Store Sales Report</h1></div>
+<p class="lead">The Store Sales Report is designed for fast store-performance analysis. It summarizes sales and returns by store and by time period, and can combine the results with V-Count traffic to show conversion rate.</p>
+<div class="callout"><strong>Open the report</strong>Reports → Store Sales Report</div>
+<figure class="screenshot"><img alt="IMS Reports menu with Store Sales Report selected" src="../assets/images/ssr-menu.webp"/><figcaption>Path: Reports → Store Sales Report.</figcaption></figure>
+<h2 id="run">Run a report</h2>
+<ol class="steps">
+<li>Select a <strong>Branch</strong>, or enable <strong>All Stores</strong>.</li>
+<li>Select <strong>Cash Sales</strong>, <strong>Credit Sales</strong>, or enable <strong>All Types</strong>.</li>
+<li>Select the <strong>Date From</strong> and <strong>To</strong>.</li>
+<li>Choose the reporting period: <strong>Daily</strong>, <strong>Weekly</strong>, <strong>Monthly</strong>, <strong>Yearly</strong>, or <strong>Hours From</strong>.</li>
+<li>If required, enable <strong>Consider returns on other stores</strong> or <strong>Include inactive stores</strong>.</li>
+<li>Click <strong>Get Report</strong>.</li>
+</ol>
+<figure class="screenshot"><img alt="IMS Store Sales Report showing daily results for one store" src="../assets/images/ssr-daily.webp"/><figcaption>Daily Store Sales Report for one branch, including traffic, conversion rate and retail KPIs.</figcaption></figure>
+<h2 id="criteria">Report criteria</h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>What it does</th></tr></thead><tbody>
+<tr><td>Branch</td><td>Selects the store to report when All Stores is not enabled.</td></tr>
+<tr><td>All Stores</td><td>Runs the report for all stores available to the user and adds a Store column to the result.</td></tr>
+<tr><td>Trans. Type</td><td>Selects Cash Sales or Credit Sales.</td></tr>
+<tr><td>All Types</td><td>Combines cash and credit sales/returns in one report.</td></tr>
+<tr><td>Include inactive stores</td><td>Loads inactive stores into the store list for historical reporting. This option is available to users with all-store access.</td></tr>
+<tr><td>Date From / To</td><td>Defines the date range. The report initially uses the IMS working date.</td></tr>
+<tr><td>Consider returns on other stores</td><td>Uses the cross-store-return reporting logic so returns processed in another store can be considered against the related sales store.</td></tr>
+</tbody></table></div>
+<h3 id="transaction-types">How transaction types are combined</h3>
+<p>The Store Sales Report consolidates the corresponding sale and return transaction codes:</p>
+<div class="table-wrap"><table><thead><tr><th>Selection</th><th>IMS transactions included</th><th>Conversion counts</th></tr></thead><tbody>
+<tr><td>Cash Sales</td><td>Cash Sale (51) + Cash Return (53)</td><td>Cash Sale (51) only</td></tr>
+<tr><td>Credit Sales</td><td>Credit Sale (52) + Credit Return (54)</td><td>Credit Sale (52) only</td></tr>
+<tr><td>All Types</td><td>51, 52, 53 and 54</td><td>Sales 51 and 52 only</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>Why this matters</strong>Returns reduce the sales result, but they do not count as a customer conversion. Therefore <strong>Conv. Rate</strong> may not equal the displayed <strong>Inv's ÷ Traffic</strong> when the period contains refunds.</div>
+<h2 id="periods">Daily, weekly, monthly, yearly and hourly views</h2>
+<p>The period option changes how IMS groups the same selected date range:</p>
+<div class="table-wrap"><table><thead><tr><th>View</th><th>Result grouping</th></tr></thead><tbody>
+<tr><td>Daily</td><td>One row per date, and per store when All Stores is selected.</td></tr>
+<tr><td>Weekly</td><td>Rows are grouped by calendar year and week number, displayed as <code>Year - Week</code>.</td></tr>
+<tr><td>Monthly</td><td>Rows are grouped by calendar month and year.</td></tr>
+<tr><td>Yearly</td><td>Rows are grouped by calendar year.</td></tr>
+<tr><td>Hours From</td><td>Rows are grouped by date and hour. Choose <strong>Any</strong> to show all hours, or choose a From/To hour range.</td></tr>
+</tbody></table></div>
+<figure class="screenshot"><img alt="IMS Store Sales Report grouped weekly" src="../assets/images/ssr-weekly.webp"/><figcaption>Weekly view. Traffic and conversion are aggregated for the complete week before the conversion percentage is calculated.</figcaption></figure>
+<figure class="screenshot"><img alt="IMS Store Sales Report grouped by hour" src="../assets/images/ssr-hourly.webp"/><figcaption>Hourly view: each row represents one hour within the selected date range.</figcaption></figure>
+<div class="callout warning"><strong>Hour validation</strong>If a specific starting hour is selected, the ending hour cannot be earlier than the starting hour. IMS displays “Check Hours criteria.” for an invalid range.</div>
+<p>When you switch between Daily, Weekly, Monthly and Yearly, IMS can immediately refresh the report. Selecting Hours clears the current output so the hour criteria can be set before running the report.</p>
+<h2 id="all-stores">All Stores</h2>
+<p>Enable <strong>All Stores</strong> to compare branches in one report. IMS disables the Branch selector and adds the Store column so each period is shown separately for each store.</p>
+<figure class="screenshot"><img alt="IMS Store Sales Report for all stores with store and date columns" src="../assets/images/ssr-all-stores.webp"/><figcaption>All Stores view: one row per Store + period. Traffic remains blank for stores/periods where no V-Count record is available.</figcaption></figure>
+<h2 id="kpis">Columns and KPI formulas</h2>
+<div class="table-wrap"><table><thead><tr><th>Column / KPI</th><th>Meaning in IMS</th></tr></thead><tbody>
+<tr><td>Full Qty / Full Amt</td><td>Net quantity and amount for lines without item discount.</td></tr>
+<tr><td>Disc. Qty / Disc. Amt</td><td>Net quantity and amount for discounted lines.</td></tr>
+<tr><td>Gifts/Rewards</td><td>Gift/reward amount reported separately from merchandise net sales.</td></tr>
+<tr><td>Services Amt</td><td>Service amount reported separately.</td></tr>
+<tr><td>Gross Amt</td><td>Gross sales value before discount, with returns reflected in the report.</td></tr>
+<tr><td>Net Qty</td><td>Full Qty + Disc. Qty.</td></tr>
+<tr><td>Net Amt</td><td>Full Amt + Disc. Amt.</td></tr>
+<tr><td>Inv's</td><td>Sale + refund invoice/transaction count represented by the row.</td></tr>
+<tr><td>ATV</td><td>Net Amt ÷ Inv's.</td></tr>
+<tr><td>UPT</td><td>Net Qty ÷ Inv's.</td></tr>
+<tr><td>ADR</td><td>Average discount rate: 1 − (Net Amt ÷ Gross Amt).</td></tr>
+<tr><td>COGS</td><td>Full Cost + Discounted Cost.</td></tr>
+<tr><td>M. Up</td><td>Net Amt ÷ COGS.</td></tr>
+<tr><td>G. Profit</td><td>Net Amt − COGS.</td></tr>
+<tr><td>GPM</td><td>Gross Profit ÷ Net Amt.</td></tr>
+</tbody></table></div>
+<p>The summary boxes at the bottom recalculate the same KPIs across all displayed rows. ATV and UPT are calculated from the overall Net Amount / Net Quantity divided by the total invoice count; ADR, Markup and GPM are also recalculated from the report totals rather than averaged from row percentages.</p>
+<h2 id="traffic">Traffic and Conversion Rate</h2>
+<p>IMS matches the sales result with V-Count data from <strong>people_traffic</strong> for the same store and period.</p>
+<p><strong>Conversion Rate = sales-only invoice count ÷ Traffic.</strong> IMS calculates conversion after the selected period has been aggregated, so a weekly result uses total weekly sales conversions divided by total weekly traffic, rather than averaging daily conversion percentages.</p>
+<div class="callout tip"><strong>No V-Count data</strong>If there is no traffic record for a store/period, IMS leaves Traffic and Conv. Rate blank. It does not display a false zero.</div>
+<h2 id="cross-store-returns">Consider returns on other stores</h2>
+<p>Normally the report is grouped using the transaction's store. When <strong>Consider returns on other stores</strong> is enabled, IMS switches to its cross-store-return sales view and uses the related sales-store field for grouping. Use this option when a customer may return an item at a store different from the one where it was originally sold.</p>
+<div class="callout warning"><strong>Use consistently for comparisons</strong>Turning this option on can move return values between store results. When comparing two periods or stores, use the same setting in both reports.</div>
+<h2 id="permissions">Permissions</h2>
+<p>The report itself appears only when the user has the Store Sales Report permission. Output and financial columns are also permission controlled:</p>
+<div class="table-wrap"><table><thead><tr><th>Permission-controlled feature</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Export To Excel</td><td>Visible only when the user can export reports to Excel.</td></tr>
+<tr><td>Send By Email</td><td>Visible only when the user can send report email.</td></tr>
+<tr><td>Save As</td><td>Available together with Excel export permission.</td></tr>
+<tr><td>COGS</td><td>Hidden when the user does not have cost visibility.</td></tr>
+<tr><td>M. Up</td><td>Hidden when the user does not have markup visibility.</td></tr>
+<tr><td>G. Profit / GPM</td><td>Hidden when the user does not have profit visibility.</td></tr>
+</tbody></table></div>
+<h2 id="output">Export, email and Save As</h2>
+<p><strong>Export To Excel</strong> exports the current grid. <strong>Send By Email</strong> sends the report with a subject containing the selected date range. <strong>Save As</strong> requires a generated report; otherwise IMS asks you to generate a report first.</p>
+<h2 id="faq">Common questions</h2>
+<div class="faq">
+<details><summary>Why is Traffic blank for some stores?</summary><p>There is no matching V-Count record for that store and period. IMS intentionally leaves Traffic and Conv. Rate blank rather than showing zero.</p></details>
+<details><summary>Why is Conv. Rate not equal to Inv's divided by Traffic?</summary><p>The Inv's column includes the report's sale + refund transaction count. Conversion uses sales only: code 51 for Cash, code 52 for Credit, or codes 51 and 52 when All Types is selected.</p></details>
+<details><summary>How do I compare every store by day?</summary><p>Select All Stores, choose Daily, set the date range, then click Get Report. The Store column will be added automatically.</p></details>
+<details><summary>How do I see sales by hour?</summary><p>Select Hours From. Leave the first hour as Any to include all hours, or choose a starting hour and ending hour, then click Get Report.</p></details>
+<details><summary>Why are COGS, Markup or Profit missing?</summary><p>Those columns are controlled by the logged-in user's IMS permissions.</p></details>
+</div>
+<section id="store-master-data">
+<h2>Store master data, active status and V-Count</h2>
+<p>The Branch list and inactive-store behavior come from <a href="../manage/stores.html">Manage → Stores</a>. A store's <strong>Is Active</strong> setting determines whether it is treated as active, while <strong>Include inactive stores</strong> lets the report include inactive Store masters when needed.</p>
+<p>Stores configured for <strong>Integrate with V-Count</strong> can be associated with imported people-traffic data used by the report's <strong>Traffic</strong> and <strong>Conv. Rate</strong> columns.</p>
+</section>
+<section id="service-item-master-data">
+<h2>Service sales</h2>
+<p><strong>Services Amt</strong> represents sales from Service Items maintained in <a href="../manage/service-items.html">Manage → Service Items</a>. Service Items are stored separately from normal merchandise through their Service type.</p>
+</section>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Use when you need much more detailed merchandise, customer, transaction and Group By analysis.</span></div></a>
+<a class="doc-link" href="../getting-started/main-screen.html"><div>↗</div><div><strong>Start, login &amp; main screen</strong><span>IMS permissions, navigation, connection status and opening modules.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main>
+</div>
+<script src="../assets/js/docs.js"></script>
+</body>
+</html>

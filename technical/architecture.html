@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IMS Architecture | IMS Documentation</title>
+<meta name="description" content="System-level view of the IMS Windows client, IMS.Api, IMS Global, separate company databases and server-side integration workers.">
+<link rel="canonical" href="https://ims.starco.com.kw/technical/architecture.html">
+<link rel="stylesheet" href="../assets/css/docs.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Architecture","url":"https://ims.starco.com.kw/technical/architecture.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" type="button" data-mobile-nav>Menu</button>
+<nav class="topnav" aria-label="Primary"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a class="active" href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
+</div></header>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../index.html">Documentation home</a><a href="../getting-started/main-screen.html">Getting started</a><a href="../system/index.html">System</a><a href="../integration/index.html">Integration</a><h3>Technical</h3><a href="index.html">Technical Overview</a><a class="active" href="architecture.html">IMS Architecture</a><a href="multi-company.html">Multi-Company Architecture</a><a href="security.html">Security Architecture</a><a href="secure-bootstrap.html">Secure Bootstrap</a><a href="ims-global.html">IMS Global</a><a href="ims-api.html">IMS API</a><a href="api-v1/index.html">Business API v1</a><a href="secret-vault.html">Secret Vault</a><a href="system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a></aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Technical › IMS Architecture</div>
+<span class="badge">IMS Build 9.4.4.0 technical baseline</span>
+<h1>IMS Architecture</h1>
+<p class="lead">System-level view of the IMS Windows client, IMS.Api, IMS Global, separate company databases and server-side integration workers.</p>
+<h2>Core components</h2><div class="table-wrap"><table><thead><tr><th>Component</th><th>Role</th></tr></thead><tbody>
+<tr><td>IMS client</td><td>Windows operational application used for POS, inventory, purchasing, finance, reporting and administration inside the selected company.</td></tr>
+<tr><td>IMS.Api</td><td>Central service boundary for secure bootstrap, authentication, workstation checks, company routing information, Global administration and protected secrets.</td></tr>
+<tr><td>IMS Global</td><td>Dedicated administration application for company records/database profiles, Global users/company access, workstations, version control and controlled cross-company setup tools.</td></tr>
+<tr><td>ims_global</td><td>Global identity, company/access, workstation, version, API administration and protected-secret data.</td></tr>
+<tr><td>Company databases</td><td>Independent PostgreSQL databases containing each company's operational configuration, stores, inventory, transactions, finance and history.</td></tr>
+<tr><td>Background/integration services</td><td>Server-side automation and e-commerce/integration workloads such as IMS Autos and the Shopify integration service.</td></tr>
+</tbody></table></div>
+<h2>Session flow</h2><ol class="steps"><li>The workstation is validated.</li><li>The user authenticates against the global IMS identity.</li><li>IMS resolves active company access.</li><li>The default/selected company determines the company database runtime profile.</li><li>The client opens the company operational context and then applies company-local permissions.</li></ol>
+<div class="callout tip"><strong>Separation by design</strong>Global identity and company membership are centralized, while operational data and local authorization remain company-specific.</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div><script src="../assets/js/docs.js"></script></body></html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Shopify Integration Server | IMS User Guide</title>
+<meta content="IMS Shopify Integration Server: automatic Shopify order import, IMS fulfillment, inventory quantity synchronization, monitoring and manual maintenance tools." name="description"/>
+<link href="https://ims.starco.com.kw/shopify/integration-server.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Shopify Integration Server","url":"https://ims.starco.com.kw/shopify/integration-server.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/main-sales-report.html">Reports</a><a href="../manage/suppliers.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a class="active" href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Shopify</a> › Integration Server</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/shopify.webp"/><h1>Shopify Integration Server</h1></div>
+<p class="lead">The Shopify Integration Server is the background application that connects Shopify with IMS PostgreSQL. It imports online orders into IMS, creates internal fulfillment work for IMS-stock items, and pushes IMS inventory quantities back to the configured Shopify locations.</p>
+<div class="callout"><strong>Supporting component</strong>This is not a separate item on the IMS Shopify menu. It runs on the integration server and works behind <a href="incoming-orders.html">Incoming Orders</a>, <a href="fulfillment-requests.html">Fulfillment Requests</a> and <a href="manage-profiles.html">Manage Profiles</a>.</div>
+<h2>Component | Responsibility</h2>
+<div class="table-wrap"><table><thead><tr><th>Area</th><th>Responsibility</th></tr></thead><tbody>
+<tr><td>Order import</td><td>Reads unfulfilled Shopify orders from the active Shopify Access Stores in the configured profile and creates the IMS order/customer/item records required by Incoming Orders.</td></tr>
+<tr><td>Fulfillment preparation</td><td>For normal IMS-stock merchandise, selects supplying Stores and creates IMS Stock Transfer vouchers toward the mapped online Store.</td></tr>
+<tr><td>Inventory synchronization</td><td>Calculates the sellable IMS quantity and sends the quantity to the matching Shopify variant at each configured Shopify Location ID.</td></tr>
+<tr><td>Monitoring</td><td>Maintains automatic/manual logs, connection/error counters, Shopify product counts and API-rate monitoring.</td></tr>
+<tr><td>Manual maintenance</td><td>Provides full, draft, style and file-based inventory updates plus a one-order retrieval tool.</td></tr>
+</tbody></table></div>
+<h2>One running profile</h2>
+<p>Each running instance is configured with one <strong>Profile ID</strong>. The application verifies that the profile is active, then loads all active Shopify Access records belonging to that profile. These records provide the Shopify Store URL/token, Shopify Location ID, mapped IMS Local Store and Shipping Item.</p>
+<p>This is why <a href="manage-profiles.html">Manage Profiles</a> is the configuration source for the server integration rather than a separate set of Store definitions.</p>
+<h2>Automatic cycle</h2>
+<ol class="steps">
+<li><strong>Check IMS PostgreSQL.</strong> The application confirms the IMS database connection before an automatic cycle continues.</li>
+<li><strong>Refresh Shopify product counts.</strong> Each active Shopify Access Store is queried and its product count is written back to IMS.</li>
+<li><strong>Coordinate with IMS Autos.</strong> If IMS Autos is in a blocking maintenance state, Shopify actions wait instead of changing orders or inventory at the same time.</li>
+<li><strong>Retrieve new online orders.</strong> The application reads Shopify orders whose fulfillment status is <strong>unfulfilled</strong>.</li>
+<li><strong>Create the IMS order.</strong> New orders are converted into the IMS Orders/Order Details structure, with customer, currency, payment, shipping and item information when available.</li>
+<li><strong>Create fulfillment transfers.</strong> IMS-stock items are assigned to supplying Stores and Stock Transfer vouchers are created toward the online Store.</li>
+<li><strong>Push changed inventory.</strong> IMS items changed since the profile's last balance update are recalculated and their Shopify inventory levels are updated.</li>
+<li><strong>Wait for the configured interval</strong> and repeat.</li>
+</ol>
+<h2>How a Shopify order becomes an IMS order</h2>
+<p>The background application uses the Shopify <strong>Order Number</strong> as the IMS Order Reference. Before creating a new IMS order it checks the received-order history so the same Shopify order is not imported twice.</p>
+<div class="callout tip"><strong>JIT supplier notification is handled by IMS Autos</strong>After the Shopify Integration Server writes a new order into IMS, it does not itself send the JIT supplier email. <a href="../tools/ims-autos.html">IMS Autos</a> independently checks for newly created online orders and sends Supplier/Brand order requests using the Mailing List configured in the Supplier master.</div>
+<p>For every line, the integration reads the Shopify variant so IMS can use its <strong>barcode, SKU, options, current sold price and compare-at/original price</strong>. The barcode is the primary bridge between the Shopify variant and the IMS Item Code.</p>
+<h3>Items not yet in IMS</h3>
+<p>If an imported barcode does not yet exist in IMS, the server can create the item when the Shopify Vendor maps to exactly one IMS brand belonging to a configured <strong>Just-In-Time supplier</strong>. The imported title, SKU, color/size options and Shopify prices are then used to create the IMS item, while the supplier's JIT cost rate is used to derive its cost.</p>
+<div class="callout tip"><strong>JIT versus local stock</strong>A JIT item is not fulfilled from the normal Store stock network. Its purchasing effect is handled later by the Incoming Orders invoicing workflow.</div>
+<h3>Customer and delivery data</h3>
+<p>For Kuwait orders, the integration uses the customer's mobile number to find the existing Loyalty Customer. When no matching customer exists, it creates the customer and delivery address so Incoming Orders can display the customer/address relationship. Existing customers can receive an additional address when the imported address is new.</p>
+<h3>Shipping charge</h3>
+<p>When Shopify reports a shipping charge, the integration adds it to IMS using the <strong>Shipping Item</strong> configured on the Shopify Access record. This is why every connected Store needs the correct Service Item mapping.</p>
+<h2>Automatic fulfillment logic</h2>
+<p>After a new online order is stored in IMS, normal IMS-stock items are allocated through the fulfillment network:</p>
+<ol class="steps">
+<li>The profile's <strong>Main Fulfillment Stores</strong> are checked first in their configured priority.</li>
+<li>If a required unit cannot be supplied there, IMS can check other active, transfer-enabled, non-online, non-damage Stores that have an Online Priority.</li>
+<li>Each allocated unit is reserved in the working fulfillment set so the same stock is not allocated twice within the order batch.</li>
+<li>IMS creates one Stock Transfer voucher per supplying Store to the mapped online Store, records the online Order No. against the transfer lines, updates stock balances and creates the transfer journal entries.</li>
+<li>The supplying Store sees the resulting voucher in <a href="fulfillment-requests.html">Fulfillment Requests</a>.</li>
+</ol>
+<h2>Inventory quantity sent to Shopify</h2>
+<p>The automatic inventory process is profile-aware. It considers only items belonging to suppliers allowed by the profile and only items that have an online Handle.</p>
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th>Effect</th></tr></thead><tbody>
+<tr><td>Online-enabled item</td><td>If the IMS item is not marked available online, its calculated Shopify quantity is zero.</td></tr>
+<tr><td>Eligible physical stock</td><td>Stock is summed from active, transfer-enabled physical Stores. Online Stores, inactive Stores, non-transfer Stores and damage Stores are excluded.</td></tr>
+<tr><td>Profile exclusions</td><td>Stores in the profile's Excluded Stores list are not counted in the quantity sent to Shopify.</td></tr>
+<tr><td>Damaged quantity</td><td><strong>damagedQty</strong> is deducted from the available total.</td></tr>
+<tr><td>Reduce By Qty</td><td>The item's configured <strong>Reduce By Qty</strong> is also deducted as an online safety/reserve quantity.</td></tr>
+<tr><td>Negative result</td><td>Shopify is sent zero rather than a negative inventory value.</td></tr>
+</tbody></table></div>
+<p>The integration finds the Shopify product using the IMS <strong>Handle</strong>, then matches the exact variant by <strong>barcode</strong> and sets the inventory level at the Shopify <strong>Location ID</strong> configured for that Store.</p>
+<div class="callout tip"><strong>Current automatic synchronization</strong>The active automatic path synchronizes <strong>inventory quantity</strong>. Price-update logic is not part of the active automatic synchronization path in this build.</div>
+<h2>Manual inventory maintenance</h2>
+<div class="table-wrap"><table><thead><tr><th>Mode</th><th>Use</th></tr></thead><tbody>
+<tr><td>Update All</td><td>Recalculates and sends the complete eligible inventory set for the selected Shopify Store/location.</td></tr>
+<tr><td>Update Drafts</td><td>Targets Shopify products in Draft status and updates the quantities of their matching IMS barcodes.</td></tr>
+<tr><td>Style No.</td><td>Updates the Shopify quantities for IMS items belonging to one specified Style.</td></tr>
+<tr><td>From File</td><td>Uses a text file of Item Codes to update a controlled list. It is also used to resume work after a long update is interrupted.</td></tr>
+</tbody></table></div>
+<h2>Retrieve one Shopify order manually</h2>
+<p>The server UI includes <strong>Get Order</strong> for support/recovery work. The value entered here is the Shopify <strong>internal Order ID found in the Shopify URL</strong>, not the displayed Shopify Order Number. After Shopify returns the order, IMS stores the normal Shopify Order Number as its Order Reference.</p>
+<div class="callout"><strong>Different identifiers</strong>Use the URL's Shopify Order ID only for this server-side retrieval tool. Inside IMS, users normally work with the imported Order Reference/Order Number.</div>
+<h2>Operational settings</h2>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Profile ID</td><td>The active IMS Shopify profile handled by this running integration instance.</td></tr>
+<tr><td>Interval</td><td>Seconds between automatic integration cycles.</td></tr>
+<tr><td>Max Log rows</td><td>Controls how many live log rows are retained in the application view; zero disables the limit.</td></tr>
+<tr><td>Max API Calls per second</td><td>Local throttle used by inventory update operations to avoid excessive Shopify API calls.</td></tr>
+<tr><td>Run on startup</td><td>Starts automatic integration when the application starts and a valid profile is loaded.</td></tr>
+<tr><td>Start Minimized</td><td>Starts the application minimized.</td></tr>
+<tr><td>Minimize to tray</td><td>Keeps the integration running from the notification area rather than the taskbar.</td></tr>
+</tbody></table></div>
+<h2>Active Stores monitoring</h2>
+<p>The Active Stores grid shows the access records loaded for the profile, including Store name, Shopify Location ID, mapped IMS Local Store and Shopify product count. The integration periodically refreshes the product count and writes it back to the Shopify Access record, which is why <strong>Products Count</strong> is also visible in Manage Profiles.</p>
+<p>The monitoring area also shows order/inventory errors, variant update/error counts and local API-rate-limit hits. A separate “No Variants Found” logging option can be enabled when barcode/handle mapping needs investigation.</p>
+<h2>Connection and recovery behavior</h2>
+<p>The integration keeps a reusable Shopify HTTP client with a 30-second request timeout and connection pooling. Product-count connectivity checks are retried, and long manual inventory jobs create error/resume files when repeated connection failures prevent completion.</p>
+<p>The IMS database connection can be configured from <strong>IMS DB</strong> using PostgreSQL Host, Port, Database, User ID and Password. After connection, the application uses the IMS-configured timezone and identifies its PostgreSQL session as <strong>IMS-Shopify</strong> together with the server machine name.</p>
+<h2>Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="manage-profiles.html"><div>←</div><div><strong>Manage Profiles</strong><span>Defines the Profile, API access Stores, Location IDs, allowed suppliers, Store priorities/exclusions and Shipping Item consumed by the server.</span></div></a>
+<a class="doc-link" href="incoming-orders.html"><div>→</div><div><strong>Incoming Orders</strong><span>Where imported Shopify orders are reviewed and converted into IMS invoices/refunds/exchanges.</span></div></a>
+<a class="doc-link" href="fulfillment-requests.html"><div>→</div><div><strong>Fulfillment Requests</strong><span>Store-side review of the Stock Transfer work created during automatic fulfillment.</span></div></a>
+<a class="doc-link" href="../tools/ims-autos.html"><div>↗</div><div><strong>IMS Autos</strong><span>The integration checks IMS Autos before starting conflicting Shopify work.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>IMS Autos | IMS User Guide</title>
+<meta content="IMS Autos guide: configure the daily automation shift for Sale Seasons, Stock Maintenance, daily stock movement and Sell Through; understand Integration Center MORNING_SHIFT execution, reporting, V-Count, loyalty and order-notification automation." name="description"/>
+<link href="https://ims.starco.com.kw/tools/ims-autos.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Autos","url":"https://ims.starco.com.kw/tools/ims-autos.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a class="active" href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a class="active" href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Tools</a> › IMS Autos</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/tools.webp"/><h1>IMS Autos</h1></div>
+<p class="lead">IMS Autos is the administration screen for the IMS background automation service. It defines the daily maintenance time and selects which scheduled maintenance jobs the server service should run automatically.</p>
+<div class="callout"><strong>Open the screen</strong>Tools → IMS Autos.</div>
+<figure class="screenshot">
+<img alt="IMS Autos daily schedule with Sale Seasons, Stock Maintenance, Daily Stock Levels, Sell Through and customized integration options" src="../assets/images/tools-ims-autos.webp"/>
+<figcaption>IMS Autos configures the daily maintenance shift; the actual jobs are executed by the IMS Autos service running on the server.</figcaption>
+</figure>
+<h2 id="architecture">Configuration screen and server service</h2>
+<p>The IMS client screen does not perform the scheduled jobs itself. It saves the automation schedule and enabled options in the IMS database. The <strong>IMS Autos Windows service</strong> running on the server reads those settings and executes the background work.</p>
+<p>This separation allows an administrator to configure automation from the normal IMS client while the server continues to execute the jobs even when that user's workstation is closed.</p>
+<h2 id="time">Run every day at</h2>
+<p>Select the daily maintenance time, then enable the required jobs. The server worker checks the IMS automation configuration regularly and starts the daily shift when the configured hour and minute are reached.</p>
+<div class="callout warning"><strong>Daily maintenance shift</strong>During the scheduled maintenance shift IMS sets the Autos maintenance state so normal transaction processing can be blocked while the selected maintenance jobs are running. Choose a low-activity time appropriate for the business.</div>
+<h2 id="jobs">Scheduled daily jobs</h2>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>What the server does</th></tr></thead><tbody>
+<tr><td>Apply Sale Seasons</td><td>Processes Sale Season start/end rules. Newly starting seasons apply their configured sale prices; ended seasons either return eligible items to original price or leave them in the applicable post-sale/outlet state according to the Sale Season policy.</td></tr>
+<tr><td>Stock Maintenance</td><td>Performs the full all-store stock reconstruction used by Stock Maintenance: opening quantity plus purchases/returns, transfer in/out, sales/returns, adjustments and depreciation.</td></tr>
+<tr><td>Save Daily Stock Levels</td><td>Maintains the daily stock-movement history used by historical stock/reporting logic. The current service recalculates recent dates and catches up from the latest logged movement date when necessary.</td></tr>
+<tr><td>Refresh Sell Through Materialized View</td><td>Refreshes the Sell Through materialized view so Sell Through reporting uses the latest prepared inventory/sales aggregates.</td></tr>
+<tr><td>Call Customized Integrations Processes</td><td>Controls the existing V-Count integration schedule in the current server service, including configured sales/traffic exchange. Integration Center MORNING_SHIFT endpoints are handled separately after the daily maintenance shift.</td></tr>
+</tbody></table></div>
+<div class="callout"><strong>Integration Center in IMS 9.4.4</strong>After the scheduled daily maintenance shift completes and normal transactions are re-enabled, IMS Autos runs active Integration Center endpoints whose Trigger Type is <code>MORNING_SHIFT</code>. This execution is separate from the <strong>Call Customized Integrations Processes</strong> checkbox used by the V-Count schedule.</div>
+<h2 id="daily-stock">Daily stock movement maintenance</h2>
+<p>The option shown as <strong>Save Daily Stock Levels</strong> maintains IMS daily stock-movement data rather than simply saving one static quantity snapshot. For each recalculated date, the service rebuilds daily movement from:</p>
+<div class="table-wrap"><table><thead><tr><th>Source</th><th>Movement treatment</th></tr></thead><tbody>
+<tr><td>Purchases / Purchase Returns</td><td>Purchases add stock; Purchase Returns subtract it.</td></tr>
+<tr><td>Stock Transfers</td><td>Transfer In adds stock to the destination; Transfer Out subtracts from the source.</td></tr>
+<tr><td>Cash / Credit Sales and Returns</td><td>Sales subtract inventory quantity; returns add it back.</td></tr>
+<tr><td>Stock Adjustments</td><td>Uses the signed adjustment quantity.</td></tr>
+<tr><td>Stock Depreciation</td><td>Subtracts depreciated/write-off quantity.</td></tr>
+</tbody></table></div>
+<p>Normally the service recalculates the most recent five days through today. If the movement log shows that an older date was missed, the service expands the range to catch up from the first missing day.</p>
+<h2 id="loyalty">Loyalty housekeeping during the daily shift</h2>
+<p>The server worker also performs required Loyalty/Star Rewards housekeeping as part of the daily automation shift when the corresponding loyalty settings are in use. This includes processing eligible pending reward activity after the configured return period and maintaining applicable loyalty state.</p>
+<p>This housekeeping is part of the server-side automation workflow rather than a separate checkbox on the IMS Autos screen.</p>
+<h2 id="background">Other background work handled by IMS Autos</h2>
+<p>The Autos service is more than the five daily checkboxes. The current server worker also performs background jobs that have their own schedules or triggers:</p>
+<div class="table-wrap"><table><thead><tr><th>Background function</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Reporting Scheduler tasks</td><td>Checks active scheduled Custom Report tasks, generates the required period, writes TXT/CSV/XLSX output and sends it through the configured Email and/or FTP destination.</td></tr>
+<tr><td>Online-order supplier notifications</td><td>Every recurring Autos check looks for online orders created after the last processed order time for each configured Profile/Store, groups their inventory items by Supplier/Brand, and sends the order request to the applicable Supplier Mailing List recipients.</td></tr>
+<tr><td>Integration Center MORNING_SHIFT</td><td>After the daily maintenance shift, runs active Integration Center endpoints configured for MORNING_SHIFT and records their result in the Integration Center Sync Log.</td></tr>
+<tr><td>V-Count integration</td><td>When configured, exchanges hourly sales/category information and imports recent people-traffic data during the configured V-Count operating hours.</td></tr>
+<tr><td>Star Rewards automation</td><td>Performs recurring Loyalty/Star Rewards maintenance such as applicable expiry and automated loyalty-offer processing.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>Reporting Scheduler</strong>The report schedule itself is defined under Tools → Reporting Scheduler. IMS Autos is the server worker that checks those active tasks and executes them at the required time.</div>
+<h2 id="online-order-notifications">Online-order supplier notifications</h2>
+<p>This workflow is independent from the daily Autos schedule. The Autos service performs its general check approximately every <strong>30 seconds</strong>, and <strong>CheckNewOrders</strong> runs whenever the IMS database connection is available.</p>
+<ol class="steps">
+<li>For each configured online Profile/Store, IMS Autos reads the last processed order date.</li>
+<li>It finds newer records already created in IMS <strong>Orders</strong>.</li>
+<li>It loads the inventory-item lines from <strong>Order Details</strong> and groups them by <strong>Supplier + Brand</strong>.</li>
+<li>Recipients are selected from the Supplier Mailing List: global recipients, supplier-wide/all-brand recipients, and exact supplier/brand recipients.</li>
+<li>Autos sends an HTML “new transfer request” email containing Order No., Barcode, Description, SKU/Style, Color, Size and Qty.</li>
+<li>After processing the batch, Autos advances the last processed order date for that Profile/Store.</li>
+</ol>
+<div class="callout tip"><strong>JIT workflow timing</strong>For a JIT online order, the supplier notification happens after the Shopify service has inserted the order into IMS — <strong>before</strong> the later JIT purchasing transaction created when Incoming Orders is invoiced.</div>
+<h2 id="save">Save the Autos schedule</h2>
+<ol class="steps">
+<li>Select the daily <strong>Run every day at</strong> time.</li>
+<li>Enable the required daily jobs.</li>
+<li>Click <strong>Save</strong>.</li>
+<li>IMS stores the schedule and writes a “Modified IMS Autos settings” entry to the activity log.</li>
+</ol>
+<p>If all daily-job checkboxes are cleared and the settings are saved, IMS removes the daily Autos schedule record rather than keeping an empty daily shift.</p>
+<h2 id="monitoring">Service monitoring and logs</h2>
+<p>The server service writes informational, success-audit and error messages to the Windows Event Log for its major jobs and connection failures. Administrators can use these logs to confirm when the daily shift started, which jobs completed, and whether a background integration or maintenance task reported an error.</p>
+<h2 id="relationship">How the main Autos functions connect</h2>
+<div class="doc-list">
+<a class="doc-link" href="stock-maintenance.html"><div>↗</div><div><strong>Stock Maintenance</strong><span>The manual version of the full stock-balance reconstruction that Autos can run on schedule.</span></div></a>
+<a class="doc-link" href="../manage/sale-seasons.html"><div>↗</div><div><strong>Sale Seasons</strong><span>Defines the timed pricing policies that Autos starts and ends automatically.</span></div></a>
+<a class="doc-link" href="../integration/integration-center.html"><div>↗</div><div><strong>Integration Center</strong><span>Configure and monitor MORNING_SHIFT outbound integrations executed by IMS Autos.</span></div></a>
+<a class="doc-link" href="../reports/sell-through-report.html"><div>↗</div><div><strong>Sell Through Report</strong><span>Uses the Sell Through data refreshed by the scheduled materialized-view job.</span></div></a>
+<a class="doc-link" href="../inventory/stock-level.html"><div>↗</div><div><strong>Stock Level</strong><span>Historical stock reporting uses the maintained daily stock-movement data.</span></div></a>
+<a class="doc-link" href="../reports/user-defined-reports.html"><div>↗</div><div><strong>User-Defined Reports</strong><span>Custom Report definitions can be delivered automatically through Reporting Scheduler and the Autos service.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

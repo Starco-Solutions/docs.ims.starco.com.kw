@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Stock Depreciation | IMS User Guide</title>
+<meta content="IMS Stock Depreciation guide: write off store inventory, scan/import items, review cost, edit or void vouchers, and post depreciation journals to the current Al-Shamel financial system." name="description"/>
+<link href="https://ims.starco.com.kw/inventory/stock-depreciation.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Stock Depreciation","url":"https://ims.starco.com.kw/inventory/stock-depreciation.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a class="active" href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a class="active" href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Inventory</a> › Stock Depreciation</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/inventory.webp"/><h1>Stock Depreciation</h1></div>
+<p class="lead">Stock Depreciation removes inventory from a store when the quantity should no longer remain available for sale—for example damaged, unusable or otherwise written-off stock. IMS records the affected items at their current inventory cost, reduces the store balance, keeps a transaction log, and supports financial posting of the resulting inventory write-off.</p>
+<div class="callout"><strong>Open the screen</strong>Inventory → Stock Depreciation.</div>
+<div class="callout tip">
+<strong>Current financial integration</strong>
+The current IMS deployment posts Stock Depreciation journals directly to the local <strong>Al-Shamel Financial Management System</strong>. The user guide refers to this business process as <strong>Financial Posting</strong> so the inventory workflow remains independent from the financial connector used by a future IMS integration.
+</div>
+<h2 id="store">Select the store</h2>
+<p>Select the required Branch/Store. IMS loads the Stock Depreciation vouchers belonging to that location and uses the store's current inventory balance, financial account, cost center and accounting branch when processing the voucher.</p>
+<p>The first/previous/next/last controls let you browse the location's existing depreciation vouchers, and the Voucher No. field can be used to jump directly to a known voucher number.</p>
+<h2 id="new">Create a new depreciation voucher</h2>
+<ol class="steps">
+<li>Select the store where the stock is being written off.</li>
+<li>Click <strong>New</strong>.</li>
+<li>Confirm the transaction date and enter a useful explanation in <strong>Notes</strong>.</li>
+<li>Add the affected items by scanning/entering them, or use <strong>Import</strong> for a prepared item list.</li>
+<li>Review each Item Code, quantity, unit, Item Cost and Total Cost.</li>
+<li>Review the overall Total Qty and Total Cost.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>A voucher must contain at least one item. IMS also checks that transactions are currently enabled for the selected store before saving.</p>
+<h2 id="scan">Add items by scanning</h2>
+<p>Enter the required quantity, then scan or type an <strong>Item Code</strong>, the item's main <strong>Barcode</strong>, or an <strong>alternate barcode</strong>. IMS resolves the scan to an inventory item in the selected store and loads its Description, Style, Color, Size, Unit and current inventory Cost.</p>
+<p>The line Total Cost is calculated as <strong>Qty × Item Cost</strong>. Adding more lines updates the voucher Total Qty and Total Cost automatically.</p>
+<div class="callout"><strong>Stock availability</strong>Depreciation represents a real reduction of store stock. Review the requested quantity against the available balance before saving the voucher.</div>
+<h2 id="columns">Item details</h2>
+<div class="table-wrap"><table><thead><tr><th>Column</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Item Code</td><td>IMS inventory SKU being depreciated.</td></tr>
+<tr><td>Description</td><td>English item description.</td></tr>
+<tr><td>Style / Color / Size</td><td>Product variant information.</td></tr>
+<tr><td>Qty</td><td>Number of pieces being removed from stock.</td></tr>
+<tr><td>Item Cost</td><td>Current IMS inventory cost of the item.</td></tr>
+<tr><td>Total Cost</td><td>Qty × Item Cost for the line.</td></tr>
+<tr><td>Unit</td><td>Inventory unit associated with the item.</td></tr>
+<tr><td>Barcode</td><td>Main barcode stored on the item master.</td></tr>
+</tbody></table></div>
+<h2 id="import">Import items</h2>
+<p>Use <strong>Import</strong> when many items must be depreciated at once. The file is a <strong>tab-delimited text file</strong> with a header row followed by:</p>
+<div class="callout tip"><strong>Import format</strong>
+<pre style="margin:8px 0 0;white-space:pre-wrap">ItemCode	Unit	Qty
+30225010001	1	2
+30225010002	1	1</pre>
+</div>
+<p>IMS validates that the Item Code exists, the Unit exists and the Qty has a valid whole-number format. The item's cost comes from IMS; the import file does not contain a cost column.</p>
+<p>If validation fails, IMS creates an <strong>-ErrorLog.txt</strong> file beside the imported file showing the row number and validation message. Duplicate Item Code rows are rejected so each item should appear only once in the file.</p>
+<h2 id="stock-effect">What happens when the voucher is saved</h2>
+<p>Saving a new Stock Depreciation voucher immediately reduces the selected store's on-hand quantity by the quantities on the voucher. IMS records the cost used for each line and stores the voucher Total Qty and Total Cost.</p>
+<p>The affected items are also queued for the normal IMS online-item update process, allowing connected online inventory processes to react to the stock change.</p>
+<h2 id="edit">Edit an unposted voucher</h2>
+<p>An authorized user can edit an existing voucher while it has not been financially posted. During the update, IMS restores the effect of the previous item quantities, saves the revised header/items, and applies the new depreciation quantities back to the store balance.</p>
+<p>This means editing a voucher changes the live inventory balance to match the revised voucher. A financially posted voucher must be unposted before it can be modified.</p>
+<h2 id="void">Void a voucher</h2>
+<p>An unposted depreciation voucher can be voided after confirmation. IMS restores the depreciated quantities to the store balance, removes the voucher item lines and sets the voucher Total Qty and Total Cost to zero.</p>
+<p>The original quantity/cost information is retained in the voucher notes together with the previous note, and the Void action is written to the transaction log.</p>
+<div class="callout warning"><strong>Posted vouchers</strong>A voucher cannot be edited or voided while a financial journal is attached to it. Unpost the financial journal first when correction is authorized.</div>
+<h2 id="financial">Financial Posting — current Al-Shamel deployment</h2>
+<p>Users with Financial Posting permission can post an unposted Stock Depreciation voucher to the current Al-Shamel financial system. IMS requires the store's financial setup and the configured <strong>Depreciation Account</strong> before posting.</p>
+<p>The generated journal uses the voucher's Total Cost:</p>
+<div class="table-wrap"><table><thead><tr><th>Journal side</th><th>Account</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Debit</td><td>Depreciation Account</td><td>Recognizes the inventory write-off/depreciation expense.</td></tr>
+<tr><td>Credit</td><td>Store / Inventory Account</td><td>Reduces the financial inventory value of the store.</td></tr>
+</tbody></table></div>
+<p>Both lines use the store's configured accounting branch and cost center. After a successful post, IMS stores the Journal No., posting user and posting date/time on the voucher and records the action in the transaction log.</p>
+<h3 id="unpost">Unpost the financial journal</h3>
+<p>After a voucher has been posted through IMS, the action changes to <strong>UnPost</strong>. With confirmation, IMS removes the corresponding journal from Al-Shamel, clears the posting information from the Stock Depreciation voucher and records the unpost action in the log.</p>
+<p>A voucher marked as manually posted is displayed as such and is not offered for normal IMS posting from this screen.</p>
+<h2 id="log">Transaction log</h2>
+<p>The Log panel shows the date/time, IMS user and action recorded against the selected voucher. Typical entries include creating, editing, voiding, financial posting and unposting.</p>
+<h2 id="permissions">Permissions</h2>
+<p>New, Edit and Void are controlled by the Stock Depreciation management permission. Financial posting is controlled separately by the Financial Posting permission.</p>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="purchases.html"><div>←</div><div><strong>Purchases</strong><span>Purchase finalization updates stock and item costing before later financial posting.</span></div></a>
+<a class="doc-link" href="../reports/purchasing-report.html"><div>↗</div><div><strong>Purchasing Report</strong><span>Includes purchasing and cost measures used alongside inventory analysis.</span></div></a>
+<a class="doc-link" href="../manage/stores.html"><div>↗</div><div><strong>Manage Stores</strong><span>Store transaction and financial setup affect depreciation processing and posting.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

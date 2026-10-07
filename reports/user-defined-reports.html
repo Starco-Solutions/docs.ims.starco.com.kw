@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>User-Defined Reports | IMS User Guide</title>
+<meta content="How to run User-Defined Reports in IMS, select custom reports, filter by supplier, store and date, and export, email or save the results. User-Defined Reports are created in Custom Reports and can be automated through Reporting Scheduler." name="description"/>
+<link href="https://ims.starco.com.kw/reports/user-defined-reports.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS User-Defined Reports User Guide","url":"https://ims.starco.com.kw/reports/user-defined-reports.html","about":"Running custom reports created in IMS Custom Reports","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a class="active" href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a class="active" href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a><a href="../index.html#inventory">Inventory</a><a href="../index.html#financial">Financial</a><a href="../index.html#reports">Reports</a><a href="../index.html#manage">Manage</a><a href="../index.html#tools">Tools</a><a href="../index.html#system">System</a><a href="../index.html#shopify">Shopify</a><a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Reports › User-Defined Reports</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/reports.webp"/><h1>User-Defined Reports</h1></div>
+<p class="lead">User-Defined Reports are reports created through the IMS Custom Reports module and made available to authorized users. The report definition controls which columns, formats, calculations, grouping and sorting are used; the User-Defined Reports screen is where users select and run those reports.</p>
+<div class="callout"><strong>Report source</strong>Custom Reports are built on Custom Views. The underlying base database view is created and maintained by the database administrator first, then registered in Tools → Custom Views.</div>
+<div class="callout"><strong>Open the report</strong>Reports → User-Defined Reports</div>
+<figure class="screenshot"><img alt="IMS Reports menu with User-Defined Reports selected" src="../assets/images/user-defined-reports-menu.webp"/><figcaption>Path: Reports → User-Defined Reports.</figcaption></figure>
+<h2 id="how-it-fits">How User-Defined Reports fit into IMS</h2>
+<p>The feature is split into three parts:</p>
+<div class="card-grid">
+<article class="card"><div class="eyebrow">1 · Define</div><h3>Custom Reports</h3><p>Administrators or authorized users build reusable report definitions from approved IMS Custom Views.</p></article>
+<article class="card"><div class="eyebrow">2 · Run</div><h3>User-Defined Reports</h3><p>Authorized users select an available report, apply the supported basic criteria and generate the result.</p></article>
+<article class="card"><div class="eyebrow">3 · Automate</div><h3>Reporting Scheduler</h3><p>Custom reports can be scheduled for automatic delivery, including email delivery or copying report output to FTP.</p></article>
+</div>
+<figure class="screenshot"><img alt="IMS Tools menu showing Custom Views, Custom Reports and Reporting Scheduler" src="../assets/images/custom-reporting-tools-menu.webp"/><figcaption>The report definitions and scheduling tools are under Tools → Custom Views / Custom Reports / Reporting Scheduler.</figcaption></figure>
+<div class="callout tip"><strong>More documentation coming</strong>This page covers running User-Defined Reports. The Custom Views, Custom Reports and Reporting Scheduler pages will document how report definitions and scheduled delivery are configured.</div>
+<h2 id="available-reports">Which reports can a user see?</h2>
+<p>IMS shows active custom reports that are assigned to the logged-in user or marked for all users. If no report is available, IMS tells the user that a custom report must be created first.</p>
+<p>When a report is selected, IMS shows its <strong>Created By</strong> user, <strong>Creation Date</strong> and report <strong>Description</strong>.</p>
+<h2 id="criteria">Available criteria depend on the report</h2>
+<p>Unlike fixed IMS reports, a User-Defined Report does not always use the same criteria. IMS checks the underlying Custom View and automatically enables only the basic filters supported by that report:</p>
+<div class="table-wrap"><table><thead><tr><th>Basic field</th><th>When it is available</th></tr></thead><tbody>
+<tr><td>Suppliers</td><td>Enabled when the Custom View exposes a Supplier ID field.</td></tr>
+<tr><td>Store</td><td>Enabled when the Custom View exposes a Store ID field.</td></tr>
+<tr><td>Date From / To</td><td>Enabled when the Custom View exposes a transaction-date field.</td></tr>
+</tbody></table></div>
+<p>If one of these fields is not supported by the selected report, IMS disables that criterion automatically.</p>
+<section class="ims-multiselect-guide" id="multi-select">
+<h2>Using IMS multi-selection fields</h2>
+<p>Some IMS criteria fields open a compact multi-selection list instead of a normal drop-down. You can select several values without holding Ctrl.</p>
+<ol class="steps">
+<li>Click the criteria field to open the selection list.</li>
+<li>Click an item to select or deselect it. Continue clicking until the required combination is selected.</li>
+<li>Click <strong>Close</strong>, double-click an item, or click outside the list to apply the selection.</li>
+</ol>
+<div class="table-wrap"><table><thead><tr><th>Field display</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>All</td><td>All available values are included.</td></tr>
+<tr><td>One name</td><td>Exactly one value is selected.</td></tr>
+<tr><td>Multi Selected</td><td>Two or more values are selected.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>No Ctrl key required</strong>The IMS list uses simple multi-selection: click each required item to toggle it on or off.</div>
+</section>
+<h2 id="generate">Generate a User-Defined Report</h2>
+<ol class="steps">
+<li>Select the required report from the <strong>Report</strong> list.</li>
+<li>Read the report description to confirm that you selected the intended report.</li>
+<li>If available, select one or more Suppliers.</li>
+<li>If available, select one or more Stores.</li>
+<li>If available, set the <strong>Date From</strong> and <strong>To</strong> range.</li>
+<li>Click <strong>Generate</strong>.</li>
+<li>Review the result grid.</li>
+</ol>
+<p>While the report is running, the button changes to <strong>Cancel</strong>. Click it to stop the current report request.</p>
+<h2 id="report-definition">What controls the report columns?</h2>
+<p>The columns are not hard-coded into the User-Defined Reports screen. They come from the selected Custom Report definition. A report can define:</p>
+<div class="table-wrap"><table><thead><tr><th>Definition</th><th>Effect in the generated report</th></tr></thead><tbody>
+<tr><td>Fields</td><td>Controls which data columns appear.</td></tr>
+<tr><td>Header</td><td>Controls the column caption shown to users.</td></tr>
+<tr><td>Function</td><td>Can apply supported aggregation such as a configured report function instead of returning the raw field.</td></tr>
+<tr><td>Group By</td><td>Controls how report data is consolidated.</td></tr>
+<tr><td>Order By</td><td>Controls the default row order.</td></tr>
+<tr><td>Custom Format</td><td>Controls how numbers, currency, percentages and dates are displayed.</td></tr>
+<tr><td>Supplier / Store attributes</td><td>Allows configured custom attributes to appear with report data when the selected Custom View supports the corresponding supplier or store field.</td></tr>
+</tbody></table></div>
+<h2 id="formats">Automatic formatting</h2>
+<p>IMS applies the format saved with the Custom Report. Numeric values, local currency, percentages, dates and times are displayed according to the report definition and the user's IMS formatting settings.</p>
+<div class="callout"><strong>Duplicate source fields</strong>A custom report can include the same source field more than once. IMS keeps each requested column as a separate report column so different functions, headers or formats can be used.</div>
+<h2 id="output">Export, email and Save As</h2>
+<div class="table-wrap"><table><thead><tr><th>Action</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Export To Excel</td><td>Exports the generated User-Defined Report to Excel, preserving text-column handling based on the report's configured formats.</td></tr>
+<tr><td>Send By Email</td><td>Sends the generated report by email. The email subject uses the custom report name and, when applicable, the selected date range.</td></tr>
+<tr><td>Save As</td><td>Saves the generated report. Generate the report first.</td></tr>
+</tbody></table></div>
+<h2 id="scheduled">Scheduled User-Defined Reports</h2>
+<p>A Custom Report can also be used by <strong>Tools → Reporting Scheduler</strong>. This allows recurring report jobs to run without a user manually opening the User-Defined Reports screen.</p>
+<p>The Reporting Scheduler can be used to distribute custom-report output automatically, including:</p>
+<div class="card-grid">
+<article class="card"><div class="eyebrow">Email</div><h3>Scheduled email delivery</h3><p>Generate and send a configured report automatically according to its schedule.</p></article>
+<article class="card"><div class="eyebrow">FTP</div><h3>Scheduled FTP copy</h3><p>Generate the report and copy the resulting file to the configured FTP destination.</p></article>
+</div>
+<p>Report definitions are created and maintained through Tools → Custom Reports. Scheduled delivery and destination settings, including FTP where configured, are managed through Tools → Reporting Scheduler.</p>
+<h2 id="permissions">Permissions</h2>
+<p>User-Defined Reports respect IMS report assignment and user permissions. A user sees only active reports assigned to that user or reports made available to all users. Export To Excel and Send By Email also follow the user's IMS access policy.</p>
+<h2 id="common-uses">Common uses</h2>
+<div class="card-grid">
+<article class="card"><div class="eyebrow">Management</div><h3>Reusable management reports</h3><p>Create a report once in Custom Reports and make it available to selected IMS users.</p></article>
+<article class="card"><div class="eyebrow">Operations</div><h3>Store or supplier reporting</h3><p>Use Custom Views that expose Store ID or Supplier ID so users can apply those filters when running the report.</p></article>
+<article class="card"><div class="eyebrow">Automation</div><h3>Recurring distribution</h3><p>Use Reporting Scheduler when a report must be sent repeatedly or copied to an FTP destination.</p></article>
+<article class="card"><div class="eyebrow">Integration</div><h3>Purpose-built datasets</h3><p>Use Custom Views and Custom Reports to expose approved IMS data in a repeatable format without adding another fixed report screen.</p></article>
+</div>
+<section id="supplier-master-data">
+<h2>Supplier master data and Custom Attributes</h2>
+<p>When a Custom View exposes supplier information, User-Defined Reports can use supplier criteria from <a href="../manage/suppliers.html">Manage → Suppliers</a>. Supplier Custom Attributes maintained there can also be included by a Custom Report definition when the underlying Custom View supports supplier attributes.</p>
+</section>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="../index.html#tools"><div>↗</div><div><strong>Custom Views</strong><span>Defines approved datasets that Custom Reports can use. Detailed guide will be added.</span></div></a>
+<a class="doc-link" href="../index.html#tools"><div>↗</div><div><strong>Custom Reports</strong><span>Creates the report definition used by User-Defined Reports and Reporting Scheduler. Detailed guide will be added.</span></div></a>
+<a class="doc-link" href="../index.html#tools"><div>↗</div><div><strong>Reporting Scheduler</strong><span>Automates custom reports for scheduled email or FTP distribution. Detailed guide will be added.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main>
+</div>
+<script src="../assets/js/docs.js"></script>
+</body>
+</html>

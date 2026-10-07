@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Purchases | IMS User Guide</title>
+<meta content="IMS Purchases guide: purchase invoices and returns, import items, expenses, currency and landed cost, finalization, inventory costing and Al-Shamel financial posting." name="description"/>
+<link href="https://ims.starco.com.kw/inventory/purchases.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Purchases","url":"https://ims.starco.com.kw/inventory/purchases.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a class="active" href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a class="active" href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Inventory</a> › Purchases</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/inventory.webp"/><h1>Purchases</h1></div>
+<p class="lead">Purchases creates Purchase and Purchase Return documents, manages landed cost and finalization, and in IMS 9.4.4 records the supplier VAT/tax treatment when VAT is enabled.</p>
+<div class="callout"><strong>Open the screen</strong>Inventory → Purchases.</div>
+<div class="callout tip">
+<strong>Current financial integration</strong>
+The current IMS deployment is integrated directly with the local <strong>Al-Shamel Financial Management System</strong>. Finalized purchase invoices can generate and post their accounting journal directly to Al-Shamel. The purchasing workflow itself is kept separate from the financial-posting step, so the operational process described on this page remains clear even if the integration method changes in a future IMS version.
+</div>
+<h2 id="transaction-type">Purchases and Purchase Returns</h2>
+<p>The same screen handles two transaction types:</p>
+<div class="table-wrap"><table><thead><tr><th>Type</th><th>Purpose</th><th>Main behavior</th></tr></thead><tbody>
+<tr><td>Purchases</td><td>Receive inventory from a supplier.</td><td>Supports foreign/local currency, exchange rate, discount, purchasing expenses and landed-cost calculation.</td></tr>
+<tr><td>Returns</td><td>Return inventory to a supplier.</td><td>Uses the local currency/current item cost workflow and disables purchase-only currency, expense and discount controls.</td></tr>
+</tbody></table></div>
+<h2 id="selection">Select the purchase context</h2>
+<p>Use the selection buttons to choose the required <strong>Branch/Center</strong>, <strong>Supplier</strong> and <strong>Statistical Period</strong>. When finalizing a purchase, also select the <strong>Store</strong> that will receive the stock. Available locations follow the user's configured access.</p>
+<p>IMS keeps purchase and purchase-return voucher numbering separately by transaction type and center. A Shipment No. is also associated with the selected Statistical Period.</p>
+<h2 id="existing">Review existing invoices</h2>
+<p>The invoice list is filtered by the selected Center, transaction type, and—when selected—Supplier and Statistical Period. Selecting an invoice loads its header, items, totals, state, posting information, transaction log and purchasing-expense details.</p>
+<h2 id="states">Invoice states</h2>
+<div class="table-wrap"><table><thead><tr><th>State</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Open</td><td>The invoice has been saved but has not yet updated the final stock/cost balances. It can still be edited or deleted according to user rights.</td></tr>
+<tr><td>On Hold</td><td>IMS is in the finalization/costing process, or a finalization was interrupted before completion. Recovery/Roll Back is available for this state.</td></tr>
+<tr><td>Finalized</td><td>Inventory and costing have been committed. The invoice can no longer be edited or deleted and becomes eligible for financial posting.</td></tr>
+<tr><td>Deleted</td><td>The open invoice was deleted from normal use and its item details/totals were cleared.</td></tr>
+</tbody></table></div>
+<h2 id="new">Create a new purchase invoice</h2>
+<ol class="steps">
+<li>Select <strong>Purchases</strong>.</li>
+<li>Select the Center, Supplier and Statistical Period.</li>
+<li>Click <strong>New</strong>.</li>
+<li>Confirm or change the invoice date when required.</li>
+<li>Add the purchase items manually or use <strong>Import Items</strong>.</li>
+<li>Select the Currency and confirm the Exchange Rate.</li>
+<li>Enter any purchase discount.</li>
+<li>Add applicable Purchasing Expenses.</li>
+<li>Review quantities, amounts, Cost Rate and Net Cost.</li>
+<li>If VAT is enabled, confirm the Supplier Invoice details, Supplier VAT No. and Tax Treatment, then review the calculated Taxable Amount, VAT Amount and Supplier Total.</li><li>Save the invoice. It remains <strong>Open</strong> until it is explicitly finalized.</li>
+</ol>
+<h2 id="items">Item details</h2>
+<p>The purchase grid stores Item Code, Description, Style, Color, Size, Current Retail, Unit, Qty, Price and line Net amount. The screen recalculates invoice totals as item quantities and prices change.</p>
+<p>When adding a single line through the input field, the current purchasing workflow looks up the IMS <strong>Item Code</strong>. The new line starts with quantity 1, the item's normal unit and its last purchase price, which can then be adjusted while the invoice is being prepared.</p>
+<h2 id="import">Import Items</h2>
+<p>For larger invoices, use the Purchase import file. IMS reads a <strong>tab-delimited text file</strong>, skips the first/header row and validates the file before loading the grid.</p>
+<div class="table-wrap"><table><thead><tr><th>Transaction</th><th>Required columns</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Purchase</td><td>ItemCode · Unit · Qty · Price</td><td>Item Code must exist as an inventory item, Unit must exist, Qty must be greater than zero, and Price must be a valid non-negative number.</td></tr>
+<tr><td>Purchase Return</td><td>ItemCode · Unit · Qty</td><td>The return uses the item's current IMS cost rather than an imported purchase price.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>Example purchase file</strong>
+<pre style="margin:8px 0 0;white-space:pre-wrap">ItemCode	Unit	Qty	Price
+30225010001	1	12	4.250
+30225010002	1	6	5.100</pre>
+</div>
+<p>IMS rejects invalid Item Codes, missing/unknown units, invalid quantities and invalid purchase prices. Duplicate item rows are also rejected. When row validation fails, IMS creates an <strong>-ErrorLog.txt</strong> file next to the import file showing the row and reason.</p>
+<h2 id="expenses">Purchasing Expenses</h2>
+<p>Click <strong>Expenses</strong> to add costs configured in Financial → Purchasing Expenses. Each expense type can be added once to the invoice. IMS shows the original invoice amount, Total Expenses and the resulting Net Amount/landed amount.</p>
+<p>Purchasing Expenses are included in landed/local cost and later participate in the accounting journal using the account configured for each expense type.</p>
+<h2 id="currency-cost">Currency, exchange rate and Cost Rate</h2>
+<p>Purchase invoices support the currencies and current currency-rate setup maintained in IMS. The local currency uses an exchange rate of 1; a foreign currency loads its configured cost/exchange rate, which can be reviewed as part of the purchase.</p>
+<div class="table-wrap"><table><thead><tr><th>Value</th><th>Calculation / purpose</th></tr></thead><tbody>
+<tr><td>Total Retail</td><td>Sum of the current retail value of all purchased quantities.</td></tr>
+<tr><td>Total Qty</td><td>Total purchased quantity.</td></tr>
+<tr><td>Total Amount</td><td>Sum of item Qty × purchase Price before invoice discount.</td></tr>
+<tr><td>Net Amount</td><td>Total Amount less the purchase discount.</td></tr>
+<tr><td>Net Local</td><td>Net Amount converted by the currency exchange rate.</td></tr>
+<tr><td>Cost Rate</td><td>The landed-cost multiplier used to convert the foreign purchase price into local landed cost. When expenses exist, IMS includes those expenses in the effective rate.</td></tr>
+<tr><td>Net Cost</td><td>Net Local plus Purchasing Expenses.</td></tr>
+</tbody></table></div>
+<h2 id="purchase-vat">Purchase VAT / Tax</h2>
+<p>When <strong>Enable Value-Added Tax</strong> is active in System Settings, Purchases displays a VAT/tax section and loads the active treatments defined in <strong>Financial → Integration Setup</strong>.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Supplier Invoice No.</td><td>External supplier invoice number. Required for every tax type except OUTSIDE_SCOPE.</td></tr>
+<tr><td>Supplier Invoice Date</td><td>Defaults to the new IMS purchase date and is required for every tax type except OUTSIDE_SCOPE.</td></tr>
+<tr><td>Supplier VAT No.</td><td>Loaded from the selected Supplier. Required for a DOMESTIC treatment with a positive tax rate.</td></tr>
+<tr><td>Tax Treatment</td><td>Required active Purchase VAT / Tax Code.</td></tr>
+<tr><td>Taxable Amount</td><td>For non-manual tax codes IMS uses Net Local. For MANUAL base mode it is entered by the user and must be greater than zero.</td></tr>
+<tr><td>VAT Amount</td><td>Automatically calculated from Taxable Amount × tax rate for taxable automatic modes. MANUAL base mode permits adjustment on a new document.</td></tr>
+<tr><td>Supplier Total</td><td>Net Local + VAT only when the tax code Posting Mode is SUPPLIER; otherwise it remains Net Local.</td></tr>
+<tr><td>Tax Reference No.</td><td>Required for IMPORT_PAID and IMPORT_DEFERRED treatments.</td></tr>
+<tr><td>Tax Reference Date</td><td>Optional date stored with the tax/customs reference.</td></tr>
+</tbody></table></div>
+<h3>Automatic calculation</h3>
+<p>Automatic taxable modes use <strong>Net Local</strong> as the taxable amount. ZERO, EXEMPT and OUTSIDE_SCOPE calculate zero VAT. Other tax types calculate VAT using the tax code's stored rate and round the result to three decimal places using midpoint-away-from-zero rounding.</p>
+<p>When saved, IMS also splits VAT into recoverable and non-recoverable amounts from the tax code's <strong>Recoverable %</strong>, using the same three-decimal rounding for the recoverable amount.</p>
+<h3>Default treatment from the Supplier</h3>
+<p>The current IMS 9.4.4 Bahrain workflow attempts to select <code>BH_STD_10</code> for a VAT-registered supplier and <code>BH_OUT_SCOPE</code> for a non-registered supplier. If that code is not available among active tax codes, IMS selects the first available treatment.</p>
+<div class="callout tip"><strong>Tax values are document data</strong>When an existing purchase is reviewed, IMS loads the tax code, taxable amount, VAT amount and tax reference saved against that document rather than simply rebuilding the values from today's settings.</div>
+<h2 id="edit">Edit an open invoice</h2>
+<p>An Open invoice can expose separate edit actions according to the user's permissions:</p>
+<div class="table-wrap"><table><thead><tr><th>Edit action</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Statistical Period</td><td>Change the invoice's period/shipment assignment.</td></tr>
+<tr><td>Date</td><td>Change the purchase invoice date.</td></tr>
+<tr><td>Items</td><td>Add, remove or change item quantities/prices/units.</td></tr>
+<tr><td>Discount</td><td>Change the invoice discount.</td></tr>
+<tr><td>Currency</td><td>Change purchase currency/exchange data.</td></tr>
+<tr><td>Expenses</td><td>Change the purchasing-expense allocation.</td></tr>
+<tr><td>Notes</td><td>Edit the purchase notes.</td></tr>
+<tr><td>Finalize</td><td>Start the inventory/cost finalization process.</td></tr>
+</tbody></table></div>
+<p>Finalized, Deleted and currently On Hold invoices cannot be edited. Purchase Returns do not offer the purchase-only Currency and Expenses edit actions.</p>
+<h2 id="finalize">Finalize a purchase</h2>
+<p>Finalization is the point where an Open purchase becomes an inventory/cost transaction. IMS warns the user that the process is irreversible through normal editing and that average cost will be recalculated.</p>
+<p>During finalization, IMS temporarily places the invoice/items On Hold, backs up the affected destination-store balances for recovery, calculates the resulting average costs, updates destination-store quantities and costs, updates last-purchase information, and then marks the invoice <strong>Finalized</strong>.</p>
+<div class="callout warning"><strong>Review before Finalize</strong>Check the receiving Store, Statistical Period, Shipment No., Currency/Exchange Rate, Expenses, invoice discount, item quantities and prices before finalizing. After successful finalization the invoice is no longer editable or deletable.</div>
+<h3 id="recovery">Automatic recovery and Roll Back</h3>
+<p>IMS keeps temporary recovery data while finalization is in progress. If a stock/cost update fails, IMS attempts to restore the affected balances and item cost information automatically. If finalization is interrupted and the invoice remains On Hold, the Roll Back action restores the saved balance/cost state and returns the invoice to Open.</p>
+<h2 id="returns">Purchase Returns</h2>
+<p>A Purchase Return follows the same Open → Finalize workflow but removes quantity from the selected store. Before committing the return, IMS verifies that the store has enough quantity for every returned item.</p>
+<p>If any returned quantity exceeds the current store balance, finalization is stopped and IMS creates a variance log containing Item Code, Return Qty, Current Balance and Variance so the discrepancy can be corrected.</p>
+<h2 id="financial">Financial integration — current Al-Shamel deployment</h2>
+<p>Once a purchase or purchase return is Finalized, users with the <strong>Financial Posting</strong> permission can open the posting window. In the current deployment, IMS connects directly to <strong>Al-Shamel</strong> and writes the resulting journal to the financial system. When VAT is enabled, the saved purchase-tax record supplies the document tax treatment, tax amount and recoverable/non-recoverable split used by the VAT-aware purchasing workflow.</p>
+<p>The posting window builds a balanced journal using the store account/cost-center setup, the selected <strong>LC / Supplier Account</strong>, the Earned Discount account when an invoice discount exists, and the configured accounts for Purchasing Expenses.</p>
+<h3 id="lc">Select the LC / Supplier account</h3>
+<p>The account selector reads eligible Letter of Credit / supplier accounts directly from the Al-Shamel chart of accounts. Users can search by Account No., Arabic Name or English Name and return the selected account to the purchase-journal window.</p>
+<h3 id="journal">Review and post the journal</h3>
+<p>IMS creates the purchase journal with separate Debit/Credit lines and verifies the journal total before posting. A normal purchase and a purchase return reverse the accounting direction of the relevant entries.</p>
+<p>After a successful post, IMS stores the financial Journal No., posting user, posting date/time and posting code against the purchase invoice and records the action in the IMS transaction log.</p>
+<h3 id="unpost">Unpost</h3>
+<p>For a transaction that was posted through IMS, the Post action changes to <strong>UnPost</strong>. After confirmation, IMS removes the corresponding journal entry from Al-Shamel and clears the stored posting information from the IMS purchase invoice.</p>
+<div class="callout">
+<strong>Integration wording used in this manual</strong>
+The user guide calls this process <em>Financial Posting</em> and identifies Al-Shamel as the current financial system. This keeps the purchasing workflow independent from the technical transport used to send journals, making the documentation easier to adapt when another approved financial connector is introduced.
+</div>
+<h2 id="log">Transaction log</h2>
+<p>Purchases maintains an activity log for the selected invoice. It records actions such as invoice creation, edits, finalization, posting/unposting and recovery activity. When purchasing expenses exist, their details are also shown with the invoice information.</p>
+<h2 id="permissions">Permissions</h2>
+<p>Purchasing actions are controlled separately. Depending on the user's Group Policy, IMS can independently allow or block creating purchases, editing purchases, deleting open purchases, finalizing purchases and financial posting.</p>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list"><a class="doc-link" href="../financial/vat-tax-configuration.html"><div>↗</div><div><strong>VAT &amp; Tax Configuration</strong><span>Company VAT settings, tax-code setup, Supplier VAT data and calculation rules.</span></div></a>
+<a class="doc-link" href="../reports/purchasing-report.html"><div>↗</div><div><strong>Purchasing Report</strong><span>Analyze received quantities, costs, retail values, expenses, markup and other purchasing measures.</span></div></a>
+<a class="doc-link" href="../manage/suppliers.html"><div>↗</div><div><strong>Suppliers</strong><span>Supplier and brand setup used by purchasing transactions.</span></div></a>
+<a class="doc-link" href="../manage/statistical-periods.html"><div>↗</div><div><strong>Statistical Periods</strong><span>Season/period assignment used on purchase invoices.</span></div></a>
+<a class="doc-link" href="stock-transfer.html"><div>↗</div><div><strong>Stock Transfer</strong><span>Another inventory transaction that updates location stock balances.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

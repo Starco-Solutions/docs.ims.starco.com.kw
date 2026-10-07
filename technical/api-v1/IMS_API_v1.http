@@ -1,0 +1,102 @@
+@baseUrl = https://api.example.com
+@companyId = 1
+@apiKey = YOUR_API_KEY
+@fromDate = 2026-09-01
+@toDate = 2026-09-30
+
+### Stores
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/stores
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Items
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/items?page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Suppliers
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/suppliers?page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Sales
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/sales?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Purchases
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/purchases?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Inventory (non-zero only)
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/inventory?nonZeroOnly=true&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Inventory movements
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/inventory/movements?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Transfers
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/transfers?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Stock adjustments
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/stock-adjustments?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Stock depreciations
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/stock-depreciations?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Markdowns
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/markdowns?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Promotions
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Promotion stores (set promotionId)
+@promotionId = 1
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/stores?page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Promotion items
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/items?page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Promotion client categories
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/client-categories?page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Promotion tiers
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/tiers?page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Promotion cashback stores
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/cashback-stores?page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Discount coupon events
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events?page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Discount coupon event stores (set couponEventId)
+@couponEventId = 1
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events/{{couponEventId}}/stores?page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json

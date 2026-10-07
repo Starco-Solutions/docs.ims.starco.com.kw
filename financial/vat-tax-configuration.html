@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>VAT &amp; Tax Configuration | IMS User Guide</title>
+<meta content="IMS 9.4.4 VAT and tax configuration guide covering System Settings, purchase tax codes, Supplier VAT data, Purchases and VAT-inclusive Sales." name="description"/>
+<link href="https://ims.starco.com.kw/financial/vat-tax-configuration.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"VAT & Tax Configuration","url":"https://ims.starco.com.kw/financial/vat-tax-configuration.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a class="active" href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a class="active" href="vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Financial</a> › VAT &amp; Tax Configuration</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/financial.webp"/><h1>VAT &amp; Tax Configuration</h1></div>
+<p class="lead">IMS 9.4.4 expands VAT from a simple sales setting into a complete workflow covering company VAT settings, purchase tax treatments, supplier VAT registration, purchase documents and VAT-aware sales/returns.</p>
+<div class="callout"><strong>This is a guide, not a separate menu command</strong>The VAT workflow is configured through <strong>System → Settings</strong>, <strong>Financial → Integration Setup</strong>, <strong>Manage → Suppliers</strong> and <strong>Inventory → Purchases</strong>. Sales Transactions and Transactions Expert display the resulting sales VAT values.</div>
+<h2 id="flow">VAT configuration flow</h2>
+<div class="table-wrap"><table><thead><tr><th>Step</th><th>IMS area</th><th>What is configured</th></tr></thead><tbody>
+<tr><td>1</td><td>System → Settings</td><td>Enable VAT, VAT Account No., Percentage and Round.</td></tr>
+<tr><td>2</td><td>Financial → Integration Setup</td><td>Purchase VAT / Tax Codes: treatment type, rate, base/posting mode, recoverability, account references, effective dates and active state.</td></tr>
+<tr><td>3</td><td>Manage → Suppliers</td><td>Whether the supplier is VAT Registered and the supplier VAT Account No.</td></tr>
+<tr><td>4</td><td>Inventory → Purchases</td><td>Supplier tax document details, Tax Treatment, Taxable Amount, VAT Amount, Supplier Total and tax/customs references.</td></tr>
+<tr><td>5</td><td>Sales / Transactions Expert</td><td>VAT Base, VAT %, VAT Amount and return VAT derived from the original sale.</td></tr>
+</tbody></table></div>
+<h2 id="system-settings">1. Enable VAT in System Settings</h2>
+<p>Open <strong>System → Settings</strong>, click Edit and use Transaction Settings.</p>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Enable Value-Added Tax</td><td>Turns VAT processing on for the current company database.</td></tr>
+<tr><td>Account No.</td><td>Company VAT account number stored with System Settings. IMS requires this value when VAT is enabled.</td></tr>
+<tr><td>Percentage</td><td>VAT percentage displayed as a percent. A zero percentage results in VAT being saved as disabled.</td></tr>
+<tr><td>Round</td><td>Sales VAT rounding increment. When greater than zero, IMS rounds the extracted VAT amount to the nearest configured increment using midpoint-away-from-zero rounding.</td></tr>
+</tbody></table></div>
+<div class="callout warning"><strong>Enable VAT before purchase-tax setup</strong>The Purchase VAT / Tax Codes panel in Financial → Integration Setup and the VAT sections in Suppliers/Purchases are shown only when VAT is enabled in System Settings.</div>
+<h2 id="tax-codes">2. Configure Purchase VAT / Tax Codes</h2>
+<p>Open <strong>Financial → Integration Setup</strong>. When VAT is enabled, the <strong>Purchase VAT / Tax Codes</strong> panel appears beside the normal financial connection/account mappings.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Tax Code / Description</td><td>Unique code and user-facing description. Tax Code is fixed after creation.</td></tr>
+<tr><td>Tax Type</td><td>DOMESTIC, ZERO, EXEMPT, IMPORT_PAID, IMPORT_DEFERRED, RCM or OUTSIDE_SCOPE.</td></tr>
+<tr><td>Tax Rate %</td><td>0–100 percentage. IMS stores the rate internally as a decimal and displays it as a percentage.</td></tr>
+<tr><td>Base Mode</td><td>NET_INVOICE, MANUAL or NONE. MANUAL makes Taxable Amount and VAT Amount editable on a new Purchase document; non-manual modes are calculated from the Net Local amount.</td></tr>
+<tr><td>Posting Mode</td><td>SUPPLIER, COUNTER, VAT_OUT or NONE. In the Purchase screen, SUPPLIER adds VAT to the displayed Supplier Total; the other modes leave Supplier Total at Net Local.</td></tr>
+<tr><td>Recoverable %</td><td>0–100 percentage used to split VAT into recoverable and non-recoverable amounts when the purchase tax record is saved.</td></tr>
+<tr><td>Input Account / Counter Account</td><td>Optional account references stored with the tax code for the tax-posting configuration.</td></tr>
+<tr><td>Effective From / To</td><td>Optional validity dates. Effective To cannot be earlier than Effective From.</td></tr>
+<tr><td>Active</td><td>Only active tax codes are loaded into the Purchase Tax Treatment list.</td></tr>
+</tbody></table></div>
+<p>A new tax code starts with DOMESTIC, 10%, NET_INVOICE, SUPPLIER, 100% recoverable and Active selected. Adjust these values to the company's approved tax setup before saving.</p>
+<h3>Tax-type behavior in Purchases</h3>
+<div class="table-wrap"><table><thead><tr><th>Tax Type</th><th>Current Purchase-screen behavior</th></tr></thead><tbody>
+<tr><td>DOMESTIC</td><td>Calculates VAT when the configured rate is greater than zero. A standard-rated domestic purchase requires the Supplier VAT Account No.</td></tr>
+<tr><td>ZERO / EXEMPT / OUTSIDE_SCOPE</td><td>VAT Amount is calculated as zero by the automatic calculation path.</td></tr>
+<tr><td>IMPORT_PAID / IMPORT_DEFERRED</td><td>Uses the configured rate/base rules and requires a Customs / Tax Reference No. before save.</td></tr>
+<tr><td>RCM</td><td>Uses the configured rate/base rules; posting behavior is driven by the selected posting mode/account configuration.</td></tr>
+</tbody></table></div>
+<h2 id="suppliers">3. Maintain Supplier VAT information</h2>
+<p>When VAT is enabled, <strong>Manage → Suppliers</strong> shows a VAT Information section. Select <strong>VAT Registered</strong> for a registered supplier and enter its <strong>VAT Account No.</strong>. IMS will not save a VAT-registered supplier with a blank VAT Account No.</p>
+<p>Purchases reads these fields when a supplier is selected. The current IMS 9.4.4 Bahrain defaults attempt to select <code>BH_STD_10</code> for a VAT-registered supplier and <code>BH_OUT_SCOPE</code> for a non-registered supplier; if that code is not present, IMS selects the first active tax code.</p>
+<h2 id="purchases">4. Record VAT on Purchases</h2>
+<p>When VAT is enabled, the Purchase screen adds Supplier Invoice and VAT/tax fields. Tax values are saved with the purchase document so the selected tax treatment and calculated split are retained with the invoice.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Supplier Invoice No. / Date</td><td>Required for all tax types except OUTSIDE_SCOPE.</td></tr>
+<tr><td>Supplier VAT No.</td><td>Loaded from the Supplier master. Required for DOMESTIC when the tax rate is greater than zero.</td></tr>
+<tr><td>Tax Treatment</td><td>Required active tax code.</td></tr>
+<tr><td>Taxable Amount</td><td>Normally Net Local. Editable only for a MANUAL base-mode tax code on a new invoice.</td></tr>
+<tr><td>VAT Amount</td><td>Automatically calculated as Taxable Amount × rate for taxable automatic modes and rounded to three decimal places; editable in MANUAL mode on a new invoice.</td></tr>
+<tr><td>Supplier Total</td><td>Net Local plus VAT when Posting Mode is SUPPLIER; otherwise Net Local.</td></tr>
+<tr><td>Tax Reference No. / Date</td><td>Reference information for tax/customs documentation. Reference No. is mandatory for IMPORT_PAID and IMPORT_DEFERRED.</td></tr>
+</tbody></table></div>
+<p>When the tax record is saved, IMS calculates the recoverable VAT portion from the tax code's Recoverable % and stores the remainder as non-recoverable VAT. Both values are rounded using the purchase-tax three-decimal calculation.</p>
+<h2 id="sales">5. Sales VAT and returns</h2>
+<p>Sales VAT is <strong>inclusive</strong>: the receipt amount already includes VAT, and IMS separates it into VAT Base and VAT Amount using the configured VAT percentage. The Payment Details area shows VAT Base, VAT % and VAT Amount when VAT is enabled.</p>
+<p>For a Return/Credit Return created from an original receipt, IMS uses the original invoice VAT context and previously returned amounts rather than blindly recalculating the return using today's VAT settings. This keeps partial and repeated returns aligned with the VAT that belonged to the original sale.</p>
+<div class="callout tip"><strong>Sales rounding vs purchase calculation</strong>Sales uses the System Settings VAT Round increment. Purchase tax calculation uses the selected tax-code rate and rounds calculated VAT/recoverable values to three decimal places in the current implementation.</div>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="integration-setup.html"><div>↗</div><div><strong>Integration Setup</strong><span>Detailed Purchase VAT / Tax Codes fields and validation.</span></div></a>
+<a class="doc-link" href="../system/settings.html"><div>↗</div><div><strong>System Settings</strong><span>Enable VAT and set the VAT account, percentage and rounding increment.</span></div></a>
+<a class="doc-link" href="../manage/suppliers.html"><div>↗</div><div><strong>Suppliers</strong><span>Maintain VAT registration and Supplier VAT Account No.</span></div></a>
+<a class="doc-link" href="../inventory/purchases.html"><div>↗</div><div><strong>Purchases</strong><span>Enter supplier invoice data, tax treatment and VAT values.</span></div></a>
+<a class="doc-link" href="../sales/sales-transactions.html"><div>↗</div><div><strong>Sales Transactions</strong><span>VAT-inclusive sales and receipt-based returns.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

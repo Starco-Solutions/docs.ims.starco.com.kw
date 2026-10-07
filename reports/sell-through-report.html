@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Sell Through Report | IMS User Guide</title>
+<meta content="How to use the IMS Sell Through Report to analyze received quantity, sold quantity, on-hand stock, sell-through, sales mix, ADR, cost, gross profit and merchandise performance by supplier, shipment, category, style, color, size and more." name="description"/>
+<link href="https://ims.starco.com.kw/reports/sell-through-report.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Sell Through Report User Guide","url":"https://ims.starco.com.kw/reports/sell-through-report.html","about":"IMS merchandise sell-through, stock and profitability analysis","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a class="active" href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a class="active" href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a><a href="../index.html#inventory">Inventory</a><a href="../index.html#financial">Financial</a><a href="../index.html#reports">Reports</a><a href="../index.html#manage">Manage</a><a href="../index.html#tools">Tools</a><a href="../index.html#system">System</a><a href="../index.html#shopify">Shopify</a><a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Reports › Sell Through Report</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/reports.webp"/><h1>Sell Through Report</h1></div>
+<p class="lead">Sell Through is the merchandise-performance report in IMS. It brings receipts, net sales, stock adjustments, depreciation and on-hand stock together so users can see how much merchandise was received, how much sold, what remains, how quickly it sold and the related margin and cost figures.</p>
+<div class="callout"><strong>Open the report</strong>Reports → Sell Through Report</div>
+<figure class="screenshot"><img alt="IMS Reports menu with Sell Through Report selected" src="../assets/images/sell-through-menu.webp"/><figcaption>Path: Reports → Sell Through Report.</figcaption></figure>
+<h2 id="run">Run the report</h2>
+<ol class="steps">
+<li>Select the required merchandise criteria such as S. Period, Supplier, Brand, Age Range, Gender or merchandise categories.</li>
+<li>Optionally enter Item Code, Theme, Style, Color or Size.</li>
+<li>Set the <strong>Up To</strong> date.</li>
+<li>Select the required <strong>Group By</strong> options.</li>
+<li>Optionally enable <strong>View Displayed Items Only</strong> or <strong>Show stores sales</strong>.</li>
+<li>Click <strong>Get Data</strong>.</li>
+<li>Review the report grid and the summary KPIs at the bottom.</li>
+</ol>
+<p>While the report is running, <strong>Get Data</strong> changes to <strong>Cancel</strong>. Click Cancel if you need to stop a long-running report.</p>
+<figure class="screenshot"><img alt="IMS Sell Through report criteria and grouping screen" src="../assets/images/sell-through-screen.webp"/><figcaption>The Sell Through screen combines detailed merchandise criteria, flexible grouping and stock/sales KPIs.</figcaption></figure>
+<section class="ims-multiselect-guide" id="multi-select">
+<h2>Using IMS multi-selection fields</h2>
+<p>Some IMS criteria fields open a compact multi-selection list instead of a normal drop-down. You can select several values without holding Ctrl.</p>
+<ol class="steps">
+<li>Click the criteria field to open the selection list.</li>
+<li>Click an item to select or deselect it. Continue clicking until the required combination is selected.</li>
+<li>Click <strong>Close</strong>, double-click an item, or click outside the list to apply the selection.</li>
+</ol>
+<div class="table-wrap"><table><thead><tr><th>Field display</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>All</td><td>All available values are included. If no individual item remains selected, IMS automatically returns the field to All.</td></tr>
+<tr><td>One name</td><td>Exactly one value is selected.</td></tr>
+<tr><td>Multi Selected</td><td>Two or more values are selected.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>No Ctrl key required</strong>The IMS list uses simple multi-selection: click each required item to toggle it on or off.</div>
+</section>
+<h2 id="criteria">Criteria</h2>
+<div class="table-wrap"><table><thead><tr><th>Criteria</th><th>What it does</th></tr></thead><tbody>
+<tr><td>S. Period</td><td>Filters by IMS statistical/selling period. Multiple periods can be selected.</td></tr>
+<tr><td>Suppliers</td><td>Filters merchandise by one or more suppliers.</td></tr>
+<tr><td>Brands</td><td>Filters by brand. Brand selection becomes available when the supplier selection allows IMS to determine the applicable brand list.</td></tr>
+<tr><td>AgeRange</td><td>Filters merchandise by age range.</td></tr>
+<tr><td>Gender</td><td>Filters merchandise by gender classification.</td></tr>
+<tr><td>Category / Sub. Cat</td><td>Filters the main merchandise category and subcategory.</td></tr>
+<tr><td>Group / Sub. Group</td><td>Filters the merchandise group and subgroup.</td></tr>
+<tr><td>Item Code</td><td>Exact item-code filter.</td></tr>
+<tr><td>Theme</td><td>Text search for Theme.</td></tr>
+<tr><td>Style</td><td>Text search; matching styles containing the entered value are included.</td></tr>
+<tr><td>Color</td><td>Text search against the item color code.</td></tr>
+<tr><td>Size</td><td>Exact size filter.</td></tr>
+<tr><td>Up To</td><td>Calculates receipts, sales and stock position up to the selected date.</td></tr>
+</tbody></table></div>
+<h3 id="dependent-criteria">Dependent criteria</h3>
+<p>Some lists depend on another selection. For example, Brand is loaded for a single selected supplier; Category/Sub Category and Group/Sub Group also refresh their available values as the parent selection changes.</p>
+<h2 id="displayed-only">View Displayed Items Only</h2>
+<p>Select <strong>View Displayed Items Only</strong> to include only merchandise that has a recorded First Display Date. This is useful when the analysis should exclude received merchandise that has not yet been displayed for sale.</p>
+<h2 id="store-sales">Show stores sales</h2>
+<p><strong>Show stores sales</strong> adds store-specific sold-quantity columns to the result. Use it when you want the same merchandise grouping accompanied by the quantity sold at each participating store.</p>
+<div class="callout tip"><strong>Performance</strong>Adding store-sales columns requires extra store-level processing and can make a large, highly grouped report take longer to complete.</div>
+<h2 id="group-by">Group By</h2>
+<p>Group By controls the descriptive columns that define each report row. Multiple grouping options can be combined.</p>
+<div class="table-wrap"><table><thead><tr><th>Group By</th><th>Result</th></tr></thead><tbody>
+<tr><td>S. Period</td><td>Separates the result by statistical/selling period.</td></tr>
+<tr><td>Shipments</td><td>Adds the most recent receipt date and shipment and separates rows by shipment.</td></tr>
+<tr><td>Suppliers</td><td>Separates rows by supplier when more than one supplier is in the selected criteria.</td></tr>
+<tr><td>Display Date</td><td>Adds First Display and the number of weeks since the first display date.</td></tr>
+<tr><td>Brands</td><td>Separates rows by brand when multiple brands are available.</td></tr>
+<tr><td>Age Range</td><td>Separates rows by age range.</td></tr>
+<tr><td>Genders</td><td>Separates rows by gender.</td></tr>
+<tr><td>Category / Sub Category</td><td>Separates rows by merchandise category hierarchy.</td></tr>
+<tr><td>Group / Sub Group</td><td>Separates rows by merchandise group hierarchy.</td></tr>
+<tr><td>Style</td><td>Separates rows by style.</td></tr>
+<tr><td>Color</td><td>Adds Color Code and Color Name and separates rows by color.</td></tr>
+<tr><td>Theme</td><td>Separates rows by Theme.</td></tr>
+<tr><td>Description</td><td>Separates rows by supplier/product description.</td></tr>
+<tr><td>Size</td><td>Separates rows by size.</td></tr>
+<tr><td>Item Code</td><td>Produces item-code-level analysis.</td></tr>
+<tr><td>Details</td><td>Adds detailed purchasing, pricing and full-price/discounted sales columns.</td></tr>
+</tbody></table></div>
+<div class="callout"><strong>Why some grouping fields may not add a column</strong>For list-based criteria such as Supplier, Brand, Age Range, Gender, Category and S. Period, IMS only needs a separate grouping column when more than one value is included. If only one value is selected, that value is already implied by the criteria.</div>
+<h2 id="details">Details option</h2>
+<p>Select <strong>Details</strong> when a standard sell-through row is not enough. IMS adds purchasing and pricing information including purchase currency, average purchase price, average original price, average current price, current discount, last sales transaction date and the Full/Discounted quantity, amount and cost breakdowns.</p>
+<h2 id="images">View Image</h2>
+<p><strong>View Image</strong> loads item thumbnails into the report after data has been generated. The generated report must contain both <strong>Style</strong> and <strong>Color Code</strong>, because IMS builds the image lookup from those two values.</p>
+<p>For reports above 10,000 rows, IMS asks for confirmation before loading images. Excel export can include the loaded images; for more than 5,000 rows IMS asks whether to export with images, export data only, or cancel.</p>
+<h2 id="kpis">Sell Through columns and KPIs</h2>
+<div class="table-wrap"><table><thead><tr><th>Column / KPI</th><th>Meaning in IMS</th></tr></thead><tbody>
+<tr><td>Rcvd Qty</td><td>Net received quantity up to the selected date. Purchase returns reduce received quantity.</td></tr>
+<tr><td>Rcvd Cost</td><td>Net received inventory cost.</td></tr>
+<tr><td>Sold Qty</td><td>Net sales quantity. Sales returns reduce sold quantity.</td></tr>
+<tr><td>Sold Amt</td><td>Net sales amount.</td></tr>
+<tr><td>Sold Cost</td><td>Cost associated with the net sold quantity.</td></tr>
+<tr><td>Gross Amt</td><td>Gross sales value before discounts, net of returns.</td></tr>
+<tr><td>ADR</td><td><strong>1 − (Sold Amt ÷ Gross Amt)</strong>.</td></tr>
+<tr><td>Sell Thr. / S_Thr</td><td><strong>Sold Qty ÷ Rcvd Qty</strong>.</td></tr>
+<tr><td>SalesMix</td><td>The row's Sold Amt as a percentage of total Sold Amt for the selected report.</td></tr>
+<tr><td>Adj Qty / Adj Cost</td><td>Stock adjustment quantity and cost included in the on-hand calculation.</td></tr>
+<tr><td>Dprc Qty / Dprc Cost</td><td>Depreciation quantity and cost deducted from on-hand stock.</td></tr>
+<tr><td>OH Qty</td><td><strong>Rcvd Qty − Sold Qty + Adj Qty − Dprc Qty</strong>.</td></tr>
+<tr><td>OH Cost</td><td><strong>Rcvd Cost − Sold Cost + Adj Cost − Dprc Cost</strong>.</td></tr>
+<tr><td>M.Up</td><td><strong>Sold Amt ÷ Sold Cost</strong>.</td></tr>
+<tr><td>Gross Profit</td><td><strong>Sold Amt − Sold Cost</strong>.</td></tr>
+<tr><td>GPM</td><td><strong>Gross Profit ÷ Sold Amt</strong>.</td></tr>
+</tbody></table></div>
+<h2 id="returns">Purchases, sales and returns</h2>
+<p>For historical reconstruction, purchase code 1 increases received quantity/cost and purchase-return code 2 reduces it. Sales returns using transaction codes 53 and 54 are treated as negative sales quantities and amounts, so Sell Through is based on net movement rather than gross sales alone.</p>
+<h2 id="totals">Summary at the bottom</h2>
+<p>The summary area totals the displayed rows and shows <strong>Rcvd Qty, Sold Qty, OH Qty, Rcvd Cost, Sold Cost, OH Cost, Gross Amt, Sold Amt, Gross Profit, Sell Thr., ADR, Count, GPM</strong> and <strong>M.Up</strong>.</p>
+<p><strong>Count</strong> is the number of generated report rows. Sell Through, ADR, GPM and M.Up are recalculated from the overall totals rather than averaged from the individual row percentages.</p>
+<h2 id="old-dates">Older Up To dates</h2>
+<p>For the most recent period, IMS reads the prepared Sell Through dataset. For an older Up To date, IMS reconstructs the position from receipt, sales, adjustment and depreciation history. Because this is more work, IMS warns:</p>
+<div class="callout warning"><strong>Historical report</strong>“Building Sell Through report for old dates may take some time!” Choose Yes to continue or No to cancel.</div>
+<h2 id="output">Export, email, Save As and Hide Filters</h2>
+<div class="table-wrap"><table><thead><tr><th>Action</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Export To Excel</td><td>Exports the generated grid. Loaded product images can also be included.</td></tr>
+<tr><td>Send By Email</td><td>Sends the Sell Through report with a subject based on the selected Up To date.</td></tr>
+<tr><td>Save As</td><td>Saves the generated report. IMS requires report data before this command can be used.</td></tr>
+<tr><td>Hide Filters</td><td>Hides both the Criteria and Group By panels and expands the report grid; use Show Filters to restore them.</td></tr>
+</tbody></table></div>
+<h2 id="permissions">Permissions</h2>
+<p>Report output and financial information follow the logged-in user's IMS permissions. Export To Excel and Send By Email can be hidden independently. COGS/cost columns, Markup, Gross Profit and GPM are also hidden when the user's policy does not allow those values.</p>
+<h2 id="uses">Common uses</h2>
+<div class="card-grid">
+<article class="card"><div class="eyebrow">Buying</div><h3>Which styles are selling through fastest?</h3><p>Group by Style and Color and compare Sell Thr., Sold Qty and OH Qty.</p></article>
+<article class="card"><div class="eyebrow">Stock</div><h3>What remains from a shipment?</h3><p>Group by Shipments and review Rcvd Qty, Sold Qty and OH Qty.</p></article>
+<article class="card"><div class="eyebrow">Merchandising</div><h3>How long has merchandise been displayed?</h3><p>Select Display Date to add First Display and Weeks.</p></article>
+<article class="card"><div class="eyebrow">Stores</div><h3>Where is a style selling?</h3><p>Select Style/Color grouping and enable Show stores sales to add store-level sold quantities.</p></article>
+</div>
+<section id="supplier-master-data">
+<h2>Supplier and Brand master data</h2>
+<p>Sell Through uses the Supplier and Brand definitions maintained in <a href="../manage/suppliers.html">Manage → Suppliers</a>. Each brand belongs to a supplier, which is why Brand selection and grouping follow the selected supplier criteria.</p>
+</section>
+<section id="item-master-data">
+<h2>Item master data behind Sell Through</h2>
+<p>Sell Through's merchandise criteria and grouping fields are based on <a href="../manage/items.html">Manage → Items</a>: Style, Color, Size, Theme, Description, Item Code, Category/Sub Category, Product Group/Sub Group, Supplier/Brand, Age Range, Gender and period classifications.</p>
+<p>The <strong>View Image</strong> option uses the Style/Color image maintained in the Item master. All Size variants of the same Style and Color use that shared image.</p>
+</section>
+<section id="classification-master-data">
+<h2>Merchandise classification masters</h2>
+<p>The report's merchandise classifications come from the same masters used by <a href="../manage/items.html">Manage → Items</a>:</p>
+<div class="table-wrap"><table><thead><tr><th>Report field</th><th>IMS master</th></tr></thead><tbody>
+<tr><td>Category / Sub Category</td><td><a href="../manage/categories.html">Manage → Categories</a></td></tr>
+<tr><td>Group / Sub Group</td><td><a href="../manage/product-groups.html">Manage → Product Groups</a></td></tr>
+<tr><td>Age Range</td><td><a href="../manage/age-ranges.html">Manage → Age Ranges</a></td></tr>
+<tr><td>Gender</td><td><a href="../manage/genders.html">Manage → Genders</a></td></tr>
+<tr><td>S. Period</td><td><a href="../manage/statistical-periods.html">Manage → Statistical Periods</a></td></tr>
+</tbody></table></div>
+</section>
+<h2 id="related">Related reports</h2>
+<div class="doc-list">
+<a class="doc-link" href="main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Analyze detailed sales using merchandise, customer, transaction and location criteria.</span></div></a>
+<a class="doc-link" href="gross-income.html"><div>↗</div><div><strong>Gross Income</strong><span>Review inventory cost and gross profit by supplier or store.</span></div></a>
+<a class="doc-link" href="store-sales-report.html"><div>↗</div><div><strong>Store Sales Report</strong><span>Analyze store sales, COGS, traffic and conversion by period.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main>
+</div>
+<script src="../assets/js/docs.js"></script>
+</body>
+</html>

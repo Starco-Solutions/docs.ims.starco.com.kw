@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Business API v1 Examples &amp; Downloads | IMS Documentation</title>
+<meta name="description" content="curl, PowerShell, C# and downloadable HTTP/Postman collections for IMS Business API v1.">
+<link rel="canonical" href="https://ims.starco.com.kw/technical/api-v1/examples.html">
+<link rel="stylesheet" href="../../assets/css/docs.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Business API v1 Examples & Downloads","url":"https://ims.starco.com.kw/technical/api-v1/examples.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" type="button" data-mobile-nav>Menu</button>
+<nav class="topnav" aria-label="Primary"><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../sales/index.html">Sales</a><a href="../../inventory/index.html">Inventory</a><a href="../../financial/index.html">Financial</a><a href="../../reports/index.html">Reports</a><a href="../../manage/index.html">Manage</a><a href="../../tools/index.html">Tools</a><a href="../../system/index.html">System</a><a href="../../shopify/index.html">Shopify</a><a href="../../integration/index.html">Integration</a><a class="active" href="../../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
+</div></header>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../../index.html">Documentation home</a><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../system/index.html">System</a><a href="../../integration/index.html">Integration</a><h3>Technical</h3><a href="../index.html">Technical Overview</a><a href="../architecture.html">IMS Architecture</a><a href="../multi-company.html">Multi-Company Architecture</a><a href="../security.html">Security Architecture</a><a href="../secure-bootstrap.html">Secure Bootstrap</a><a href="../ims-global.html">IMS Global</a><a href="../ims-api.html">IMS API</a><a href="index.html">Business API v1</a><a href="quick-start.html">Quick Start</a><a href="authentication.html">Authentication & Access</a><a href="requests.html">Requests & Responses</a><a href="reference.html">Endpoint Reference</a><a href="data-semantics.html">Data Semantics</a><a href="errors-rate-limits.html">Errors & Rate Limits</a><a class="active" href="examples.html">Examples & Downloads</a><a href="../secret-vault.html">Secret Vault</a><a href="../system-dashboard-observability.html">System Dashboard & Observability</a><a href="../postgresql/index.html">PostgreSQL Deployment & Operations</a><a href="../it-operations-troubleshooting.html">IT Operations & Troubleshooting</a></aside>
+<main>
+<div class="breadcrumbs"><a href="../../index.html">IMS Documentation</a> › <a href="../index.html">Technical</a> › <a href="index.html">Business API v1</a> › Examples & Downloads</div>
+<span class="badge">IMS Business API v1</span>
+
+<h1>Examples &amp; Downloads</h1>
+<p class="lead">Practical examples for common clients plus complete request collections for Business API v1.</p>
+<h2>curl</h2><pre><code>curl "https://api.example.com/api/v1/companies/1/inventory?nonZeroOnly=true&amp;page=1&amp;pageSize=200"   -H "X-IMS-API-Key: YOUR_API_KEY"   -H "Accept: application/json"</code></pre>
+<h2>PowerShell</h2><pre><code>$headers = @{ "X-IMS-API-Key" = "YOUR_API_KEY" }
+$uri = "https://api.example.com/api/v1/companies/1/sales?fromDate=2026-09-01&amp;toDate=2026-09-30&amp;page=1&amp;pageSize=200"
+$response = Invoke-RestMethod -Method Get -Uri $uri -Headers $headers</code></pre>
+<h2>C# HttpClient</h2><pre><code>using var http = new HttpClient();
+http.BaseAddress = new Uri("https://api.example.com/");
+http.DefaultRequestHeaders.Add("X-IMS-API-Key", "YOUR_API_KEY");
+
+var response = await http.GetAsync(
+    "api/v1/companies/1/sales?fromDate=2026-09-01&amp;toDate=2026-09-30&amp;page=1&amp;pageSize=200");
+
+response.EnsureSuccessStatusCode();
+string json = await response.Content.ReadAsStringAsync();</code></pre>
+<h2>Downloads</h2>
+<div class="doc-list">
+<a class="doc-link" href="IMS_API_v1.http"><div>↓</div><div><strong>IMS_API_v1.http</strong><span>Ready-to-run Visual Studio / VS Code HTTP Client requests for every Business API v1 endpoint.</span></div></a>
+<a class="doc-link" href="IMS_API_v1.postman_collection.json"><div>↓</div><div><strong>Postman collection</strong><span>Importable collection using baseUrl, companyId and apiKey variables.</span></div></a>
+</div>
+
+<footer class="page-footer"><span>IMS Documentation</span><span>Business API v1 developer guide</span></footer>
+</main></div><script src="../../assets/js/docs.js"></script></body></html>

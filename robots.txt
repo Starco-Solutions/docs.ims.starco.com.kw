@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ims.starco.com.kw/sitemap.xml

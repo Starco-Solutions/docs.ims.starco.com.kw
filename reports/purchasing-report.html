@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Purchasing Report | IMS User Guide</title>
+<meta content="How to use the IMS Purchasing Report to analyze purchases and purchase returns by supplier, transaction type, season, category, style, invoice and period, including received quantity, landed cost, local cost, expenses, retail value and markup." name="description"/>
+<link href="https://ims.starco.com.kw/reports/purchasing-report.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Purchasing Report User Guide","url":"https://ims.starco.com.kw/reports/purchasing-report.html","about":"IMS purchasing, purchase returns, inventory cost and merchandise receipt analysis","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a class="active" href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a class="active" href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a><a href="../index.html#inventory">Inventory</a><a href="../index.html#financial">Financial</a><a href="../index.html#reports">Reports</a><a href="../index.html#manage">Manage</a><a href="../index.html#tools">Tools</a><a href="../index.html#system">System</a><a href="../index.html#shopify">Shopify</a><a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Reports › Purchasing Report</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/reports.webp"/><h1>Purchasing Report</h1></div>
+<p class="lead">The Purchasing Report analyzes merchandise receipts and purchase returns across a selected date range. It can be summarized or grouped by period, supplier, transaction type, invoice, merchandise hierarchy, style, color and other product attributes, with purchase-cost and retail-value KPIs.</p>
+<div class="callout"><strong>Open the report</strong>Reports → Purchasing Report</div>
+<figure class="screenshot"><img alt="IMS Reports menu with Purchasing Report selected" src="../assets/images/purchasing-report-menu.webp"/><figcaption>Path: Reports → Purchasing Report.</figcaption></figure>
+<h2 id="run">Run the report</h2>
+<ol class="steps">
+<li>Select the required criteria such as Supplier, S. Period, Transaction Type, Brand, Age Range, Gender, R. Season or merchandise category.</li>
+<li>Optionally enter Item Code, Style, Color or Size.</li>
+<li>Select the <strong>Date From</strong> and <strong>To</strong> range.</li>
+<li>If required, enable <strong>Show foreign currency</strong>.</li>
+<li>Select the required <strong>Group By</strong> options.</li>
+<li>Click <strong>Generate</strong>.</li>
+<li>Review the result grid and the totals at the bottom of the screen.</li>
+</ol>
+<p>While IMS is retrieving the report, <strong>Generate</strong> changes to <strong>Cancel</strong>. Click Cancel to stop the current report request.</p>
+<figure class="screenshot"><img alt="IMS Purchasing Report criteria, Group By options and summary totals" src="../assets/images/purchasing-report-screen.webp"/><figcaption>The Purchasing Report supports detailed merchandise filters, time grouping, invoice analysis and cost KPIs.</figcaption></figure>
+<section class="ims-multiselect-guide" id="multi-select">
+<h2>Using IMS multi-selection fields</h2>
+<p>Some IMS criteria fields open a compact multi-selection list instead of a normal drop-down. You can select several values without holding Ctrl.</p>
+<ol class="steps">
+<li>Click the criteria field to open the selection list.</li>
+<li>Click an item to select or deselect it. Continue clicking until the required combination is selected.</li>
+<li>Click <strong>Close</strong>, double-click an item, or click outside the list to apply the selection.</li>
+</ol>
+<div class="table-wrap"><table><thead><tr><th>Field display</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>All</td><td>All available values are included. If no individual item remains selected, IMS automatically returns the field to All.</td></tr>
+<tr><td>One name</td><td>Exactly one value is selected.</td></tr>
+<tr><td>Multi Selected</td><td>Two or more values are selected.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>No Ctrl key required</strong>The IMS list uses simple multi-selection: click each required item to toggle it on or off.</div>
+</section>
+<h2 id="criteria">Criteria</h2>
+<div class="table-wrap"><table><thead><tr><th>Criteria</th><th>What it does</th></tr></thead><tbody>
+<tr><td>Suppliers</td><td>Filters purchase movements to one or more suppliers.</td></tr>
+<tr><td>S. Period</td><td>Filters by the statistical/selling period recorded on the purchase line.</td></tr>
+<tr><td>Trans. Type</td><td>Filters the purchase transaction type. The available report transaction types are Purchase and Purchase Return.</td></tr>
+<tr><td>Brands</td><td>Filters by brand. The brand list is enabled when one supplier is selected so IMS can load that supplier's brands.</td></tr>
+<tr><td>AgeRange</td><td>Filters merchandise by age range.</td></tr>
+<tr><td>Gender</td><td>Filters merchandise by gender classification.</td></tr>
+<tr><td>R. Season</td><td>Filters by the merchandise received season stored on the item.</td></tr>
+<tr><td>Category / Sub. Cat</td><td>Filters the main merchandise category and subcategory.</td></tr>
+<tr><td>Group / Sub. Group</td><td>Filters the merchandise group and subgroup.</td></tr>
+<tr><td>Item Code</td><td>Exact item-code filter.</td></tr>
+<tr><td>Style</td><td>Contains search against the item style.</td></tr>
+<tr><td>Color</td><td>Contains search against the item color code.</td></tr>
+<tr><td>Size</td><td>Exact size filter.</td></tr>
+<tr><td>Date From / To</td><td>Includes purchase movements whose invoice date falls within the selected range.</td></tr>
+</tbody></table></div>
+<h3 id="dependent-criteria">Dependent criteria</h3>
+<p>Some criteria refresh according to another selection. Brand is loaded for a single selected supplier. Sub Category is refreshed from Category, and Sub Group is refreshed from Group. If the parent selection contains several values, IMS returns the child list to the broader available set.</p>
+<h2 id="foreign-currency">Show foreign currency</h2>
+<p>Select <strong>Show foreign currency</strong> when you need the original purchase-currency values in addition to local and landed cost. IMS then separates the report by foreign-currency symbol and adds the foreign-cost and exchange-rate fields.</p>
+<div class="table-wrap"><table><thead><tr><th>Foreign-currency column</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>FR Cost</td><td>Purchase value before local currency conversion and before landed-cost expenses, net of purchase returns.</td></tr>
+<tr><td>FR Currency</td><td>The purchase currency symbol.</td></tr>
+<tr><td>FR Exch</td><td>The weighted local-currency exchange rate represented by Local Cost ÷ FR Cost for the row.</td></tr>
+</tbody></table></div>
+<h2 id="group-by">Group By</h2>
+<p>Group By defines how IMS separates the purchase totals into report rows. Multiple grouping options can be combined.</p>
+<div class="table-wrap"><table><thead><tr><th>Group By</th><th>Result</th></tr></thead><tbody>
+<tr><td>None</td><td>Returns the most consolidated view allowed by the selected criteria.</td></tr>
+<tr><td>Week</td><td>Separates purchase activity by year and calendar week.</td></tr>
+<tr><td>Month</td><td>Separates purchase activity by month and year.</td></tr>
+<tr><td>Year</td><td>Separates purchase activity by year.</td></tr>
+<tr><td>TransType</td><td>Separates Purchase from Purchase Return when more than one transaction type is included.</td></tr>
+<tr><td>Invoice No.</td><td>Adds Cost Center, Invoice No. and Invoice Date and separates the result by invoice.</td></tr>
+<tr><td>Suppliers</td><td>Separates rows by supplier when more than one supplier is included.</td></tr>
+<tr><td>S. Period</td><td>Separates rows by the statistical/selling period on the purchase line.</td></tr>
+<tr><td>Rcvd. Season</td><td>Separates rows by the merchandise received season stored on the item.</td></tr>
+<tr><td>Brands</td><td>Separates rows by brand when multiple brands are included.</td></tr>
+<tr><td>Age Range</td><td>Separates rows by age range.</td></tr>
+<tr><td>Genders</td><td>Separates rows by gender.</td></tr>
+<tr><td>Category / Sub Category</td><td>Separates rows by merchandise category hierarchy.</td></tr>
+<tr><td>Group / Sub Group</td><td>Separates rows by merchandise group hierarchy.</td></tr>
+<tr><td>Style</td><td>Separates rows by style.</td></tr>
+<tr><td>Description</td><td>Separates rows by product description.</td></tr>
+<tr><td>Color</td><td>Separates rows by Color Code.</td></tr>
+<tr><td>Size</td><td>Separates rows by size.</td></tr>
+<tr><td>Details</td><td>Adds item-level pricing and status information: Item Code, Barcode, Original Price, Current Price, Current Discount and State.</td></tr>
+</tbody></table></div>
+<div class="callout"><strong>Why some grouping fields may not add a column</strong>For list-based fields such as Supplier, Brand, Age Range, Gender, Category, R. Season and S. Period, IMS adds the grouping column only when the selected criteria contain more than one value. If only one value is selected, the value is already implied by the criteria.</div>
+<h2 id="details">Details</h2>
+<p>Select <strong>Details</strong> for item-level analysis. IMS adds <strong>Item Code, Barcode, Orig. Price, Curr. Price, Curr Discount</strong> and the item's current <strong>State</strong> (Normal, Sale or Outlet).</p>
+<h2 id="kpis">Report values and totals</h2>
+<div class="table-wrap"><table><thead><tr><th>Column / total</th><th>Meaning in IMS</th></tr></thead><tbody>
+<tr><td>RCVD Qty</td><td>Net received quantity. Purchase returns reduce the quantity.</td></tr>
+<tr><td>Landed Cost</td><td>Net purchase cost after applying the invoice cost rate. Purchase returns reduce the landed cost.</td></tr>
+<tr><td>Retail Price</td><td>The report's retail-value total calculated from receipt quantity × current retail price.</td></tr>
+<tr><td>Markup</td><td>For each report row: Retail Price ÷ Landed Cost.</td></tr>
+<tr><td>FR Cost</td><td>Net foreign purchase cost before currency conversion.</td></tr>
+<tr><td>Local Cost</td><td>Foreign purchase cost converted using the invoice currency-change rate.</td></tr>
+<tr><td>Total Expenses</td><td>Landed Cost − Local Cost.</td></tr>
+<tr><td>Cost Rate</td><td>Landed Cost ÷ FR Cost.</td></tr>
+<tr><td>Invs Count</td><td>Count of distinct invoice numbers within each generated group.</td></tr>
+<tr><td>Count</td><td>Number of rows in the generated report grid.</td></tr>
+</tbody></table></div>
+<h3 id="footer-totals">Bottom summary</h3>
+<p>The bottom summary shows <strong>RCVD Qty, Count, Local Cost, Landed Cost, Invs, Expenses, Retail Price, AV. Markup</strong> and <strong>AV. Cost Rate</strong>.</p>
+<p>The summary values are recalculated from the generated rows. AV. Markup is calculated from total Retail Price and total Local Cost, while AV. Cost Rate is calculated from total Landed Cost and total FR Cost.</p>
+<h2 id="purchase-returns">Purchase returns</h2>
+<p>The report includes transaction codes 1 and 2. Code 1 is treated as a purchase and code 2 as a purchase return. For received quantity and the cost fields, purchase returns are subtracted from purchases so the result represents net purchasing movement for the selected criteria and dates.</p>
+<h2 id="images">View Image</h2>
+<p><strong>View Image</strong> loads item thumbnails into the generated report. The report must contain both <strong>Style</strong> and <strong>Color Code</strong>, because IMS creates the thumbnail lookup from those two values.</p>
+<p>If the report contains more than 10,000 rows, IMS asks for confirmation before loading images. For Excel exports above 5,000 rows, IMS asks whether to export with images, export data only, or cancel.</p>
+<h2 id="permissions">Permissions</h2>
+<p>Purchasing Report output follows the logged-in user's IMS access policy. Export To Excel and Send By Email can be hidden independently. If the user is not allowed to view COGS/cost information, IMS hides local cost, landed cost, expenses, markup, cost rate and the foreign-currency option.</p>
+<h2 id="output">Export, email and Save As</h2>
+<div class="table-wrap"><table><thead><tr><th>Action</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Export To Excel</td><td>Exports the generated Purchasing Report. Loaded thumbnails can also be included in the Excel file.</td></tr>
+<tr><td>Send By Email</td><td>Sends the Purchasing Report with a subject containing the selected From and To dates.</td></tr>
+<tr><td>Save As</td><td>Saves the generated report. IMS requires report data before this command can be used.</td></tr>
+</tbody></table></div>
+<h2 id="uses">Common uses</h2>
+<div class="card-grid">
+<article class="card"><div class="eyebrow">Buying</div><h3>How much did we receive?</h3><p>Filter by Supplier and date, then review RCVD Qty, Landed Cost and Local Cost.</p></article>
+<article class="card"><div class="eyebrow">Returns</div><h3>What was returned to suppliers?</h3><p>Select Purchase Return in Trans. Type and group by Supplier, Invoice No. or merchandise fields.</p></article>
+<article class="card"><div class="eyebrow">Merchandise</div><h3>Which categories received the most stock?</h3><p>Group by Category, Group, Style or other merchandise dimensions and compare RCVD Qty and Retail Price.</p></article>
+<article class="card"><div class="eyebrow">Costing</div><h3>What is the landed-cost impact?</h3><p>Compare Local Cost, Expenses, Landed Cost, Cost Rate and Markup. Enable Show foreign currency when original-currency analysis is needed.</p></article>
+</div>
+<section id="supplier-master-data">
+<h2>Supplier and Brand master data</h2>
+<p>The Purchasing Report uses supplier and brand master data from <a href="../manage/suppliers.html">Manage → Suppliers</a>. Brands belong to suppliers, so selecting one supplier lets IMS load that supplier's applicable brands for purchasing analysis.</p>
+</section>
+<section id="item-master-data">
+<h2>Item master data behind Purchasing Report</h2>
+<p>The Purchasing Report uses merchandise classifications from <a href="../manage/items.html">Manage → Items</a>, including Item Code, Style, Color, Size, Description, Category hierarchy, Product Group hierarchy, Supplier, Brand, Age Range, Gender, received season and statistical period.</p>
+<p>When product images are displayed or exported, IMS uses the Style/Color image maintained in the Item master rather than a separate image for each Size.</p>
+</section>
+<section id="classification-master-data">
+<h2>Merchandise classification masters</h2>
+<p>The report's merchandise classifications come from the same masters used by <a href="../manage/items.html">Manage → Items</a>:</p>
+<div class="table-wrap"><table><thead><tr><th>Report field</th><th>IMS master</th></tr></thead><tbody>
+<tr><td>Category / Sub Category</td><td><a href="../manage/categories.html">Manage → Categories</a></td></tr>
+<tr><td>Group / Sub Group</td><td><a href="../manage/product-groups.html">Manage → Product Groups</a></td></tr>
+<tr><td>Age Range</td><td><a href="../manage/age-ranges.html">Manage → Age Ranges</a></td></tr>
+<tr><td>Gender</td><td><a href="../manage/genders.html">Manage → Genders</a></td></tr>
+<tr><td>S. Period</td><td><a href="../manage/statistical-periods.html">Manage → Statistical Periods</a></td></tr>
+</tbody></table></div>
+</section>
+<h2 id="related">Related reports</h2>
+<div class="doc-list">
+<a class="doc-link" href="sell-through-report.html"><div>↗</div><div><strong>Sell Through Report</strong><span>Compare received stock with sales and on-hand quantity.</span></div></a>
+<a class="doc-link" href="gross-income.html"><div>↗</div><div><strong>Gross Income</strong><span>Review inventory, COGS and gross profit by supplier or store.</span></div></a>
+<a class="doc-link" href="main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Analyze sales using detailed merchandise and transaction criteria.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main>
+</div>
+<script src="../assets/js/docs.js"></script>
+</body>
+</html>

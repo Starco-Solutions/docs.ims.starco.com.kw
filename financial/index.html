@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Financial | IMS User Guide</title>
+<meta content="IMS Financial module overview: integration setup, period closing, posting, journal monitoring, banks, currencies, payment types, purchasing expenses, cash receipts and gift vouchers." name="description"/>
+<link href="https://ims.starco.com.kw/financial/index.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Financial","url":"https://ims.starco.com.kw/financial/index.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a class="active" href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a class="active" href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Financial</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/financial.webp"/><h1>Financial</h1></div>
+<p class="lead">The Financial area contains IMS accounting integration and financial-control functions. In IMS 9.4.4, Integration Setup also contains the Purchase VAT / Tax Codes configuration when VAT is enabled.</p>
+<figure class="screenshot menu-shot">
+<img alt="IMS Financial menu" src="../assets/images/financial-menu.webp"/>
+<figcaption>The Financial menu in IMS.</figcaption>
+</figure>
+<div class="callout tip">
+<strong>Current production connector</strong>
+IMS is currently integrated directly with the local <strong>Al-Shamel Financial Management System</strong>. In this manual, <strong>Financial Posting</strong> is used as the business term, while Al-Shamel is identified as the current production financial connector where the implementation matters.
+</div>
+<h2>Financial menu</h2>
+<div class="table-wrap"><table><thead><tr><th>Module</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="integration-setup.html"><strong>Integration Setup</strong></a></td><td>Configure the current financial-system connection and the core accounting mappings used by IMS.</td></tr>
+<tr><td><a href="close-fin-period.html"><strong>Close Fin Period</strong></a></td><td>Maintain the financial close-through date and review its audit history.</td></tr>
+<tr><td><a href="posting.html"><strong>Posting</strong></a></td><td>Review prepared journals and post approved transactions to the current financial system.</td></tr>
+<tr><td><a href="posted-transactions.html"><strong>Posted Transactions</strong></a></td><td>Review posted journals, compare totals and perform controlled UnPost when authorized.</td></tr>
+<tr><td><a href="journals-monitoring.html"><strong>Journals Monitoring</strong></a></td><td>Find source transactions with missing or unbalanced IMS journal entries.</td></tr>
+<tr><td><a href="banks.html"><strong>Banks</strong></a></td><td>Maintain the bank master list.</td></tr>
+<tr><td><a href="currencies.html"><strong>Currencies</strong></a></td><td>Maintain currencies, the local currency and dated Cost/POS rates.</td></tr>
+<tr><td><a href="sales-payment-types.html"><strong>Sales Payment Types</strong></a></td><td>Define sales/refund payment methods and their financial behavior.</td></tr>
+<tr><td><a href="purchasing-expenses.html"><strong>Purchasing Expenses</strong></a></td><td>Define reusable landed-cost expense types and their financial accounts.</td></tr>
+<tr><td><a href="cash-receipts.html"><strong>Cash Receipts</strong></a></td><td>Record customer-account payments and maintain receipt vouchers.</td></tr>
+<tr><td><a href="gift-vouchers.html"><strong>Gift Vouchers</strong></a></td><td>Create and maintain issued gift vouchers, validity and redemption status.</td></tr>
+</tbody></table></div>
+<h2>Current guide</h2>
+<div class="doc-list">
+<a class="doc-link" href="integration-setup.html"><div>01</div><div><strong>Integration Setup</strong><span>Configure the current financial-system connection, account mappings and VAT tax-code treatments.</span></div></a>
+<a class="doc-link" href="vat-tax-configuration.html"><div>02</div><div><strong>VAT &amp; Tax Configuration</strong><span>Follow the complete VAT setup flow across System Settings, Finance Setup, suppliers, purchases and sales.</span></div></a>
+<a class="doc-link" href="close-fin-period.html"><div>03</div><div><strong>Close Fin Period</strong><span>Maintain the financial close-through date and audit history.</span></div></a>
+<a class="doc-link" href="posting.html"><div>04</div><div><strong>Posting</strong><span>Review and send prepared operational journals to the financial system.</span></div></a>
+<a class="doc-link" href="posted-transactions.html"><div>05</div><div><strong>Posted Transactions</strong><span>Audit posted journals, compare totals and perform controlled UnPost.</span></div></a>
+<a class="doc-link" href="journals-monitoring.html"><div>06</div><div><strong>Journals Monitoring</strong><span>Find missing or unbalanced prepared journals.</span></div></a>
+<a class="doc-link" href="banks.html"><div>07</div><div><strong>Banks</strong><span>Maintain the bank master list.</span></div></a>
+<a class="doc-link" href="currencies.html"><div>08</div><div><strong>Currencies</strong><span>Maintain currencies and effective-dated Cost/POS rates.</span></div></a>
+<a class="doc-link" href="sales-payment-types.html"><div>09</div><div><strong>Sales Payment Types</strong><span>Define payment methods and their financial/special classifications.</span></div></a>
+<a class="doc-link" href="purchasing-expenses.html"><div>10</div><div><strong>Purchasing Expenses</strong><span>Define landed-cost expense types and account mappings.</span></div></a>
+<a class="doc-link" href="cash-receipts.html"><div>11</div><div><strong>Cash Receipts</strong><span>Record customer-account payments and maintain receipt vouchers.</span></div></a>
+<a class="doc-link" href="gift-vouchers.html"><div>12</div><div><strong>Gift Vouchers</strong><span>Create and maintain issued gift vouchers and redemption state.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

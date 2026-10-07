@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Manage Items | IMS User Guide</title>
+<meta content="How to manage items in IMS: item codes, styles, colors, sizes, barcodes, categories, supplier and brand, seasons, age and gender, pricing, online details, images and bulk imports." name="description"/>
+<link href="https://ims.starco.com.kw/manage/items.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Manage Items User Guide","url":"https://ims.starco.com.kw/manage/items.html","about":"IMS item master data, merchandise hierarchy, pricing, images and import tools","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a class="active" href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a class="active" href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a><a href="../index.html#inventory">Inventory</a><a href="../index.html#financial">Financial</a><a href="../index.html#reports">Reports</a><a href="../index.html#manage">Manage</a><a href="../index.html#tools">Tools</a><a href="../index.html#system">System</a><a href="../index.html#shopify">Shopify</a><a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Manage › Items</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/manage.webp"/><h1>Manage Items</h1></div>
+<p class="lead">Manage Items is the central merchandise master in IMS. It connects each Item Code to its Style/Article, Color, Size, barcode, descriptions, merchandise hierarchy, supplier and brand, demographic classifications, origin, pricing, online information and product image. These fields are reused across Sales, Inventory, Purchasing, Sell Through and Main Sales reporting.</p>
+<div class="callout"><strong>Open the screen</strong>Manage → Items</div>
+<figure class="screenshot"><img alt="IMS Manage menu with Items selected" src="../assets/images/manage-items-menu.webp"/><figcaption>Path: Manage → Items.</figcaption></figure>
+<h2 id="screen">Items Data screen</h2>
+<figure class="screenshot"><img alt="IMS Items Data screen showing Style, Item Code, merchandise classifications, prices, online details and image" src="../assets/images/manage-items-screen.webp"/><figcaption>Items Data combines item search, style variants, merchandise classifications, pricing, online information and the Style/Color image.</figcaption></figure>
+<h2 id="find">Find an item or a complete style</h2>
+<div class="table-wrap"><table><thead><tr><th>Search</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Style / Article → Find</td><td>Finds the style and loads its Item Code / Color / Size variants into the Style grid.</td></tr>
+<tr><td>Item Code → Find</td><td>Finds the exact Item Code and also loads the other variants belonging to the same Style.</td></tr>
+<tr><td>Style grid</td><td>Select another Item Code in the grid to switch the details panel to that Color/Size variant.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>Style versus Item Code</strong>A Style can contain many sellable Item Codes. In the normal fashion-item structure, Color and Size distinguish the variants under the Style.</div>
+<h2 id="identity">Item identity and variant fields</h2>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Style / Article</td><td>The product style/article that groups related Color/Size Item Codes.</td></tr>
+<tr><td>Color Code</td><td>The merchandise color code.</td></tr>
+<tr><td>Color Name</td><td>Readable color description associated with the color code.</td></tr>
+<tr><td>Size</td><td>The item's size or size code.</td></tr>
+<tr><td>Barcode / EAN</td><td>The item's primary barcode.</td></tr>
+<tr><td>List</td><td>Opens the additional-barcode list for the selected Item Code when secondary barcodes exist.</td></tr>
+<tr><td>Theme Name</td><td>Optional merchandise Theme classification used by supported item and reporting workflows.</td></tr>
+<tr><td>Product URL</td><td>Online/product URL stored for the Style/Color SKU.</td></tr>
+<tr><td>Image SKU</td><td>IMS builds the image key as <strong>Style_ColorCode</strong>.</td></tr>
+</tbody></table></div>
+<h2 id="details">Main item details</h2>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Item Code</td><td>Unique IMS item identifier.</td></tr>
+<tr><td>Description</td><td>English item description.</td></tr>
+<tr><td>Ar. Descrip.</td><td>Arabic item description.</td></tr>
+<tr><td>Type</td><td>Classifies the record as an Item or Service.</td></tr>
+<tr><td>State</td><td>Current IMS item state, such as Normal, Sale or Outlet according to the configured item-state master.</td></tr>
+<tr><td>Account No.</td><td>Financial/account mapping used where the item type and financial workflow require it.</td></tr>
+</tbody></table></div>
+<h2 id="hierarchy">Merchandise hierarchy</h2>
+<p>The item master stores the classifications that later become criteria and Group By dimensions in IMS reports.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Relationship</th></tr></thead><tbody>
+<tr><td>Category</td><td>Main merchandise category.</td></tr>
+<tr><td>Sub Category</td><td>Subcategory under the selected Category.</td></tr>
+<tr><td>Product Group</td><td>Main product group.</td></tr>
+<tr><td>Sub Group</td><td>Subgroup under the selected Product Group.</td></tr>
+<tr><td>Rcvd. Season</td><td>Received-season / received statistical-period classification associated with the item.</td></tr>
+<tr><td>St. Period</td><td>Statistical/selling period displayed for the item and used by supported reporting.</td></tr>
+<tr><td>Supplier</td><td>Supplier master assigned to the item.</td></tr>
+<tr><td>Brand</td><td>Brand under the selected Supplier.</td></tr>
+<tr><td>Age Range</td><td>Age classification used by merchandise analysis.</td></tr>
+<tr><td>Gender</td><td>Gender classification used by merchandise analysis.</td></tr>
+<tr><td>Origin</td><td>Country of origin.</td></tr>
+</tbody></table></div>
+<p>Several classifications are hierarchical. Changing the main Category resets the Sub Category, changing Product Group resets Sub Group, and changing Supplier resets Brand so the dependent field remains consistent with its parent master.</p>
+<h2 id="receipt-cost">Receipt and cost information</h2>
+<p>The lower-right receipt/cost fields provide a quick reference to the item's latest purchasing and average-cost information.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Last Rcvd Date</td><td>Date of the latest recorded purchase/receipt information for the item.</td></tr>
+<tr><td>Last Rcvd Curr</td><td>Currency used by the latest purchase/receipt information.</td></tr>
+<tr><td>Last Rcvd Cost</td><td>Latest purchase price shown using that purchase currency's format.</td></tr>
+<tr><td>Avg. Local Cost</td><td>Average item cost shown in the IMS local-currency format.</td></tr>
+<tr><td>Unit</td><td>Item unit of measure.</td></tr>
+</tbody></table></div>
+<h2 id="pricing">Retail pricing</h2>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Original Price</td><td>Original/full retail price.</td></tr>
+<tr><td>Current Price</td><td>Current selling price.</td></tr>
+<tr><td>Current Disc %</td><td>Calculated as <strong>1 − Current Price ÷ Original Price</strong> when Original Price is greater than Current Price; otherwise 0%.</td></tr>
+</tbody></table></div>
+<p>When pricing is edited, IMS keeps the item's selling state aligned with the current versus original price and updates the relevant item pricing records.</p>
+<h2 id="new">Create a new item</h2>
+<ol class="steps">
+<li>Click <strong>New</strong>.</li>
+<li>Enter the required <strong>Item Code</strong>, <strong>Style</strong> and <strong>Barcode</strong>.</li>
+<li>Enter Color, Size and descriptions.</li>
+<li>Set Type, State and the required merchandise classifications.</li>
+<li>Assign Supplier, Brand, Age Range, Gender, Origin and Unit as applicable.</li>
+<li>Enter Original Price and Current Price.</li>
+<li>Enter Product URL when the Style/Color has an online product link.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>Before saving, IMS checks that the Item Code is unique, that the barcode is not already assigned as either a primary or secondary barcode, and that the Style/Color/Size combination is not already assigned to another Item Code.</p>
+<h2 id="edit">Edit an item</h2>
+<ol class="steps">
+<li>Find the Item Code or Style.</li>
+<li>Select the required Item Code in the Style grid.</li>
+<li>Click <strong>Edit</strong>.</li>
+<li>Change the permitted item information.</li>
+<li>Click <strong>Save</strong>, or click <strong>Cancel</strong> to restore the existing data.</li>
+</ol>
+<p>The Item Code itself remains fixed when editing an existing record.</p>
+<h2 id="apply-style">Apply changes to the entire Style</h2>
+<p>During Edit mode, <strong>Apply to Style</strong> lets a maintenance user apply appropriate changes to all Item Codes belonging to the selected Style rather than changing only one Color/Size variant.</p>
+<p>When Apply to Style is selected, Color Name, Color Code, Barcode and Size remain variant-specific and are not edited through the style-wide operation.</p>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Effect</th></tr></thead><tbody>
+<tr><td>Apply to Style + Price Only</td><td>Applies Original Price, Current Price and the resulting item state across the Style.</td></tr>
+<tr><td>Apply to Style without Price Only</td><td>Applies the shared style-level information after IMS asks for confirmation.</td></tr>
+</tbody></table></div>
+<h2 id="barcodes">Primary and additional barcodes</h2>
+<p>Every item has a primary Barcode / EAN. IMS can also maintain additional barcodes in the secondary-barcode list. Barcode validation checks both places so the same barcode is not assigned to different Item Codes.</p>
+<h2 id="images">Item images</h2>
+<p>IMS stores product images by <strong>Image SKU = Style_ColorCode</strong>. This means all Size variants of the same Style and Color share the same image.</p>
+<h3>Change or add an image</h3>
+<ol class="steps">
+<li>Find the item.</li>
+<li>Click <strong>Change Image</strong>.</li>
+<li>Select a JPG, JPEG, PNG, GIF, BMP or WebP file.</li>
+<li>Review the image preview.</li>
+<li>Click <strong>Save Image</strong>.</li>
+</ol>
+<p>IMS automatically converts the image to JPEG, auto-orients it, removes unnecessary metadata, resizes it to fit the IMS image dimensions and compresses it to the supported storage size. A 62 × 62 thumbnail is also created for reports and other thumbnail views.</p>
+<h3>Delete an image</h3>
+<p>Click <strong>Delete Image</strong> and confirm. Deleting the image removes the Style/Color image record without deleting the item itself.</p>
+<div class="callout"><strong>Images in reports</strong>The same Style/Color image maintained here is what IMS uses when Main Sales Report, Sell Through Report or Purchasing Report displays product images or exports them to Excel.</div>
+<h2 id="online">Online Details and Product URL</h2>
+<p><strong>Online Details &gt;&gt;</strong> opens the selected item's online-information screen. The button is shown in green when the item is currently marked Online and red when it is not.</p>
+<figure class="screenshot"><img alt="IMS Items Data screen with the Item's Online Details window open" src="../assets/images/manage-items-online-details.webp"/><figcaption>Item's Online Details for the selected Item Code.</figcaption></figure>
+<p>The Online Details window keeps the e-commerce-specific values that can differ from the normal IMS retail item information.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Available Online</td><td>Marks whether the selected item is available to the online integration.</td></tr>
+<tr><td>Color</td><td>Online color value for the selected Item Code.</td></tr>
+<tr><td>Original Price</td><td>Original online price.</td></tr>
+<tr><td>Current Price</td><td>Current online selling price.</td></tr>
+<tr><td>Current Disc %</td><td>Calculated automatically from Original Price and Current Price when the original price is greater than the current price.</td></tr>
+<tr><td>Handle</td><td>Online product handle associated with the selected Item Code.</td></tr>
+<tr><td>Reduce Qty. by</td><td>Quantity reduction value used by the online item workflow.</td></tr>
+</tbody></table></div>
+<h3>Edit online details</h3>
+<ol class="steps">
+<li>Find the required Item Code and click <strong>Online Details &gt;&gt;</strong>.</li>
+<li>Click <strong>Edit</strong>.</li>
+<li>Update Available Online, Color, Original Price, Current Price, Handle or Reduce Qty. by as required.</li>
+<li>Click <strong>Save</strong>.</li>
+<li>IMS asks whether the change should be applied to the <strong>entire Style</strong>.</li>
+</ol>
+<div class="table-wrap"><table><thead><tr><th>Save choice</th><th>What IMS updates</th></tr></thead><tbody>
+<tr><td>No — selected Item Code only</td><td>Updates Available Online, online Color, Original Price, Current Price, Handle and Reduce Qty. by for the selected Item Code.</td></tr>
+<tr><td>Yes — entire Style</td><td>Updates Available Online, Original Price, Current Price and Reduce Qty. by for every Item Code belonging to the Style.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>Style-wide update</strong>Online Color and Handle remain Item-Code-specific when the update is applied to the entire Style.</div>
+<p>After saving, IMS records the affected Item Code or Style for the online-update workflow so the change can be processed by the integration service.</p>
+<p>The <strong>Product URL</strong> on the main Items screen is stored at the Style/Color SKU level, matching the same <strong>Style_ColorCode</strong> structure used by item images.</p>
+<h2 id="delete">Delete an item</h2>
+<p>IMS protects transaction history. An item can be deleted only when it has not already been used in relevant stock, purchasing, sales, depreciation, adjustment or transfer transactions.</p>
+<ol class="steps">
+<li>Find the Item Code.</li>
+<li>Click <strong>Delete</strong>.</li>
+<li>Review the confirmation message.</li>
+<li>Choose Yes to delete the unused item.</li>
+</ol>
+<p>If IMS finds previous transaction history, the item is retained and the user is informed that it cannot be deleted.</p>
+<h2 id="imports">Bulk Import</h2>
+<p>The <strong>Import</strong> menu provides administrative bulk-maintenance tools. IMS validates the selected file before committing changes and writes a validation log when the source contains invalid data.</p>
+<div class="table-wrap"><table><thead><tr><th>Import option</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Import Items</td><td>Creates items in bulk and can optionally update existing item records. When updating existing items, Item Code, Style, Color and Size are retained.</td></tr>
+<tr><td>Import Price Changes</td><td>Updates current selling price and state in bulk. Files can target an Item Code, a complete Style, or a Style + Color combination.</td></tr>
+<tr><td>Import Online Prices</td><td>Updates online original price, online current price and Online status for item/style selections used by the online integration workflow.</td></tr>
+<tr><td>Import Images</td><td>Imports Style/Color images in bulk from local file paths or HTTP/HTTPS image sources.</td></tr>
+</tbody></table></div>
+<h3 id="item-import">Import Items validation</h3>
+<p>The item-data import validates field lengths and data types, duplicate Item Codes, duplicate barcodes and duplicate Style/Color/Size combinations before saving. If invalid rows are found, IMS creates a <strong>-ValidationLog.txt</strong> file beside the import source.</p>
+<p>When the import encounters Item Codes that already exist, IMS asks whether those existing records should be updated. Identity fields such as Item Code, Style, Color and Size remain unchanged during that update.</p>
+<h3 id="image-import">Import Images file</h3>
+<p>The image importer expects at least two tab-separated columns:</p>
+<div class="table-wrap"><table><thead><tr><th>Column</th><th>Value</th></tr></thead><tbody>
+<tr><td>SKU</td><td>The IMS Style_ColorCode image key.</td></tr>
+<tr><td>Image Src</td><td>A local image path or an HTTP/HTTPS image URL.</td></tr>
+</tbody></table></div>
+<p>IMS validates duplicate SKUs, confirms that the SKU exists in the item master, compresses the image and creates both the main image and thumbnail. Failed or skipped rows are written to an import error log.</p>
+<h2 id="permissions">Permissions</h2>
+<p>Item maintenance and the Item toolbar follow the logged-in user's <strong>manage item data</strong> permission. Users without that maintenance permission can still use the screen as allowed by their IMS access policy, but protected New/Edit/Delete/Import and image-maintenance actions are disabled.</p>
+<section id="classification-masters">
+<h2>Where the Item classifications come from</h2>
+<p>The classification fields on Items are maintained as separate IMS masters:</p>
+<div class="table-wrap"><table><thead><tr><th>Item field</th><th>Master</th></tr></thead><tbody>
+<tr><td>Category / Sub Category</td><td><a href="categories.html">Manage → Categories</a></td></tr>
+<tr><td>Product Group / Sub Group</td><td><a href="product-groups.html">Manage → Product Groups</a></td></tr>
+<tr><td>Age Range</td><td><a href="age-ranges.html">Manage → Age Ranges</a></td></tr>
+<tr><td>Gender</td><td><a href="genders.html">Manage → Genders</a></td></tr>
+<tr><td>St. Period</td><td><a href="statistical-periods.html">Manage → Statistical Periods</a></td></tr>
+</tbody></table></div>
+<p>Keeping these values in shared masters is what lets the same classifications be reused consistently by Main Sales, Sell Through and Purchasing reports.</p>
+</section>
+<section id="sale-seasons-relationship">
+<h2>Sale Seasons and current item pricing</h2>
+<p><a href="sale-seasons.html">Manage → Sale Seasons</a> can temporarily apply a Sale price to selected Item Codes. While a Sale Season is active, IMS uses the policy's sale price as the current selling price and places the affected merchandise in the Sale item state. The Sale Season also controls whether the item should return to its original/full price when the policy ends.</p>
+</section>
+<section id="special-offers-relationship">
+<h2>Relationship with Special Offers</h2>
+<p><a href="special-offers.html">Manage → Special Offers</a> can target merchandise by exact Item Code, Style or Style/Color. The offer importer resolves those values against the Item master before saving the promotion.</p>
+<p>A normal Special Offer does not replace the Item master definition. The <strong>From Price List</strong> option stores offer-specific promotional prices separately, while <a href="sale-seasons.html">Sale Seasons</a> are the module used for scheduled item markdown prices that change the current sale price/state.</p>
+</section>
+<h2 id="reporting">How Item master data affects reporting</h2>
+<div class="doc-list">
+<a class="doc-link" href="../reports/main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Its Items and Categories tabs use Item Code, Theme, Style, Color, Size, State, merchandise hierarchy, Supplier, Brand, Age Range, Gender, periods and product images from this master.</span></div></a>
+<a class="doc-link" href="../reports/sell-through-report.html"><div>↗</div><div><strong>Sell Through Report</strong><span>Uses the item classifications and Style/Color image while combining receipts, sales and on-hand stock.</span></div></a>
+<a class="doc-link" href="../reports/purchasing-report.html"><div>↗</div><div><strong>Purchasing Report</strong><span>Uses item merchandise classifications, Style/Color/Size, descriptions, pricing and images to analyze received merchandise.</span></div></a>
+<a class="doc-link" href="suppliers.html"><div>↗</div><div><strong>Manage Suppliers</strong><span>Suppliers and supplier-specific Brands assigned to the Item master are maintained here.</span></div></a>
+</div>
+<h2 id="common-uses">Common tasks</h2>
+<div class="card-grid">
+<article class="card"><div class="eyebrow">Search</div><h3>Review every size/color in a style</h3><p>Find the Style and use the Style grid to switch between individual Item Codes.</p></article>
+<article class="card"><div class="eyebrow">Pricing</div><h3>Update a complete style</h3><p>Edit one variant, choose Apply to Style and use Price Only when the change should affect style pricing only.</p></article>
+<article class="card"><div class="eyebrow">Images</div><h3>Maintain report thumbnails</h3><p>Add one Style/Color image and IMS makes it available to all Size variants of that Style and Color.</p></article>
+<article class="card"><div class="eyebrow">Bulk maintenance</div><h3>Import new merchandise</h3><p>Use Import Items for validated bulk creation and Import Price Changes or Import Images for specialized updates.</p></article>
+</div>
+<section id="service-items-relationship">
+<h2>Normal Items versus Service Items</h2>
+<p>This screen is intended for normal merchandise items. Non-merchandise Service Items are maintained separately in <a href="service-items.html">Manage → Service Items</a>. Both belong to the IMS item master, but Service Items use a simplified definition and are identified by Type = Service.</p>
+</section>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="suppliers.html"><div>←</div><div><strong>Manage Suppliers</strong><span>Supplier and Brand masters used by Items.</span></div></a>
+<a class="doc-link" href="../reports/main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Detailed sales analysis using the Item master dimensions.</span></div></a>
+<a class="doc-link" href="../reports/sell-through-report.html"><div>↗</div><div><strong>Sell Through Report</strong><span>Merchandise performance using received, sold and on-hand stock.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main>
+</div>
+<script src="../assets/js/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Stock Level | IMS User Guide</title>
+<meta content="IMS Stock Level guide: current or historical stock balances, multi-criteria filtering, grouping, quantity/cost/retail measures, item images, Excel/email/Save As and pricing-file exports." name="description"/>
+<link href="https://ims.starco.com.kw/inventory/stock-level.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Stock Level","url":"https://ims.starco.com.kw/inventory/stock-level.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a class="active" href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a class="active" href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Inventory</a> › Stock Level</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/inventory.webp"/><h1>Stock Level</h1></div>
+<p class="lead">Stock Level is the main inventory-balance analysis screen in IMS. It can report the current stock or reconstruct the quantity at an earlier date, filter the inventory by store and product attributes, group the result from high-level summaries down to Item Code, and calculate quantity, inventory cost and retail value.</p>
+<div class="callout"><strong>Open the screen</strong>Inventory → Stock Level.</div>
+<h2 id="date">Current stock or stock as of an earlier date</h2>
+<p>Use the <strong>As In</strong> date to choose the inventory date. When today's date is selected, IMS reads the current stock balance. When an earlier date is selected, the screen changes to a historical balance view and displays <strong>Balance until [date]</strong>.</p>
+<p>The historical quantity is reconstructed from the item's opening/first quantity plus the recorded daily inventory movements up to the selected date. This makes Stock Level useful for answering questions such as “What quantity did we have at the end of last month?” without changing the current inventory.</p>
+<div class="callout tip"><strong>Historical-stock note</strong>The selected date controls the stock quantity being analyzed. Product master information such as descriptions, classifications and current price fields still comes from the item master used by the report.</div>
+<h2 id="criteria">Filter the inventory</h2>
+<p>The criteria are split across Main, Categories and Items Info areas. Multiple values can be selected for most master-data criteria.</p>
+<div class="table-wrap"><table><thead><tr><th>Criteria</th><th>What it filters</th></tr></thead><tbody>
+<tr><td>Stores</td><td>One, several or all authorized stores/locations.</td></tr>
+<tr><td>Suppliers</td><td>One, several or all suppliers.</td></tr>
+<tr><td>Brands</td><td>Available when the selected supplier scope allows a brand selection.</td></tr>
+<tr><td>Age Range / Gender</td><td>Item demographic classifications.</td></tr>
+<tr><td>Received Season</td><td>The item's received statistical/season period.</td></tr>
+<tr><td>Statistical Period</td><td>The item's current statistical period.</td></tr>
+<tr><td>Category / Sub Category</td><td>Product category hierarchy.</td></tr>
+<tr><td>Group / Sub Group</td><td>Product group hierarchy.</td></tr>
+<tr><td>Item State</td><td>All, Normal, Sale or Outlet.</td></tr>
+<tr><td>Item Code</td><td>Exact Item Code.</td></tr>
+<tr><td>Style</td><td>Contains-style matching.</td></tr>
+<tr><td>Theme</td><td>Contains-theme matching.</td></tr>
+<tr><td>Color Code / Color Name</td><td>Contains matching on color information.</td></tr>
+<tr><td>Size</td><td>Exact size.</td></tr>
+<tr><td>Qty</td><td>Apply the selected comparison operator to stock quantity.</td></tr>
+<tr><td>Original Price / Current Price</td><td>Apply the selected comparison operator to the corresponding retail price.</td></tr>
+</tbody></table></div>
+<section class="ims-multiselect-guide" id="multi-select">
+<h2>Using IMS multi-selection fields</h2>
+<p>Stock Level uses the shared IMS multi-selection list for Stores, Suppliers, Brands, Age Ranges, Genders, Seasons and the category hierarchy. You can select several values without holding Ctrl.</p>
+<ol class="steps">
+<li>Click the criteria field to open the list.</li>
+<li>Click each required value to select or deselect it.</li>
+<li>Close the list, double-click an item, or click outside the popup to apply the selection.</li>
+</ol>
+<div class="table-wrap"><table><thead><tr><th>Display</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>All</td><td>All available values are included.</td></tr>
+<tr><td>One name</td><td>Exactly one value is selected.</td></tr>
+<tr><td>Multi Selected</td><td>Two or more values are selected.</td></tr>
+</tbody></table></div>
+</section>
+<h2 id="grouping">Choose how Stock Level is grouped</h2>
+<p>The Group By checkboxes determine the descriptive columns and the level at which quantities and values are summarized. Available grouping dimensions include:</p>
+<div class="table-wrap"><table><thead><tr><th>Area</th><th>Group By options</th></tr></thead><tbody>
+<tr><td>Organization / supplier</td><td>Store, Supplier, Brand</td></tr>
+<tr><td>Customer/product classification</td><td>Age Range, Gender, Category, Sub Category, Group, Sub Group</td></tr>
+<tr><td>Season</td><td>Received Season, Statistical Period</td></tr>
+<tr><td>Product</td><td>Style, Description, Theme, Color, Size</td></tr>
+<tr><td>Full item detail</td><td>Items Details adds Item Code, Barcode, Original Price, Current Price, discount %, last-purchase currency/price, item State and last received date.</td></tr>
+</tbody></table></div>
+<h3 id="availability-counts">Available colors and sizes</h3>
+<p>When the report is grouped by <strong>Style</strong> without drilling all the way to Size or Item Details, IMS adds availability indicators that compare variants currently in stock with the variants defined for the Style. At Style level it can show <strong>Available Colors / Total Colors</strong> and <strong>Available Sizes / Total Sizes</strong>. When Style + Color is selected, it can show the available/total Size count for that color.</p>
+<h2 id="measures">Stock measures</h2>
+<p>Every generated Stock Level result includes the core inventory measures below.</p>
+<div class="table-wrap"><table><thead><tr><th>Measure</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Qty</td><td>On-hand quantity for the selected criteria/group.</td></tr>
+<tr><td>Total Cost</td><td>Qty × inventory unit cost, summed for the group.</td></tr>
+<tr><td>Avg. Unit Cost</td><td>Weighted average inventory unit cost for the group.</td></tr>
+<tr><td>Total Retail</td><td>Qty × current retail price, summed for the group.</td></tr>
+<tr><td>Count</td><td>Number of result rows currently displayed.</td></tr>
+</tbody></table></div>
+<p>The bottom summary shows <strong>Count</strong>, <strong>Total Qty</strong>, <strong>Total Cost</strong> and <strong>Total Retail</strong>. Cost values are hidden for users who do not have permission to view COGS/cost information.</p>
+<h3 id="avg-retail">Average retail prices</h3>
+<p>Enable <strong>Average Retail</strong> when a grouped report should also show weighted average Original Price, weighted average Current Price and the resulting discount percentage. When full Item Details are selected, the report shows the item's own price fields instead.</p>
+<h3 id="oh-percent">OH %</h3>
+<p>Enable <strong>OH %</strong> to show each result row's share of the total selected on-hand quantity. This is useful for questions such as how much of the selected inventory belongs to each Store, Brand, Category, Style or other chosen grouping.</p>
+<h2 id="images">View item images</h2>
+<p>After generating the report, enable <strong>View Image</strong> to display product thumbnails. The report must contain both <strong>Style</strong> and <strong>Color Code</strong>, because IMS uses the Style + Color combination to locate the stored thumbnail.</p>
+<p>For very large reports IMS warns before loading thousands of thumbnails. Images are loaded in batches and the report shows progress while they are being prepared.</p>
+<h2 id="generate">Generate the report</h2>
+<ol class="steps">
+<li>Select the current or historical <strong>As In</strong> date.</li>
+<li>Select Stores and the required product/supplier criteria.</li>
+<li>Apply Qty, Original Price, Current Price and Item State filters if needed.</li>
+<li>Select the Group By dimensions.</li>
+<li>Optionally enable Average Retail or OH %.</li>
+<li>Click <strong>Generate</strong>.</li>
+<li>Review the grid and the Count/Qty/Cost/Retail totals.</li>
+<li>Optionally enable View Image, hide the criteria area, or export the result.</li>
+</ol>
+<h2 id="output">Export, email and Save As</h2>
+<p>Stock Level uses the standard IMS report-output workflow. Depending on user permissions, the toolbar provides <strong>Export To Excel</strong>, <strong>Send By Email</strong> and <strong>Save As</strong>.</p>
+<div class="callout tip" id="standard-output-behavior">
+<strong>Standard IMS report output</strong>
+Export requires a generated report. While IMS builds the Excel file it shows progress and temporarily disables the related report controls. Send By Email generates the report workbook as an attachment and sends it through the configured IMS email service.
+</div>
+<div class="callout" data-save-as-details="">
+<strong>Save As formats</strong>
+The shared Save As window can save the displayed report as <strong>Text (tab delimited)</strong>, <strong>CSV</strong> or an <strong>Excel Workbook (.xlsx)</strong>. It also supports removing the header when a data-only file is required.
+</div>
+<h3 id="excel-images">Excel export with item images</h3>
+<p>If thumbnails are currently displayed, Excel export can include them. For reports above 5,000 rows, IMS asks whether to export with images, export data only, or cancel because image-heavy workbooks can become very large.</p>
+<p>Send By Email exports the report data without relying on the on-screen thumbnail column.</p>
+<h2 id="pda">Pricing / PDA export files</h2>
+<p>Stock Level also contains specialized pricing-file exports used by the current retail workflow.</p>
+<div class="table-wrap"><table><thead><tr><th>Output</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Pricing File</td><td>Exports positive-stock item information and retail pricing using the selected Stock Level criteria. For Outlet/All-state exports, IMS can ask whether original or discounted prices should be written.</td></tr>
+<tr><td>Sale Pricing File</td><td>Exports discounted items where Current Price is below Original Price. IMS asks for confirmation when the criteria include Outlet items or all discounted items.</td></tr>
+</tbody></table></div>
+<p>These exports require a Stock Level report to have been generated first and then ask the user to choose the destination folder.</p>
+<h2 id="hide-filters">Show / Hide Filters</h2>
+<p>Use <strong>Hide Filters</strong> when the criteria are no longer needed on screen. IMS expands the report grid into the freed space. Click <strong>Show Filters</strong> to restore the criteria area.</p>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="stock-adjustments.html"><div>←</div><div><strong>Stock Adjustments</strong><span>Correct inventory quantities when an approved adjustment is required.</span></div></a>
+<a class="doc-link" href="replenishment.html"><div>↗</div><div><strong>Replenishment</strong><span>Uses current store availability to prepare replenishment transfers after sales.</span></div></a>
+<a class="doc-link" href="../reports/sell-through-report.html"><div>↗</div><div><strong>Sell Through Report</strong><span>Combine received, sold and on-hand measures for merchandising analysis.</span></div></a>
+<a class="doc-link" href="../manage/items.html"><div>↗</div><div><strong>Manage Items</strong><span>Provides item classifications, prices, state, Style/Color/Size and images used by Stock Level.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Security Architecture | IMS Documentation</title>
+<meta name="description" content="Layered IMS security covering workstation authorization, global authentication, Global Administrator access, company membership and company-local permissions.">
+<link rel="canonical" href="https://ims.starco.com.kw/technical/security.html">
+<link rel="stylesheet" href="../assets/css/docs.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Security Architecture","url":"https://ims.starco.com.kw/technical/security.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" type="button" data-mobile-nav>Menu</button>
+<nav class="topnav" aria-label="Primary"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a class="active" href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
+</div></header>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../index.html">Documentation home</a><a href="../getting-started/main-screen.html">Getting started</a><a href="../system/index.html">System</a><a href="../integration/index.html">Integration</a><h3>Technical</h3><a href="index.html">Technical Overview</a><a href="architecture.html">IMS Architecture</a><a href="multi-company.html">Multi-Company Architecture</a><a class="active" href="security.html">Security Architecture</a><a href="secure-bootstrap.html">Secure Bootstrap</a><a href="ims-global.html">IMS Global</a><a href="ims-api.html">IMS API</a><a href="api-v1/index.html">Business API v1</a><a href="secret-vault.html">Secret Vault</a><a href="system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a></aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Technical › Security Architecture</div>
+<span class="badge">IMS Build 9.4.4.0 technical baseline</span>
+<h1>Security Architecture</h1>
+<p class="lead">Layered IMS security covering workstation authorization, global authentication, Global Administrator access, company membership and company-local permissions.</p>
+<h2>Security layers</h2><div class="table-wrap"><table><thead><tr><th>Layer</th><th>Control</th></tr></thead><tbody>
+<tr><td>Workstation</td><td>IMS checks the registered workstation identity before authentication; authorized administrators can approve or block devices.</td></tr>
+<tr><td>Global identity</td><td>Login credentials and account state are centralized and are not duplicated as independent passwords in each company database.</td></tr>
+<tr><td>Global administration</td><td>IMS Global requires a valid Global Administrator session. Administrative modules revalidate that session before opening.</td></tr>
+<tr><td>Company membership</td><td>Only companies assigned to the global user are eligible for login/selection.</td></tr>
+<tr><td>Company-local authorization</td><td>Group Policies, Store/Supplier scope, transfer scope and operational privileges are maintained in the selected company.</td></tr>
+<tr><td>Secrets</td><td>Sensitive service/database credentials are stored and mediated through server-side API security rather than being exposed as reusable plaintext configuration.</td></tr>
+</tbody></table></div>
+<h2>Administrative self-protection</h2><p>IMS Global prevents the account currently running the administration application from removing its own Global Administrator flag, disabling itself or resetting its own password from the Global Users screen. It also prevents the current workstation from blocking itself.</p>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div><script src="../assets/js/docs.js"></script></body></html>

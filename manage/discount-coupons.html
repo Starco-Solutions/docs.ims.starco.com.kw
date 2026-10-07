@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Discount Coupons | IMS User Guide</title>
+<meta content="IMS Discount Coupons user guide: create a single coupon code or coupon series, set discount percentage, expiry, store restrictions, discounted-item behavior and Star Card requirement." name="description"/>
+<link href="https://ims.starco.com.kw/manage/discount-coupons.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Discount Coupons User Guide","url":"https://ims.starco.com.kw/manage/discount-coupons.html","about":"IMS discount coupon event configuration","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a class="active" href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3><a href="../getting-started/main-screen.html">Start, login &amp; main screen</a><a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a class="active" href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3><a href="../index.html#sales">Sales</a><a href="../index.html#inventory">Inventory</a><a href="../index.html#financial">Financial</a><a href="../index.html#reports">Reports</a><a href="../index.html#manage">Manage</a><a href="../index.html#tools">Tools</a><a href="../index.html#system">System</a><a href="../index.html#shopify">Shopify</a><a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Manage › Discount Coupons</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/manage.webp"/><h1>Discount Coupons</h1></div>
+<p class="lead">Discount Coupons creates percentage-discount coupon events for use in sales transactions. An event can use one coupon code or generate a numbered series of coupon codes, and can control the expiry date, eligible stores, whether already-discounted items are included and whether a Star Card is required.</p>
+<div class="callout"><strong>Open the screen</strong>Manage → Discount Coupons.</div>
+<figure class="screenshot"><img alt="IMS Discount Coupons maintenance screen" src="../assets/images/manage-discount-coupons.webp"/><figcaption>The Discount Coupons screen combines event information, coupon criteria, usage totals and store selection in one window.</figcaption></figure>
+<h2 id="overview">How Discount Coupons are organized</h2>
+<p>Each entry in the Events list is a <strong>coupon event</strong>. The event stores the shared rules, while IMS stores the actual coupon code or generated coupon codes associated with that event.</p>
+<div class="table-wrap"><table><thead><tr><th>Area</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Event Name</td><td>Friendly name used to identify the coupon campaign in IMS.</td></tr>
+<tr><td>Event Notes</td><td>Optional notes associated with the coupon event.</td></tr>
+<tr><td>Is Single Coupon</td><td>Creates one coupon code instead of a numbered series.</td></tr>
+<tr><td>Coupon Code / Coupons Prefix</td><td>The exact code for a single coupon, or the prefix used to build a coupon series.</td></tr>
+<tr><td>Coupons Count</td><td>Number of codes to generate when the event is a series.</td></tr>
+<tr><td>Discount %</td><td>Percentage discount configured for the coupon.</td></tr>
+<tr><td>Used Coupons / Amount</td><td>Shows recorded sales uses for the event's coupon IDs and the discount amount recorded by those sales transactions.</td></tr>
+<tr><td>Expiration Date</td><td>Last configured validity date for the event.</td></tr>
+<tr><td>Apply on discounted items</td><td>Allows the coupon rule to include items that are already discounted.</td></tr>
+<tr><td>Required Star Card</td><td>Marks the coupon as requiring a Star Card in the coupon sales workflow.</td></tr>
+<tr><td>Select Stores / All Stores</td><td>Controls the stores in which the coupon is allowed.</td></tr>
+</tbody></table></div>
+<h2 id="single-series">Single coupon or coupon series</h2>
+<h3>Single Coupon</h3>
+<p>Enable <strong>Is Single Coupon</strong> when the event uses one code. The field changes to <strong>Coupon Code</strong>, Coupons Count is disabled, and IMS creates one coupon ID using the entered code.</p>
+<p>A single coupon code can contain up to 20 characters in this maintenance screen.</p>
+<h3>Coupon Series</h3>
+<p>Clear <strong>Is Single Coupon</strong> to create a numbered series. Enter a <strong>Coupons Prefix</strong> and a Coupons Count greater than 1. IMS generates the series by appending a four-digit sequence beginning with <strong>0001</strong>.</p>
+<div class="callout"><strong>Example</strong>Prefix <strong>FRIENDS24</strong> with Coupons Count <strong>3</strong> creates <strong>FRIENDS240001</strong>, <strong>FRIENDS240002</strong> and <strong>FRIENDS240003</strong>.</div>
+<p>The series prefix accepts up to 10 characters. The screen displays the resulting range as <strong>From: 0001 To: …</strong> while the event is being prepared.</p>
+<h2 id="criteria">Coupon criteria</h2>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Discount %</td><td>Required. The value must be greater than zero.</td></tr>
+<tr><td>Expiration Date</td><td>Required. A new or changed event cannot be saved with an expiry date before today.</td></tr>
+<tr><td>Apply on discounted items</td><td>Enable when the coupon is intended to apply even when qualifying items already carry a discount.</td></tr>
+<tr><td>Required Star Card</td><td>Enable when the coupon event is tied to the Star Card/customer loyalty workflow.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>No Start Date field</strong>Discount Coupons uses an Expiration Date rather than the Start/End date pair used by modules such as Special Offers.</div>
+<h2 id="stores">Select Stores</h2>
+<p>A coupon event must be assigned to at least one store before it can be saved.</p>
+<p>Use the <strong>+</strong> button to select individual stores and <strong>−</strong> to remove selected stores. Enable <strong>All Stores</strong> to load the active retail stores that are eligible for normal coupon use. IMS excludes main-store, online-store and damage-store locations from this All Stores list.</p>
+<p>For a coupon series, IMS applies the selected store scope to every generated coupon code in the event.</p>
+<h2 id="usage">Used Coupons and Amount</h2>
+<p>When an existing event is selected, IMS checks sales transactions that contain one of the event's coupon IDs:</p>
+<ul>
+<li><strong>Used Coupons</strong> shows the number of recorded sales transaction uses linked to the event's coupon IDs.</li>
+<li><strong>Amount</strong> shows the accumulated discount amount calculated from those recorded transactions.</li>
+</ul>
+<p>These fields are read-only and provide a quick indication that the event has already participated in sales.</p>
+<h2 id="workflow">Create a coupon event</h2>
+<ol class="steps">
+<li>Click <strong>New</strong>. The toolbar changes to Save / Cancel.</li>
+<li>Enter the <strong>Event Name</strong> and optional Event Notes.</li>
+<li>Choose <strong>Is Single Coupon</strong> or create a coupon series.</li>
+<li>Enter the Coupon Code, or enter a Prefix and Coupons Count.</li>
+<li>Enter the <strong>Discount %</strong>.</li>
+<li>Set the <strong>Expiration Date</strong>.</li>
+<li>Choose whether the coupon applies on discounted items and whether a Star Card is required.</li>
+<li>Select specific stores or enable <strong>All Stores</strong>.</li>
+<li>Click <strong>Save</strong>. IMS validates the required name, coupon code/prefix, series count, discount percentage, expiry date and store scope before creating the event.</li>
+</ol>
+<h2 id="edit-delete">Edit and Delete</h2>
+<p>Select an event and click <strong>Edit</strong> to change it. Click <strong>Cancel</strong> to reload the saved values.</p>
+<p>Once IMS finds sales transactions using coupon IDs from the event, it protects the core coupon definition: the Single/Series choice, coupon code or prefix, coupon count, Discount % and Required Star Card setting are locked from editing.</p>
+<p>An event can be deleted only while none of its coupon IDs has been used in a sales transaction. Once it has been used, IMS blocks deletion to preserve the transaction reference.</p>
+<h2 id="comparison">Discount Coupons versus other promotions</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>Discount Coupons</th><th>Special Offers</th><th>Give Away Promotions</th></tr></thead><tbody>
+<tr><td>Primary purpose</td><td>Code-based percentage discount.</td><td>Conditional promotion engine: discount, Buy/Get, bundle, Cash Back and Step Discount.</td><td>Voucher campaign with controlled serial ranges and voucher denominations.</td></tr>
+<tr><td>User/code input</td><td>Uses a coupon code or generated coupon-series code.</td><td>Normally triggered by transaction/store/client/item conditions.</td><td>Uses voucher serials/ranges in the voucher workflow.</td></tr>
+<tr><td>Benefit</td><td>Percentage discount.</td><td>Percentage/fixed price/free item/bundle/Cash Back depending on offer type.</td><td>Voucher value/denomination.</td></tr>
+<tr><td>Store scope</td><td>All eligible retail stores or selected stores.</td><td>Selected/All Stores, with additional Client and Item scopes.</td><td>Campaign stores plus separate voucher-redemption store scope.</td></tr>
+</tbody></table></div>
+<h2 id="permissions">Permissions</h2>
+<p>Visibility of <strong>Manage → Discount Coupons</strong> is controlled by the IMS <strong>Manage Discount Coupons</strong> access policy. Users without that right do not see this menu item.</p>
+<h2 id="technical-note">How IMS stores a coupon event</h2>
+<p>The event header is stored separately from the coupon IDs. A single-code event creates one coupon record; a series creates one coupon record for every generated Prefix + sequence value. When the event is limited to selected stores, IMS also records the allowed store mappings for those coupon IDs.</p>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="special-offers.html"><div>←</div><div><strong>Special Offers</strong><span>Use for conditional POS promotions based on stores, clients, items and receipt rules.</span></div></a>
+<a class="doc-link" href="give-away-promotions.html"><div>↗</div><div><strong>Give Away Promotions</strong><span>Use for serialized voucher campaigns with denominations and voucher redemption rules.</span></div></a>
+<a class="doc-link" href="../reports/main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Review the resulting discounts and net sales recorded by sales transactions.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div><script src="../assets/js/docs.js"></script></body></html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Business API v1 Errors &amp; Rate Limits | IMS Documentation</title>
+<meta name="description" content="HTTP error codes, validation behavior, company concealment and rate-limit responses for IMS Business API v1.">
+<link rel="canonical" href="https://ims.starco.com.kw/technical/api-v1/errors-rate-limits.html">
+<link rel="stylesheet" href="../../assets/css/docs.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Business API v1 Errors & Rate Limits","url":"https://ims.starco.com.kw/technical/api-v1/errors-rate-limits.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" type="button" data-mobile-nav>Menu</button>
+<nav class="topnav" aria-label="Primary"><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../sales/index.html">Sales</a><a href="../../inventory/index.html">Inventory</a><a href="../../financial/index.html">Financial</a><a href="../../reports/index.html">Reports</a><a href="../../manage/index.html">Manage</a><a href="../../tools/index.html">Tools</a><a href="../../system/index.html">System</a><a href="../../shopify/index.html">Shopify</a><a href="../../integration/index.html">Integration</a><a class="active" href="../../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
+</div></header>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../../index.html">Documentation home</a><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../system/index.html">System</a><a href="../../integration/index.html">Integration</a><h3>Technical</h3><a href="../index.html">Technical Overview</a><a href="../architecture.html">IMS Architecture</a><a href="../multi-company.html">Multi-Company Architecture</a><a href="../security.html">Security Architecture</a><a href="../secure-bootstrap.html">Secure Bootstrap</a><a href="../ims-global.html">IMS Global</a><a href="../ims-api.html">IMS API</a><a href="index.html">Business API v1</a><a href="quick-start.html">Quick Start</a><a href="authentication.html">Authentication & Access</a><a href="requests.html">Requests & Responses</a><a href="reference.html">Endpoint Reference</a><a href="data-semantics.html">Data Semantics</a><a class="active" href="errors-rate-limits.html">Errors & Rate Limits</a><a href="examples.html">Examples & Downloads</a><a href="../secret-vault.html">Secret Vault</a><a href="../system-dashboard-observability.html">System Dashboard & Observability</a><a href="../postgresql/index.html">PostgreSQL Deployment & Operations</a><a href="../it-operations-troubleshooting.html">IT Operations & Troubleshooting</a></aside>
+<main>
+<div class="breadcrumbs"><a href="../../index.html">IMS Documentation</a> › <a href="../index.html">Technical</a> › <a href="index.html">Business API v1</a> › Errors & Rate Limits</div>
+<span class="badge">IMS Business API v1</span>
+
+<h1>Errors &amp; Rate Limits</h1>
+<p class="lead">HTTP status behavior is intentionally consistent so integrations can distinguish authentication, authorization, validation and throttling failures.</p>
+<h2>Common responses</h2>
+<div class="table-wrap"><table><thead><tr><th>Status</th><th>Error</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>400</td><td><code>invalid_company</code>, <code>invalid_page</code>, <code>invalid_page_size</code>, <code>date_range_required</code>, <code>invalid_date_range</code> and endpoint-specific validation codes</td><td>The request is authenticated but invalid. Correct the request before retrying.</td></tr>
+<tr><td>401</td><td><code>unauthorized</code></td><td>API key is invalid or inactive (including revoked/expired key behavior).</td></tr>
+<tr><td>403</td><td><code>forbidden</code></td><td>The client is valid but does not have the required scope.</td></tr>
+<tr><td>404</td><td><code>company_not_found</code></td><td>The company is unavailable or the client is not authorized for it.</td></tr>
+<tr><td>429</td><td><code>rate_limit_exceeded</code></td><td>The client exceeded its configured minute or daily request limit.</td></tr>
+</tbody></table></div>
+<h2>Rate-limit response</h2>
+<pre><code>{
+  "error": "rate_limit_exceeded",
+  "message": "The API client has exceeded its minute request limit.",
+  "retryAfterSeconds": 60
+}</code></pre>
+<p>When throttled, wait for the supplied retry period and honor the HTTP <code>Retry-After</code> header. Do not continuously retry a 429 response.</p>
+<h2>Validation examples</h2>
+<pre><code>{
+  "error": "forbidden",
+  "message": "The API client does not have the inventory.read scope."
+}</code></pre>
+<pre><code>{
+  "error": "company_not_found",
+  "message": "The company does not exist or this API client does not have access to it."
+}</code></pre>
+
+<footer class="page-footer"><span>IMS Documentation</span><span>Business API v1 developer guide</span></footer>
+</main></div><script src="../../assets/js/docs.js"></script></body></html>

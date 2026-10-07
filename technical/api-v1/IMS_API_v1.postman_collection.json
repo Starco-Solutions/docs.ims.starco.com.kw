@@ -1,0 +1,477 @@
+{
+  "info": {
+    "name": "IMS Business API v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Read-only IMS Business API v1 examples. Replace collection variables before use."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.example.com"
+    },
+    {
+      "key": "companyId",
+      "value": "1"
+    },
+    {
+      "key": "apiKey",
+      "value": "YOUR_API_KEY",
+      "type": "secret"
+    },
+    {
+      "key": "fromDate",
+      "value": "2026-09-01"
+    },
+    {
+      "key": "toDate",
+      "value": "2026-09-30"
+    },
+    {
+      "key": "promotionId",
+      "value": "1"
+    },
+    {
+      "key": "couponEventId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Stores",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/stores",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Items",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/items?page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Suppliers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/suppliers?page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Sales",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/sales?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Purchases",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/purchases?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Inventory",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory?nonZeroOnly=true&page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Inventory movements",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/movements?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Transfers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/transfers?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Stock adjustments",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/stock-adjustments?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Stock depreciations",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/stock-depreciations?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Markdowns",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/markdowns?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Promotions",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Promotion stores",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/stores?page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Promotion items",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/items?page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Promotion client categories",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/client-categories?page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Promotion tiers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/tiers?page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Promotion cashback stores",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/cashback-stores?page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Discount coupon events",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events?page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    },
+    {
+      "name": "Discount coupon stores",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events/{{couponEventId}}/stores?page=1&pageSize=200",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": []
+        }
+      }
+    }
+  ]
+}

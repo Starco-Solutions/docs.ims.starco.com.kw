@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Sales Payments Report | IMS User Guide</title>
+<meta content="How to use the IMS Sales Payments Report: filter payment totals by store, cash transaction type, bank, payment method and date range; group by store, transaction type or receipt; then export, email or save the report." name="description"/>
+<link href="https://ims.starco.com.kw/reports/sales-payments-report.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Sales Payments Report User Guide","url":"https://ims.starco.com.kw/reports/sales-payments-report.html","about":"IMS Sales Payments Report","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a class="active" href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div>
+</header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a class="active" href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Reports › Store Sales Payments</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/reports.webp"/><h1>Sales Payments Report</h1></div>
+<p class="lead">The Sales Payments Report analyzes how cash-sale transactions were paid. It can summarize payment methods across one or many stores, filter by cash sales or cash returns, narrow results by bank or payment method, and optionally break the result down by store, transaction type and receipt number.</p>
+<div class="callout"><strong>Open the report</strong>Reports → Store Sales Payments</div>
+<figure class="screenshot"><img alt="IMS Reports menu showing Store Sales Payments" src="../assets/images/sales-payments-menu.webp"/><figcaption>Path: Reports → Store Sales Payments.</figcaption></figure>
+<h2 id="run">Run the report</h2>
+<ol class="steps">
+<li>Select one or more <strong>Store</strong> values, or leave <strong>All</strong> selected.</li>
+<li>Select the required <strong>Trans. Type</strong>, or leave <strong>All</strong> selected.</li>
+<li>Optionally restrict the report by <strong>Banks</strong> and/or <strong>Payments</strong>.</li>
+<li>Select <strong>Date From</strong> and <strong>To</strong>.</li>
+<li>Select any required grouping: <strong>Store</strong>, <strong>Transaction Type</strong> and/or <strong>Receipt No.</strong></li>
+<li>Click <strong>Get Report</strong>.</li>
+<li>Review the detail grid and the <strong>Total Amount</strong> shown at the bottom.</li>
+</ol>
+<section class="ims-multiselect-guide" id="multi-select">
+<h2>Using IMS multi-selection fields</h2>
+<p>Some IMS criteria fields open a compact multi-selection list instead of a normal drop-down. You can select several values without holding Ctrl.</p>
+<ol class="steps">
+<li>Click the criteria field to open the selection list.</li>
+<li>Click an item to select or deselect it. Continue clicking until the required combination is selected.</li>
+<li>Click <strong>Close</strong>, double-click an item, or click outside the list to apply the selection.</li>
+</ol>
+<div class="table-wrap"><table><thead><tr><th>Field display</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>All</td><td>All available values are included. If no individual item remains selected, IMS automatically returns the field to All.</td></tr>
+<tr><td>One name</td><td>Exactly one value is selected.</td></tr>
+<tr><td>Multi Selected</td><td>Two or more values are selected.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>No Ctrl key required</strong>The IMS list uses simple multi-selection: click each required item to toggle it on or off.</div>
+</section>
+<h2 id="criteria">Criteria</h2>
+<div class="table-wrap"><table><thead><tr><th>Criteria</th><th>What it does</th></tr></thead><tbody>
+<tr><td>Store</td><td>Limits the report to the selected store or stores. The list follows the stores available to the logged-in user.</td></tr>
+<tr><td>Trans. Type</td><td>Limits the report to cash-side transaction types. In the current report these are <strong>Cash Sales</strong> and <strong>Cash Returns</strong>.</td></tr>
+<tr><td>Banks</td><td>Limits payment activity to the selected bank or banks.</td></tr>
+<tr><td>Payments</td><td>Limits the report to selected payment methods such as Cash, Exchange Note, K-NET or card/provider payment methods available in IMS.</td></tr>
+<tr><td>Date From / To</td><td>Defines the transaction date range included in the report.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>Multi-selection</strong>The Store, Transaction Type, Banks and Payments fields use IMS selection lists. Clear the corresponding <strong>All</strong> checkbox when you want to choose specific values.</div>
+<p>If the logged-in user has access to only one store, IMS automatically selects that store and disables the All Stores option.</p>
+<h2 id="bank-payments">Bank and payment filtering</h2>
+<p><strong>Banks</strong> and <strong>Payments</strong> are related. When exactly one bank is selected, IMS reloads the Payments list so that it contains payment methods associated with that bank. When multiple banks or All Banks are used, the broader payment-method list is available.</p>
+<p>This makes it possible to answer questions such as “How much was collected by this bank?”, “How much was paid by this K-NET method?”, or “What was the net amount for a specific payment provider?” without changing the underlying report.</p>
+<h2 id="summary">Payment summary</h2>
+<p>With no grouping options selected, the result contains one row per payment method and an <strong>Amount</strong> column. The bottom <strong>Total Amount</strong> is the sum of all displayed Amount values for the selected criteria.</p>
+<figure class="screenshot"><img alt="IMS Sales Payments Report summarized by payment method" src="../assets/images/sales-payments-summary.webp"/><figcaption>Payment summary with no optional grouping. Each payment method is shown once for the selected criteria.</figcaption></figure>
+<div class="callout warning"><strong>Returns can be negative</strong>Cash-return payment activity can appear as negative amounts. The Total Amount is a net total of the rows returned by the selected criteria.</div>
+<h2 id="grouping">Grouping options</h2>
+<p>The three grouping checkboxes are independent and can be used alone or together. IMS adds the selected fields before the Payment column.</p>
+<div class="table-wrap"><table><thead><tr><th>Grouping</th><th>Result</th></tr></thead><tbody>
+<tr><td>Group by store</td><td>Adds a <strong>Store</strong> column and separates payment totals by store. This is especially useful when several stores are selected.</td></tr>
+<tr><td>Group by transaction type</td><td>Adds a <strong>Transaction</strong> column, separating Cash Sales and Cash Returns before showing each payment method.</td></tr>
+<tr><td>Group by receipt No.</td><td>Adds a <strong>Receipt</strong> column so payment amounts can be reviewed at receipt level.</td></tr>
+</tbody></table></div>
+<p>If more than one option is selected, IMS combines them. For example, selecting <strong>Store + Transaction Type + Receipt No.</strong> produces a detailed result organized by Store, Transaction, Receipt and Payment.</p>
+<h3 id="by-transaction">Group by transaction type</h3>
+<p>This view makes sales and returns explicit. A return line can therefore show a negative payment value while sales for the same payment method appear as positive values.</p>
+<figure class="screenshot"><img alt="IMS Sales Payments Report grouped by transaction type" src="../assets/images/sales-payments-by-transaction.webp"/><figcaption>Grouped by transaction type: Cash Returns and Cash Sales are separated before payment method.</figcaption></figure>
+<h3 id="by-receipt">Group by receipt number</h3>
+<p>Use receipt grouping when you need to trace payment activity back to individual receipts. The report keeps the selected Store, Transaction, Bank, Payment and date filters; only the level of detail changes.</p>
+<figure class="screenshot"><img alt="IMS Sales Payments Report grouped by receipt number" src="../assets/images/sales-payments-by-receipt.webp"/><figcaption>Grouped by receipt number: each receipt/payment combination is shown separately.</figcaption></figure>
+<h3 id="by-store">Group by store</h3>
+<p>A screenshot is not required for every option. When <strong>Group by store</strong> is selected, IMS adds the Store column to the result and calculates payment totals separately for each selected store. It can be combined with Transaction Type and Receipt No. grouping when deeper detail is required.</p>
+<h2 id="amount">Amount and Total Amount</h2>
+<p>The report calculates <strong>Amount</strong> by summing the payment value for each displayed group. If no optional grouping is selected, the group is simply Payment. If grouping is enabled, the same amount calculation is performed for each Store, Transaction and/or Receipt combination.</p>
+<p><strong>Total Amount</strong> is calculated by adding every Amount row currently returned by the report. Changing grouping should therefore change the detail level, not the overall total, as long as the filters remain the same.</p>
+<h2 id="output">Export, email and Save As</h2>
+<div class="table-wrap"><table><thead><tr><th>Action</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Export To Excel</td><td>Exports the generated grid through the standard IMS report export function.</td></tr>
+<tr><td>Send By Email</td><td>Sends the generated report through the standard IMS email function. The email subject includes the selected From and To dates.</td></tr>
+<tr><td>Save As</td><td>Saves the generated report using IMS report-saving options. A report must be generated first.</td></tr>
+</tbody></table></div>
+<p>Export to Excel is permission controlled. Send By Email is also permission controlled. In the current build, Save As follows the Excel-export permission.</p>
+<h2 id="permissions">Access and permissions</h2>
+<p>The <strong>Store Sales Payments</strong> menu is access controlled. In the current IMS build, its menu visibility is tied to the same report access policy used for the Daily Cash Report. If the command is missing, contact the IMS administrator if access is required.</p>
+<p>The store list also follows the logged-in user's store access, so two users can legitimately see different store selections.</p>
+<h2 id="messages">Messages and behavior</h2>
+<div class="table-wrap"><table><thead><tr><th>Situation</th><th>IMS behavior</th></tr></thead><tbody>
+<tr><td>No matching records</td><td>IMS displays <strong>No data found.</strong> and re-enables the criteria area.</td></tr>
+<tr><td>Report is running</td><td>The criteria area is temporarily disabled and the progress indicator is shown.</td></tr>
+<tr><td>Large result</td><td>For 750 or more rows, IMS stops auto-sizing every column to keep the grid more responsive.</td></tr>
+<tr><td>Save As before running a report</td><td>IMS displays <strong>Generate a report to export it.</strong></td></tr>
+</tbody></table></div>
+<h2 id="faq">Common questions</h2>
+<div class="faq">
+<details><summary>Does All Transaction Types include credit sales?</summary><p>No. This report currently loads the cash-side transaction types used by the Sales Payments Report: Cash Sales and Cash Returns.</p></details>
+<details><summary>Why did the Payments list change after I selected a bank?</summary><p>When one bank is selected, IMS filters the payment-method list to methods associated with that bank.</p></details>
+<details><summary>Can I group by store and receipt at the same time?</summary><p>Yes. Store, Transaction Type and Receipt No. are independent grouping options and can be combined.</p></details>
+<details><summary>Why is a payment amount negative?</summary><p>Return/refund payment activity can be negative. Group by Transaction Type to make the sales/return source clear.</p></details>
+<details><summary>Why does Total Amount stay the same when I change grouping?</summary><p>Grouping changes how the same filtered payment activity is divided into rows. It does not change the filter itself.</p></details>
+</div>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="cash-report.html"><div>↗</div><div><strong>Cash Report</strong><span>Daily POS/branch cash closing with tender consolidation and printable closing totals.</span></div></a>
+<a class="doc-link" href="store-sales-report.html"><div>↗</div><div><strong>Store Sales Report</strong><span>Store performance by day, week, month, year or hour with traffic and retail KPIs.</span></div></a>
+<a class="doc-link" href="main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Detailed sales analysis with merchandise, transaction, customer and grouping criteria.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main>
+</div>
+<script src="../assets/js/docs.js"></script>
+</body>
+</html>

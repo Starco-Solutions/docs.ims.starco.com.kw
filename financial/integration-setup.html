@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Integration Setup | IMS User Guide</title>
+<meta content="IMS Financial Integration Setup guide: current Al-Shamel connection and core account mappings for sales, returns, COGS, discounts, depreciation, discrepancies and VAT." name="description"/>
+<link href="https://ims.starco.com.kw/financial/integration-setup.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Integration Setup","url":"https://ims.starco.com.kw/financial/integration-setup.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a class="active" href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a class="active" href="../financial/integration-setup.html">Integration Setup</a><a href="vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Financial</a> › Integration Setup</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/financial.webp"/><h1>Integration Setup</h1></div>
+<p class="lead">Integration Setup defines how IMS connects to the current financial system, maps the main accounting functions and, when VAT is enabled, maintains the Purchase VAT / Tax Codes used by purchasing.</p>
+<div class="callout"><strong>Open the screen</strong>Financial → Integration Setup.</div>
+<div class="callout tip">
+<strong>Current deployment: Al-Shamel</strong>
+The DSN, User ID and Password currently connect IMS to the local <strong>Al-Shamel Financial Management System</strong>. These settings are separate from the IMS PostgreSQL database connection.
+</div>
+<h2 id="connection">Financial-system connection</h2>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>DSN</td><td>ODBC Data Source Name used for the current financial-system connection.</td></tr>
+<tr><td>User ID</td><td>Login used by IMS for the financial-system connection.</td></tr>
+<tr><td>Password</td><td>Password for the financial-system login. IMS stores the saved credential in encrypted form.</td></tr>
+<tr><td>Test Connection</td><td>Tests the entered DSN/User/Password and confirms when the financial connection succeeds.</td></tr>
+</tbody></table></div>
+<p>Users without the <strong>Financial Database Setup</strong> permission cannot change DSN/User/Password or run Test Connection. Other financial setup fields remain subject to the user's applicable permissions.</p>
+<h2 id="accounts">Core account mappings</h2>
+<p>The Accounts section stores the account numbers IMS uses when it constructs financial journals.</p>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>Used for</th></tr></thead><tbody>
+<tr><td>Cash Sales</td><td>Cash-sales accounting entries.</td></tr>
+<tr><td>Credit Sales</td><td>Credit-sales accounting entries.</td></tr>
+<tr><td>Cash Returns</td><td>Cash-sale return/refund accounting entries.</td></tr>
+<tr><td>Credit Returns</td><td>Credit-sale return/refund accounting entries.</td></tr>
+<tr><td>Sales Discount</td><td>Sales discount accounting.</td></tr>
+<tr><td>COGS</td><td>Cost of Goods Sold posting.</td></tr>
+<tr><td>Discount Earned</td><td>Earned/purchase discount posting, including the purchase-journal workflow.</td></tr>
+<tr><td>Depreciation</td><td>Stock Depreciation expense account.</td></tr>
+<tr><td>Discrepancies</td><td>Negative Stock Adjustment / inventory discrepancy account.</td></tr>
+<tr><td>VAT</td><td>VAT/output account mapping used by applicable financial-posting logic. Purchase tax codes can also carry Input and Counter account references.</td></tr>
+<tr><td>Gift Issue Center</td><td>Controls the configured handling of the center used when gift-voucher issuance is posted.</td></tr>
+</tbody></table></div>
+<h2 id="purchase-tax-codes">Purchase VAT / Tax Codes</h2>
+<p>When <strong>Enable Value-Added Tax</strong> is active in System Settings, Integration Setup expands to show a <strong>Purchase VAT / Tax Codes</strong> panel. Use <strong>New</strong> to create a treatment or select a code and click <strong>Edit</strong> to change it.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose / validation</th></tr></thead><tbody>
+<tr><td>Tax Code</td><td>Required unique code. It can be entered only when creating the code and becomes read-only afterward.</td></tr>
+<tr><td>Description</td><td>Required description displayed to users in the Purchase Tax Treatment list.</td></tr>
+<tr><td>Tax Type</td><td>DOMESTIC, ZERO, EXEMPT, IMPORT_PAID, IMPORT_DEFERRED, RCM or OUTSIDE_SCOPE.</td></tr>
+<tr><td>Tax Rate %</td><td>Required numeric rate from 0 to 100.</td></tr>
+<tr><td>Base Mode</td><td>NET_INVOICE, MANUAL or NONE. MANUAL permits entry of taxable/VAT values on a new purchase; non-manual modes are calculated from Net Local.</td></tr>
+<tr><td>Posting Mode</td><td>SUPPLIER, COUNTER, VAT_OUT or NONE. The Purchase screen includes VAT in Supplier Total only for SUPPLIER.</td></tr>
+<tr><td>Recoverable %</td><td>Required value from 0 to 100; used to split saved Purchase VAT into recoverable and non-recoverable amounts.</td></tr>
+<tr><td>Input Account / Counter Account</td><td>Account references stored with the tax code for tax-posting configuration.</td></tr>
+<tr><td>Effective From / Effective To</td><td>Optional dates. Effective To cannot be earlier than Effective From.</td></tr>
+<tr><td>Active</td><td>Controls whether the code is available to the current Purchase workflow.</td></tr>
+</tbody></table></div>
+<p>New tax codes start with <strong>DOMESTIC</strong>, <strong>10%</strong>, <strong>NET_INVOICE</strong>, <strong>SUPPLIER</strong>, <strong>100%</strong> Recoverable and Active selected. Review these defaults before saving.</p>
+<div class="callout warning"><strong>Separate edit modes</strong>While a tax code is being created or edited, the main financial connection/account settings are disabled. Save or cancel the tax-code change before editing the main Finance Setup fields.</div>
+<h2 id="cross-module">Where these settings are used</h2>
+<div class="doc-list">
+<a class="doc-link" href="../inventory/purchases.html"><div>↗</div><div><strong>Purchases</strong><span>Uses financial setup when a finalized Purchase/Purchase Return journal is posted; purchase discounts use the Discount Earned mapping.</span></div></a>
+<a class="doc-link" href="../inventory/stock-depreciation.html"><div>↗</div><div><strong>Stock Depreciation</strong><span>Uses the configured Depreciation account together with the store/inventory account.</span></div></a>
+<a class="doc-link" href="../inventory/stock-adjustments.html"><div>↗</div><div><strong>Stock Adjustments</strong><span>Uses the Discrepancies account for eligible negative stock-discrepancy posting.</span></div></a>
+</div>
+<h2 id="save">Save the setup</h2>
+<ol class="steps">
+<li>Confirm the DSN/User/Password if you are authorized to manage the financial connection.</li>
+<li>Use <strong>Test Connection</strong> before saving changed connection details.</li>
+<li>Review the financial account mappings.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>If no financial setup exists yet, IMS requires the DSN connection information before creating the first setup record. Later saves update the existing configuration and record an audit-log entry for the financial-integration settings change.</p>
+<div class="callout warning"><strong>Administrative setting</strong>Changing account mappings changes how later Financial Posting journals are constructed. Only users responsible for the IMS/accounting integration should modify this screen.</div>
+<h2 id="architecture">Current integration and future connectors</h2>
+<p>For current users, Al-Shamel is the financial system connected to IMS. The business mappings on this screen represent accounting intent rather than a permanent dependency on one financial product, making the setup easier to adapt when another approved financial connector is introduced later.</p>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list"><a class="doc-link" href="vat-tax-configuration.html"><div>↗</div><div><strong>VAT &amp; Tax Configuration</strong><span>Complete VAT workflow across System Settings, tax codes, Suppliers, Purchases and Sales.</span></div></a>
+<a class="doc-link" href="close-fin-period.html"><div>↗</div><div><strong>Close Fin Period</strong><span>Control the accounting date boundary after posting periods are closed.</span></div></a>
+<a class="doc-link" href="../inventory/purchases.html"><div>↗</div><div><strong>Purchases</strong><span>See a current operational example of IMS-to-Al-Shamel Financial Posting.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

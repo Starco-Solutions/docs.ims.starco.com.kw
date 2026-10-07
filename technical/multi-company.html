@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Multi-Company Architecture | IMS Documentation</title>
+<meta name="description" content="How IMS uses one global identity layer with separate company databases, explicit company access and company-local operational permissions.">
+<link rel="canonical" href="https://ims.starco.com.kw/technical/multi-company.html">
+<link rel="stylesheet" href="../assets/css/docs.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Multi-Company Architecture","url":"https://ims.starco.com.kw/technical/multi-company.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" type="button" data-mobile-nav>Menu</button>
+<nav class="topnav" aria-label="Primary"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a class="active" href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
+</div></header>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../index.html">Documentation home</a><a href="../getting-started/main-screen.html">Getting started</a><a href="../system/index.html">System</a><a href="../integration/index.html">Integration</a><h3>Technical</h3><a href="index.html">Technical Overview</a><a href="architecture.html">IMS Architecture</a><a class="active" href="multi-company.html">Multi-Company Architecture</a><a href="security.html">Security Architecture</a><a href="secure-bootstrap.html">Secure Bootstrap</a><a href="ims-global.html">IMS Global</a><a href="ims-api.html">IMS API</a><a href="api-v1/index.html">Business API v1</a><a href="secret-vault.html">Secret Vault</a><a href="system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a></aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Technical › Multi-Company Architecture</div>
+<span class="badge">IMS Build 9.4.4.0 technical baseline</span>
+<h1>Multi-Company Architecture</h1>
+<p class="lead">How IMS uses one global identity layer with separate company databases, explicit company access and company-local operational permissions.</p>
+<h2>Global vs company scope</h2><div class="table-wrap"><table><thead><tr><th>Global scope</th><th>Company scope</th></tr></thead><tbody>
+<tr><td>User identity, login, password state, disabled state, Global Administrator flag, company assignments and default company.</td><td>Stores, Suppliers, Group Policy membership, transfer scope, sales privileges, configuration, transactions, inventory, finance and history.</td></tr>
+</tbody></table></div>
+<p>A user can be authorized for one or many companies. One accessible company is marked as the user's default. When more than one company is available, IMS can present Company Selection; users see only companies granted to their global identity.</p>
+<h2 id="new-company">Create a new company and database</h2>
+<ol class="steps">
+<li>Open <strong>IMS Global → Companies</strong> and choose <strong>+ New Company</strong>.</li>
+<li>Enter the company identity and regional settings, then complete the Database profile: Description, Host / Server, Port, Database Name, Username, SSL Mode and active state.</li>
+<li>Enter the new company database password and click <strong>Create DB</strong>.</li>
+<li>Review the company/database/server confirmation. IMS Global then asks for PostgreSQL administrator credentials for the target server.</li>
+<li><strong>IMS Global creates and initializes the company database.</strong> No separate manual database-creation or cloning procedure is part of the supported IMS workflow.</li>
+<li>After creation succeeds, use <strong>IMS Global → Users</strong> to grant the required global users access to the company and choose the appropriate default company.</li>
+<li>Open the company in the normal IMS client and maintain company-local Group Policies, Store/Supplier scope, transfer scope and operational privileges as required.</li>
+</ol>
+<div class="callout warning"><strong>Company databases are created by IMS Global</strong>Use <strong>IMS Global → Companies → Create DB</strong>. Do not replace this with a manual database-creation, copy or clone procedure.</div>
+<h2>User assignment</h2><p><strong>IMS Global → Users</strong> controls whether a global identity can enter each company and which accessible company is the Default. A Global user must have at least one assigned company and exactly one Default company.</p><p>When the Global user is saved, IMS Global synchronizes the local user profile into assigned company databases and uses the Default company as the source for matching Group Policy assignments. The normal <strong>System → Users Accounts</strong> screen inside a selected company remains the place to maintain that user's company-local Store/Supplier scope, transfer scope and other operational privileges.</p>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div><script src="../assets/js/docs.js"></script></body></html>

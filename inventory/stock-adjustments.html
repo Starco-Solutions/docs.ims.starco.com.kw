@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Stock Adjustments | IMS User Guide</title>
+<meta content="IMS Stock Adjustments guide: increase or decrease store stock with signed quantities, import adjustment lists, edit or void vouchers, and post negative discrepancies to the current Al-Shamel financial system." name="description"/>
+<link href="https://ims.starco.com.kw/inventory/stock-adjustments.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Stock Adjustments","url":"https://ims.starco.com.kw/inventory/stock-adjustments.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a class="active" href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/sales-transactions.html">Sales Transactions</a>
+<a href="../sales/items-search.html">Items Search</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<a href="../sales/open-drawer.html">Open Drawer</a>
+<a href="../sales/transactions-expert.html">Transactions Expert</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a class="active" href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/index.html">Reports overview</a>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/index.html">Manage overview</a>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Inventory</a> › Stock Adjustments</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/inventory.webp"/><h1>Stock Adjustments</h1></div>
+<p class="lead">Stock Adjustments corrects a store's inventory balance when the system quantity must be increased or decreased to match an approved physical or operational correction. Adjustment quantities are signed: a positive quantity adds stock and a negative quantity removes stock. IMS records the item's current retail and cost values, updates the store balance, keeps a transaction log, and supports financial posting for negative stock discrepancies.</p>
+<div class="callout"><strong>Open the screen</strong>Inventory → Stock Adjustments.</div>
+<div class="callout tip">
+<strong>Current financial integration</strong>
+The current IMS deployment posts eligible Stock Adjustment discrepancy journals directly to the local <strong>Al-Shamel Financial Management System</strong>. This guide uses the generic business term <strong>Financial Posting</strong> so the stock-adjustment workflow remains valid when another financial connector is introduced later.
+</div>
+<h2 id="purpose">When to use Stock Adjustments</h2>
+<p>Use Stock Adjustments when an approved correction must change the on-hand quantity without creating a Purchase, Stock Transfer or Stock Depreciation voucher. Typical examples include correcting a stock-count difference or fixing an inventory quantity that is known to be inaccurate.</p>
+<div class="table-wrap"><table><thead><tr><th>Adjustment Qty</th><th>Effect on store stock</th></tr></thead><tbody>
+<tr><td>Positive</td><td>Adds the entered quantity to the store's on-hand balance.</td></tr>
+<tr><td>Negative</td><td>Subtracts the absolute quantity from the store's on-hand balance and represents a stock shortage/discrepancy.</td></tr>
+</tbody></table></div>
+<h2 id="store">Select the store</h2>
+<p>Select the Branch/Store whose stock is being corrected. IMS loads that location's existing adjustment vouchers and the financial information associated with the store.</p>
+<p>Use the First, Previous, Next and Last controls to browse vouchers. The Voucher No. field can also be used to jump directly to a known voucher.</p>
+<h2 id="new">Create a new adjustment voucher</h2>
+<ol class="steps">
+<li>Select the required store.</li>
+<li>Click <strong>New</strong>.</li>
+<li>Enter a clear reason in <strong>Notes</strong>.</li>
+<li>Enter the required signed Qty and scan/type the item, or use <strong>Import</strong> for a prepared list.</li>
+<li>Review Item Code, Retail Price, Item Cost and Total Cost.</li>
+<li>Review Total Qty, Total Retail and Total Cost for the voucher.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>A voucher must contain at least one item. IMS also respects the inventory maintenance/processing controls before allowing the transaction to proceed.</p>
+<h2 id="scan">Add items manually</h2>
+<p>The item field accepts an IMS <strong>Item Code</strong>, the item's main <strong>Barcode</strong>, or an <strong>alternate barcode</strong>. IMS loads the item's Description, Style, Color, Size, Unit, current Retail Price and current Cost.</p>
+<p>The Qty field accepts whole numbers and can be positive or negative. The resulting signed quantity is used in all voucher totals.</p>
+<h2 id="columns">Item details and totals</h2>
+<div class="table-wrap"><table><thead><tr><th>Field / column</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Item Code</td><td>IMS inventory SKU being adjusted.</td></tr>
+<tr><td>Description</td><td>Item description.</td></tr>
+<tr><td>Style / Color / Size</td><td>Product variant information.</td></tr>
+<tr><td>Qty</td><td>Signed adjustment quantity. Positive adds stock; negative reduces stock.</td></tr>
+<tr><td>Retail Price</td><td>Current item retail price used to calculate Total Retail.</td></tr>
+<tr><td>Item Cost</td><td>Current IMS item cost used to calculate the cost effect.</td></tr>
+<tr><td>Total Cost</td><td>Qty × Item Cost for the line; therefore it can be positive or negative.</td></tr>
+<tr><td>Unit</td><td>Inventory unit associated with the item.</td></tr>
+<tr><td>Barcode</td><td>Main barcode stored on the item master.</td></tr>
+<tr><td>Total Qty</td><td>Sum of all signed adjustment quantities.</td></tr>
+<tr><td>Total Retail</td><td>Sum of Qty × Retail Price.</td></tr>
+<tr><td>Total Cost</td><td>Sum of Qty × Item Cost.</td></tr>
+</tbody></table></div>
+<h2 id="import">Import adjustment items</h2>
+<p>Use <strong>Import</strong> for a larger stock correction. The file is a <strong>tab-delimited text file</strong> with a header row and the following columns:</p>
+<div class="callout tip"><strong>Import format</strong>
+<pre style="margin:8px 0 0;white-space:pre-wrap">ItemCode	Unit	Qty
+30225010001	1	3
+30225010002	1	-2</pre>
+</div>
+<p>The Qty column is a signed whole number, so the same file can contain both increases and decreases. IMS validates the Item Code, Unit and Qty format, and rejects duplicate Item Code rows.</p>
+<p>If validation fails, IMS creates an <strong>-ErrorLog.txt</strong> file beside the import file containing the row number and reason. Retail and Cost values are taken from the IMS item master and do not need to be supplied in the file.</p>
+<h2 id="stock-effect">How the adjustment changes stock</h2>
+<p>When a new voucher is saved, IMS adds each signed adjustment quantity to the selected store's current on-hand balance. Therefore a +5 adjustment increases stock by five units and a -5 adjustment reduces stock by five units.</p>
+<p>If an adjusted Item Code has never had a stock-balance record in that store, IMS creates the required store/item balance record first and then applies the adjustment.</p>
+<p>Affected items are also queued for the normal IMS online-item update process so connected online inventory processes can react to the change.</p>
+<h2 id="edit">Edit an unposted adjustment</h2>
+<p>An authorized user can edit an existing voucher while it has not been financially posted. IMS first reverses the effect of the original adjustment, replaces the voucher details, and then applies the revised signed quantities.</p>
+<p>As a result, the live store balance always reflects the latest saved version of the adjustment voucher.</p>
+<h2 id="void">Void an adjustment</h2>
+<p>An unposted voucher can be voided after confirmation. IMS reverses its stock effect, removes the item detail rows and sets the voucher totals to zero.</p>
+<p>The deleted quantity/cost information is retained in the Notes together with the previous notes, and the action is written to the transaction log.</p>
+<div class="callout warning"><strong>Posted vouchers</strong>A Stock Adjustment cannot be edited or voided while it has a financial journal attached. Unpost the journal first when correction is authorized.</div>
+<h2 id="financial">Financial Posting — negative discrepancies</h2>
+<p>The current financial-posting workflow is intended for <strong>negative stock discrepancies</strong>. IMS only offers the Stock Discrepancy journal when the voucher's Total Cost is negative and the financial integration/store setup is complete.</p>
+<p>The journal balances the store's Inventory Account against the configured <strong>Discrepancies Account</strong>, using the selected store's accounting branch and cost center. In the current deployment, the journal is written directly to Al-Shamel.</p>
+<p>After a successful post, IMS stores the Journal No., posting user and posting date/time on the adjustment voucher and records the event in the transaction log.</p>
+<div class="callout">
+<strong>Positive adjustments</strong>
+A positive-cost adjustment changes the IMS inventory balance but is not posted through this Stock Discrepancy posting action. If a positive correction requires an accounting entry, follow the company's approved financial procedure.
+</div>
+<h3 id="unpost">Unpost a discrepancy journal</h3>
+<p>For a voucher posted through IMS, the action changes to <strong>UnPost</strong>. After confirmation, IMS removes the related Al-Shamel journal, clears the posting information from the Stock Adjustment voucher, and records the unpost action in the transaction log.</p>
+<p>A voucher marked as manually posted is shown as such and is not available for normal IMS posting from this screen.</p>
+<h2 id="log">Transaction log</h2>
+<p>The Log panel shows the date/time, IMS user and action recorded against the selected voucher. Typical entries include adding, editing, voiding, posting and unposting the adjustment.</p>
+<h2 id="permissions">Permissions</h2>
+<p>New, Edit and Void are controlled by the Stock Adjustment management permission. Financial posting is controlled separately by the Financial Posting permission.</p>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="stock-depreciation.html"><div>←</div><div><strong>Stock Depreciation</strong><span>Use when stock is specifically being written off rather than corrected through a signed discrepancy adjustment.</span></div></a>
+<a class="doc-link" href="../manage/stores.html"><div>↗</div><div><strong>Manage Stores</strong><span>Store and financial setup are used by Stock Adjustment processing and posting.</span></div></a>
+<a class="doc-link" href="../manage/items.html"><div>↗</div><div><strong>Manage Items</strong><span>Provides the Retail Price, Cost, Unit and product details used by the adjustment voucher.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>

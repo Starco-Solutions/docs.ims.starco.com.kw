@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Integration Center | IMS User Guide</title>
+<meta content="IMS Integration Center guide for endpoint configuration, source previews, triggers, authentication, overview health and synchronization logs." name="description"/>
+<link href="https://ims.starco.com.kw/integration/integration-center.html" rel="canonical"/>
+<link href="../assets/css/docs.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Integration Center","url":"https://ims.starco.com.kw/integration/integration-center.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/main-sales-report.html">Reports</a><a href="../manage/suppliers.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a class="active" href="index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
+</div></header>
+<div class="layout">
+<aside aria-label="Documentation navigation" class="sidebar">
+<h3>Getting started</h3>
+<a href="../getting-started/main-screen.html">Start, login &amp; main screen</a>
+<a href="../index.html#access">Access &amp; permissions</a>
+<h3>Sales</h3>
+<a href="../sales/index.html">Sales overview</a>
+<a href="../sales/open-close-pos.html">Open/Close POS</a>
+<h3>Inventory</h3>
+<a href="../inventory/index.html">Inventory overview</a>
+<a href="../inventory/stock-transfer.html">Stock Transfer</a>
+<a href="../inventory/transfer-following.html">Transfer Following</a>
+<a href="../inventory/replenishment.html">Replenishment</a>
+<a href="../inventory/purchases.html">Purchases</a>
+<a href="../inventory/stock-depreciation.html">Stock Depreciation</a>
+<a href="../inventory/stock-adjustments.html">Stock Adjustments</a>
+<a href="../inventory/stock-level.html">Stock Level</a>
+<a href="../inventory/item-movement.html">Item Movement</a>
+<h3>Financial</h3>
+<a href="../financial/index.html">Financial overview</a>
+<a href="../financial/integration-setup.html">Integration Setup</a><a href="../financial/vat-tax-configuration.html">VAT &amp; Tax Configuration</a>
+<a href="../financial/close-fin-period.html">Close Fin Period</a>
+<a href="../financial/posting.html">Posting</a>
+<a href="../financial/posted-transactions.html">Posted Transactions</a>
+<a href="../financial/journals-monitoring.html">Journals Monitoring</a>
+<a href="../financial/banks.html">Banks</a>
+<a href="../financial/currencies.html">Currencies</a>
+<a href="../financial/sales-payment-types.html">Sales Payment Types</a>
+<a href="../financial/purchasing-expenses.html">Purchasing Expenses</a>
+<a href="../financial/cash-receipts.html">Cash Receipts</a>
+<a href="../financial/gift-vouchers.html">Gift Vouchers</a>
+<h3>Reports</h3>
+<a href="../reports/cash-report.html">Cash Report</a>
+<a href="../reports/sales-payments-report.html">Store Sales Payments</a>
+<a href="../reports/store-sales-report.html">Store Sales Report</a>
+<a href="../reports/sales-men-ladies-sales.html">Sales Men/Ladies Sales</a>
+<a href="../reports/clients-history.html">Clients History</a>
+<a href="../reports/star-rewards-history.html">Star Rewards History</a>
+<a href="../reports/clients-visits.html">Clients Visits</a>
+<a href="../reports/gross-income.html">Gross Income</a>
+<a href="../reports/gift-vouchers-summary.html">Gift Vouchers Summary</a>
+<a href="../reports/main-sales-report.html">Main Sales Report</a>
+<a href="../reports/sell-through-report.html">Sell Through Report</a>
+<a href="../reports/purchasing-report.html">Purchasing Report</a>
+<a href="../reports/user-defined-reports.html">User-Defined Reports</a>
+<h3>Manage</h3>
+<a href="../manage/suppliers.html">Suppliers</a>
+<a href="../manage/stores.html">Stores</a>
+<a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
+<a href="../manage/items.html">Items</a>
+<a href="../manage/service-items.html">Service Items</a>
+<a href="../manage/categories.html">Categories</a>
+<a href="../manage/product-groups.html">Product Groups</a>
+<a href="../manage/age-ranges.html">Age Ranges</a>
+<a href="../manage/genders.html">Genders</a>
+<a href="../manage/statistical-periods.html">Statistical Periods</a>
+<a href="../manage/sale-seasons.html">Sale Seasons</a>
+<a href="../manage/special-offers.html">Special Offers</a>
+<a href="../manage/give-away-promotions.html">Give Away Promotions</a>
+<a href="../manage/discount-coupons.html">Discount Coupons</a>
+<a href="../manage/lottery-offers.html">Lottery Offers</a>
+<a href="../manage/vip-customers.html">VIP Customers</a>
+<a href="../manage/email-contacts.html">Email Contacts</a>
+<a href="../manage/email-groups.html">Email Groups</a>
+<a href="../manage/special-cards.html">Special Cards</a>
+<a href="../manage/special-cards-profiles.html">Special Cards Profiles</a>
+<h3>Tools</h3>
+<a href="../tools/index.html">Tools overview</a>
+<a href="../tools/label-printing.html">Label Printing</a>
+<a href="../tools/stock-maintenance.html">Stock Maintenance</a>
+<a href="../tools/ims-autos.html">IMS Autos</a>
+<a href="../tools/custom-views.html">Custom Views</a>
+<a href="../tools/custom-reports.html">Custom Reports</a>
+<a href="../tools/reporting-scheduler.html">Reporting Scheduler</a>
+<a href="../tools/custom-attributes.html">Custom Attributes</a>
+<h3>System</h3>
+<a href="../system/index.html">System overview</a>
+<a href="../system/change-password.html">Change Password</a>
+<a href="../system/options.html">Options</a>
+<a href="../system/users-accounts.html">Users Accounts</a>
+<a href="../system/group-policies.html">Group Policies</a>
+<a href="../system/users-activity.html">Users Activity</a>
+<a href="../system/settings.html">Settings</a>
+<a href="../system/workstation-admin.html">Workstation Admin</a>
+<a href="../system/system-dashboard.html">System Dashboard</a>
+<a href="../system/index.html#check-for-updates">Check for updates</a>
+<h3>Shopify</h3>
+<a href="../shopify/index.html">Shopify overview</a>
+<a href="../shopify/incoming-orders.html">Incoming Orders</a>
+<a href="../shopify/fulfillment-requests.html">Fulfillment Requests</a>
+<a href="../shopify/manage-profiles.html">Manage Profiles</a>
+<a href="../shopify/integration-server.html">Integration Server</a>
+<h3>Integration</h3>
+<a href="../integration/index.html">Integration overview</a>
+<a href="../integration/starco-stock-take.html">Starco Stock Take</a>
+<a href="../integration/v-count-settings.html">V-Count Settings</a><a class="active" href="integration-center.html">Integration Center</a>
+<h3>Modules</h3>
+<a href="../index.html#sales">Sales</a>
+<a href="../index.html#inventory">Inventory</a>
+<a href="../index.html#financial">Financial</a>
+<a href="../index.html#reports">Reports</a>
+<a href="../index.html#manage">Manage</a>
+<a href="../index.html#tools">Tools</a>
+<a href="../index.html#system">System</a>
+<a href="../index.html#shopify">Shopify</a>
+<a href="../index.html#integration">Integration</a>
+<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+</aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Integration</a> › Integration Center</div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/integration.webp"/><h1>Integration Center</h1></div>
+<p class="lead">Integration Center is the IMS 9.4.4 administration screen for configurable outbound integrations. It combines endpoint setup, source-data preview, current health and synchronization history in one place.</p>
+<div class="callout"><strong>Open the screen</strong>Integration → Integration Center. The Integration menu is controlled by the <em>Integrated Reports</em> Group Policy permission.</div>
+<h2 id="tabs">Three working tabs</h2>
+<div class="table-wrap"><table><thead><tr><th>Tab</th><th>Use it for</th></tr></thead><tbody>
+<tr><td>Overview</td><td>See Active Integrations, Success Today, Failed Today, Last Run and the latest status recorded for each configured integration.</td></tr>
+<tr><td>Integrations</td><td>Create, clone, edit and activate endpoint definitions; preview the data returned by the configured source view.</td></tr>
+<tr><td>Sync Log</td><td>Filter synchronization attempts, inspect HTTP/result details and copy the response for troubleshooting.</td></tr>
+</tbody></table></div>
+<h2 id="overview">Overview</h2>
+<p>The top counters summarize the current day and the latest integration run. The grid below shows the integration Code/Name, Data Type, Trigger, Active state, Business Date, Health/status and Last Run when those values are available.</p>
+<p><strong>SUCCESS</strong> is shown in green and <strong>FAILED</strong> in red. Use <strong>Refresh</strong> to reload the counters and latest status data.</p>
+<h2 id="integrations">Create or edit an integration</h2>
+<p>Open the <strong>Integrations</strong> tab and select an existing row, or click <strong>New</strong>. The editor is divided into General, Source, Endpoint, Schedule and Advanced Settings.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Behavior</th></tr></thead><tbody>
+<tr><td>Integration Code</td><td>Unique endpoint code. For a new integration it accepts only A-Z, 0-9 and underscore. The code cannot be changed after the record is saved.</td></tr>
+<tr><td>Integration Name</td><td>Required descriptive name.</td></tr>
+<tr><td>Data Type</td><td>SALES, INVENTORY, TRAFFIC, INSIGHT or OTHER.</td></tr>
+<tr><td>Active</td><td>Only active integrations are eligible for execution by the integration engine.</td></tr>
+<tr><td>Source View</td><td>Database view used as the integration data source. The name can contain letters, digits, underscore and dot.</td></tr>
+<tr><td>Payload Mode</td><td>Currently fixed to GROUPED in the screen.</td></tr>
+<tr><td>Batch Size</td><td>Displayed by the current editor but not user-editable in IMS 9.4.4.</td></tr>
+<tr><td>Endpoint URL</td><td>Required absolute HTTP or HTTPS destination URL.</td></tr>
+<tr><td>HTTP Method</td><td>POST, PUT or PATCH.</td></tr>
+<tr><td>Auth Type</td><td>NONE, BEARER or HEADER.</td></tr>
+<tr><td>Auth Header</td><td>Required when Auth Type is HEADER.</td></tr>
+<tr><td>API Key</td><td>Required for BEARER/HEADER authentication. IMS encrypts the saved key.</td></tr>
+<tr><td>Trigger Type</td><td>MORNING_SHIFT or MANUAL.</td></tr>
+<tr><td>Advanced Settings</td><td>Required JSON configuration used by the integration engine to determine dates and construct the outbound payload.</td></tr>
+</tbody></table></div>
+<div class="callout tip"><strong>Stored API keys</strong>When editing an existing integration, the API Key box is intentionally blank. Leave it blank to keep the encrypted key already stored. Enter a value only when the key must be replaced. Choosing Auth Type NONE clears the stored key.</div>
+<h2 id="source-contract">Source view and Preview Source</h2>
+<p>The integration engine filters the Source View by <code>__business_date</code>, groups rows by <code>__request_key</code>, sends them to the row's <code>__target_code</code> target and counts distinct <code>__record_key</code> values as the records sent.</p>
+<p>Use <strong>Preview Date</strong> and <strong>Preview Source</strong> before activating a new endpoint. Preview returns up to 200 rows for the selected business date in a read-only grid and uses the same source-view naming validation as the integration engine.</p>
+<div class="callout warning"><strong>Required integration metadata</strong>A Source View used by this framework must provide the integration metadata columns expected by the engine: <code>__business_date</code>, <code>__target_code</code>, <code>__request_key</code> and <code>__record_key</code>, in addition to the business fields referenced by the payload JSON.</div>
+<h2 id="settings">Advanced Settings JSON</h2>
+<p>New integrations start with <code>date_offset=-1</code>, <code>retry_days=6</code> and empty payload field/group arrays. The engine also recognizes an optional <code>start_date</code>.</p>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>Meaning in the current engine</th></tr></thead><tbody>
+<tr><td>date_offset</td><td>Moves the final Business Date relative to the trigger execution date. The new-record default of -1 targets the previous day.</td></tr>
+<tr><td>retry_days</td><td>Extends the run backward by this many days so missed/failed business dates can be revisited.</td></tr>
+<tr><td>start_date</td><td>Optional earliest Business Date. The retry window will not go earlier than this date.</td></tr>
+<tr><td>payload.root_fields</td><td>Columns written once at the root of the JSON object.</td></tr>
+<tr><td>payload.groups</td><td>Nested array definitions. Each group supplies a name and fields; an optional group_by array combines rows by the listed columns.</td></tr>
+</tbody></table></div>
+<p>The Settings field must not be blank. The saved value is stored as JSON; malformed JSON is rejected when IMS saves it to the database.</p>
+<div class="callout warning"><strong>Complete the payload definition before execution</strong>The new-record template intentionally starts with empty <code>payload.root_fields</code> and <code>payload.groups</code> arrays. Before an endpoint can run successfully, define at least the payload group structure and make sure every field named in the JSON exists in the Source View. The current payload builder starts from the first configured group.</div>
+<h2 id="schedule">Triggers and execution</h2>
+<p><strong>MORNING_SHIFT</strong> endpoints are selected by the background integration engine when that trigger runs. For each active endpoint, the engine calculates the Business Date window from the Advanced Settings, reads the Source View and submits one request per <code>__request_key</code>.</p>
+<p><strong>MANUAL</strong> is a supported trigger classification, but Integration Center itself does not provide a Run button in IMS 9.4.4. The screen is used to configure, preview and monitor the endpoint.</p>
+<p>On a normal rerun, a request key that already has a successful log entry for the same integration and Business Date is skipped, preventing the same successful request from being resent by the standard engine path.</p>
+<h2 id="clone">Clone an endpoint</h2>
+<p>Select an integration and click <strong>Clone</strong>. IMS prepares a new record using the current configuration, proposes <code>_COPY</code> on the Integration Code and <em>Copy</em> on the name. If the source endpoint has an encrypted API key, the clone keeps that key unless you type a replacement.</p>
+<h2 id="sync-log">Sync Log</h2>
+<p>The Sync Log initially covers the last seven days. Filter by <strong>Integration</strong>, <strong>Status</strong> (SUCCESS/FAILED), <strong>Target</strong> and date range, then click <strong>Refresh</strong>. Clear Filters restores the seven-day window and all-status/all-integration view. The current log query returns the newest 2,000 matching rows at most.</p>
+<div class="table-wrap"><table><thead><tr><th>Grid value</th><th>What it tells you</th></tr></thead><tbody>
+<tr><td>Date / Integration / Target</td><td>Business Date, endpoint code and destination/target identifier for the request.</td></tr>
+<tr><td>Status / Attempt</td><td>Final result and attempt sequence for that request key.</td></tr>
+<tr><td>Records / Source Rows</td><td>Distinct record count sent and total source rows used to build the request.</td></tr>
+<tr><td>HTTP</td><td>HTTP status code returned by the endpoint when available.</td></tr>
+<tr><td>Started / Completed</td><td>Execution timing recorded by the integration engine.</td></tr>
+</tbody></table></div>
+<p>Select a log row to see its Request Key, Sync Type, Started/Completed times, Response Message and Result Data. Result Data is formatted as JSON when possible. <strong>Copy Response</strong> copies Result Data first; if it is empty, IMS copies the Response Message instead.</p>
+<div class="callout tip"><strong>Troubleshooting sequence</strong>Start with Overview → open the failed row in Sync Log → check HTTP status and Response Message/Result Data → use Preview Source for the same Business Date → confirm endpoint authentication only if the source data is correct.</div>
+<h2 id="related">Related documentation</h2>
+<div class="doc-list">
+<a class="doc-link" href="index.html"><div>←</div><div><strong>Integration overview</strong><span>Return to the Integration menu map.</span></div></a>
+<a class="doc-link" href="../tools/ims-autos.html"><div>↗</div><div><strong>IMS Autos</strong><span>Background service that runs scheduled integration work.</span></div></a>
+<a class="doc-link" href="../system/group-policies.html"><div>↗</div><div><strong>Group Policies</strong><span>Integrated Reports controls access to the Integration top-level menu.</span></div></a>
+</div>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div>
+<script src="../assets/js/docs.js"></script>
+</body></html>
