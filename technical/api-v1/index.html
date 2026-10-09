@@ -21,7 +21,7 @@
 <span class="badge">IMS Business API v1</span>
 
 <h1>Business API v1</h1>
-<p class="lead">Read-only external API for approved IMS business data across authorized companies. It is designed for integrations, analytics and data consumers that need a stable HTTPS contract without direct database access.</p>
+<p class="lead">Read-only external API for approved IMS business data across authorized companies. It is designed for integrations, analytics and data consumers that need a versioned HTTPS interface without direct database access.</p>
 <div class="callout tip"><strong>Start here</strong>If you received an API key and company ID, open <a href="quick-start.html">Quick Start</a>. It contains copy/paste calls and the minimum information required to make a successful request.</div>
 <h2>What the API exposes</h2>
 <div class="card-grid">
@@ -54,7 +54,9 @@
 <a class="doc-link" href="examples.html"><div>07</div><div><strong>Examples &amp; Downloads</strong><span>curl, PowerShell, C# and ready-to-run HTTP/Postman collections.</span></div></a>
 </div>
 <h2>Versioning</h2>
-<p>The <code>/api/v1</code> route is the stable v1 contract. Compatible additions may be introduced within v1. Changes that remove/rename existing fields or change established business semantics require a new API version.</p>
+<p>The inspected controllers use the <code>/api/v1</code> route. This guide describes a pinned source implementation, not a verified deployed release or a guarantee about future compatibility. Confirm the deployed API and company-view versions before relying on a contract change.</p>
 
+<h2>Business API versus internal client APIs</h2><p>The 19 operations in the <a href="reference.html">endpoint reference</a> are read-only GET operations under <code>/api/v1/companies</code>. Bootstrap, administration and protected-secret operations are separate internal surfaces with different authorization. This guide is a bounded contract reference, not a complete OpenAPI or JSON Schema specification.</p>
+<p class="source-note">Source verification: IMS.Api main <code>91759f4</code>, reviewed 9 October 2026 (provisional source baseline; deployment/release equivalence not verified). <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Program.cs#L112-L117">Business API boundary</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Controllers/StoresController.cs#L9-L41">read-only resource example</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Controllers/PromotionsController.cs#L10-L119">promotion routes</a>.</p>
 <footer class="page-footer"><span>IMS Documentation</span><span>Business API v1 developer guide</span></footer>
 </main></div><script src="../../assets/js/docs.js"></script></body></html>

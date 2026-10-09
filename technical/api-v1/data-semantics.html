@@ -21,8 +21,9 @@
 <span class="badge">IMS Business API v1</span>
 
 <h1>Data Semantics</h1>
-<p class="lead">Business meaning that must be understood before aggregating API values. These rules are part of the API contract, not presentation-only labels.</p>
-<h2>Sales and returns</h2>
+<p class="lead">Business interpretations to confirm before aggregating API values. Field shapes are source-verified; the underlying company-view calculations require separate release-specific validation.</p>
+<h2>Evidence boundary for calculations</h2><div class="callout warning"><strong>View definitions still required</strong>The API reads financial and quantity values from company <code>api_v1.*</code> views. Their DDL is absent from the inspected API source. The signs, formulas, discount allocation, units and aggregation interpretations described above are provisional business guidance, not calculations proved by these API DTOs or mappings. Validate them against the authoritative view definitions for the deployed release before financial reconciliation or reporting.</div><p>The sales DTO confirms customer/loyalty IDs without customer name, phone or email fields. Coupon DTOs omit raw coupon codes. These are response-shape observations, not guarantees about all data held in upstream systems.</p>
+<h2>Sales and returns (provisional interpretation)</h2>
 <ul>
 <li>Sales transaction types are 51/52; return transaction types are 53/54.</li>
 <li><code>quantity</code> is the raw line quantity. Use <code>netQuantity</code> for signed merchandise aggregation; returns are negative.</li>
@@ -61,5 +62,6 @@
 <li>Discount-coupon endpoints expose event metadata and store eligibility. Raw coupon codes/prefixes are intentionally not exposed.</li>
 </ul>
 
+<p class="source-note">Source verification: IMS.Api main <code>91759f4</code>, reviewed 9 October 2026 (provisional source baseline; deployment/release equivalence not verified). <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Repositories/Business/SalesRepository.cs">sales view mapping</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Repositories/Business/PurchasesRepository.cs">purchase view mapping</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Contracts/Business/SaleDto.cs">sales response shape</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Contracts/Business/DiscountCouponEventDto.cs">coupon response shape</a>.</p>
 <footer class="page-footer"><span>IMS Documentation</span><span>Business API v1 developer guide</span></footer>
 </main></div><script src="../../assets/js/docs.js"></script></body></html>

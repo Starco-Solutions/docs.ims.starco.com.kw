@@ -24,10 +24,10 @@
 <p class="lead">Common conventions used across all Business API v1 resources.</p>
 <h2>Route pattern</h2>
 <pre><code>GET /api/v1/companies/{companyId}/resource</code></pre>
-<p><code>companyId</code> is a positive integer assigned to the API client.</p>
+<p><code>companyId</code> must be in the range 1–32767 and assigned to the API client.</p>
 <h2>Date format</h2><p>Date parameters use ISO format <code>yyyy-MM-dd</code>, for example <code>2026-09-30</code>. For date-based transaction/history resources, both <code>fromDate</code> and <code>toDate</code> are required and <code>toDate</code> cannot be earlier than <code>fromDate</code>.</p>
 <h2>Pagination</h2>
-<p>Paged endpoints accept <code>page</code> and <code>pageSize</code>. Defaults are <code>page=1</code> and <code>pageSize=200</code>. The maximum page size is <strong>1000</strong>.</p>
+<p>Paged endpoints accept <code>page</code> and <code>pageSize</code>. Defaults are <code>page=1</code> and <code>pageSize=200</code>. <code>page</code> must be at least 1 and <code>pageSize</code> must be 1–1000.</p>
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody>
 <tr><td><code>page</code></td><td>Current 1-based page number.</td></tr>
 <tr><td><code>pageSize</code></td><td>Requested rows per page.</td></tr>
@@ -36,9 +36,24 @@
 <tr><td><code>totalPages</code></td><td>Total page count for the current page size.</td></tr>
 <tr><td><code>data</code></td><td>Response rows.</td></tr>
 </tbody></table></div>
-<h2>Null and decimal values</h2><p>Optional source values are returned as JSON <code>null</code>. Financial, quantity and price fields are JSON numbers and may contain decimal precision appropriate to the underlying business value.</p>
+<h2>Null and decimal values</h2><p>Nullable response fields may be JSON <code>null</code>. Nonnullable database-reader mappings can instead produce empty string, 0 or false for database null; follow the endpoint DTO and mapping. Financial, quantity and price fields are JSON numbers and may contain decimal precision appropriate to the underlying business value.</p>
 <h2>Filtering</h2><p>Filters are supplied as query-string parameters. Omitted optional filters do not restrict the result. Multiple supplied filters are combined to narrow the result.</p>
 <h2>Large extracts</h2><p>Use bounded date ranges and page through results sequentially. Do not request the same large page repeatedly. Respect the client rate limits returned by the service.</p>
 
+<h2>Response envelopes</h2><p>All successful resource envelopes include <code>companyId</code>, <code>companyCode</code>, <code>companyName</code>, <code>count</code> and <code>data</code>. Stores is unpaged and does not add the paging totals. Other resources add the paging fields above. Required-date resources echo <code>fromDate</code>/<code>toDate</code>; relationship responses also include <code>promotionId</code> or <code>couponEventId</code>.</p><p>Illustrative empty items response (fictional company; not a live API result):</p>
+<pre><code>{
+  "companyId": 1,
+  "companyCode": "EXAMPLE",
+  "companyName": "Example Company",
+  "page": 1,
+  "pageSize": 200,
+  "count": 0,
+  "totalCount": 0,
+  "totalPages": 0,
+  "data": []
+}</code></pre>
+<p><code>totalPages</code> is zero for no matching rows; otherwise it is the ceiling of <code>totalCount / pageSize</code>. Counting and page retrieval are separate database queries using offset/limit. Concurrent changes can affect counts and page consistency. There is no snapshot token or cursor contract; sequential paging is not a repeatable-snapshot guarantee.</p>
+<h2>Date selection</h2><p>Sales, purchases, movements, transfers, adjustments, depreciations, markdowns and promotions require both dates. Transaction date bounds are inclusive. Markdowns and promotions select intervals overlapping the requested range inclusively, including records that began earlier. Coupon <code>expiryFrom</code> and <code>expiryTo</code> are individually optional; when both are supplied the end must not precede the start. No maximum date span is imposed by the shared date validator.</p>
+<p class="source-note">Source verification: IMS.Api main <code>91759f4</code>, reviewed 9 October 2026 (provisional source baseline; deployment/release equivalence not verified). <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Controllers/BusinessApiControllerBase.cs#L21-L108">shared validation</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Controllers/StoresController.cs#L21-L41">stores envelope</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Controllers/ItemsController.cs#L22-L49">paged envelope</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Controllers/SalesController.cs#L50-L66">dated envelope</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Controllers/DiscountCouponEventsController.cs#L22-L92">coupon contract</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Repositories/Business/ItemsRepository.cs">offset/count queries</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Repositories/Business/PromotionsRepository.cs#L115-L140">inclusive interval overlap</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Repositories/Business/MarkdownsRepository.cs#L76-L104">markdown interval overlap</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Data/Business/DbReader.cs#L8-L53">null mapping</a>.</p>
 <footer class="page-footer"><span>IMS Documentation</span><span>Business API v1 developer guide</span></footer>
 </main></div><script src="../../assets/js/docs.js"></script></body></html>
