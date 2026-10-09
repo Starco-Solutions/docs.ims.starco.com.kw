@@ -21,14 +21,14 @@
 <span class="badge">IMS Business API v1</span>
 
 <h1>Data Semantics</h1>
-<p class="lead">Business interpretations to confirm before aggregating API values. Field shapes are source-verified; the underlying company-view calculations require separate release-specific validation.</p>
-<h2>Evidence boundary for calculations</h2><div class="callout warning"><strong>View definitions still required</strong>The API reads financial and quantity values from company <code>api_v1.*</code> views. Their DDL is absent from the inspected API source. The signs, formulas, discount allocation, units and aggregation interpretations described above are provisional business guidance, not calculations proved by these API DTOs or mappings. Validate them against the authoritative view definitions for the deployed release before financial reconciliation or reporting.</div><p>The sales DTO confirms customer/loyalty IDs without customer name, phone or email fields. Coupon DTOs omit raw coupon codes. These are response-shape observations, not guarantees about all data held in upstream systems.</p>
-<h2>Sales and returns (provisional interpretation)</h2>
+<p class="lead">Source-verified API field shapes and selected business calculations from the packaged IMS Global company-view contract. Confirm deployed schema equivalence before using these definitions for reconciliation.</p>
+<h2>Evidence boundary for calculations</h2><div class="callout warning"><strong>Packaged source, not deployed schema verification</strong>The API reads company <code>api_v1.*</code> views. Selected formulas on this page are verified against <code>IMS_Global/Sql/API_v1_Company_Contract.sql</code> at the pinned IMS Global 1.4.0 source. This establishes the packaged calculation, not that every deployed database uses it. Deployed DDL equivalence, source-data integrity, upstream discount allocation and promotion-value units remain unverified.</div><p>The sales DTO confirms customer/loyalty IDs without customer name, phone or email fields. Coupon DTOs omit raw coupon codes. These are response-shape observations, not guarantees about all data held in upstream systems.</p>
+<h2>Sales and returns</h2>
 <ul>
 <li>Sales transaction types are 51/52; return transaction types are 53/54.</li>
-<li><code>quantity</code> is the raw line quantity. Use <code>netQuantity</code> for signed merchandise aggregation; returns are negative.</li>
-<li><code>grossSalesAmount</code>, <code>netSalesAmount</code> and <code>cogsAmount</code> are signed so returns reduce totals.</li>
-<li><code>discountPercent</code>/<code>discountAmount</code> describe the item/line markdown or discount. <code>invoiceDiscountAmount</code> is the invoice-level discount allocation stored on the line.</li>
+<li><code>quantity</code> is the raw line quantity. <code>netQuantity</code> is zero for non-merchandise lines (<code>itemType != 1</code>); merchandise quantities are sign-reversed for return types 53/54. The view does not enforce positive input quantities.</li>
+<li><code>grossSalesAmount</code> uses quantity × price for merchandise and the stored total otherwise. <code>netSalesAmount</code> uses stored total minus <code>disc2</code>; <code>cogsAmount</code> uses quantity × item cost. These amounts are sign-reversed for types 53/54, so normal positive return values reduce sales totals.</li>
+<li><code>discountPercent</code>, <code>discountAmount</code> and <code>invoiceDiscountAmount</code> map the stored <code>udisc_p</code>, <code>udisc</code> and <code>disc2</code> values. The view does not prove how upstream discount allocation was calculated.</li>
 <li><code>isItemDiscounted</code> and <code>isInvoiceDiscounted</code> identify those two discount mechanisms; <code>isDiscounted</code> is true when either applies.</li>
 <li><code>salespersonId</code>/<code>salespersonName</code> are line-level sales-associate references.</li>
 <li><code>customerId</code> and <code>loyaltyCustomerId</code> are separate identity namespaces. They may both be null, either may be present, or both may be present. The API does not expose customer phone/email/name as part of this sales linkage.</li>
@@ -37,12 +37,12 @@
 <ul>
 <li>Transaction type 1 is Purchase; type 2 is Purchase Return. Signed cost/quantity fields reverse on returns.</li>
 <li><code>lineForeignAmount</code> is the raw line amount. <code>foreignCostAmount</code>, <code>localCostAmount</code> and <code>landedCostAmount</code> are signed business values.</li>
-<li><code>landedExpenseAmount = landedCostAmount - localCostAmount</code>.</li>
+<li>The signed line total supplies foreign cost; local cost multiplies it by <code>currancy_change</code> and landed cost by <code>costrate</code>. <code>landedExpenseAmount = landedCostAmount - localCostAmount</code>. Type 2 reverses these signs.</li>
 <li><strong>Discount Earned is document-level.</strong> <code>documentDiscountEarned</code> is not allocated to purchase item rows and does not reduce line acquisition/landed cost.</li>
-<li>Document-level totals repeat on each row of the same purchase. Do not sum those header fields across lines; group by the purchase document first.</li>
+<li>Document-level totals repeat on each row of the same purchase. Do not sum those header fields across lines; deduplicate using the composite transaction-type, purchase-center and purchase-number identity (<code>code</code>, <code>pcenter</code>, <code>bilno</code> in the view join).</li>
 </ul>
 <h2>Inventory and movements</h2>
-<p><code>inventory</code> is a current balance/valuation contract. For dated flow analysis use <code>inventory/movements</code>.</p>
+<p><code>inventory</code> is a current balance/valuation contract. Current valuation uses quantity × cost and quantity × sale price. For dated flow analysis use <code>inventory/movements</code>. Purchase movements include only state-2 documents with a receiving store; their landed unit cost is total × costrate ÷ quantity, with null for a zero denominator.</p>
 <div class="table-wrap"><table><thead><tr><th>movementType</th><th>Meaning</th><th>Typical sign</th></tr></thead><tbody>
 <tr><td><code>PURCHASE</code></td><td>Received purchase stock.</td><td>Positive</td></tr>
 <tr><td><code>PURCHASE_RETURN</code></td><td>Stock returned to supplier.</td><td>Negative</td></tr>
@@ -52,16 +52,17 @@
 <tr><td><code>TRANSFER_IN</code></td><td>Stock arrives at destination store.</td><td>Positive</td></tr>
 <tr><td><code>STOCK_ADJUSTMENT</code></td><td>Signed inventory correction.</td><td>Positive or negative</td></tr>
 <tr><td><code>STOCK_DEPRECIATION</code></td><td>Write-off/depreciation movement.</td><td>Negative</td></tr>
-</tbody></table></div>
-<h2>Transfers</h2><p>A transfer exposes both sides: <code>sourceMovementQty</code> is negative and <code>destinationMovementQty</code> is positive. For a balanced transfer those movements cancel when aggregated across both stores.</p>
+</tbody></table></div><p>These are typical signs for normal positive source quantities, not positivity constraints. Adjustments retain their stored sign; depreciation is negated. Source data must be validated independently.</p>
+<h2>Transfers</h2><p>A transfer exposes both sides: <code>sourceMovementQty</code> is −quantity and <code>destinationMovementQty</code> is +quantity. For a balanced transfer those movements cancel when aggregated across both stores.</p>
 <h2>Markdowns, promotions and coupons</h2>
 <ul>
-<li><code>markdownPercent</code> is expressed in percentage points: <code>25</code> means 25%.</li>
-<li><code>promotionType</code> controls the meaning of <code>getValue</code>. It is not one universal unit. Examples include quantity for Buy/Get, bundle price for Bundle and a discount rate/value for discount-oriented promotion types.</li>
+<li><code>markdownPercent</code> is <code>(1 - markdown price / original price) × 100</code>, expressed in percentage points: <code>25</code> means 25%. It is null when the original price is missing or zero.</li>
+<li>The packaged promotion view passes the stored <code>so.get</code> value through as <code>getValue</code>. Its units and interpretation for each <code>promotionType</code> are not established by this SQL alone; confirm the applicable business rule rather than treating every value as a percentage or amount.</li>
 <li>Promotion relationship endpoints expose the stores/items/client categories/tiers/cashback stores attached to the promotion.</li>
 <li>Discount-coupon endpoints expose event metadata and store eligibility. Raw coupon codes/prefixes are intentionally not exposed.</li>
 </ul>
 
 <p class="source-note">Source verification: IMS.Api main <code>91759f4</code>, reviewed 9 October 2026 (provisional source baseline; deployment/release equivalence not verified). <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Repositories/Business/SalesRepository.cs">sales view mapping</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Repositories/Business/PurchasesRepository.cs">purchase view mapping</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Contracts/Business/SaleDto.cs">sales response shape</a>; <a href="https://github.com/Starco-Solutions/IMS_API/blob/91759f410cfcac252155ee0d6bfcf86c5024ee43/src/IMS.Api/Contracts/Business/DiscountCouponEventDto.cs">coupon response shape</a>.</p>
+<p class="source-note">Packaged view evidence: IMS Global 1.4.0 main <code>bb49fd38b985c4788a7310e99b299fef7dd24d7d</code>, reviewed 9 October 2026: <a href="https://github.com/Starco-Solutions/IMS_Global/blob/bb49fd38b985c4788a7310e99b299fef7dd24d7d/IMS_Global/Sql/API_v1_Company_Contract.sql#L80-L136">sales formulas</a>; <a href="https://github.com/Starco-Solutions/IMS_Global/blob/bb49fd38b985c4788a7310e99b299fef7dd24d7d/IMS_Global/Sql/API_v1_Company_Contract.sql#L349-L408">purchase cost and header identity</a>; <a href="https://github.com/Starco-Solutions/IMS_Global/blob/bb49fd38b985c4788a7310e99b299fef7dd24d7d/IMS_Global/Sql/API_v1_Company_Contract.sql#L430-L461">current inventory valuation</a>; <a href="https://github.com/Starco-Solutions/IMS_Global/blob/bb49fd38b985c4788a7310e99b299fef7dd24d7d/IMS_Global/Sql/API_v1_Company_Contract.sql#L569-L574">transfer signs</a>; <a href="https://github.com/Starco-Solutions/IMS_Global/blob/bb49fd38b985c4788a7310e99b299fef7dd24d7d/IMS_Global/Sql/API_v1_Company_Contract.sql#L613-L664">sales movements</a>; <a href="https://github.com/Starco-Solutions/IMS_Global/blob/bb49fd38b985c4788a7310e99b299fef7dd24d7d/IMS_Global/Sql/API_v1_Company_Contract.sql#L670-L726">purchase movement eligibility</a>; <a href="https://github.com/Starco-Solutions/IMS_Global/blob/bb49fd38b985c4788a7310e99b299fef7dd24d7d/IMS_Global/Sql/API_v1_Company_Contract.sql#L806-L870">adjustment and depreciation signs</a>; <a href="https://github.com/Starco-Solutions/IMS_Global/blob/bb49fd38b985c4788a7310e99b299fef7dd24d7d/IMS_Global/Sql/API_v1_Company_Contract.sql#L889-L904">markdown percentage points</a>; <a href="https://github.com/Starco-Solutions/IMS_Global/blob/bb49fd38b985c4788a7310e99b299fef7dd24d7d/IMS_Global/Sql/API_v1_Company_Contract.sql#L920-L966">promotion raw value</a>. This is a targeted review, not a complete audit of all views or deployed data.</p>
 <footer class="page-footer"><span>IMS Documentation</span><span>Business API v1 developer guide</span></footer>
 </main></div><script src="../../assets/js/docs.js"></script></body></html>
