@@ -11,9 +11,9 @@
   const main = document.querySelector('main');
   let searchItems = [...document.querySelectorAll('[data-search-item]')];
 
-  // On topic pages without explicit search cards, search the major content blocks.
+  // Search topic content blocks; retain headings so filtered matches keep section context.
   if (!searchItems.length && main) {
-    searchItems = [...main.querySelectorAll('h2, p, li, tr, .callout, .doc-link')];
+    searchItems = [...main.querySelectorAll('p, li, tr, .callout, .doc-link')];
   }
 
   const empty = document.querySelector('[data-search-empty]');

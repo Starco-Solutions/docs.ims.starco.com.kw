@@ -1,0 +1,449 @@
+{
+  "origin": "https://docs.ims.starco.com.kw",
+  "pages": [
+    {
+      "path": "financial/banks.html",
+      "summary": "Banks: maintain numeric bank ID plus Arabic/English names; ID fixed after creation; permission-controlled New/Edit."
+    },
+    {
+      "path": "financial/cash-receipts.html",
+      "summary": "Cash Receipts: customer receipt voucher, non-voucher Sales Payment Type, customer ID/search, amount and notes; saving reduces customer balance, edit corrects the balance effect, void restores the amount, and the screen displays journal/posting metadata when present."
+    },
+    {
+      "path": "financial/close-fin-period.html",
+      "summary": "Maintain the IMS financial close-through date; close date must be before today; action history records user, timestamp and close-boundary changes."
+    },
+    {
+      "path": "financial/currencies.html",
+      "summary": "Currencies: currency name, Arabic name, symbol, display format and one Local currency; non-local currencies have effective-dated Cost Rate and POS Rate history."
+    },
+    {
+      "path": "financial/gift-vouchers.html",
+      "summary": "Gift Vouchers: individually issued Voucher No., Client Name, amount, issue/expiration dates, All Stores or selected-store validity, Available/Used/Expired/Revoked states, redemption details, search by Voucher ID or Client Name, edit expiry/store scope and revoke with voucher audit history."
+    },
+    {
+      "path": "financial/index.html",
+      "summary": "Financial module overview: Integration Setup, Close Fin Period, Posting, Posted Transactions, Journals Monitoring, Banks, Currencies, Sales Payment Types, Purchasing Expenses, Cash Receipts and Gift Vouchers."
+    },
+    {
+      "path": "financial/integration-setup.html",
+      "summary": "Current Al-Shamel DSN/User/Password connection plus central account mappings for Cash/Credit Sales and Returns, Sales Discount, COGS, Discount Earned, Depreciation, Discrepancies, VAT and Gift Issue Center handling."
+    },
+    {
+      "path": "financial/journals-monitoring.html",
+      "summary": "Journals Monitoring: Sales and Stock Transfer diagnostics; Get Missing detects source transactions without sic_journal; Get Unbalanced finds Debit/Credit mismatch; click row opens Transactions Expert and refreshes the check."
+    },
+    {
+      "path": "financial/posted-transactions.html",
+      "summary": "Posted Transactions: Cash/Credit Sales, Cost of Cash/Credit and Stock Transfer journals; store/date filtering; Journal No., IMS Debit/Credit, posting user/time; optional direct financial-system totals; controlled open-period UnPost."
+    },
+    {
+      "path": "financial/posting.html",
+      "summary": "Posting: date range, Cash/Credit Sales and Returns, COGS, Stock Transfers and Purchases; optional consolidated period journals; unposted-store selection; Debit/Credit review tabs; active-store posting lock; current direct Al-Shamel posting and IMS post metadata."
+    },
+    {
+      "path": "financial/purchasing-expenses.html",
+      "summary": "Purchasing Expenses: reusable expense ID, Arabic/English description and Account No.; expense amounts are entered on Purchase invoices, contribute to landed cost and use the configured account in the Purchase journal."
+    },
+    {
+      "path": "financial/sales-payment-types.html",
+      "summary": "Payment classifications and supported configuration guidance; inconsistent checkbox enforcement remains an owner decision."
+    },
+    {
+      "path": "financial/vat-tax-configuration.html",
+      "summary": "IMS 9.4.4 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns."
+    },
+    {
+      "path": "getting-started/main-screen.html",
+      "summary": "IMS startup, workstation authorization, login, main toolbar, menus, permissions, theme behavior and connection status."
+    },
+    {
+      "path": "index.html",
+      "summary": "IMS Retail Management System Documentation"
+    },
+    {
+      "path": "integration/index.html",
+      "summary": "IMS 9.4.4 Integration overview: Starco Stock Take, V-Count Settings and Integration Center. Integration Center manages configurable outbound endpoints, source previews, health status and sync logs."
+    },
+    {
+      "path": "integration/integration-center.html",
+      "summary": "Integration Center: Overview health counters, endpoint/source/authentication/trigger/JSON configuration, required source metadata and payload-group definition, Preview Source, clone/save behavior and seven-day Sync Log troubleshooting."
+    },
+    {
+      "path": "integration/starco-stock-take.html",
+      "summary": "Exports Store inventory for the handheld physical-stock-taking workflow. Supports all Suppliers or one Supplier. Balance export is XML with schema and includes Supplier/Brand, Statistical Period, EAN, Item Code, Style, Description, Color, Size, Store Qty, Cost and Price. Pathfinder export creates the handheld scanning/item file."
+    },
+    {
+      "path": "integration/v-count-settings.html",
+      "summary": "Maintains V-Count credentials and hourly/daily/category/traffic endpoints. Daily mode clears the duty window; Hourly mode stores valid 0–23 start/end hours for IMS Autos. V-Count traffic is used by IMS Store traffic/conversion reporting."
+    },
+    {
+      "path": "inventory/index.html",
+      "summary": "Inventory module overview."
+    },
+    {
+      "path": "inventory/item-movement.html",
+      "summary": "One-item chronological ledger across opening balance, purchases/returns, transfers, sales/returns, depreciation and adjustments; optional selected-store running balance and Online Order reference."
+    },
+    {
+      "path": "inventory/purchases.html",
+      "summary": "Purchases and Purchase Returns: invoice items/imports, expenses, currency/cost, finalization and financial posting; IMS 9.4.4 adds Supplier Invoice/VAT data, Tax Treatment, Taxable/VAT/Supplier Total calculations and tax references when VAT is enabled."
+    },
+    {
+      "path": "inventory/replenishment.html",
+      "summary": "Analyze recent sales and source availability, select replenishment quantities and create a prepared Stock Transfer."
+    },
+    {
+      "path": "inventory/stock-adjustments.html",
+      "summary": "Signed positive/negative inventory corrections and negative discrepancy posting."
+    },
+    {
+      "path": "inventory/stock-depreciation.html",
+      "summary": "Write off store stock at current cost, edit/void unposted vouchers and financially post depreciation."
+    },
+    {
+      "path": "inventory/stock-level.html",
+      "summary": "Current or historical stock balances with multi-criteria filters/grouping, quantity/cost/retail, images and report exports."
+    },
+    {
+      "path": "inventory/stock-transfer.html",
+      "summary": "Create store-to-store Stock Transfer vouchers by scanning, searching or importing items."
+    },
+    {
+      "path": "inventory/transfer-following.html",
+      "summary": "Receive incoming transfers, scan actual quantities, reconcile variance, suspend/reset and finalize."
+    },
+    {
+      "path": "manage/age-ranges.html",
+      "summary": "Age Range master."
+    },
+    {
+      "path": "manage/categories.html",
+      "summary": "Category/Sub Category hierarchy."
+    },
+    {
+      "path": "manage/discount-coupons.html",
+      "summary": "Single-code or coupon-series discount events."
+    },
+    {
+      "path": "manage/email-contacts.html",
+      "summary": "Reusable report email recipients and group membership."
+    },
+    {
+      "path": "manage/email-groups.html",
+      "summary": "Private/public reusable email distribution groups."
+    },
+    {
+      "path": "manage/genders.html",
+      "summary": "Gender master."
+    },
+    {
+      "path": "manage/give-away-promotions.html",
+      "summary": "Serialized giveaway-voucher campaign configuration."
+    },
+    {
+      "path": "manage/index.html",
+      "summary": "Manage overview and menu map for IMS retail master data and configuration."
+    },
+    {
+      "path": "manage/items.html",
+      "summary": "Item/style master, merchandise hierarchy, prices, barcodes, images and online details."
+    },
+    {
+      "path": "manage/lottery-offers.html",
+      "summary": "Lottery campaign dates, trigger amount, draw date and stores."
+    },
+    {
+      "path": "manage/product-groups.html",
+      "summary": "Product Group/Sub Group hierarchy."
+    },
+    {
+      "path": "manage/sale-seasons.html",
+      "summary": "Time-based sale policies, item lists and pricing changes."
+    },
+    {
+      "path": "manage/sales-men-ladies.html",
+      "summary": "Salesperson master, active status and store-selling permissions."
+    },
+    {
+      "path": "manage/service-items.html",
+      "summary": "Service Item Codes, descriptions, account mapping and minimum prices."
+    },
+    {
+      "path": "manage/special-cards-profiles.html",
+      "summary": "Special Card expiration, one-time-use, redemption, funding and recharge rules."
+    },
+    {
+      "path": "manage/special-cards.html",
+      "summary": "Stored-value Special Cards, customer, balance, history and suspend/reactivate."
+    },
+    {
+      "path": "manage/special-offers.html",
+      "summary": "Discounts, free items, cash back, bundles and step-discount promotions."
+    },
+    {
+      "path": "manage/statistical-periods.html",
+      "summary": "Statistical Period / season master."
+    },
+    {
+      "path": "manage/stores.html",
+      "summary": "Store/branch master, POS, sections, transaction settings, financial mapping, V-Count and online-store settings."
+    },
+    {
+      "path": "manage/suppliers.html",
+      "summary": "Supplier master, Brands, JIT/integration settings, custom attributes and mailing lists."
+    },
+    {
+      "path": "manage/vip-customers.html",
+      "summary": "VIP customer details, categories, contact info, discount and credit information."
+    },
+    {
+      "path": "reports/cash-report.html",
+      "summary": "Daily Cash Report / closing by POS or all POS terminals."
+    },
+    {
+      "path": "reports/clients-history.html",
+      "summary": "Client sales and returns history."
+    },
+    {
+      "path": "reports/clients-visits.html",
+      "summary": "Newly identified client visits, spending and contribution to sales."
+    },
+    {
+      "path": "reports/gift-vouchers-summary.html",
+      "summary": "Gift Voucher issue, expiry, cancellation, redemption and net valid value."
+    },
+    {
+      "path": "reports/gross-income.html",
+      "summary": "Gross Income by supplier or store, including inventory value, COGS, markup and gross profit."
+    },
+    {
+      "path": "reports/index.html",
+      "summary": "Reports overview and menu map for the IMS reporting suite."
+    },
+    {
+      "path": "reports/main-sales-report.html",
+      "summary": "Main Sales Report filters, grouping, KPIs, merchandise analysis, traffic, conversion and images."
+    },
+    {
+      "path": "reports/purchasing-report.html",
+      "summary": "Purchases and purchase returns by supplier, invoice, period and merchandise criteria."
+    },
+    {
+      "path": "reports/sales-men-ladies-sales.html",
+      "summary": "Sales Men/Ladies performance and period analysis."
+    },
+    {
+      "path": "reports/sales-payments-report.html",
+      "summary": "Store Sales Payments by payment, transaction type and receipt."
+    },
+    {
+      "path": "reports/sell-through-report.html",
+      "summary": "Received, sold and on-hand analysis with sell-through, sales mix and profitability measures."
+    },
+    {
+      "path": "reports/star-rewards-history.html",
+      "summary": "Star Rewards profile, client finder, points, wallet and transaction history."
+    },
+    {
+      "path": "reports/store-sales-report.html",
+      "summary": "Store Sales Report with daily/weekly/monthly/yearly/hourly views, traffic and conversion."
+    },
+    {
+      "path": "reports/user-defined-reports.html",
+      "summary": "Run Custom Reports definitions and export/email/save or schedule delivery through Reporting Scheduler."
+    },
+    {
+      "path": "sales/index.html",
+      "summary": "Sales and POS overview."
+    },
+    {
+      "path": "sales/items-search.html",
+      "summary": "Find and review items for sales."
+    },
+    {
+      "path": "sales/open-close-pos.html",
+      "summary": "Open and close a POS shift."
+    },
+    {
+      "path": "sales/open-drawer.html",
+      "summary": "Authorized cash-drawer opening."
+    },
+    {
+      "path": "sales/sales-transactions.html",
+      "summary": "Sales and returns, payments, saved-sale versus receipt printing and uncertain-outcome verification."
+    },
+    {
+      "path": "sales/transactions-expert.html",
+      "summary": "Find existing transactions, review receipts and reprint or email them."
+    },
+    {
+      "path": "shopify/fulfillment-requests.html",
+      "summary": "Fulfillment Requests: Store/date/confirmation filtering of online Stock Transfer vouchers; merchandise/Order/Profile detail; COGS-sensitive cost columns; Store packing verification and confirmation of requests ready for integration processing."
+    },
+    {
+      "path": "shopify/incoming-orders.html",
+      "summary": "Incoming Orders: profile/store/date/state/customer/order search; online customer/address and merchandise detail; prioritized Store fulfillment; IMS Sales/Credit invoicing; linked Transactions Expert receipts; full and item refunds; exchanges with Shopify barcode/price lookup; JIT supplier notification by IMS Autos immediately after the Shopify service creates the IMS order, using Supplier/Brand mailing-list recipients; JIT purchasing later occurs during invoicing; payment/state changes; manual No Integration orders; order audit log."
+    },
+    {
+      "path": "shopify/index.html",
+      "summary": "Shopify module overview: Incoming Orders, Fulfillment Requests and Manage Profiles connect online channels with IMS sales, inventory, fulfillment and financial processing."
+    },
+    {
+      "path": "shopify/integration-server.html",
+      "summary": "Versioned Windows desktop worker: order import, separate fulfillment, inventory watermark/mapping limits, manual retrieval and recovery boundaries."
+    },
+    {
+      "path": "shopify/manage-profiles.html",
+      "summary": "Profile, supplier, store and mapping setup; API-backed secret status/replacement and unresolved legacy-worker compatibility."
+    },
+    {
+      "path": "system/change-password.html",
+      "summary": "Change Password: the active user must first confirm the current password; the confirmation dialog masks the password, enables OK only when text is entered, compares against the current user's stored password, and then proceeds to the new/retype password dialog."
+    },
+    {
+      "path": "system/group-policies.html",
+      "summary": "Group Policies: reusable role/permission profiles; All plus categorized permission tabs; synchronized permission selections; Select All per current tab or globally; per-permission descriptions; 117 current permissions across Main, Sales, Inventory, Finance, Reports, Setup, Settings, Tools, Shopify and Integration; assigned to users through Users Accounts."
+    },
+    {
+      "path": "system/index.html",
+      "summary": "System menu and links to central IMS Global workstation administration."
+    },
+    {
+      "path": "system/options.html",
+      "summary": "Options: local IMS preferences for Theme (Default/Light/Dark), installed Language, and Windows printer/copy defaults for Sales Transactions, Stock Transfers, Daily Cash Report and Other Reports; Theme/Language changes can prompt an application restart; Save writes local options and an activity-log entry."
+    },
+    {
+      "path": "system/settings.html",
+      "summary": "Settings: company/time-zone/maintenance/update/email/loyalty/operator/transaction configuration. IMS 9.4.4 VAT settings include enable flag, VAT Account No., Percentage and sales rounding increment."
+    },
+    {
+      "path": "system/system-dashboard.html",
+      "summary": "System Dashboard: current/latest IMS and updater versions, active database/server/time zone, PostgreSQL HA primary/standby state, connection latency, active workstations, Access Log, grouped live PostgreSQL sessions and the IMS 9.4.4 Performance Monitor with Min/Max/Avg timing and Good/Fair/Slow/Critical health."
+    },
+    {
+      "path": "system/users-accounts.html",
+      "summary": "Users Accounts: global IMS identity/login/contact plus current-company Store/Supplier/Group Policy/transaction scope; new users receive current-company access; Remove deactivates current-company access rather than deleting the global identity."
+    },
+    {
+      "path": "system/users-activity.html",
+      "summary": "Users Activity (window title System Log): audited IMS actions filtered by date, one user or All Users, and ModelsToAudit selections; results include Model, timestamp, Center, transaction no., IMS version, optional User Name, PC Name, IP address and Action Details; links to a separate Access Log viewer."
+    },
+    {
+      "path": "system/workstation-admin.html",
+      "summary": "Central workstation authorization through IMS Global: current fields, Refresh, Approve, Block and self-block safeguard."
+    },
+    {
+      "path": "technical/api-v1/authentication.html",
+      "summary": "API-key lifecycle, client validity, company authorization and scope-to-resource mapping."
+    },
+    {
+      "path": "technical/api-v1/data-semantics.html",
+      "summary": "Sales/returns, purchases/landed cost, inventory movements, discounts, promotions and identity semantics."
+    },
+    {
+      "path": "technical/api-v1/errors-rate-limits.html",
+      "summary": "400/401/403/404/429 behavior and rate-limit handling."
+    },
+    {
+      "path": "technical/api-v1/examples.html",
+      "summary": "curl, PowerShell, C# plus downloadable .http and Postman collections."
+    },
+    {
+      "path": "technical/api-v1/index.html",
+      "summary": "Source-backed Business API v1 guide and eight-scope model; partial contract and provisional source baseline."
+    },
+    {
+      "path": "technical/api-v1/quick-start.html",
+      "summary": "Business API v1 quick start with X-IMS-API-Key, company routing and first working requests."
+    },
+    {
+      "path": "technical/api-v1/reference.html",
+      "summary": "Business API v1 route/filter map and bounded source-verified validation/type reference; not a complete generated schema."
+    },
+    {
+      "path": "technical/api-v1/requests.html",
+      "summary": "Dates, paging (default 200, max 1000), filtering and response-envelope conventions."
+    },
+    {
+      "path": "technical/architecture.html",
+      "summary": "IMS Architecture: Windows client, IMS.Api, IMS Global, ims_global, separate company databases and background/integration services."
+    },
+    {
+      "path": "technical/ims-api.html",
+      "summary": "IMS.Api bootstrap, Global administration and read-only Business API route boundaries; verify the pinned source baseline before assuming deployed behavior."
+    },
+    {
+      "path": "technical/ims-global.html",
+      "summary": "IMS Global 1.4: Companies/database profiles and Create DB provisioning, company database login/password changes through privileged PostgreSQL confirmation, Global Users/company access, API Administration (clients, companies/scopes, keys, rate limits, Request Log and Admin Audit), Clone Policies, Clone Suppliers, Workstations, System Version and Operations Log."
+    },
+    {
+      "path": "technical/index.html",
+      "summary": "Technical overview for IMS architecture, multi-company, security, bootstrap, Global administration, API, Secret Vault, observability, PostgreSQL and IT operations."
+    },
+    {
+      "path": "technical/it-operations-troubleshooting.html",
+      "summary": "IT Operations & Troubleshooting for access, company routing, databases, API/bootstrap, workstations and new-company rollout."
+    },
+    {
+      "path": "technical/multi-company.html",
+      "summary": "Multi-Company Architecture: global identity/company membership with independent company databases and company-local operational permissions. New company databases are created and initialized by IMS Global through Companies → Create DB; do not invent or recommend a separate manual database-creation or cloning procedure."
+    },
+    {
+      "path": "technical/postgresql/index.html",
+      "summary": "PostgreSQL Deployment & Operations, including the rule that company database provisioning is performed by IMS Global."
+    },
+    {
+      "path": "technical/secret-vault.html",
+      "summary": "Secret Vault: server-mediated storage of sensitive credentials including company database secrets."
+    },
+    {
+      "path": "technical/secure-bootstrap.html",
+      "summary": "Secure Bootstrap: workstation check, global login, password-change enforcement, authorized company list and company database routing."
+    },
+    {
+      "path": "technical/security.html",
+      "summary": "Security Architecture: workstation authorization, global authentication, Global Administrator sessions, company membership and company-local permissions."
+    },
+    {
+      "path": "technical/source-baseline.html",
+      "summary": "Pinned component versions, source-versus-runtime evidence limits and correction reports."
+    },
+    {
+      "path": "technical/system-dashboard-observability.html",
+      "summary": "System Dashboard & Observability: versions, active database/server, HA state, latency, workstations, sessions and transaction performance; transaction telemetry exists only where Store Debugging Mode is enabled."
+    },
+    {
+      "path": "tools/custom-attributes.html",
+      "summary": "Custom Attributes: define global Supplier or Store attributes; ID, Name and display Format; spaces in names are stored as underscores; values are maintained per Supplier/Store in Manage; attributes become available to Custom Reports through SupplierID/StoreID."
+    },
+    {
+      "path": "tools/custom-reports.html",
+      "summary": "Custom Reports: create reports on active Custom Views; owner/name/description/active state; all-users or selected-user access; Report Fields with header, Field Type, Custom Format and None/Sum/Average/Count/Min/Max; automatic grouping when aggregation is used; Store/Supplier Custom Attributes; Order By; report deletion blocked while Reporting Scheduler tasks use it."
+    },
+    {
+      "path": "tools/custom-views.html",
+      "summary": "Custom Views: the DBA first creates an approved public-schema base reporting view named vw_*; IMS then registers it in cr_views, loads its columns, assigns one of 12 Field Types, controls Active status, and exposes it as the data-source layer for Custom Reports. Deletion is blocked while reports use the view."
+    },
+    {
+      "path": "tools/ims-autos.html",
+      "summary": "Windows service scheduling, inclusive stock-movement window, maintenance state, reports, supplier-notification limits and outbound integrations."
+    },
+    {
+      "path": "tools/index.html",
+      "summary": "Tools menu overview: Label Printing, Stock Maintenance, IMS Autos, Custom Views, Custom Reports, Reporting Scheduler and Custom Attributes."
+    },
+    {
+      "path": "tools/label-printing.html",
+      "summary": "Label Printing: Price/Sale label templates; Item/Barcode or Style entry; scanned-style/scanned-color expansion; optional selected-store positive balance as Qty; item/brand/style/color/size/prices list; Item/Qty, Style/Qty and Style/Color/Qty tab-delimited imports; Crystal Reports preview and print."
+    },
+    {
+      "path": "tools/reporting-scheduler.html",
+      "summary": "Reporting Scheduler: schedule Custom Reports by Day/Week/Month; optional TransDate period logic; required StoreID/SupplierID where-clause selection; TXT, CSV or XLSX output; file prefix/date format/remove header; Email and/or FTP delivery; server execution by IMS Autos; execution history in cr_TasksResults."
+    },
+    {
+      "path": "tools/stock-maintenance.html",
+      "summary": "Balance rebuild, transaction boundaries, maintenance-window guidance and post-run store-state verification."
+    }
+  ]
+}

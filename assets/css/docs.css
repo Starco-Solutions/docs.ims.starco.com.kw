@@ -41,7 +41,7 @@ table{border-collapse:collapse;width:100%;min-width:650px}th,td{text-align:left;
 .faq{border-top:1px solid var(--line);padding:12px 0}.faq strong{display:block}
 .page-footer{border-top:1px solid var(--line);margin-top:48px;padding-top:18px;display:flex;justify-content:space-between;gap:20px;color:#7b8795;font-size:12px}
 .search-empty{display:none;margin:20px 0;padding:15px;border:1px dashed #b8c4d0;border-radius:8px;color:var(--muted)}
-body.searching [data-search-item].search-hidden{display:none!important}
+body.searching .search-hidden{display:none!important}
 body.searching .search-empty.visible{display:block}
 mark.doc-search-hit{background:#ffed9c;padding:0 1px}
 @media(max-width:900px){

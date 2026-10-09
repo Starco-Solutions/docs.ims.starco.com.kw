@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Source Baseline | IMS Documentation</title>
+<meta name="description" content="System-level view of the IMS Windows client, IMS.Api, IMS Global, separate company databases and server-side integration workers.">
+<link rel="canonical" href="https://docs.ims.starco.com.kw/technical/source-baseline.html">
+<link rel="stylesheet" href="../assets/css/docs.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Source Baseline","url":"https://docs.ims.starco.com.kw/technical/source-baseline.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" type="button" data-mobile-nav>Menu</button>
+<nav class="topnav" aria-label="Primary"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a class="active" href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
+</div></header>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../index.html">Documentation home</a><a href="../getting-started/main-screen.html">Getting started</a><a href="../system/index.html">System</a><a href="../integration/index.html">Integration</a><h3>Technical</h3><a href="index.html">Technical Overview</a><a class="active" href="architecture.html">Source Baseline</a><a href="multi-company.html">Multi-Company Architecture</a><a href="security.html">Security Architecture</a><a href="secure-bootstrap.html">Secure Bootstrap</a><a href="ims-global.html">IMS Global</a><a href="ims-api.html">IMS API</a><a href="api-v1/index.html">Business API v1</a><a href="secret-vault.html">Secret Vault</a><a href="system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a></aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Technical › Source baseline</div>
+<h1>Source baseline and verification limits</h1><p class="lead">Traceable implementation evidence for the documentation correction review on 9 October 2026.</p>
+<div class="callout warning"><strong>Source is not deployment evidence</strong>The versions below come from pinned main-branch source. They are provisional documentation baselines, not confirmation of the software installed in any environment. Existing version badges identify documentation context, not a tested deployment. No application builds, tests, production calls or database checks were performed.</div>
+<h2 id="components">Reviewed components</h2><ul><li><strong>IMS client: 9.4.4</strong> — <a href="https://github.com/borhannasr/IMS_PG/tree/0d0ec8557954017f067b06088bddae23bef96909">borhannasr/IMS_PG at 0d0ec8557954017f067b06088bddae23bef96909</a>. Version evidence: <code>StarcoIMS/Properties/AssemblyInfo.cs:34-35</code>.</li>
+<li><strong>IMS Global: 1.4.0</strong> — <a href="https://github.com/Starco-Solutions/IMS_Global/tree/bb49fd38b985c4788a7310e99b299fef7dd24d7d">Starco-Solutions/IMS_Global at bb49fd38b985c4788a7310e99b299fef7dd24d7d</a>. Version evidence: <code>IMS_Global/IMS_Global.csproj:3-12</code>.</li>
+<li><strong>IMS.Api: v1 route contract</strong> — <a href="https://github.com/Starco-Solutions/IMS_API/tree/91759f410cfcac252155ee0d6bfcf86c5024ee43">Starco-Solutions/IMS_API at 91759f410cfcac252155ee0d6bfcf86c5024ee43</a>. Version evidence: <code>src/IMS.Api/Controllers (route attributes); not an application release number</code>.</li>
+<li><strong>IMS Autos: 9.1.2</strong> — <a href="https://github.com/Starco-Solutions/IMS_Autos_PG/tree/d79cedd6eb0a0637c8fd8f442c3434807ab4476b">Starco-Solutions/IMS_Autos_PG at d79cedd6eb0a0637c8fd8f442c3434807ab4476b</a>. Version evidence: <code>IMSAutos/Properties/AssemblyInfo.cs:35-36</code>.</li>
+<li><strong>Shopify worker: 4.2.0</strong> — <a href="https://github.com/Starco-Solutions/IMS_Shopify_PG/tree/e0b8e40666e617009f9c47aa36d4689654cef671">Starco-Solutions/IMS_Shopify_PG at e0b8e40666e617009f9c47aa36d4689654cef671</a>. Version evidence: <code>ShopifyIMS/ShopifyIMS.csproj:5,13-14</code>.</li>
+</ul><h2 id="evidence">How to read claims</h2><ul><li><strong>Source-verified:</strong> an inspected code path supports the bounded statement, with immutable references in the correction ledger.</li><li><strong>Reported:</strong> existing documented product policy or an owner-reported setup; not automatically runtime proof.</li><li><strong>Runtime-unverified:</strong> deployed versions, configuration, external acceptance, failover, permissions and recovery outcomes have not been exercised.</li></ul>
+<h2 id="open-boundaries">Open boundaries</h2><p>Vault-backed credential setters and legacy-reading workers have an unresolved compatibility boundary. Policy synchronization and administrator identity are under separate owner review. Payment-type handler consistency remains an owner decision. Documentation corrections do not implement those application changes. Purchase work on other branches is outside this baseline.</p>
+<p>The Business API contract is a source-backed partial reference, not generated OpenAPI. Released view definitions, constraints, upgrade paths and full field-level contracts still require release-owner reconciliation.</p>
+<h2 id="maintainers">Maintainer reports</h2><p><a href="../maintainer/phase1/README.md">Correction ledger, remaining decisions, roadmap and local checks</a> record the evidence and closure status. Source links may require repository access.</p>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+</main></div><script src="../assets/js/docs.js"></script></body></html>
