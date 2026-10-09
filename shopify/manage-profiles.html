@@ -128,6 +128,7 @@
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Shopify</a> › Manage Profiles</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/shopify.webp"/><h1>Manage Profiles</h1></div>
 <p class="lead">Manage Profiles defines how an online channel is represented inside IMS: which suppliers may be sold, where fulfillment should be sourced first, which Stores must not be used, and how each Shopify Store/market maps to an IMS online Store.</p>
+<div class="callout"><strong>Source-review scope</strong>Implementation details below reflect pinned provisional main-branch source reviewed in October 2026. They do not verify deployed component versions, live configuration or production health.</div>
 <div class="callout"><strong>Open the screen</strong>Shopify → Manage Profiles.</div>
 <figure class="screenshot"><img alt="Shopify Profiles screen with profile, online suppliers, main fulfillment stores, excluded stores and Shopify access information" src="../assets/images/shopify-profiles.webp"/><figcaption>A profile combines merchandise eligibility, fulfillment rules and one or more Shopify Access records.</figcaption></figure>
 <h2>Profile</h2>
@@ -158,14 +159,15 @@
 <tr><td>Store Name</td><td>Display name used throughout Incoming Orders and profile selection.</td></tr>
 <tr><td>Location ID</td><td>Shopify location identifier used by the integrated Store.</td></tr>
 <tr><td>Store URL</td><td>Shopify Store domain/URL used for API access.</td></tr>
-<tr><td>App Token / API Key / API Secret</td><td>Shopify credentials. IMS stores the credential values encrypted.</td></tr>
+<tr><td>App Token / API Key / API Secret</td><td>Shopify credentials managed through the secret API in the reviewed client. Stored-value masks indicate an existing secret; blank or unchanged fields keep it, and entered replacements update it.</td></tr>
 <tr><td>Local Store</td><td>The IMS online Store to which this Shopify Store is mapped. The selected IMS location must be configured as an online Store.</td></tr>
 <tr><td>Shipping Item</td><td>IMS Service Item used to represent shipping/delivery value on online orders.</td></tr>
 </tbody></table></div>
 <h3>Integrated Store</h3>
-<p>For a normal integrated Store, the Store Name, Shopify connection information, Local Store and Shipping Item are mandatory. IMS also prevents duplicate Store names and duplicate integration identifiers/credentials across access records.</p>
+<p>For a normal integrated Store, the Store Name, Shopify connection information, Local Store and Shipping Item are mandatory. IMS checks duplicate Store names, URLs and location identifiers. It does not establish duplicate credential-value detection across access records.</p>
 <h3>No Integration Store</h3>
-<p>When <strong>No Integration</strong> is selected, Shopify URL/API credentials are not required. Store Name, Local Store and Shipping Item remain required. Incoming Orders then exposes manual <strong>New Order</strong> entry so an offline or non-API sales channel can still use the same IMS order, fulfillment and invoicing workflow.</p>
+<p>When <strong>No Integration</strong> is selected, Shopify URL/API credentials are not required. Store Name, Local Store and Shipping Item remain required. Incoming Orders then exposes manual <strong>New Order</strong> entry so an offline or non-API sales channel can still use the same IMS order, fulfillment and invoicing workflow. The reviewed worker loads access records by active state and profile, without filtering this flag; do not assume No Integration alone excludes an active record from worker processing.</p>
+<div class="callout warning"><strong>Check credential compatibility</strong>The reviewed client writes new credentials through the vault API, while the reviewed Shopify worker reads legacy company-database tokens. Compatibility remains unresolved; verify the installed worker supports the configured storage path before adding a Store or rotating credentials. A stored-secret mask is not a connection test. Keep credentials out of screenshots, logs and support exports.</div>
 <h2>How the Integration Server uses Store Access</h2>
 <p>The background <a href="integration-server.html">Shopify Integration Server</a> loads the active Store Access records under its configured Profile ID. The values maintained here directly control the background integration:</p>
 <div class="table-wrap"><table><thead><tr><th>Store Access value</th><th>Used by the server for</th></tr></thead><tbody>
@@ -182,7 +184,7 @@
 <li>Add any Stores that must be excluded from fulfillment.</li>
 <li>Add each Shopify Access Store/market and map it to the correct IMS online Store.</li>
 <li>Assign the Shipping Item used by that online Store.</li>
-<li>Save the configuration, then verify Incoming Orders for that Profile and Store.</li>
+<li>Verify worker credential-path compatibility, save the configuration, then verify the connection and Incoming Orders for that Profile and Store.</li>
 </ol>
 <h2>Related documentation</h2>
 <div class="doc-list">

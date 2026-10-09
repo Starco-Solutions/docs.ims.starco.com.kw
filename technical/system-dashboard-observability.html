@@ -21,9 +21,13 @@
 <span class="badge">IMS Build 9.4.4.0 technical baseline</span>
 <h1>System Dashboard &amp; Observability</h1>
 <p class="lead">Operational visibility into IMS application versions, database/HA state, latency, workstations, sessions and transaction timing.</p>
+<div class="callout"><strong>Source-review scope</strong>Implementation details below reflect pinned provisional main-branch source reviewed in October 2026. They do not verify deployed component versions, live configuration or production health.</div>
 <h2>System Dashboard</h2><p>The IMS System Dashboard brings application/version state, active company database/server/time zone, HA cluster state, connection latency, workstation activity, Access Log information and PostgreSQL session grouping into one administrative view.</p>
 <h2>Transaction performance</h2><p>The Performance Monitor summarizes captured transaction timing by Store and PC, with optional transaction-type grouping. It shows Min, Max and Average timing and classifies health as Good, Fair, Slow or Critical.</p>
 <div class="callout"><strong>Telemetry control</strong>Transaction timing is diagnostic telemetry. It is recorded only where <strong>Debugging Mode</strong> is enabled for the relevant Store under <strong>Manage → Stores</strong>; it should not be assumed to exist for every Store/date.</div>
 <h2>Use in troubleshooting</h2><p>Start with current database/server identity and connection latency, then check HA state, workstation activity, live sessions and—where debugging telemetry exists—transaction timing. This separates network/session issues from transaction-specific performance problems.</p>
+<h2>Background-worker evidence</h2>
+<p>Use the dashboard alongside the owning worker's records: <a href="../tools/ims-autos.html#monitoring">IMS Autos Windows Event Log</a> for maintenance and pre-request failures; <a href="../integration/integration-center.html#sync-log">Integration Center Sync Log</a> for logged request attempts and HTTP-level results; and <a href="../shopify/integration-server.html">Shopify worker logs, product counts and profile inventory watermark</a> for its cycle and mapping outcomes.</p>
+<p>The dashboard is not evidence that every background task or external business outcome is healthy. Missing request logs, advancing inventory watermarks and success messages each have limits described in the owning component pages. Local worker logs do not establish centralized alerting or retention. Review and redact diagnostic data before external sharing.</p>
 <footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
 </main></div><script src="../assets/js/docs.js"></script></body></html>

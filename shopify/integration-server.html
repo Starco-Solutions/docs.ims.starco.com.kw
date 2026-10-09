@@ -128,7 +128,8 @@
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Shopify</a> › Integration Server</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/shopify.webp"/><h1>Shopify Integration Server</h1></div>
 <p class="lead">The Shopify Integration Server is the background application that connects Shopify with IMS PostgreSQL. It imports online orders into IMS, creates internal fulfillment work for IMS-stock items, and pushes IMS inventory quantities back to the configured Shopify locations.</p>
-<div class="callout"><strong>Supporting component</strong>This is not a separate item on the IMS Shopify menu. It runs on the integration server and works behind <a href="incoming-orders.html">Incoming Orders</a>, <a href="fulfillment-requests.html">Fulfillment Requests</a> and <a href="manage-profiles.html">Manage Profiles</a>.</div>
+<div class="callout"><strong>Source-review scope</strong>Implementation details below reflect pinned provisional main-branch source reviewed in October 2026. They do not verify deployed component versions, live configuration or production health.</div>
+<div class="callout"><strong>Supporting component</strong>This is not a separate item on the IMS Shopify menu. The reviewed worker is a Windows desktop application, rather than a Windows service. It runs on the integration computer and works behind <a href="incoming-orders.html">Incoming Orders</a>, <a href="fulfillment-requests.html">Fulfillment Requests</a> and <a href="manage-profiles.html">Manage Profiles</a>.</div>
 <h2>Component | Responsibility</h2>
 <div class="table-wrap"><table><thead><tr><th>Area</th><th>Responsibility</th></tr></thead><tbody>
 <tr><td>Order import</td><td>Reads unfulfilled Shopify orders from the active Shopify Access Stores in the configured profile and creates the IMS order/customer/item records required by Incoming Orders.</td></tr>
@@ -140,6 +141,7 @@
 <h2>One running profile</h2>
 <p>Each running instance is configured with one <strong>Profile ID</strong>. The application verifies that the profile is active, then loads all active Shopify Access records belonging to that profile. These records provide the Shopify Store URL/token, Shopify Location ID, mapped IMS Local Store and Shipping Item.</p>
 <p>This is why <a href="manage-profiles.html">Manage Profiles</a> is the configuration source for the server integration rather than a separate set of Store definitions.</p>
+<div class="callout warning"><strong>Version-dependent access</strong>The reviewed client/API save credentials in the vault, but this worker snapshot reads legacy company-database tokens. Compatibility is unresolved until the installed components' credential path is verified. Active access records are loaded by profile without filtering No Integration, so that flag alone is not a worker exclusion.</div>
 <h2>Automatic cycle</h2>
 <ol class="steps">
 <li><strong>Check IMS PostgreSQL.</strong> The application confirms the IMS database connection before an automatic cycle continues.</li>
@@ -152,7 +154,7 @@
 <li><strong>Wait for the configured interval</strong> and repeat.</li>
 </ol>
 <h2>How a Shopify order becomes an IMS order</h2>
-<p>The background application uses the Shopify <strong>Order Number</strong> as the IMS Order Reference. Before creating a new IMS order it checks the received-order history so the same Shopify order is not imported twice.</p>
+<p>The background application uses the Shopify <strong>Order Number</strong> as the IMS Order Reference. Before creating a new IMS order it checks the profile/Store/order-reference identity. Order creation repeats the duplicate check under a transaction and same-order lock.</p>
 <div class="callout tip"><strong>JIT supplier notification is handled by IMS Autos</strong>After the Shopify Integration Server writes a new order into IMS, it does not itself send the JIT supplier email. <a href="../tools/ims-autos.html">IMS Autos</a> independently checks for newly created online orders and sends Supplier/Brand order requests using the Mailing List configured in the Supplier master.</div>
 <p>For every line, the integration reads the Shopify variant so IMS can use its <strong>barcode, SKU, options, current sold price and compare-at/original price</strong>. The barcode is the primary bridge between the Shopify variant and the IMS Item Code.</p>
 <h3>Items not yet in IMS</h3>
@@ -171,6 +173,7 @@
 <li>IMS creates one Stock Transfer voucher per supplying Store to the mapped online Store, records the online Order No. against the transfer lines, updates stock balances and creates the transfer journal entries.</li>
 <li>The supplying Store sees the resulting voucher in <a href="fulfillment-requests.html">Fulfillment Requests</a>.</li>
 </ol>
+<div class="callout warning"><strong>Import and fulfillment have separate outcomes</strong>The order commits before a separate fulfillment transaction allocates stock and commits transfers, fulfillment identities, balances and journals together. If fulfillment fails, the imported order can remain without transfers. The automatic loop skips existing orders, so waiting or restarting does not establish recovery. Use the supported IMS order workflow with qualified support to investigate and complete required fulfillment. IMS transfer preparation is distinct from Shopify fulfillment completion and Store-side packing confirmation.</div>
 <h2>Inventory quantity sent to Shopify</h2>
 <p>The automatic inventory process is profile-aware. It considers only items belonging to suppliers allowed by the profile and only items that have an online Handle.</p>
 <div class="table-wrap"><table><thead><tr><th>Rule</th><th>Effect</th></tr></thead><tbody>
@@ -183,6 +186,9 @@
 </tbody></table></div>
 <p>The integration finds the Shopify product using the IMS <strong>Handle</strong>, then matches the exact variant by <strong>barcode</strong> and sets the inventory level at the Shopify <strong>Location ID</strong> configured for that Store.</p>
 <div class="callout tip"><strong>Current automatic synchronization</strong>The active automatic path synchronizes <strong>inventory quantity</strong>. Price-update logic is not part of the active automatic synchronization path in this build.</div>
+<h3>Incremental inventory and mapping failures</h3>
+<p>The worker reads the shared item-change journal using a fixed database-time window and a separate last-balance-update watermark for each profile. It does not consume or delete the shared journal. A reported inventory batch success advances that profile's watermark; transient update failures retain it for reprocessing on a later cycle.</p>
+<p>Missing or nonunique products, missing product IDs and unmatched barcode variants do not all count as batch failures. Watermark advancement therefore does not prove every item was matched or updated. Review <strong>No Variants Found</strong> diagnostics, repair mapping and arrange a controlled inventory refresh when required.</p>
 <h2>Manual inventory maintenance</h2>
 <div class="table-wrap"><table><thead><tr><th>Mode</th><th>Use</th></tr></thead><tbody>
 <tr><td>Update All</td><td>Recalculates and sends the complete eligible inventory set for the selected Shopify Store/location.</td></tr>
@@ -193,13 +199,14 @@
 <h2>Retrieve one Shopify order manually</h2>
 <p>The server UI includes <strong>Get Order</strong> for support/recovery work. The value entered here is the Shopify <strong>internal Order ID found in the Shopify URL</strong>, not the displayed Shopify Order Number. After Shopify returns the order, IMS stores the normal Shopify Order Number as its Order Reference.</p>
 <div class="callout"><strong>Different identifiers</strong>Use the URL's Shopify Order ID only for this server-side retrieval tool. Inside IMS, users normally work with the imported Order Reference/Order Number.</div>
+<p>In the reviewed worker, Get Order imports the order only; its fulfillment call is disabled. It refuses an already imported order and is not a general fulfillment-replay tool. Verify and complete any required IMS fulfillment separately.</p>
 <h2>Operational settings</h2>
 <div class="table-wrap"><table><thead><tr><th>Setting</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Profile ID</td><td>The active IMS Shopify profile handled by this running integration instance.</td></tr>
 <tr><td>Interval</td><td>Seconds between automatic integration cycles.</td></tr>
-<tr><td>Max Log rows</td><td>Controls how many live log rows are retained in the application view; zero disables the limit.</td></tr>
-<tr><td>Max API Calls per second</td><td>Local throttle used by inventory update operations to avoid excessive Shopify API calls.</td></tr>
-<tr><td>Run on startup</td><td>Starts automatic integration when the application starts and a valid profile is loaded.</td></tr>
+<tr><td>Max Log rows</td><td>Controls live-log clearing and regular/error list-log file rotation. Zero leaves the live lists unbounded and disables their file persistence. Exception and explicit update-failure logs use separate paths.</td></tr>
+<tr><td>Max API Calls per second</td><td>Local inventory-update throttle; it does not guarantee compliance with Shopify's effective API limits.</td></tr>
+<tr><td>Run on startup</td><td>Starts automatic integration when the application starts and a valid profile is loaded; it does not establish operating-system startup registration or survival after the desktop session closes.</td></tr>
 <tr><td>Start Minimized</td><td>Starts the application minimized.</td></tr>
 <tr><td>Minimize to tray</td><td>Keeps the integration running from the notification area rather than the taskbar.</td></tr>
 </tbody></table></div>
@@ -209,6 +216,7 @@
 <h2>Connection and recovery behavior</h2>
 <p>The integration keeps a reusable Shopify HTTP client with a 30-second request timeout and connection pooling. Product-count connectivity checks are retried, and long manual inventory jobs create error/resume files when repeated connection failures prevent completion.</p>
 <p>The IMS database connection can be configured from <strong>IMS DB</strong> using PostgreSQL Host, Port, Database, User ID and Password. After connection, the application uses the IMS-configured timezone and identifies its PostgreSQL session as <strong>IMS-Shopify</strong> together with the server machine name.</p>
+<p>Retry policies differ by operation: product-count checks retry selected connection/timeout failures up to three attempts with two-second delays; inventory product/variant/update operations use up to ten attempts with 1.5-second delays. Local logs can include contextual and database diagnostic information. Review and redact them before external sharing; these logs do not establish centralized alerting, retention or worker uptime.</p>
 <h2>Related documentation</h2>
 <div class="doc-list">
 <a class="doc-link" href="manage-profiles.html"><div>←</div><div><strong>Manage Profiles</strong><span>Defines the Profile, API access Stores, Location IDs, allowed suppliers, Store priorities/exclusions and Shipping Item consumed by the server.</span></div></a>

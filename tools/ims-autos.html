@@ -134,6 +134,7 @@
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Tools</a> › IMS Autos</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/tools.webp"/><h1>IMS Autos</h1></div>
 <p class="lead">IMS Autos is the administration screen for the IMS background automation service. It defines the daily maintenance time and selects which scheduled maintenance jobs the server service should run automatically.</p>
+<div class="callout"><strong>Source-review scope</strong>Implementation details below reflect pinned provisional main-branch source reviewed in October 2026. They do not verify deployed component versions, live configuration or production health.</div>
 <div class="callout"><strong>Open the screen</strong>Tools → IMS Autos.</div>
 <figure class="screenshot">
 <img alt="IMS Autos daily schedule with Sale Seasons, Stock Maintenance, Daily Stock Levels, Sell Through and customized integration options" src="../assets/images/tools-ims-autos.webp"/>
@@ -143,8 +144,8 @@
 <p>The IMS client screen does not perform the scheduled jobs itself. It saves the automation schedule and enabled options in the IMS database. The <strong>IMS Autos Windows service</strong> running on the server reads those settings and executes the background work.</p>
 <p>This separation allows an administrator to configure automation from the normal IMS client while the server continues to execute the jobs even when that user's workstation is closed.</p>
 <h2 id="time">Run every day at</h2>
-<p>Select the daily maintenance time, then enable the required jobs. The server worker checks the IMS automation configuration regularly and starts the daily shift when the configured hour and minute are reached.</p>
-<div class="callout warning"><strong>Daily maintenance shift</strong>During the scheduled maintenance shift IMS sets the Autos maintenance state so normal transaction processing can be blocked while the selected maintenance jobs are running. Choose a low-activity time appropriate for the business.</div>
+<p>Select the daily maintenance time, then enable the required jobs. The server worker compares the configured hour and minute with database-local time using the configured time zone. Scheduled report tasks instead use the worker host clock; keep both clocks and time zones correctly configured.</p>
+<div class="callout warning"><strong>Daily maintenance shift</strong>During the scheduled maintenance shift IMS sets the Autos maintenance state so normal transaction processing can be blocked while the selected maintenance jobs are running. This is a cooperative application maintenance state, not a universal database lock. Choose a low-activity time appropriate for the business. If a shift fails, review the error and maintenance state with qualified support; the outer error handler does not guarantee that the state is cleared.</div>
 <h2 id="jobs">Scheduled daily jobs</h2>
 <div class="table-wrap"><table><thead><tr><th>Option</th><th>What the server does</th></tr></thead><tbody>
 <tr><td>Apply Sale Seasons</td><td>Processes Sale Season start/end rules. Newly starting seasons apply their configured sale prices; ended seasons either return eligible items to original price or leave them in the applicable post-sale/outlet state according to the Sale Season policy.</td></tr>
@@ -163,7 +164,7 @@
 <tr><td>Stock Adjustments</td><td>Uses the signed adjustment quantity.</td></tr>
 <tr><td>Stock Depreciation</td><td>Subtracts depreciated/write-off quantity.</td></tr>
 </tbody></table></div>
-<p>Normally the service recalculates the most recent five days through today. If the movement log shows that an older date was missed, the service expands the range to catch up from the first missing day.</p>
+<p>Normally the service recalculates the previous five days plus today: six calendar dates inclusive. If the latest logged movement date is older, it extends the range from the following day. This catch-up does not detect arbitrary gaps before the latest logged date.</p>
 <h2 id="loyalty">Loyalty housekeeping during the daily shift</h2>
 <p>The server worker also performs required Loyalty/Star Rewards housekeeping as part of the daily automation shift when the corresponding loyalty settings are in use. This includes processing eligible pending reward activity after the configured return period and maintaining applicable loyalty state.</p>
 <p>This housekeeping is part of the server-side automation workflow rather than a separate checkbox on the IMS Autos screen.</p>
@@ -178,14 +179,14 @@
 </tbody></table></div>
 <div class="callout tip"><strong>Reporting Scheduler</strong>The report schedule itself is defined under Tools → Reporting Scheduler. IMS Autos is the server worker that checks those active tasks and executes them at the required time.</div>
 <h2 id="online-order-notifications">Online-order supplier notifications</h2>
-<p>This workflow is independent from the daily Autos schedule. The Autos service performs its general check approximately every <strong>30 seconds</strong>, and <strong>CheckNewOrders</strong> runs whenever the IMS database connection is available.</p>
+<p>This workflow is independent from the daily Autos schedule. The Autos service uses a <strong>30-second</strong> timer that pauses during each callback and restarts afterward. Checks are therefore separated by processing time as well as the timer interval, rather than a guaranteed 30-second delivery time. <strong>CheckNewOrders</strong> runs on the recurring path when the IMS database connection is available.</p>
 <ol class="steps">
 <li>For each configured online Profile/Store, IMS Autos reads the last processed order date.</li>
 <li>It finds newer records already created in IMS <strong>Orders</strong>.</li>
 <li>It loads the inventory-item lines from <strong>Order Details</strong> and groups them by <strong>Supplier + Brand</strong>.</li>
 <li>Recipients are selected from the Supplier Mailing List: global recipients, supplier-wide/all-brand recipients, and exact supplier/brand recipients.</li>
 <li>Autos sends an HTML “new transfer request” email containing Order No., Barcode, Description, SKU/Style, Color, Size and Qty.</li>
-<li>After processing the batch, Autos advances the last processed order date for that Profile/Store.</li>
+<li>After processing the batch, Autos advances the last processed order date for that Profile/Store, including when an email send reports failure. A failed supplier email is not guaranteed to retry automatically; review the failure before arranging an approved resend.</li>
 </ol>
 <div class="callout tip"><strong>JIT workflow timing</strong>For a JIT online order, the supplier notification happens after the Shopify service has inserted the order into IMS — <strong>before</strong> the later JIT purchasing transaction created when Incoming Orders is invoiced.</div>
 <h2 id="save">Save the Autos schedule</h2>
@@ -195,9 +196,9 @@
 <li>Click <strong>Save</strong>.</li>
 <li>IMS stores the schedule and writes a “Modified IMS Autos settings” entry to the activity log.</li>
 </ol>
-<p>If all daily-job checkboxes are cleared and the settings are saved, IMS removes the daily Autos schedule record rather than keeping an empty daily shift.</p>
+<p>If all daily-job checkboxes are cleared and the settings are saved, IMS removes the daily Autos schedule record rather than keeping an empty daily shift. Report-task checks and supplier-order notifications run outside that schedule-row condition; the reviewed Star Rewards and V-Count paths do not.</p>
 <h2 id="monitoring">Service monitoring and logs</h2>
-<p>The server service writes informational, success-audit and error messages to the Windows Event Log for its major jobs and connection failures. Administrators can use these logs to confirm when the daily shift started, which jobs completed, and whether a background integration or maintenance task reported an error.</p>
+<p>The server service writes informational, success-audit and error messages to the Windows Event Log for its major jobs and connection failures. Administrators can use these logs to confirm when the daily shift started, which jobs completed, and whether a background integration or maintenance task reported an error. A success message records the worker code-path result and does not establish external business acceptance.</p>
 <h2 id="relationship">How the main Autos functions connect</h2>
 <div class="doc-list">
 <a class="doc-link" href="stock-maintenance.html"><div>↗</div><div><strong>Stock Maintenance</strong><span>The manual version of the full stock-balance reconstruction that Autos can run on schedule.</span></div></a>
