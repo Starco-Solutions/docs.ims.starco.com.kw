@@ -183,6 +183,9 @@
 <li>The stores are released from the active-posting lock and the screen refreshes.</li>
 </ol>
 <div class="callout warning"><strong>Closed periods</strong>Posting is blocked when the selected posting period falls inside the IMS financial close boundary maintained in <a href="close-fin-period.html">Close Fin Period</a>.</div>
+<h2 id="interrupted-posting">Interrupted or uncertain posting</h2>
+<p>Financial-system journal writes, the IMS posting acknowledgement and activity logging are separate steps. If posting is interrupted, keep the journal number when available, posting type, branch/store and error details. Before another attempt, an authorized finance administrator should compare the financial-system journal with IMS posting status. A missing acknowledgement does not prove the financial write failed.</p>
+<div class="callout warning"><strong>Reconcile before retrying</strong>Do not blindly repost, unpost or use direct SQL to resolve a mismatch. Use <a href="posted-transactions.html#financial-totals">Posted Transactions</a> to review the recorded journal and financial-system totals where available.</div>
 <h2 id="concurrency">Multi-user posting protection</h2>
 <p>Before writing journals, IMS checks the selected stores against the Active Posting list. If another user is already posting one of those stores, IMS identifies the affected store(s) and stops the new posting attempt. This reduces the risk of two finance users sending the same store's journals at the same time.</p>
 <h2 id="related">Related documentation</h2>

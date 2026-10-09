@@ -169,6 +169,9 @@
 <p>UnPost is a controlled correction action. Select exactly one journal row and click <strong>UnPost</strong>. IMS requires Financial Posting permission, verifies that the transaction date is still in an open financial period, confirms the financial-system connection and asks the user to confirm removal.</p>
 <p>After confirmation, the current implementation removes the journal header/details from Al-Shamel, clears the corresponding Journal No./posting metadata in IMS and writes an audit-log entry describing the unposted store, journal and accounting branch.</p>
 <div class="callout warning"><strong>Closed-period protection</strong>A journal cannot be unposted from this screen when its transaction date is inside a closed financial period. Reopening a period is a separate controlled finance action.</div>
+<h2 id="interrupted-unposting">Interrupted or uncertain UnPost</h2>
+<p>The financial-system deletion, IMS acknowledgement and audit-log entry are separate steps. If UnPost is interrupted, keep the journal number, posting type, branch/store and error details. Before retrying, have an authorized finance administrator compare the financial journal with IMS posting status. A missing acknowledgement does not prove that deletion failed.</p>
+<div class="callout warning"><strong>Reconcile before another action</strong>Do not blindly repeat UnPost, repost the journal or use direct SQL to resolve a mismatch.</div>
 <h2 id="workflow">Typical reconciliation workflow</h2>
 <ol class="steps">
 <li>Select the transaction family and date range.</li>

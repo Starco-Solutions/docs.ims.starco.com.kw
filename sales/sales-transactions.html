@@ -366,6 +366,7 @@
 <tr><td>Print Gift Receipt</td><td>Produces the gift-receipt output for an eligible cash sale.</td></tr>
 </tbody></table></div>
 <p>Before saving, IMS rechecks the database connection, background blocking/maintenance state, payment/customer requirements, Star Card/loyalty conditions and other rules relevant to the selected transaction type. Cash receipts can invoke Cash Payment Calc, while configured Bank/card payments can require Authorization Codes before the transaction is committed.</p>
+<div class="callout warning"><strong>Missing receipt or uncertain save</strong>The sale is committed before receipt printing. A missing receipt or print error does not mean the sale was not saved. Check the existing transaction in <a href="transactions-expert.html#print-email">Transactions Expert and reprint it</a> if present. If saving was interrupted or its outcome remains uncertain, verify the transaction before starting another sale for the same purchase.</div>
 <h2 id="status">POS context</h2>
 <p>The bottom status bar keeps the operational context visible: <strong>Store, POS No., POS Date</strong> and <strong>Active User</strong>. This is especially important for users who have access to more than one Store.</p>
 <h2 id="related">Related documentation</h2>

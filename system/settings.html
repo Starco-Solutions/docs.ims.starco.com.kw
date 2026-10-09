@@ -165,7 +165,8 @@
 <tr><td>Login Name</td><td>Account used to access the configured update location.</td></tr>
 <tr><td>Password</td><td>Password associated with the update-server account; masked on screen.</td></tr>
 </tbody></table></div>
-<p>IMS encrypts the configured Update Server URL, login and password before saving them in System Settings.</p>
+<p>The Update Server URL and login are saved as nonsecret settings. Password status and updates use IMS Security Guard. The stored-password mask indicates that a password already exists; leaving the password blank or unchanged does not clear it. If no password is stored and both URL and login are supplied, a password is required.</p>
+<p>Legacy update-server settings may be migrated when this screen loads. Migration does not establish that historical stored values have been removed. Password updates and the remaining settings are saved separately; do not assume that an error leaves both unchanged.</p>
 <h2 id="email">Email Server Settings</h2>
 <div class="table-wrap"><table><thead><tr><th>Setting</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>SMTP Server</td><td>Outgoing mail server used by IMS email functions.</td></tr>

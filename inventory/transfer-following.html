@@ -181,7 +181,7 @@
 <tr><td>Cur. Price</td><td>Current retail price recorded for the transfer line.</td></tr>
 <tr><td>Rcvd.</td><td>Quantity expected from the transfer voucher.</td></tr>
 <tr><td>Act.</td><td>Quantity physically counted during receiving.</td></tr>
-<tr><td>Var.</td><td>Actual quantity minus transferred quantity.</td></tr>
+<tr><td>Var.</td><td>Receiving discrepancy. Reloaded data calculates Actual quantity minus transferred quantity; verify the underlying counts after corrections.</td></tr>
 <tr><td>MD Order</td><td>Online-order reference shown when the destination store is configured as an Online Store.</td></tr>
 </tbody></table></div>
 <h2 id="remove-one">Correct a scanning mistake</h2>
@@ -189,14 +189,14 @@
 <h2 id="variance">Review and print variances</h2>
 <p>Click <strong>Show Variance</strong> to focus on discrepancies. If a voucher or one of its item lines contains a non-zero variance, IMS hides the zero-variance lines and changes the action to <strong>Print Variance</strong>.</p>
 <p><strong>Print Variance</strong> prints the Stock Transfer variance/discrepancy report using the workstation's configured printer and copy count. If no discrepancies are present, IMS reports that no variance was found.</p>
-<div class="callout"><strong>Variance interpretation</strong>A negative variance means fewer units were physically received than sent. A positive variance means more units were physically received than recorded on the original transfer.</div>
+<div class="callout"><strong>Variance interpretation</strong>After reloading the receiving data, a negative variance means fewer units were physically received than sent, and a positive variance means more. After correcting scans, reload and compare the Actual and Rcvd. counts rather than relying on the displayed sign alone.</div>
 <h2 id="suspend">Suspend receiving</h2>
 <p><strong>Suspend</strong> stops the current receiving session without finalizing the voucher. IMS keeps the scanned Actual quantities and any updated receiving note so the transfer can remain in the Pending state and be continued later.</p>
 <h2 id="reset">Reset a pending receipt</h2>
 <p><strong>Reset</strong> is available for a Pending transfer. After confirmation, IMS clears the stored receiving counts, returns Actual quantity to zero, removes the receiving note and returns the transfer to the New state. The reset is also written to the transaction log.</p>
 <h2 id="accept">Accept the transfer</h2>
 <p>When physical receiving is complete, review the Actual quantities and any variance, then click <strong>Accept</strong>. IMS asks for confirmation and marks the transfer as Finalized. The receiving note is saved and an Accepted action is written to the log.</p>
-<div class="callout warning"><strong>Before accepting</strong>Accept finalizes the receiving workflow. Review the voucher total and any item-level variance first, and print the variance report when discrepancies need to be retained or investigated.</div>
+<div class="callout warning"><strong>Before accepting</strong>Acceptance confirms receiving; it does not automatically correct stock for a discrepancy. Review item-level counts, retain the variance report and resolve discrepancies with the authorized inventory owner before accepting. Any stock correction requires the approved separate adjustment process. Do not change counts simply to force agreement.</div>
 <h2 id="relationship">Relationship with Stock Transfer</h2>
 <p><a href="stock-transfer.html">Stock Transfer</a> creates the outgoing voucher and moves the stock between the source and destination locations. Transfer Following provides the destination-side operational control: it verifies what physically arrived against the recorded voucher quantities and keeps a receiving history.</p>
 <h2 id="related">Related documentation</h2>

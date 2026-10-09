@@ -178,6 +178,17 @@
 <p>For inventory items, <strong>Exchange</strong> asks the user to scan/type the replacement Item Code or barcode. IMS then coordinates product data, price, fulfillment and—when the original order has already been invoiced—the exchange receipt itself.</p>
 <p>If the replacement item is not yet in IMS, the workflow can query Shopify by exact barcode and use the returned product/variant information to create the missing IMS item. For an existing item, IMS can also read the Shopify current/original price; when that lookup is unavailable the user can choose whether to continue with IMS pricing.</p>
 <p>Local-stock replacement items are fulfilled through the Store network. JIT items use the purchasing workflow. For an already invoiced order, IMS creates the Exchange receipt and reverses the original fulfillment or creates the required JIT supplier return as appropriate.</p>
+<h2 id="reconciliation">Interrupted fulfillment and reversals</h2>
+<p>Follow the message for the specific operation. An error does not always mean that no stock movement was saved.</p>
+<div class="table-wrap"><table><thead><tr><th>Message or condition</th><th>What to do</th></tr></thead><tbody>
+<tr><td>A selected line no longer exists or is no longer a refund.</td><td>Refresh the order before continuing.</td></tr>
+<tr><td>An already reversed line changed, the reversal ledger does not match, a legacy fulfillment has no mapping, or quantity/source-store details do not match.</td><td>Stop and seek authorized reconciliation of the order and its linked fulfillment transfers before continuing.</td></tr>
+<tr><td>Fulfillment commit could not be confirmed.</td><td>Refresh and reconcile the order before continuing. The client may recover an initial fulfillment, but an ambiguous exchange must be reconciled.</td></tr>
+<tr><td>Reversal commit could not be confirmed.</td><td>Refresh and retry the <strong>same reversal</strong> as instructed by the client. Do not substitute a new/replacement order or a different reversal purpose.</td></tr>
+<tr><td>Fulfillment was not completed; the order may already exist.</td><td>Refresh the order and check its linked fulfillment before continuing.</td></tr>
+<tr><td>Fulfillment reversal was not completed; no changes from this reversal were saved.</td><td>This message applies to a reversal that failed before commit began. Review the accompanying error and follow the refresh or reconciliation guidance above; do not extend the “not saved” conclusion to other operations.</td></tr>
+</tbody></table></div>
+<div class="callout warning"><strong>Reconciliation boundary</strong>Keep the order reference and error details for the authorized administrator. Do not create replacement orders or manually remap database records to work around a mismatch.</div>
 <h2>Change Payment</h2>
 <p>For an eligible COD order, <strong>Change Payment</strong> changes the order to <strong>Tap Payments</strong>. IMS asks for confirmation because the action is irreversible, returns the order to the processing state and records the change in the order log.</p>
 <h2>Change State</h2>

@@ -217,6 +217,7 @@
 <h2 id="save">Save or Save and Print</h2>
 <p><strong>Save</strong> records the transfer without printing. <strong>Save and Print (F8)</strong> saves the same transfer and then prints the Stock Transfer voucher using the workstation's configured printer and copy count.</p>
 <p>After a successful save, IMS creates the transfer voucher, updates the inventory balances between the two stores, records the transfer activity and creates the related inventory-cost financial journal entries.</p>
+<div class="callout warning"><strong>Interrupted save or missing printout</strong>Saving and printing are separate outcomes. After an interruption, verify the existing voucher and both stores' recorded movement before creating another transfer. If the voucher exists, use its review/reprint workflow instead of duplicating it. Resolve uncertain save or downstream update status with an authorized administrator; an error or missing printout does not prove that the transfer was not saved.</div>
 <div class="callout warning"><strong>Before saving</strong>Confirm the From store, To store and transferred quantities. The transfer changes stock balances when it is successfully saved.</div>
 <h2 id="shortcuts">Keyboard shortcuts</h2>
 <div class="table-wrap"><table><thead><tr><th>Shortcut</th><th>Action</th></tr></thead><tbody>

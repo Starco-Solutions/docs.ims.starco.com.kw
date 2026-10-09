@@ -222,7 +222,8 @@
 </tbody></table></div>
 <h3 id="footer-totals">Bottom summary</h3>
 <p>The bottom summary shows <strong>RCVD Qty, Count, Local Cost, Landed Cost, Invs, Expenses, Retail Price, AV. Markup</strong> and <strong>AV. Cost Rate</strong>.</p>
-<p>The summary values are recalculated from the generated rows. AV. Markup is calculated from total Retail Price and total Local Cost, while AV. Cost Rate is calculated from total Landed Cost and total FR Cost.</p>
+<p>The summary values are recalculated from the generated rows. <strong>AV. Markup = total Retail Price ÷ total Local Cost</strong>, while <strong>AV. Cost Rate = total Landed Cost ÷ total FR Cost</strong>. Row Markup uses Landed Cost, including the reported expense allocation; bottom AV. Markup uses Local Cost before those expenses. They are different ratios, and AV. Markup is not an arithmetic average of the row Markup values.</p>
+<div class="callout"><strong>Illustrative expense example</strong>For a single generated row with Local Cost 100, Expenses 20, Landed Cost 120 and Retail Price 150, row Markup is 150 ÷ 120 = 1.250. Bottom AV. Markup is 150 ÷ 100 = 1.500000. These illustrative values show why nonzero expenses make the ratios differ.</div>
 <h2 id="purchase-returns">Purchase returns</h2>
 <p>The report includes transaction codes 1 and 2. Code 1 is treated as a purchase and code 2 as a purchase return. For received quantity and the cost fields, purchase returns are subtracted from purchases so the result represents net purchasing movement for the selected criteria and dates.</p>
 <h2 id="images">View Image</h2>
