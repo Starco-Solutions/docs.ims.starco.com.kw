@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild documentation discovery from one reviewed manifest; no network calls."""
+"""Rebuild documentation discovery from one page manifest; no network calls."""
 import json, re
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -12,7 +12,7 @@ for entry in manifest['pages']:
     # Restrict replacement to known documentation origins, never API/example endpoints.
     source = source.replace('https://ims.starco.com.kw/', origin + '/')
     path.write_text(source)
-lines = ['# IMS Documentation', '', '> Source-backed user and technical documentation. See the source baseline for version and verification limits.']
+lines = ['# IMS Documentation', '', '> IMS user, administrator and developer documentation. See Component Versions and Compatibility for release requirements.']
 section = None
 for entry in manifest['pages']:
     group = entry['path'].split('/')[0] if '/' in entry['path'] else 'Overview'

@@ -1,6 +1,6 @@
 # IMS Documentation
 
-> Source-backed user and technical documentation. See the source baseline for version and verification limits.
+> IMS user, administrator and developer documentation. See Component Versions and Compatibility for release requirements.
 
 ## Financial
 - https://docs.ims.starco.com.kw/financial/banks.html — Banks: maintain numeric bank ID plus Arabic/English names; ID fixed after creation; permission-controlled New/Edit.
@@ -14,7 +14,7 @@
 - https://docs.ims.starco.com.kw/financial/posted-transactions.html — Posted Transactions: Cash/Credit Sales, Cost of Cash/Credit and Stock Transfer journals; store/date filtering; Journal No., IMS Debit/Credit, posting user/time; optional direct financial-system totals; controlled open-period UnPost.
 - https://docs.ims.starco.com.kw/financial/posting.html — Posting: date range, Cash/Credit Sales and Returns, COGS, Stock Transfers and Purchases; optional consolidated period journals; unposted-store selection; Debit/Credit review tabs; active-store posting lock; current direct Al-Shamel posting and IMS post metadata.
 - https://docs.ims.starco.com.kw/financial/purchasing-expenses.html — Purchasing Expenses: reusable expense ID, Arabic/English description and Account No.; expense amounts are entered on Purchase invoices, contribute to landed cost and use the configured account in the Purchase journal.
-- https://docs.ims.starco.com.kw/financial/sales-payment-types.html — Payment classifications and supported configuration guidance; inconsistent checkbox enforcement remains an owner decision.
+- https://docs.ims.starco.com.kw/financial/sales-payment-types.html — Payment classifications, card authorization and supported payment configuration.
 - https://docs.ims.starco.com.kw/financial/vat-tax-configuration.html — IMS 9.4.4 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns.
 
 ## Getting Started
@@ -107,24 +107,25 @@
 
 ## Technical
 - https://docs.ims.starco.com.kw/technical/api-v1/authentication.html — API-key lifecycle, client validity, company authorization and scope-to-resource mapping.
-- https://docs.ims.starco.com.kw/technical/api-v1/data-semantics.html — Sales/returns, purchases/landed cost, inventory movements, discounts, promotions and identity semantics.
+- https://docs.ims.starco.com.kw/technical/api-v1/data-semantics.html — Signed quantities, transaction dates, sales and purchase returns, cost, repeated document totals and promotion semantics.
 - https://docs.ims.starco.com.kw/technical/api-v1/errors-rate-limits.html — 400/401/403/404/429 behavior and rate-limit handling.
 - https://docs.ims.starco.com.kw/technical/api-v1/examples.html — curl, PowerShell, C# plus downloadable .http and Postman collections.
-- https://docs.ims.starco.com.kw/technical/api-v1/index.html — Source-backed Business API v1 guide and eight-scope model; partial contract and provisional source baseline.
+- https://docs.ims.starco.com.kw/technical/api-v1/index.html — IMS API 1.0.0.0 Business API v1: authentication, nine scopes, resources, response fields, semantics and Partner Data.
+- https://docs.ims.starco.com.kw/technical/api-v1/partner-data.html — Partner Data policy setup, cost-free catalog, physical stock availability, full-sync handshake and safe Stock Delta cursor workflow.
 - https://docs.ims.starco.com.kw/technical/api-v1/quick-start.html — Business API v1 quick start with X-IMS-API-Key, company routing and first working requests.
-- https://docs.ims.starco.com.kw/technical/api-v1/reference.html — Business API v1 route/filter map and bounded source-verified validation/type reference; not a complete generated schema.
+- https://docs.ims.starco.com.kw/technical/api-v1/reference.html — All 19 ordinary Business API operations with complete query parameters and response fields, types and nullability.
 - https://docs.ims.starco.com.kw/technical/api-v1/requests.html — Dates, paging (default 200, max 1000), filtering and response-envelope conventions.
 - https://docs.ims.starco.com.kw/technical/architecture.html — IMS Architecture: Windows client, IMS.Api, IMS Global, ims_global, separate company databases and background/integration services.
-- https://docs.ims.starco.com.kw/technical/ims-api.html — IMS.Api bootstrap, Global administration and read-only Business API route boundaries; verify the pinned source baseline before assuming deployed behavior.
-- https://docs.ims.starco.com.kw/technical/ims-global.html — IMS Global 1.4: Companies/database profiles and Create DB provisioning, company database login/password changes through privileged PostgreSQL confirmation, Global Users/company access, API Administration (clients, companies/scopes, keys, rate limits, Request Log and Admin Audit), Clone Policies, Clone Suppliers, Workstations, System Version and Operations Log.
+- https://docs.ims.starco.com.kw/technical/ims-api.html — IMS API 1.0.0.0: bootstrap, Global administration, Business API, Partner Data and separate internal-service authorization.
+- https://docs.ims.starco.com.kw/technical/ims-global.html — IMS Global 1.5.0.0: 24-view new-company provisioning, protected administrator, company policies, API Administration and Partner Data.
 - https://docs.ims.starco.com.kw/technical/index.html — Technical overview for IMS architecture, multi-company, security, bootstrap, Global administration, API, Secret Vault, observability, PostgreSQL and IT operations.
 - https://docs.ims.starco.com.kw/technical/it-operations-troubleshooting.html — IT Operations & Troubleshooting for access, company routing, databases, API/bootstrap, workstations and new-company rollout.
-- https://docs.ims.starco.com.kw/technical/multi-company.html — Multi-Company Architecture: global identity/company membership with independent company databases and company-local operational permissions. New company databases are created and initialized by IMS Global through Companies → Create DB; do not invent or recommend a separate manual database-creation or cloning procedure.
+- https://docs.ims.starco.com.kw/technical/multi-company.html — Multi-Company Architecture: global identity/company membership with independent company databases and company-local operational permissions. New company databases are created and initialized by IMS Global through Companies → Create DB; use the supported provisioning workflow rather than manual company database creation.
 - https://docs.ims.starco.com.kw/technical/postgresql/index.html — PostgreSQL Deployment & Operations, including the rule that company database provisioning is performed by IMS Global.
 - https://docs.ims.starco.com.kw/technical/secret-vault.html — Secret Vault: server-mediated storage of sensitive credentials including company database secrets.
 - https://docs.ims.starco.com.kw/technical/secure-bootstrap.html — Secure Bootstrap: workstation check, global login, password-change enforcement, authorized company list and company database routing.
 - https://docs.ims.starco.com.kw/technical/security.html — Security Architecture: workstation authorization, global authentication, Global Administrator sessions, company membership and company-local permissions.
-- https://docs.ims.starco.com.kw/technical/source-baseline.html — Pinned component versions, source-versus-runtime evidence limits and correction reports.
+- https://docs.ims.starco.com.kw/technical/source-baseline.html — Component Versions and Compatibility: documented versions, supported interfaces, company migrations and worker requirements.
 - https://docs.ims.starco.com.kw/technical/system-dashboard-observability.html — System Dashboard & Observability: versions, active database/server, HA state, latency, workstations, sessions and transaction performance; transaction telemetry exists only where Store Debugging Mode is enabled.
 
 ## Tools

@@ -47,7 +47,7 @@
     },
     {
       "path": "financial/sales-payment-types.html",
-      "summary": "Payment classifications and supported configuration guidance; inconsistent checkbox enforcement remains an owner decision."
+      "summary": "Payment classifications, card authorization and supported payment configuration."
     },
     {
       "path": "financial/vat-tax-configuration.html",
@@ -75,7 +75,7 @@
     },
     {
       "path": "integration/v-count-settings.html",
-      "summary": "Maintains V-Count credentials and hourly/daily/category/traffic endpoints. Daily mode clears the duty window; Hourly mode stores valid 0–23 start/end hours for IMS Autos. V-Count traffic is used by IMS Store traffic/conversion reporting."
+      "summary": "Maintains V-Count credentials and hourly/daily/category/traffic endpoints. Daily mode clears the duty window; Hourly mode stores valid 0\u201323 start/end hours for IMS Autos. V-Count traffic is used by IMS Store traffic/conversion reporting."
     },
     {
       "path": "inventory/index.html",
@@ -339,7 +339,7 @@
     },
     {
       "path": "technical/api-v1/data-semantics.html",
-      "summary": "Sales/returns, purchases/landed cost, inventory movements, discounts, promotions and identity semantics."
+      "summary": "Signed quantities, transaction dates, sales and purchase returns, cost, repeated document totals and promotion semantics."
     },
     {
       "path": "technical/api-v1/errors-rate-limits.html",
@@ -351,7 +351,11 @@
     },
     {
       "path": "technical/api-v1/index.html",
-      "summary": "Source-backed Business API v1 guide and eight-scope model; partial contract and provisional source baseline."
+      "summary": "IMS API 1.0.0.0 Business API v1: authentication, nine scopes, resources, response fields, semantics and Partner Data."
+    },
+    {
+      "path": "technical/api-v1/partner-data.html",
+      "summary": "Partner Data policy setup, cost-free catalog, physical stock availability, full-sync handshake and safe Stock Delta cursor workflow."
     },
     {
       "path": "technical/api-v1/quick-start.html",
@@ -359,7 +363,7 @@
     },
     {
       "path": "technical/api-v1/reference.html",
-      "summary": "Business API v1 route/filter map and bounded source-verified validation/type reference; not a complete generated schema."
+      "summary": "All 19 ordinary Business API operations with complete query parameters and response fields, types and nullability."
     },
     {
       "path": "technical/api-v1/requests.html",
@@ -371,11 +375,11 @@
     },
     {
       "path": "technical/ims-api.html",
-      "summary": "IMS.Api bootstrap, Global administration and read-only Business API route boundaries; verify the pinned source baseline before assuming deployed behavior."
+      "summary": "IMS API 1.0.0.0: bootstrap, Global administration, Business API, Partner Data and separate internal-service authorization."
     },
     {
       "path": "technical/ims-global.html",
-      "summary": "IMS Global 1.4: Companies/database profiles and Create DB provisioning, company database login/password changes through privileged PostgreSQL confirmation, Global Users/company access, API Administration (clients, companies/scopes, keys, rate limits, Request Log and Admin Audit), Clone Policies, Clone Suppliers, Workstations, System Version and Operations Log."
+      "summary": "IMS Global 1.5.0.0: 24-view new-company provisioning, protected administrator, company policies, API Administration and Partner Data."
     },
     {
       "path": "technical/index.html",
@@ -387,7 +391,7 @@
     },
     {
       "path": "technical/multi-company.html",
-      "summary": "Multi-Company Architecture: global identity/company membership with independent company databases and company-local operational permissions. New company databases are created and initialized by IMS Global through Companies → Create DB; do not invent or recommend a separate manual database-creation or cloning procedure."
+      "summary": "Multi-Company Architecture: global identity/company membership with independent company databases and company-local operational permissions. New company databases are created and initialized by IMS Global through Companies \u2192 Create DB; use the supported provisioning workflow rather than manual company database creation."
     },
     {
       "path": "technical/postgresql/index.html",
@@ -407,7 +411,7 @@
     },
     {
       "path": "technical/source-baseline.html",
-      "summary": "Pinned component versions, source-versus-runtime evidence limits and correction reports."
+      "summary": "Component Versions and Compatibility: documented versions, supported interfaces, company migrations and worker requirements."
     },
     {
       "path": "technical/system-dashboard-observability.html",
