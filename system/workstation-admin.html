@@ -134,13 +134,13 @@
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">System</a> › Workstation Admin</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/system.webp"/><h1>Workstation Admin</h1></div>
 <p class="lead">Use IMS Global → Workstations to review and authorize central workstation records through IMS.Api.</p>
-<div class="callout"><strong>Current administration route</strong>The reviewed IMS client 9.4.4 menu does not contain the older company-local Workstation Admin screen. The current procedure below is verified against IMS Global 1.4.0 source.</div>
+<div class="callout"><strong>Current administration route</strong>The IMS Client 9.4.4 menu does not contain the older company-local Workstation Admin screen. Use IMS Global 1.5.0.0 for workstation administration.</div>
 <h2 id="overview">Workstation list</h2><p>The Global screen shows workstation identity, friendly name, machine name, authorization, first/last seen, fingerprint-change time, hardware fingerprint and notes. Timestamps are presented in workstation-local time.</p>
 <h2 id="actions">Administrative actions</h2><p><strong>Refresh</strong> reloads the records. <strong>Approve</strong> authorizes the selected workstation; <strong>Block</strong> changes its authorization after confirmation. The workstation running IMS Global cannot block itself.</p>
 <h2 id="auto-approve">Earlier screen instructions</h2><p>The current Global screen does not expose the older Auto Approve toggle, Windows User column or Store ID column. Do not use earlier company-local instructions as a guide to this screen.</p>
 <h2 id="manual-approval">Approve a workstation</h2><ol class="steps"><li>Open <strong>IMS Global → Workstations</strong> using an authorized Global Administrator account.</li><li>Refresh and select the intended record.</li><li>Check identity, friendly name, machine, first/last seen and fingerprint details against the workstation being authorized.</li><li>Click <strong>Approve</strong> and review the refreshed authorization state.</li></ol>
 <h2 id="block">Block a workstation</h2><p>Select the intended record, click <strong>Block</strong> and review the confirmation. The self-block safeguard applies to the current workstation.</p>
-<p>See <a href="../technical/ims-global.html#workstations">IMS Global workstation administration</a> and <a href="../technical/source-baseline.html">source baseline</a>. Source verification does not establish the deployed version or hardware spoof resistance.</p>
+<p>See <a href="../technical/ims-global.html#workstations">IMS Global workstation administration</a> and <a href="../technical/source-baseline.html">component versions and compatibility</a>.</p>
 <h2 id="related">Related documentation</h2>
 <div class="doc-list">
 <a class="doc-link" href="users-accounts.html"><div>↗</div><div><strong>Users Accounts</strong><span>User authorization and workstation authorization are separate controls: both the user account and the computer must be permitted appropriately.</span></div></a>
@@ -148,7 +148,7 @@
 <a class="doc-link" href="system-dashboard.html"><div>↗</div><div><strong>System Dashboard</strong><span>Review recent active workstations, access records, database sessions and server/cluster health.</span></div></a>
 <a class="doc-link" href="index.html"><div>←</div><div><strong>System</strong><span>Return to the System menu overview.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>
