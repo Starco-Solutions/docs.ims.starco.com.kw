@@ -92,7 +92,7 @@
 - https://docs.ims.starco.com.kw/shopify/incoming-orders.html — Incoming Orders: profile/store/date/state/customer/order search; online customer/address and merchandise detail; prioritized Store fulfillment; IMS Sales/Credit invoicing; linked Transactions Expert receipts; full and item refunds; exchanges with Shopify barcode/price lookup; JIT supplier notification by IMS Autos immediately after the Shopify service creates the IMS order, using Supplier/Brand mailing-list recipients; JIT purchasing later occurs during invoicing; payment/state changes; manual No Integration orders; order audit log.
 - https://docs.ims.starco.com.kw/shopify/index.html — Shopify module overview: Incoming Orders, Fulfillment Requests and Manage Profiles connect online channels with IMS sales, inventory, fulfillment and financial processing.
 - https://docs.ims.starco.com.kw/shopify/integration-server.html — Versioned Windows desktop worker: order import, separate fulfillment, inventory watermark/mapping limits, manual retrieval and recovery boundaries.
-- https://docs.ims.starco.com.kw/shopify/manage-profiles.html — Profile, supplier, store and mapping setup; API-backed secret status/replacement and unresolved legacy-worker compatibility.
+- https://docs.ims.starco.com.kw/shopify/manage-profiles.html — Profile, supplier, store and mapping setup; protected credential replacement and worker configuration requirements.
 
 ## System
 - https://docs.ims.starco.com.kw/system/change-password.html — Change Password: the active user must first confirm the current password; the confirmation dialog masks the password, enables OK only when text is entered, compares against the current user's stored password, and then proceeds to the new/retype password dialog.

@@ -295,7 +295,7 @@
     },
     {
       "path": "shopify/manage-profiles.html",
-      "summary": "Profile, supplier, store and mapping setup; API-backed secret status/replacement and unresolved legacy-worker compatibility."
+      "summary": "Profile, supplier, store and mapping setup; protected credential replacement and worker configuration requirements."
     },
     {
       "path": "system/change-password.html",
