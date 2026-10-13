@@ -33,6 +33,14 @@
     {
       "key": "couponEventId",
       "value": "1"
+    },
+    {
+      "key": "since",
+      "value": "REPLACE_WITH_CAPTURED_BASELINE_OR_LAST_NEXT_SINCE"
+    },
+    {
+      "key": "policyVersion",
+      "value": "REPLACE_WITH_SERVER_POLICY_VERSION"
     }
   ],
   "item": [
@@ -471,6 +479,60 @@
           ],
           "path": []
         }
+      }
+    },
+    {
+      "name": "Partner catalog",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items?page=1&pageSize=200",
+        "description": "Requires partner-data.read and active policy. Read the Partner Data guide: capture baseline before catalog export and advance only after every incremental page is applied."
+      }
+    },
+    {
+      "name": "Partner Delta initial handshake",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items/changes?pageSize=200",
+        "description": "Requires partner-data.read and active policy. Read the Partner Data guide: capture baseline before catalog export and advance only after every incremental page is applied."
+      }
+    },
+    {
+      "name": "Partner Delta incremental window",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items/changes?since={{since}}&policyVersion={{policyVersion}}&pageSize=200",
+        "description": "Requires partner-data.read and active policy. Read the Partner Data guide: capture baseline before catalog export and advance only after every incremental page is applied."
       }
     }
   ]

@@ -100,3 +100,18 @@ Accept: application/json
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events/{{couponEventId}}/stores?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
+
+### Partner catalog (requires partner-data.read and active policy)
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items?page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+
+### Partner Delta initial handshake: save baselineSince/policyVersion before catalog export
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items/changes?pageSize=200
+X-IMS-API-Key: {{apiKey}}
+
+### Partner Delta incremental: set captured cursor values after full catalog is applied
+# Retain since/through/policyVersion across continuation pages. Never advance until all pages apply.
+@since = REPLACE_WITH_CAPTURED_BASELINE_OR_LAST_NEXT_SINCE
+@policyVersion = REPLACE_WITH_SERVER_POLICY_VERSION
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items/changes?since={{since}}&policyVersion={{policyVersion}}&pageSize=200
+X-IMS-API-Key: {{apiKey}}
