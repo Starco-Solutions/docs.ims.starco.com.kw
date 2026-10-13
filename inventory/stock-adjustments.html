@@ -188,11 +188,14 @@ The current IMS deployment posts eligible Stock Adjustment discrepancy journals 
 <p>If validation fails, IMS creates an <strong>-ErrorLog.txt</strong> file beside the import file containing the row number and reason. Retail and Cost values are taken from the IMS item master and do not need to be supplied in the file.</p>
 <h2 id="stock-effect">How the adjustment changes stock</h2>
 <p>When a new voucher is saved, IMS adds each signed adjustment quantity to the selected store's current on-hand balance. Therefore a +5 adjustment increases stock by five units and a -5 adjustment reduces stock by five units.</p>
-<p>If an adjusted Item Code has never had a stock-balance record in that store, IMS creates the required store/item balance record first and then applies the adjustment.</p>
+<p><strong>IMS Client 9.4.5:</strong> When saving a new adjustment or editing an existing one, IMS creates any missing store/item balance records before applying the revised adjustment quantities. Each missing balance starts at zero. Existing balance records are retained, and repeated Item Codes do not create duplicate balance records.</p>
 <p>Affected items are also queued for the normal IMS online-item update process so connected online inventory processes can react to the change.</p>
 <h2 id="edit">Edit an unposted adjustment</h2>
 <p>An authorized user can edit an existing voucher while it has not been financially posted. IMS first reverses the effect of the original adjustment, replaces the voucher details, and then applies the revised signed quantities.</p>
-<p>As a result, the live store balance always reflects the latest saved version of the adjustment voucher.</p>
+<p>The resulting balance reflects the revised quantities after the edit completes successfully.</p>
+<h3 id="balance-records">Developer notes: missing stock-balance records</h3>
+<p>In IMS Client 9.4.5, both <code>SaveNew</code> and <code>UpdateVoucher</code> call <code>EnsureItemProdsRecords</code> after writing the new voucher details and before applying the signed stock update. The helper collects distinct Item Codes from the detail grid and submits one parameterized bulk insert into <code>item_prods</code>, using paired <code>text[]</code> product and <code>numeric[]</code> cost arrays.</p>
+<p>For a missing row, the insert uses the selected store, the first encountered cost for that Item Code, zero quantity and the supplier from the matching <code>items.vendor</code>. <code>ON CONFLICT (prods, prodn) DO NOTHING</code> preserves existing store/item rows and their values. The subsequent stock update sums the voucher lines by store and Item Code before applying the signed quantity. Deduplication here affects only balance-row creation; repeated detail quantities still contribute to the adjustment total.</p>
 <h2 id="void">Void an adjustment</h2>
 <p>An unposted voucher can be voided after confirmation. IMS reverses its stock effect, removes the item detail rows and sets the voucher totals to zero.</p>
 <p>The deleted quantity/cost information is retained in the Notes together with the previous notes, and the action is written to the transaction log.</p>
@@ -218,7 +221,7 @@ A positive-cost adjustment changes the IMS inventory balance but is not posted t
 <a class="doc-link" href="../manage/stores.html"><div>↗</div><div><strong>Manage Stores</strong><span>Store and financial setup are used by Stock Adjustment processing and posting.</span></div></a>
 <a class="doc-link" href="../manage/items.html"><div>↗</div><div><strong>Manage Items</strong><span>Provides the Retail Price, Cost, Unit and product details used by the adjustment voucher.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>IMS 9.4.4 baseline; marked workflows cover IMS 9.4.5</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

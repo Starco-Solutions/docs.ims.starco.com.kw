@@ -148,6 +148,7 @@
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <p>Store ID and Name are required. After the store has been created, its ID becomes read-only.</p>
+<p><strong>IMS Client 9.4.5:</strong> Creating a store also prepares its required transaction-number counters. Missing counters start at zero, and existing counter values are preserved. The new store and these counters are saved together in one database transaction.</p>
 <h3>Edit an existing store</h3>
 <ol class="steps">
 <li>Select the store.</li>
@@ -156,6 +157,16 @@
 <li>Use the enabled Add/Edit controls if POS terminals, Sections or Custom Attributes also need maintenance.</li>
 <li>Click <strong>Save</strong> to save the store changes, or <strong>Cancel</strong> to leave the current edit.</li>
 </ol>
+<h3 id="document-counters">Developer notes: new-store document counters</h3>
+<p>In IMS Client 9.4.5, <code>SaveNew</code> inserts the store into <code>centers</code> and initializes missing <code>ims_admin.document_counters</code> rows for codes <code>1</code>, <code>2</code>, <code>51</code>, <code>52</code> and <code>81</code> using the same PostgreSQL transaction. New counter rows use <code>last_no = 0</code>. <code>ON CONFLICT (pcenter, code) DO NOTHING</code> retains existing counters without resetting their values.</p>
+<div class="table-wrap"><table><thead><tr><th>Counter code</th><th>Document sequence</th></tr></thead><tbody>
+<tr><td>1</td><td>Purchases</td></tr>
+<tr><td>2</td><td>Purchase Returns</td></tr>
+<tr><td>51</td><td>Cash Sales and Returns</td></tr>
+<tr><td>52</td><td>Credit Sales and Returns</td></tr>
+<tr><td>81</td><td>Stock Transfers, including online-order fulfillment transfers</td></tr>
+</tbody></table></div>
+<p>The transaction commits after both inserts succeed. This initialization belongs to new-store creation; editing an existing store does not backfill its counters.</p>
 <h2 id="basic">Basic Store Info</h2>
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>ID</td><td>Unique numeric store identifier used throughout IMS.</td></tr>
@@ -259,7 +270,7 @@
 <a class="doc-link" href="../reports/main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Analyze store, location and merchandise performance.</span></div></a>
 <a class="doc-link" href="../reports/store-sales-report.html"><div>↗</div><div><strong>Store Sales Report</strong><span>Review daily, weekly, monthly, yearly and hourly store sales including traffic and conversion.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>IMS 9.4.4 baseline; marked workflows cover IMS 9.4.5</span></footer>
 </main>
 </div>
 <script src="../assets/js/docs.js"></script>
