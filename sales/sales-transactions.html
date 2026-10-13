@@ -329,9 +329,29 @@
 <p>Customer Search can look up VIP/privileged customers by <strong>ID, Name, Phone or Staff ID</strong>. Guest/Loyalty customer search can use Name or Phone. Selecting a customer can load the customer's category, receipt discount, credit information, phone/email and Star Rewards registration/tier values into the transaction.</p>
 <p>Credit Sales/Credit Returns do not allow the normal Guest selection because an authorized credit customer is required.</p>
 <h3 id="client-info">Client's Info</h3>
-<p>The Client's Info dialog validates the Country Code/phone and email and links the phone number to the corresponding customer/Loyalty profile when available. If a valid phone number does not yet have a basic Loyalty customer record, IMS can create the basic phone/name profile used by the Sales/Rewards workflow.</p>
+<div class="callout"><strong>IMS Client 9.4.5</strong>The following profile workflow applies when opening <strong>Client's Info</strong> from Sales Transactions. The same dialog is used by the authorized <a href="transactions-expert.html#edit-client">Edit Client's Info workflow in Transactions Expert</a>.</div>
+<ol class="steps">
+<li>Enter the <strong>Country Code</strong> and phone number, then choose <strong>Find</strong>.</li>
+<li>Review the matching customer. In an eligible cash-transaction workflow, a valid phone number without a matching profile opens new-profile entry.</li>
+<li>For a new profile, enter <strong>First Name</strong> and any optional Last Name, Email, Gender and Nationality, then choose <strong>OK</strong> to create the profile and apply it to the transaction.</li>
+<li>For an existing Loyalty customer that is not linked to an ERP customer, choose <strong>Edit</strong>, make the required changes, then choose <strong>Save</strong> or <strong>Cancel</strong>. After returning to the profile view, choose <strong>OK</strong> to apply the customer to the transaction.</li>
+</ol>
+<div class="table-wrap"><table><thead><tr><th>Profile field</th><th>Entry and validation</th></tr></thead><tbody>
+<tr><td>Country Code / phone</td><td>Required for Find. Both are locked after lookup; use Clear from the profile view to start another lookup.</td></tr>
+<tr><td>First Name / Last Name</td><td>First Name is required when creating or editing a Loyalty profile. Last Name is optional. Names are trimmed and title-cased when saved.</td></tr>
+<tr><td>Email</td><td>Optional. A supplied address must pass email-format validation.</td></tr>
+<tr><td>Gender</td><td>Optional Male or Female selection.</td></tr>
+<tr><td>Nationality</td><td>Optional selection from the English country-name list. Typing offers matching suggestions and completes the name; a nonblank value must match a country in the list.</td></tr>
+</tbody></table></div>
+<p>Existing Loyalty profiles can be edited whether or not they are registered in Star Rewards. Editing these profile fields does not change Star Rewards registration. ERP-linked customers remain read-only in this dialog: it shows their customer name and Category, and does not offer Edit.</p>
+<div class="callout warning"><strong>Save changes the profile immediately</strong>In Edit mode, Save writes the customer profile and returns to the profile view. Cancel discards only the current unsaved edits and restores the loaded or last-saved values. Closing the dialog or cancelling the surrounding transaction does not undo a completed profile Save. OK is the separate step that applies the customer to the transaction.</div>
+<p>The default <strong>Enter</strong> action follows the current mode: Find during lookup, Save during editing, and OK for a new profile or a profile being viewed. OK and Clear are disabled while editing, so save or cancel those edits first.</p>
 <p>For an existing profile, the screen can show Star Rewards registration state, Tier, available reward value/points, tier discount, last transaction and progress toward the next tier. The transaction also receives the customer's current earn multiplier.</p>
 <p>Changing the customer after points/vouchers/special payments have already been prepared can invalidate those values, so IMS may reset the redemption/payment and recalculate the receipt.</p>
+<h4 id="client-profile-data">Developer notes: profile data and persistence</h4>
+<p>In this IMS Client 9.4.5 dialog, editable profile fields are stored in <code>LoyaltyCustomers</code>: <code>FirstName</code>, <code>LastName</code>, <code>Email</code>, <code>GenderID</code> and <code>Nationality</code>. Gender uses nullable small-integer values 1 (Male) and 2 (Female). Nationality stores the nullable integer <code>country.id</code>; the picker loads nonblank <code>country.name_e</code> values in name order and accepts an exact case-insensitive name match. Blank optional selections are stored as SQL NULL.</p>
+<p>For ERP matches, name, category and financial/customer values come from <code>customers</code> and <code>cust_cat1</code>; displayed email and demographics come from the joined <code>LoyaltyCustomers</code> row. If that loyalty row is missing, the dialog creates the basic phone/name row using <code>ON CONFLICT (CountryCode, MobileNo) DO NOTHING</code> and reloads it, preserving a row that already exists.</p>
+<p>New-profile confirmation writes the entered name, email and demographics with a parameterized insert/upsert keyed by Country Code and Mobile No.; a conflict updates those profile fields. Editing an existing profile uses a parameterized update by loyalty ID and requires exactly one affected row before returning to View mode. Profile Save is independent of saving the sales receipt.</p>
 <h3 id="loyalty-redeem">Star Rewards redemption</h3>
 <p>When Star Rewards redemption is selected, IMS uses the customer's configured redemption method. If OTP/barcode validation is required, the customer code/card is validated before points are converted to a redeemable amount. The configured minimum redemption amount is also enforced.</p>
 <p>If the available reward value is larger than the receipt, IMS limits redemption to the receipt value. A partial redemption becomes one component of Multiple Payments; a full redemption can cover the receipt directly.</p>
@@ -376,7 +396,7 @@
 <a class="doc-link" href="../manage/discount-coupons.html"><div>↗</div><div><strong>Discount Coupons</strong><span>Coupon definitions used by the Sales Transaction discount workflow.</span></div></a>
 <a class="doc-link" href="../system/group-policies.html"><div>↗</div><div><strong>Group Policies</strong><span>Controls transaction types, discounts, currency changes, deletion/printing and other Sales rights.</span></div></a>
 <a class="doc-link" href="../financial/vat-tax-configuration.html"><div>↗</div><div><strong>VAT &amp; Tax Configuration</strong><span>System VAT rate/rounding and the complete purchase/sales VAT workflow.</span></div></a></div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>IMS 9.4.4 baseline; marked workflows cover IMS 9.4.5</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>
