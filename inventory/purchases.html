@@ -5,9 +5,9 @@
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Purchases | IMS User Guide</title>
 <meta content="IMS Purchases guide: purchase invoices and returns, import items, expenses, currency and landed cost, finalization, inventory costing and Al-Shamel financial posting." name="description"/>
-<link href="https://ims.starco.com.kw/inventory/purchases.html" rel="canonical"/>
+<link href="https://docs.ims.starco.com.kw/inventory/purchases.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Purchases","url":"https://ims.starco.com.kw/inventory/purchases.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Purchases","url":"https://docs.ims.starco.com.kw/inventory/purchases.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -236,7 +236,8 @@ The current IMS deployment is integrated directly with the local <strong>Al-Sham
 <p>During finalization, IMS temporarily places the invoice/items On Hold, backs up the affected destination-store balances for recovery, calculates the resulting average costs, updates destination-store quantities and costs, updates last-purchase information, and then marks the invoice <strong>Finalized</strong>.</p>
 <div class="callout warning"><strong>Review before Finalize</strong>Check the receiving Store, Statistical Period, Shipment No., Currency/Exchange Rate, Expenses, invoice discount, item quantities and prices before finalizing. After successful finalization the invoice is no longer editable or deletable.</div>
 <h3 id="recovery">Automatic recovery and Roll Back</h3>
-<p>IMS keeps temporary recovery data while finalization is in progress. If a stock/cost update fails, IMS attempts to restore the affected balances and item cost information automatically. If finalization is interrupted and the invoice remains On Hold, the Roll Back action restores the saved balance/cost state and returns the invoice to Open.</p>
+<p>IMS keeps temporary recovery data while finalization is in progress and attempts to restore affected balances and costs if an update fails. Finalization uses separate temporary-hold, recovery, stock/cost and cleanup steps; recovery is best effort, not a guarantee that an error restores the entire operation.</p>
+<div class="callout warning"><strong>Interrupted finalization</strong>Keep the invoice identity and error details. Before another finalization or Roll Back attempt, have an authorized administrator reconcile invoice state, item holds, balances, costs and recovery status. Do not assume an On Hold invoice can safely be recovered by repeating the action.</div>
 <h2 id="returns">Purchase Returns</h2>
 <p>A Purchase Return follows the same Open → Finalize workflow but removes quantity from the selected store. Before committing the return, IMS verifies that the store has enough quantity for every returned item.</p>
 <p>If any returned quantity exceeds the current store balance, finalization is stopped and IMS creates a variance log containing Item Code, Return Qty, Current Balance and Variance so the discrepancy can be corrected.</p>
@@ -248,6 +249,7 @@ The current IMS deployment is integrated directly with the local <strong>Al-Sham
 <h3 id="journal">Review and post the journal</h3>
 <p>IMS creates the purchase journal with separate Debit/Credit lines and verifies the journal total before posting. A normal purchase and a purchase return reverse the accounting direction of the relevant entries.</p>
 <p>After a successful post, IMS stores the financial Journal No., posting user, posting date/time and posting code against the purchase invoice and records the action in the IMS transaction log.</p>
+<div class="callout warning"><strong>Interrupted financial posting</strong>Financial journal writes and the IMS posting acknowledgement are separate steps. A displayed success message alone does not prove both systems agree. Keep the invoice identity, journal number when available and error details, and have an authorized finance administrator reconcile the financial journal with IMS posting status before retrying.</div>
 <h3 id="unpost">Unpost</h3>
 <p>For a transaction that was posted through IMS, the Post action changes to <strong>UnPost</strong>. After confirmation, IMS removes the corresponding journal entry from Al-Shamel and clears the stored posting information from the IMS purchase invoice.</p>
 <div class="callout">
@@ -265,7 +267,7 @@ The user guide calls this process <em>Financial Posting</em> and identifies Al-S
 <a class="doc-link" href="../manage/statistical-periods.html"><div>↗</div><div><strong>Statistical Periods</strong><span>Season/period assignment used on purchase invoices.</span></div></a>
 <a class="doc-link" href="stock-transfer.html"><div>↗</div><div><strong>Stock Transfer</strong><span>Another inventory transaction that updates location stock balances.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

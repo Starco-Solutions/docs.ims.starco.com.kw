@@ -5,9 +5,9 @@
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Integration Center | IMS User Guide</title>
 <meta content="IMS Integration Center guide for endpoint configuration, source previews, triggers, authentication, overview health and synchronization logs." name="description"/>
-<link href="https://ims.starco.com.kw/integration/integration-center.html" rel="canonical"/>
+<link href="https://docs.ims.starco.com.kw/integration/integration-center.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Integration Center","url":"https://ims.starco.com.kw/integration/integration-center.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Integration Center","url":"https://docs.ims.starco.com.kw/integration/integration-center.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -147,22 +147,23 @@
 <tr><td>Active</td><td>Only active integrations are eligible for execution by the integration engine.</td></tr>
 <tr><td>Source View</td><td>Database view used as the integration data source. The name can contain letters, digits, underscore and dot.</td></tr>
 <tr><td>Payload Mode</td><td>Currently fixed to GROUPED in the screen.</td></tr>
-<tr><td>Batch Size</td><td>Displayed by the current editor but not user-editable in IMS 9.4.4.</td></tr>
+<tr><td>Batch Size</td><td>Displayed by the current editor but not user-editable. The worker does not use Batch Size or Payload Mode to split grouped requests.</td></tr>
 <tr><td>Endpoint URL</td><td>Required absolute HTTP or HTTPS destination URL.</td></tr>
 <tr><td>HTTP Method</td><td>POST, PUT or PATCH.</td></tr>
 <tr><td>Auth Type</td><td>NONE, BEARER or HEADER.</td></tr>
 <tr><td>Auth Header</td><td>Required when Auth Type is HEADER.</td></tr>
-<tr><td>API Key</td><td>Required for BEARER/HEADER authentication. IMS encrypts the saved key.</td></tr>
+<tr><td>API Key</td><td>Required for BEARER/HEADER authentication. The IMS client saves replacements through the secret-management API; verify compatibility with the running worker.</td></tr>
 <tr><td>Trigger Type</td><td>MORNING_SHIFT or MANUAL.</td></tr>
 <tr><td>Advanced Settings</td><td>Required JSON configuration used by the integration engine to determine dates and construct the outbound payload.</td></tr>
 </tbody></table></div>
-<div class="callout tip"><strong>Stored API keys</strong>When editing an existing integration, the API Key box is intentionally blank. Leave it blank to keep the encrypted key already stored. Enter a value only when the key must be replaced. Choosing Auth Type NONE clears the stored key.</div>
+<div class="callout tip"><strong>Stored API keys</strong>When editing an existing integration, the API Key box is intentionally blank. Leave it blank to keep an existing stored key. Enter a value only when the key must be replaced. Auth Type NONE sends requests without authentication; changing to NONE does not establish deletion of a previously saved vault secret.</div>
+<div class="callout warning"><strong>Check the consuming worker</strong>Before onboarding or rotating a key, confirm that IMS Autos supports the configured credential path. API-side vault support does not upgrade the worker or migrate its existing settings. A stored-secret indicator is not a successful worker connection.</div>
 <h2 id="source-contract">Source view and Preview Source</h2>
-<p>The integration engine filters the Source View by <code>__business_date</code>, groups rows by <code>__request_key</code>, sends them to the row's <code>__target_code</code> target and counts distinct <code>__record_key</code> values as the records sent.</p>
+<p>The integration engine filters the Source View by <code>__business_date</code>, groups rows by <code>__request_key</code> and sends one request per key to the configured <strong>Endpoint URL</strong>. <code>__target_code</code> identifies the business target in the sync log; it does not select another URL. The engine counts distinct <code>__record_key</code> values as the records sent.</p>
 <p>Use <strong>Preview Date</strong> and <strong>Preview Source</strong> before activating a new endpoint. Preview returns up to 200 rows for the selected business date in a read-only grid and uses the same source-view naming validation as the integration engine.</p>
 <div class="callout warning"><strong>Required integration metadata</strong>A Source View used by this framework must provide the integration metadata columns expected by the engine: <code>__business_date</code>, <code>__target_code</code>, <code>__request_key</code> and <code>__record_key</code>, in addition to the business fields referenced by the payload JSON.</div>
 <h2 id="settings">Advanced Settings JSON</h2>
-<p>New integrations start with <code>date_offset=-1</code>, <code>retry_days=6</code> and empty payload field/group arrays. The engine also recognizes an optional <code>start_date</code>.</p>
+<p>New integrations start with <code>date_offset=-1</code>, <code>retry_days=6</code> and empty payload field/group arrays. These are editor-template defaults; if either date setting is absent, the engine falls back to zero. The engine also recognizes an optional <code>start_date</code>.</p>
 <div class="table-wrap"><table><thead><tr><th>Setting</th><th>Meaning in the current engine</th></tr></thead><tbody>
 <tr><td>date_offset</td><td>Moves the final Business Date relative to the trigger execution date. The new-record default of -1 targets the previous day.</td></tr>
 <tr><td>retry_days</td><td>Extends the run backward by this many days so missed/failed business dates can be revisited.</td></tr>
@@ -173,29 +174,30 @@
 <p>The Settings field must not be blank. The saved value is stored as JSON; malformed JSON is rejected when IMS saves it to the database.</p>
 <div class="callout warning"><strong>Complete the payload definition before execution</strong>The new-record template intentionally starts with empty <code>payload.root_fields</code> and <code>payload.groups</code> arrays. Before an endpoint can run successfully, define at least the payload group structure and make sure every field named in the JSON exists in the Source View. The current payload builder starts from the first configured group.</div>
 <h2 id="schedule">Triggers and execution</h2>
-<p><strong>MORNING_SHIFT</strong> endpoints are selected by the background integration engine when that trigger runs. For each active endpoint, the engine calculates the Business Date window from the Advanced Settings, reads the Source View and submits one request per <code>__request_key</code>.</p>
+<p><strong>MORNING_SHIFT</strong> endpoints are selected by the IMS Autos background integration engine after daily maintenance has cleared its transaction-blocking state. For each active endpoint, the engine calculates the Business Date window from the Advanced Settings, reads the Source View and submits one request per <code>__request_key</code>.</p>
 <p><strong>MANUAL</strong> is a supported trigger classification, but Integration Center itself does not provide a Run button in IMS 9.4.4. The screen is used to configure, preview and monitor the endpoint.</p>
-<p>On a normal rerun, a request key that already has a successful log entry for the same integration and Business Date is skipped, preventing the same successful request from being resent by the standard engine path.</p>
+<p>On a normal, non-forced rerun, a request key with a SUCCESS log for the same integration and Business Date is skipped. Unsuccessful keys may be revisited on later runs while their dates remain in the configured window; this is not an immediate transport retry policy. External sending and success logging are separate operations, so a lost acknowledgement or failed log write can cause a resend. Exactly-once delivery is not guaranteed.</p>
 <h2 id="clone">Clone an endpoint</h2>
-<p>Select an integration and click <strong>Clone</strong>. IMS prepares a new record using the current configuration, proposes <code>_COPY</code> on the Integration Code and <em>Copy</em> on the name. If the source endpoint has an encrypted API key, the clone keeps that key unless you type a replacement.</p>
+<p>Select an integration and click <strong>Clone</strong>. IMS prepares a new record using the current configuration, proposes <code>_COPY</code> on the Integration Code and <em>Copy</em> on the name. Clone copies endpoint configuration, never the API key. Enter a key before saving a BEARER or HEADER clone; HEADER also requires an Auth Header.</p>
 <h2 id="sync-log">Sync Log</h2>
 <p>The Sync Log initially covers the last seven days. Filter by <strong>Integration</strong>, <strong>Status</strong> (SUCCESS/FAILED), <strong>Target</strong> and date range, then click <strong>Refresh</strong>. Clear Filters restores the seven-day window and all-status/all-integration view. The current log query returns the newest 2,000 matching rows at most.</p>
 <div class="table-wrap"><table><thead><tr><th>Grid value</th><th>What it tells you</th></tr></thead><tbody>
-<tr><td>Date / Integration / Target</td><td>Business Date, endpoint code and destination/target identifier for the request.</td></tr>
-<tr><td>Status / Attempt</td><td>Final result and attempt sequence for that request key.</td></tr>
+<tr><td>Date / Integration / Target</td><td>Business Date, endpoint code and business-target identifier for the request; Target does not override Endpoint URL.</td></tr>
+<tr><td>Status / Attempt</td><td>HTTP-level result and attempt sequence for that request key. SUCCESS means an HTTP success status, not validation of the response body as business acceptance.</td></tr>
 <tr><td>Records / Source Rows</td><td>Distinct record count sent and total source rows used to build the request.</td></tr>
 <tr><td>HTTP</td><td>HTTP status code returned by the endpoint when available.</td></tr>
 <tr><td>Started / Completed</td><td>Execution timing recorded by the integration engine.</td></tr>
 </tbody></table></div>
 <p>Select a log row to see its Request Key, Sync Type, Started/Completed times, Response Message and Result Data. Result Data is formatted as JSON when possible. <strong>Copy Response</strong> copies Result Data first; if it is empty, IMS copies the Response Message instead.</p>
 <div class="callout tip"><strong>Troubleshooting sequence</strong>Start with Overview → open the failed row in Sync Log → check HTTP status and Response Message/Result Data → use Preview Source for the same Business Date → confirm endpoint authentication only if the source data is correct.</div>
+<p>An empty source produces no new Sync Log row. Failures before attempt logging may appear only in the Autos error log, so a missing failed row does not prove that execution was never attempted. Responses and diagnostics may contain sensitive data; review and redact them before sharing externally.</p>
 <h2 id="related">Related documentation</h2>
 <div class="doc-list">
 <a class="doc-link" href="index.html"><div>←</div><div><strong>Integration overview</strong><span>Return to the Integration menu map.</span></div></a>
 <a class="doc-link" href="../tools/ims-autos.html"><div>↗</div><div><strong>IMS Autos</strong><span>Background service that runs scheduled integration work.</span></div></a>
 <a class="doc-link" href="../system/group-policies.html"><div>↗</div><div><strong>Group Policies</strong><span>Integrated Reports controls access to the Integration top-level menu.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

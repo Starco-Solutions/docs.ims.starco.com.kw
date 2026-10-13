@@ -4,10 +4,10 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Workstation Admin | IMS User Guide</title>
-<meta content="IMS Workstation Admin guide: review registered workstations, approve or block computers, inspect workstation identity details and enable or disable automatic approval for newly detected IMS workstations." name="description"/>
-<link href="https://ims.starco.com.kw/system/workstation-admin.html" rel="canonical"/>
+<meta content="IMS Workstation Admin guide: review and approve or block central workstation records through IMS Global." name="description"/>
+<link href="https://docs.ims.starco.com.kw/system/workstation-admin.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Workstation Admin","url":"https://ims.starco.com.kw/system/workstation-admin.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Workstation Admin","url":"https://docs.ims.starco.com.kw/system/workstation-admin.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -133,47 +133,14 @@
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">System</a> › Workstation Admin</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/system.webp"/><h1>Workstation Admin</h1></div>
-<p class="lead">Workstation Admin controls which registered computers are authorized to run IMS and whether newly detected workstations are approved automatically or require administrator approval.</p>
-<div class="callout"><strong>Open the screen</strong>System → Workstation Admin.</div>
-<h2 id="overview">Workstation list</h2>
-<p>The screen displays the registered IMS workstation records in a read-only grid. Unauthorized workstations are listed before authorized ones, with the most recently seen workstations prioritized within the list.</p>
-<div class="table-wrap"><table><thead><tr><th>Column</th><th>Meaning</th></tr></thead><tbody>
-<tr><td>Workstation ID</td><td>The IMS workstation identity used by the authorization system.</td></tr>
-<tr><td>Workstation Name</td><td>The friendly workstation name recorded by IMS.</td></tr>
-<tr><td>Machine Name</td><td>The Windows computer name.</td></tr>
-<tr><td>Windows User</td><td>The Windows account recorded for the workstation.</td></tr>
-<tr><td>Store ID</td><td>The Store associated with the workstation when recorded.</td></tr>
-<tr><td>Authorized</td><td>Shows whether the workstation is currently approved to use IMS.</td></tr>
-<tr><td>First Seen / Last Seen</td><td>When IMS first and most recently detected the workstation.</td></tr>
-<tr><td>Hardware Fingerprint</td><td>The hardware-based workstation fingerprint used by the IMS authorization mechanism.</td></tr>
-<tr><td>Notes</td><td>Administrative notes stored with the workstation record.</td></tr>
-</tbody></table></div>
-<h2 id="actions">Administrative actions</h2>
-<div class="table-wrap"><table><thead><tr><th>Action</th><th>Behavior</th></tr></thead><tbody>
-<tr><td>Refresh</td><td>Reloads the workstation list and the current Auto Approve state.</td></tr>
-<tr><td>Approve</td><td>Authorizes the selected workstation. IMS reloads the list after the change.</td></tr>
-<tr><td>Block</td><td>Blocks the selected workstation after an administrator confirmation.</td></tr>
-<tr><td>Enable / Disable Auto Approve</td><td>Controls whether new workstations are approved silently or must be approved manually by an administrator.</td></tr>
-</tbody></table></div>
-<h2 id="auto-approve">Auto Approve</h2>
-<p>The status line clearly shows one of two operating states:</p>
-<ul>
-<li><strong>Auto Approve: ENABLED</strong> — new workstations are approved silently.</li>
-<li><strong>Auto Approve: DISABLED</strong> — new workstations require administrator approval.</li>
-</ul>
-<p>Changing the Auto Approve state requires confirmation. When Auto Approve is disabled, a newly detected workstation cannot be used normally until an administrator selects it and approves it.</p>
-<div class="callout tip"><strong>Recommended control</strong>For a controlled production environment, keep Auto Approve disabled after deployment or rollout work is complete, then approve new or replaced workstations deliberately.</div>
-<h2 id="manual-approval">Approve a workstation</h2>
-<ol class="steps">
-<li>Open <strong>System → Workstation Admin</strong>.</li>
-<li>Click <strong>Refresh</strong> if the workstation was just registered.</li>
-<li>Select the required workstation row.</li>
-<li>Review its Machine Name, Windows User, Store, First/Last Seen and Hardware Fingerprint.</li>
-<li>Click <strong>Approve</strong>.</li>
-<li>IMS reloads the list and confirms that the workstation was approved.</li>
-</ol>
-<h2 id="block">Block a workstation</h2>
-<p>Select the workstation and click <strong>Block</strong>. IMS asks for confirmation before changing the workstation authorization state.</p>
+<p class="lead">Use IMS Global → Workstations to review and authorize central workstation records through IMS.Api.</p>
+<div class="callout"><strong>Current administration route</strong>The IMS Client 9.4.4 menu does not contain the older company-local Workstation Admin screen. Use IMS Global 1.5.0.0 for workstation administration.</div>
+<h2 id="overview">Workstation list</h2><p>The Global screen shows workstation identity, friendly name, machine name, authorization, first/last seen, fingerprint-change time, hardware fingerprint and notes. Timestamps are presented in workstation-local time.</p>
+<h2 id="actions">Administrative actions</h2><p><strong>Refresh</strong> reloads the records. <strong>Approve</strong> authorizes the selected workstation; <strong>Block</strong> changes its authorization after confirmation. The workstation running IMS Global cannot block itself.</p>
+<h2 id="auto-approve">Earlier screen instructions</h2><p>The current Global screen does not expose the older Auto Approve toggle, Windows User column or Store ID column. Do not use earlier company-local instructions as a guide to this screen.</p>
+<h2 id="manual-approval">Approve a workstation</h2><ol class="steps"><li>Open <strong>IMS Global → Workstations</strong> using an authorized Global Administrator account.</li><li>Refresh and select the intended record.</li><li>Check identity, friendly name, machine, first/last seen and fingerprint details against the workstation being authorized.</li><li>Click <strong>Approve</strong> and review the refreshed authorization state.</li></ol>
+<h2 id="block">Block a workstation</h2><p>Select the intended record, click <strong>Block</strong> and review the confirmation. The self-block safeguard applies to the current workstation.</p>
+<p>See <a href="../technical/ims-global.html#workstations">IMS Global workstation administration</a> and <a href="../technical/source-baseline.html">component versions and compatibility</a>.</p>
 <h2 id="related">Related documentation</h2>
 <div class="doc-list">
 <a class="doc-link" href="users-accounts.html"><div>↗</div><div><strong>Users Accounts</strong><span>User authorization and workstation authorization are separate controls: both the user account and the computer must be permitted appropriately.</span></div></a>
@@ -181,7 +148,7 @@
 <a class="doc-link" href="system-dashboard.html"><div>↗</div><div><strong>System Dashboard</strong><span>Review recent active workstations, access records, database sessions and server/cluster health.</span></div></a>
 <a class="doc-link" href="index.html"><div>←</div><div><strong>System</strong><span>Return to the System menu overview.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

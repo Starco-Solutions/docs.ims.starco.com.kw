@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Business API v1 Partner Data &amp; Stock Delta | IMS Documentation</title>
+<meta name="description" content="Partner Data administration, authorized catalog fields, stock availability and safe full/incremental synchronization for IMS API 1.0.0.0.">
+<link rel="canonical" href="https://docs.ims.starco.com.kw/technical/api-v1/partner-data.html">
+<link rel="stylesheet" href="../../assets/css/docs.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Business API v1 Partner Data &amp; Stock Delta","url":"https://docs.ims.starco.com.kw/technical/api-v1/partner-data.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" type="button" data-mobile-nav>Menu</button>
+<nav class="topnav" aria-label="Primary"><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../sales/index.html">Sales</a><a href="../../inventory/index.html">Inventory</a><a href="../../financial/index.html">Financial</a><a href="../../reports/index.html">Reports</a><a href="../../manage/index.html">Manage</a><a href="../../tools/index.html">Tools</a><a href="../../system/index.html">System</a><a href="../../shopify/index.html">Shopify</a><a href="../../integration/index.html">Integration</a><a class="active" href="../../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
+</div></header>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../../index.html">Documentation home</a><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../system/index.html">System</a><a href="../../integration/index.html">Integration</a><h3>Technical</h3><a href="../index.html">Technical Overview</a><a href="../architecture.html">IMS Architecture</a><a href="../multi-company.html">Multi-Company Architecture</a><a href="../security.html">Security Architecture</a><a href="../secure-bootstrap.html">Secure Bootstrap</a><a href="../ims-global.html">IMS Global</a><a href="../ims-api.html">IMS API</a><a href="index.html">Business API v1</a><a href="quick-start.html">Quick Start</a><a href="authentication.html">Authentication & Access</a><a href="requests.html">Requests &amp; Responses</a><a class="active" href="partner-data.html">Partner Data &amp; Stock Delta</a><a href="reference.html">Endpoint Reference</a><a href="data-semantics.html">Data Semantics</a><a href="errors-rate-limits.html">Errors & Rate Limits</a><a href="examples.html">Examples & Downloads</a><a href="../secret-vault.html">Secret Vault</a><a href="../system-dashboard-observability.html">System Dashboard & Observability</a><a href="../postgresql/index.html">PostgreSQL Deployment & Operations</a><a href="../it-operations-troubleshooting.html">IT Operations & Troubleshooting</a></aside>
+<main>
+<div class="breadcrumbs"><a href="../../index.html">IMS Documentation</a> › <a href="../index.html">Technical</a> › <a href="index.html">Business API v1</a> › Partner Data &amp; Stock Delta</div>
+<span class="badge">IMS API 1.0.0.0 • Business API v1</span>
+<h1>Partner Data &amp; Stock Delta</h1>
+<p class="lead">Company-scoped supplier catalogs, controlled physical-store availability and incremental stock synchronization for partner integrations.</p>
+<div class="callout"><strong>Independent authorization</strong>Both endpoints require an API key with an active company assignment, <code>partner-data.read</code> and an active Partner Data policy. <code>items.read</code> and <code>inventory.read</code> do not grant Partner Data access. Grant a partner only the scopes and companies it needs; general Business API resources are not restricted by the Partner policy and may expose costs.</div>
+<h2 id="configuration">Configure access in IMS Global</h2><ol class="steps"><li>Open <strong>IMS Global → API Administration → Clients</strong> and create or select the API client. Set its validity, active state and request limits.</li><li>Under <strong>Companies &amp; Scopes</strong>, use Edit to assign the company and <code>partner-data.read</code>, then Save.</li><li>Open <strong>Partner Data</strong>, select that client and an allowed company, and choose Edit.</li><li>Select the allowed suppliers and eligible physical stock sources. Stores must be active and transaction-enabled, and must not be online or damage stores. All Suppliers and All Stores select the currently listed eligible records; they do not grant a wildcard for future records.</li><li>Choose <strong>All Supplier Items (ALL)</strong> or <strong>Selected Items (SELECTED)</strong>. ALL includes merchandise from allowed suppliers; SELECTED additionally requires active saved item selections.</li><li>Set per-item <strong>Reduce By Qty</strong> (<code>reduce_by_qty</code>) where needed, including in ALL mode. Reductions are nonnegative and accept up to three decimal places. Set the optional maximum discount percentage.</li><li>Enable the policy and Save. An active policy requires a supplier and stock source; SELECTED also requires an active item. Generate or rotate the key under API Keys and transfer it securely to the integration owner.</li></ol>
+<p>Only authorized Global administration can change policies. Partner keys cannot change suppliers, stores, item selections, reductions or discount ceilings. Changes take effect on subsequent requests and can require a full synchronization. Review Request Log and Admin Audit for activity. Key rotation immediately revokes the previous key.</p>
+<h2 id="catalog">Full catalog</h2><pre><code>GET /api/v1/companies/{companyId}/partner-data/items</code></pre><p>Optional query parameters: <code>page</code> (default 1, minimum 1), <code>pageSize</code> (default 200, range 1–1000), <code>itemId</code>, <code>barcode</code>, <code>style</code>. String filters are trimmed exact matches. Results are ordered by itemId.</p>
+<p>The envelope contains <code>companyId</code>, <code>companyCode</code>, <code>companyName</code>, <code>currencyCode</code>, <code>page</code>, <code>pageSize</code>, <code>count</code>, <code>totalCount</code>, <code>totalPages</code> and <code>data</code>. Empty results have zero totalPages.</p>
+<h3>Item fields</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>itemId</code></td><td>string</td></tr>
+<tr><td><code>barcode</code></td><td>string?</td></tr>
+<tr><td><code>itemName</code></td><td>string?</td></tr>
+<tr><td><code>itemNameAr</code></td><td>string?</td></tr>
+<tr><td><code>style</code></td><td>string?</td></tr>
+<tr><td><code>colorCode</code></td><td>string?</td></tr>
+<tr><td><code>colorName</code></td><td>string?</td></tr>
+<tr><td><code>size</code></td><td>string?</td></tr>
+<tr><td><code>supplierId</code></td><td>int</td></tr>
+<tr><td><code>supplierName</code></td><td>string?</td></tr>
+<tr><td><code>originalPrice</code></td><td>decimal</td></tr>
+<tr><td><code>currentPrice</code></td><td>decimal</td></tr>
+<tr><td><code>discountPercent</code></td><td>decimal</td></tr>
+<tr><td><code>availableQty</code></td><td>decimal</td></tr>
+</tbody></table></div>
+<p>The Partner response does not return cost, COGS, purchase cost or database credentials. Price and quantity fields are nonnullable JSON numbers; no fixed rounding or scale is promised.</p>
+<h3>Catalog membership and available quantity</h3><ol><li>A merchandise item must belong to the authorized company and an allowed supplier. SELECTED mode also requires an active item selection. Removing a supplier excludes its catalog items while preserving saved selections and reductions for later re-enablement.</li><li>Stock is summed across the policy-selected stores that currently satisfy physical-store eligibility. The per-item quantity reduction is deducted <strong>once after aggregation</strong>, then negative results are clamped to zero.</li><li>If the actual discount percentage is strictly greater than the configured ceiling, availability becomes zero. An equal discount is allowed. The item remains in the catalog and retains its actual price and discount fields.</li><li>Zero stock, a reduction larger than stock, or an over-ceiling discount does not remove an otherwise eligible item or reduce totalCount.</li></ol>
+<p>Discount is zero when the original price is not positive or current price is not below original price; otherwise it is <code>(originalPrice - currentPrice) * 100 / originalPrice</code>. For example, eligible stores holding 5 and 4 units with Reduce By Qty 2 yield availability 7. If a 20% discount exceeds a 15% ceiling, that item's availability is 0 while its prices remain visible.</p>
+<p>An active policy with no configured supplier or stock source returns an empty catalog, as does SELECTED mode without active selections. A missing or inactive policy instead returns <code>403 partner_data_policy_not_available</code>.</p>
+<h3>Request and illustrative response</h3><pre><code>curl "https://api.example.com/api/v1/companies/1/partner-data/items?page=1&amp;pageSize=200"   -H "X-IMS-API-Key: YOUR_API_KEY"</code></pre><pre><code>{
+  &quot;companyId&quot;: 1,
+  &quot;companyCode&quot;: &quot;EXAMPLE&quot;,
+  &quot;companyName&quot;: &quot;Example Company&quot;,
+  &quot;currencyCode&quot;: &quot;KWD&quot;,
+  &quot;page&quot;: 1,
+  &quot;pageSize&quot;: 200,
+  &quot;count&quot;: 1,
+  &quot;totalCount&quot;: 1,
+  &quot;totalPages&quot;: 1,
+  &quot;data&quot;: [
+    {
+      &quot;itemId&quot;: &quot;SHIRT-BLUE-M&quot;,
+      &quot;barcode&quot;: &quot;1234567890123&quot;,
+      &quot;itemName&quot;: &quot;Cotton shirt&quot;,
+      &quot;itemNameAr&quot;: null,
+      &quot;style&quot;: &quot;SHIRT&quot;,
+      &quot;colorCode&quot;: &quot;BLUE&quot;,
+      &quot;colorName&quot;: &quot;Blue&quot;,
+      &quot;size&quot;: &quot;M&quot;,
+      &quot;supplierId&quot;: 7,
+      &quot;supplierName&quot;: &quot;Example Supplier&quot;,
+      &quot;originalPrice&quot;: 20,
+      &quot;currentPrice&quot;: 18,
+      &quot;discountPercent&quot;: 10,
+      &quot;availableQty&quot;: 7
+    }
+  ]
+}</code></pre><h2 id="delta">Partner Stock Delta</h2><pre><code>GET /api/v1/companies/{companyId}/partner-data/items/changes</code></pre><p>Query parameters: <code>since</code> and <code>through</code> (offset timestamps), <code>afterItemId</code>, <code>policyVersion</code>, and <code>pageSize</code> (default 200, range 1–1000). There is no page-number parameter and no itemId, barcode or style filter on this endpoint. Treat policyVersion as opaque and always send it after the initial handshake.</p>
+<h3 id="initial-sync">Initial full-sync handshake</h3><ol class="steps"><li>Call <code>/changes</code> without <code>since</code>. The server returns HTTP 200 with <code>fullSyncRequired=true</code>, <code>reason</code>, <code>baselineSince</code>, <code>policyVersion</code>, <code>companyId</code>, <code>count=0</code> and an empty data array.</li><li><strong>Capture baselineSince and policyVersion before exporting the catalog.</strong> Do not use your own clock to choose a baseline.</li><li>Retrieve and successfully apply every page of the unfiltered full catalog. Rebuild or reconcile the entire mirror, removing records absent from the new eligible catalog.</li><li>After all catalog pages are applied, call changes with the captured <code>since=baselineSince</code> and <code>policyVersion</code>. Apply the incremental pages as below.</li><li>If fullSyncRequired appears again, restart with the new handshake values. A handshake is a rebuild instruction, not a completed empty synchronization.</li></ol>
+<p>A full-sync handshake is returned for initial synchronization (<code>initial_sync_required</code>), when the cursor predates Delta installation (<code>history_not_available</code>), or when a supplied policy version differs (<code>policy_or_catalog_changed</code>, which takes precedence). baselineSince is the later of installation time and the safe watermark.</p>
+<pre><code>{
+  &quot;companyId&quot;: 1,
+  &quot;fullSyncRequired&quot;: true,
+  &quot;reason&quot;: &quot;initial_sync_required&quot;,
+  &quot;baselineSince&quot;: &quot;2026-10-13T10:00:00+00:00&quot;,
+  &quot;policyVersion&quot;: &quot;OPAQUE_VERSION_FROM_SERVER&quot;,
+  &quot;count&quot;: 0,
+  &quot;data&quot;: []
+}</code></pre><h3 id="incremental-sync">Incremental pages and safe cursor advancement</h3><ol class="steps"><li>Begin with the last fully applied <code>nextSince</code> as since and the saved policyVersion. Omit through and afterItemId. The server chooses through from the current safe database watermark.</li><li>Apply each returned item as an idempotent replacement/upsert keyed by itemId. These are current price and availability snapshots, <strong>not quantity differences</strong>; never add availableQty to your old balance.</li><li>When <code>hasMore=true</code>, keep exactly the same since, through and policyVersion. Continue with <code>afterItemId=nextAfterItemId</code>. nextSince remains equal to since while more pages remain.</li><li>Only after every page is successfully applied, persist the final nextSince, which equals through, and clear afterItemId. This also applies to an empty completed window. If a page fails, do not advance the durable cursor beyond unapplied data.</li></ol>
+<p>The incremental envelope contains <code>companyId</code>, <code>companyCode</code>, <code>currencyCode</code>, <code>fullSyncRequired=false</code>, <code>since</code>, <code>through</code>, <code>policyVersion</code>, <code>count</code>, <code>hasMore</code>, <code>nextAfterItemId</code>, <code>nextSince</code> and <code>data</code>. It does not contain companyName, totalCount, totalPages or ordinary page metadata. Item fields match the full catalog. nextAfterItemId is nonnull only when another page exists.</p>
+<pre><code>GET /api/v1/companies/1/partner-data/items/changes?since=2026-10-13T10%3A00%3A00Z&amp;policyVersion=OPAQUE_VERSION_FROM_SERVER&amp;pageSize=200
+
+# Continuation: reuse the response through and nextAfterItemId exactly.
+GET /api/v1/companies/1/partner-data/items/changes?since=2026-10-13T10%3A00%3A00Z&amp;through=2026-10-13T10%3A05%3A00Z&amp;policyVersion=OPAQUE_VERSION_FROM_SERVER&amp;afterItemId=SHIRT-BLUE-M&amp;pageSize=200</code></pre>
+<p>Illustrative completed empty incremental window:</p><pre><code>{
+  &quot;companyId&quot;: 1,
+  &quot;companyCode&quot;: &quot;EXAMPLE&quot;,
+  &quot;currencyCode&quot;: &quot;KWD&quot;,
+  &quot;fullSyncRequired&quot;: false,
+  &quot;since&quot;: &quot;2026-10-13T10:00:00+00:00&quot;,
+  &quot;through&quot;: &quot;2026-10-13T10:05:00+00:00&quot;,
+  &quot;policyVersion&quot;: &quot;OPAQUE_VERSION_FROM_SERVER&quot;,
+  &quot;count&quot;: 0,
+  &quot;hasMore&quot;: false,
+  &quot;nextAfterItemId&quot;: null,
+  &quot;nextSince&quot;: &quot;2026-10-13T10:05:00+00:00&quot;,
+  &quot;data&quot;: []
+}</code></pre>
+<h3 id="watermark">Read-side safe watermark</h3><p>Delta uses timestamp-based read-side reconciliation rather than a trigger journal or event stream. The server conservatively selects the earlier of database time minus three seconds and the oldest open transaction start among other non-API client connections in the company database. Long-running transactions, including unrelated reads, can hold progress back. Both ends of the change-time interval are inclusive, so boundary rows may repeat.</p>
+<p>Rows are latest-state snapshots, not a historical snapshot frozen at through. Live changes may appear in a later state and converge in subsequent windows. Full-catalog pages also do not share one frozen export snapshot. Apply idempotently and honor every full-sync instruction; no exactly-once or immutable multi-page guarantee applies.</p>
+<h3 id="invalidation">Policy and catalog invalidation</h3><p>The server checks policy and eligible catalog membership on every Delta request. Supplier, item or eligible-store membership changes, quantity reductions and discount-ceiling changes can change policyVersion. These changes require a full rebuild, including deletion of stale mirror records. Delta does not emit removal records. Ordinary descriptive-field changes require supported change tracking or deliberate reconciliation; do not treat this as an all-field historical event feed.</p>
+<h3 id="activation">Activation and operational requirements</h3><p>The company database must have the Partner Data and Delta migrations installed with the required access controls. New-company provisioning in IMS Global 1.5.0.0 installs these contracts; existing companies need the approved migration process. A software version alone does not establish that Delta has been activated for a company.</p><p>Supported writers must update the change timestamps with stock and price changes. Exceptional manual updates, direct deletion or unsupported writers require authorized reconciliation and a full refresh; this feed cannot reconstruct unrecorded changes. Cost-only updates are outside this feed. Production-like performance acceptance is required for large ALL-mode catalogs because eligibility checks examine catalog membership on each Delta request.</p>
+<h2 id="errors">Partner errors and recovery</h2><div class="table-wrap"><table><thead><tr><th>Status / code</th><th>Action</th></tr></thead><tbody><tr><td>403 partner_data_policy_not_available</td><td>Ask the administrator to check the active company policy; do not fall back to broader data scopes.</td></tr><tr><td>400 incomplete_delta_cursor</td><td>A nonempty afterItemId needs through and a nonblank policyVersion. Reuse the complete continuation tuple.</td></tr><tr><td>400 invalid_delta_window</td><td>through must be between since and the current safe watermark. Retain your last valid durable cursor and check the supplied timestamps.</td></tr><tr><td>503 partner_delta_contract_unavailable</td><td>Required database contract elements are unavailable. Ask the administrator to resolve provisioning; do not skip a window or advance the cursor.</td></tr></tbody></table></div><p>Common authentication, company, validation and rate-limit errors also apply. Other failures may return 500. See <a href="errors-rate-limits.html">Errors &amp; Rate Limits</a>.</p>
+<footer class="page-footer"><span>IMS Documentation</span><span>Business API v1 developer guide</span></footer>
+</main></div><script src="../../assets/js/docs.js"></script></body></html>

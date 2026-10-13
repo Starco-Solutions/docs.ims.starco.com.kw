@@ -5,9 +5,9 @@
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Stock Maintenance | IMS User Guide</title>
 <meta content="IMS Stock Maintenance guide: rebuild one store or all store stock balances from opening quantity, purchases, returns, transfers, sales, adjustments and depreciation." name="description"/>
-<link href="https://ims.starco.com.kw/tools/stock-maintenance.html" rel="canonical"/>
+<link href="https://docs.ims.starco.com.kw/tools/stock-maintenance.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Stock Maintenance","url":"https://ims.starco.com.kw/tools/stock-maintenance.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Stock Maintenance","url":"https://docs.ims.starco.com.kw/tools/stock-maintenance.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -139,7 +139,7 @@
 <img alt="IMS Stock Maintenance screen with Store selection and Run button" src="../assets/images/tools-stock-maintenance.webp"/>
 <figcaption>Stock Maintenance can rebuild one selected store or the full IMS stock balance.</figcaption>
 </figure>
-<div class="callout warning"><strong>Operational maintenance</strong>Stock Maintenance can take time. IMS warns that the targeted store(s) will not be available for normal transactions while the maintenance process is running. Run it during an approved maintenance window when possible.</div>
+<div class="callout warning"><strong>Operational maintenance</strong>Stock Maintenance can take time. Run it during an approved maintenance window and coordinate a pause in other stock activity. Do not rely on this screen alone to prevent other users from processing transactions during the run.</div>
 <h2 id="scope">Select one store or all stores</h2>
 <p>Enter a <strong>Store ID</strong> to rebuild one location. IMS validates the ID and displays the store name beside it.</p>
 <p>Leave the Store field blank to run Stock Maintenance for <strong>all stores</strong>. This is the broader maintenance operation and can take longer because IMS recalculates every applicable item/store balance.</p>
@@ -147,10 +147,10 @@
 <ol class="steps">
 <li>Choose a Store, or leave Store blank for all stores.</li>
 <li>Click <strong>Run</strong>.</li>
-<li>Review the warning that the targeted store(s) will be unavailable for transactions during maintenance.</li>
+<li>Review the maintenance warning and confirm that other stock activity has been paused for the targeted stores.</li>
 <li>Click <strong>Yes</strong> to continue.</li>
 <li>Follow the progress messages while IMS recalculates the stock balances.</li>
-<li>Wait for the <strong>Done</strong> confirmation before resuming normal activity.</li>
+<li>Wait for the <strong>Done</strong> confirmation, then check the targeted stores' transaction settings before resuming normal activity.</li>
 </ol>
 <p>The screen prevents a new run when IMS Autos/maintenance blocking rules are active or when the IMS database connection is unavailable.</p>
 <h2 id="calculation">What IMS recalculates</h2>
@@ -169,18 +169,18 @@
 <h2 id="process">Maintenance process</h2>
 <p>The progress indicator represents the main stages of the rebuild:</p>
 <div class="table-wrap"><table><thead><tr><th>Stage</th><th>What happens</th></tr></thead><tbody>
-<tr><td>Preparing Stock Maintenance</td><td>IMS temporarily disables transaction processing for the targeted store scope and records which stores should be active again afterward.</td></tr>
+<tr><td>Preparing Stock Maintenance</td><td>IMS writes transaction-disabled store settings inside the balance-rebuild transaction. This does not establish that other sessions are blocked during the run.</td></tr>
 <tr><td>Calculating Stock Movements</td><td>IMS combines the applicable inventory movements into a temporary recalculation table by Item Code and Store.</td></tr>
 <tr><td>Adding Missing Item Store Rows</td><td>If a transaction exists for an Item/Store combination that does not yet exist in the stock-balance table, IMS creates the missing row using the item's current cost.</td></tr>
 <tr><td>Adding Opening Balance</td><td>The current quantity is reset to the stored opening/first quantity for the selected scope.</td></tr>
 <tr><td>Applying Stock Movements</td><td>The summed transaction movements are applied to the opening quantity.</td></tr>
-<tr><td>Finalizing</td><td>IMS restores the targeted stores to their operational transaction state and completes the maintenance.</td></tr>
+<tr><td>Finalizing</td><td>IMS updates the targeted stores' transaction-enabled settings and commits the rebuild. A single-store run enables that store; an all-store run with no initially active stores enables all stores. Previous settings are not always restored.</td></tr>
 </tbody></table></div>
 <h2 id="missing-rows">Missing item/store balances</h2>
 <p>Stock Maintenance also repairs a specific structural case: a valid transaction history can exist for an Item Code and Store even when the corresponding <code>item_prods</code> balance row is missing. IMS creates that missing Item/Store record before it reapplies the opening quantity and transaction movements.</p>
 <h2 id="safety">Transaction safety and rollback</h2>
-<p>The recalculation is performed as one database transaction. If an error occurs during the maintenance process, IMS rolls the maintenance transaction back rather than leaving a partially recalculated stock balance.</p>
-<p>After a successful run, IMS writes a Stock Maintenance entry to the IMS activity log identifying either the selected store or an All Stores maintenance run.</p>
+<p>The balance recalculation and store-status writes use one database transaction. IMS attempts rollback for failures inside that transaction. Check store transaction settings after completion because the previous enabled/disabled state is not guaranteed to be restored.</p>
+<p>The Stock Maintenance activity-log entry is written after the balance transaction commits. An activity-log error can therefore occur after the rebuild has been saved; an error alone does not prove that no changes were committed.</p>
 <h2 id="autos">IMS Autos</h2>
 <p>The Stock Maintenance screen itself is the manual maintenance tool. Where <strong>IMS Autos</strong> is implemented and configured, the same stock-maintenance requirement can be scheduled as part of the regular automated maintenance process, reducing the need to run it manually as a routine task.</p>
 <div class="callout tip"><strong>When to use the manual screen</strong>Manual Stock Maintenance is most useful when an authorized administrator needs to rebuild and verify one store immediately, or when a full recalculation is required outside the normal automated schedule.</div>
@@ -190,7 +190,7 @@
 <a class="doc-link" href="../inventory/item-movement.html"><div>↗</div><div><strong>Item Movement</strong><span>Trace the source transactions that contribute to one item's balance.</span></div></a>
 <a class="doc-link" href="../inventory/stock-adjustments.html"><div>↗</div><div><strong>Stock Adjustments</strong><span>Use an approved adjustment when the stock quantity itself requires a business correction rather than a recalculation.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

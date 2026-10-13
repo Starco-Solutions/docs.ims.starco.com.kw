@@ -5,9 +5,9 @@
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Posted Transactions | IMS User Guide</title>
 <meta content="IMS Posted Transactions guide: review posted Sales, COGS and Stock Transfer journals, compare IMS and current Al-Shamel totals, and unpost authorized open-period journals." name="description"/>
-<link href="https://ims.starco.com.kw/financial/posted-transactions.html" rel="canonical"/>
+<link href="https://docs.ims.starco.com.kw/financial/posted-transactions.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Posted Transactions","url":"https://ims.starco.com.kw/financial/posted-transactions.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Posted Transactions","url":"https://docs.ims.starco.com.kw/financial/posted-transactions.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -169,6 +169,9 @@
 <p>UnPost is a controlled correction action. Select exactly one journal row and click <strong>UnPost</strong>. IMS requires Financial Posting permission, verifies that the transaction date is still in an open financial period, confirms the financial-system connection and asks the user to confirm removal.</p>
 <p>After confirmation, the current implementation removes the journal header/details from Al-Shamel, clears the corresponding Journal No./posting metadata in IMS and writes an audit-log entry describing the unposted store, journal and accounting branch.</p>
 <div class="callout warning"><strong>Closed-period protection</strong>A journal cannot be unposted from this screen when its transaction date is inside a closed financial period. Reopening a period is a separate controlled finance action.</div>
+<h2 id="interrupted-unposting">Interrupted or uncertain UnPost</h2>
+<p>The financial-system deletion, IMS acknowledgement and audit-log entry are separate steps. If UnPost is interrupted, keep the journal number, posting type, branch/store and error details. Before retrying, have an authorized finance administrator compare the financial journal with IMS posting status. A missing acknowledgement does not prove that deletion failed.</p>
+<div class="callout warning"><strong>Reconcile before another action</strong>Do not blindly repeat UnPost, repost the journal or use direct SQL to resolve a mismatch.</div>
 <h2 id="workflow">Typical reconciliation workflow</h2>
 <ol class="steps">
 <li>Select the transaction family and date range.</li>
@@ -184,7 +187,7 @@
 <a class="doc-link" href="journals-monitoring.html"><div>→</div><div><strong>Journals Monitoring</strong><span>Diagnose missing or unbalanced IMS journals at the source-transaction level.</span></div></a>
 <a class="doc-link" href="close-fin-period.html"><div>↗</div><div><strong>Close Fin Period</strong><span>Defines the accounting date boundary that protects UnPost.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

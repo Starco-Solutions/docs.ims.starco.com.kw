@@ -4,9 +4,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Security Architecture | IMS Documentation</title>
 <meta name="description" content="Layered IMS security covering workstation authorization, global authentication, Global Administrator access, company membership and company-local permissions.">
-<link rel="canonical" href="https://ims.starco.com.kw/technical/security.html">
+<link rel="canonical" href="https://docs.ims.starco.com.kw/technical/security.html">
 <link rel="stylesheet" href="../assets/css/docs.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Security Architecture","url":"https://ims.starco.com.kw/technical/security.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Security Architecture","url":"https://docs.ims.starco.com.kw/technical/security.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -18,7 +18,7 @@
 <div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../index.html">Documentation home</a><a href="../getting-started/main-screen.html">Getting started</a><a href="../system/index.html">System</a><a href="../integration/index.html">Integration</a><h3>Technical</h3><a href="index.html">Technical Overview</a><a href="architecture.html">IMS Architecture</a><a href="multi-company.html">Multi-Company Architecture</a><a class="active" href="security.html">Security Architecture</a><a href="secure-bootstrap.html">Secure Bootstrap</a><a href="ims-global.html">IMS Global</a><a href="ims-api.html">IMS API</a><a href="api-v1/index.html">Business API v1</a><a href="secret-vault.html">Secret Vault</a><a href="system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Technical › Security Architecture</div>
-<span class="badge">IMS Build 9.4.4.0 technical baseline</span>
+<span class="badge">IMS Build 9.4.4.0 documentation</span>
 <h1>Security Architecture</h1>
 <p class="lead">Layered IMS security covering workstation authorization, global authentication, Global Administrator access, company membership and company-local permissions.</p>
 <h2>Security layers</h2><div class="table-wrap"><table><thead><tr><th>Layer</th><th>Control</th></tr></thead><tbody>
@@ -27,8 +27,11 @@
 <tr><td>Global administration</td><td>IMS Global requires a valid Global Administrator session. Administrative modules revalidate that session before opening.</td></tr>
 <tr><td>Company membership</td><td>Only companies assigned to the global user are eligible for login/selection.</td></tr>
 <tr><td>Company-local authorization</td><td>Group Policies, Store/Supplier scope, transfer scope and operational privileges are maintained in the selected company.</td></tr>
-<tr><td>Secrets</td><td>Sensitive service/database credentials are stored and mediated through server-side API security rather than being exposed as reusable plaintext configuration.</td></tr>
+<tr><td>Secrets</td><td>Vault-managed credentials are encrypted at rest. Authorized bootstrap/runtime flows can return decrypted credentials to the requesting component; protect client memory and logs accordingly.</td></tr>
 </tbody></table></div>
-<h2>Administrative self-protection</h2><p>IMS Global prevents the account currently running the administration application from removing its own Global Administrator flag, disabling itself or resetting its own password from the Global Users screen. It also prevents the current workstation from blocking itself.</p>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<h2>Protected administrator identity</h2><p>The reserved built-in administrator cannot be renamed, disabled, stripped of Global Administrator authority or removed from its existing active company access. Another account cannot claim its reserved login. New-company provisioning initializes its Administrators policy membership.</p><h2>Administrative self-protection</h2><p>IMS Global prevents the account currently running the administration application from removing its own Global Administrator flag, disabling itself or resetting its own password from the Global Users screen. It also prevents the current workstation from blocking itself.</p>
+<h2>Authorization boundaries</h2><p>The Business API uses API keys, client-company assignments and endpoint scopes. Bootstrap, Global administration and runtime-secret APIs use separate session contracts. A Business API key does not grant Global Administrator or runtime-secret access.</p>
+<p>Runtime-secret checks include client version, session/workstation binding, active user, active company membership and authorized workstation. These checks do not establish fine-grained company Group Policy or menu-level enforcement in the API. Company-local permissions remain a separate layer.</p>
+<h2>Availability and session state</h2><p>Bootstrap and Global Administrator sessions are held in process memory. Plan routing and session continuity explicitly for multiple API instances; database replication alone does not provide API-session continuity.</p>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div><script src="../assets/js/docs.js"></script></body></html>

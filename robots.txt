@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ims.starco.com.kw/sitemap.xml
+Sitemap: https://docs.ims.starco.com.kw/sitemap.xml

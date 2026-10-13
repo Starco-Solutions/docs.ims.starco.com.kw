@@ -5,9 +5,9 @@
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Posting | IMS User Guide</title>
 <meta content="IMS Financial Posting guide: choose Sales, COGS, Stock Transfer or Purchase activity, review journal entries by store/account/cost center and post them to the current Al-Shamel financial system." name="description"/>
-<link href="https://ims.starco.com.kw/financial/posting.html" rel="canonical"/>
+<link href="https://docs.ims.starco.com.kw/financial/posting.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Posting","url":"https://ims.starco.com.kw/financial/posting.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Posting","url":"https://docs.ims.starco.com.kw/financial/posting.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -183,6 +183,9 @@
 <li>The stores are released from the active-posting lock and the screen refreshes.</li>
 </ol>
 <div class="callout warning"><strong>Closed periods</strong>Posting is blocked when the selected posting period falls inside the IMS financial close boundary maintained in <a href="close-fin-period.html">Close Fin Period</a>.</div>
+<h2 id="interrupted-posting">Interrupted or uncertain posting</h2>
+<p>Financial-system journal writes, the IMS posting acknowledgement and activity logging are separate steps. If posting is interrupted, keep the journal number when available, posting type, branch/store and error details. Before another attempt, an authorized finance administrator should compare the financial-system journal with IMS posting status. A missing acknowledgement does not prove the financial write failed.</p>
+<div class="callout warning"><strong>Reconcile before retrying</strong>Do not blindly repost, unpost or use direct SQL to resolve a mismatch. Use <a href="posted-transactions.html#financial-totals">Posted Transactions</a> to review the recorded journal and financial-system totals where available.</div>
 <h2 id="concurrency">Multi-user posting protection</h2>
 <p>Before writing journals, IMS checks the selected stores against the Active Posting list. If another user is already posting one of those stores, IMS identifies the affected store(s) and stops the new posting attempt. This reduces the risk of two finance users sending the same store's journals at the same time.</p>
 <h2 id="related">Related documentation</h2>
@@ -191,7 +194,7 @@
 <a class="doc-link" href="journals-monitoring.html"><div>↗</div><div><strong>Journals Monitoring</strong><span>Find source transactions whose IMS journal is missing or unbalanced before posting.</span></div></a>
 <a class="doc-link" href="integration-setup.html"><div>↗</div><div><strong>Integration Setup</strong><span>Defines the current financial connector and core account mappings.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

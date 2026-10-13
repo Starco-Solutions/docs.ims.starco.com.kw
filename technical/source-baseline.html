@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Component Versions and Compatibility | IMS Documentation</title>
+<meta name="description" content="Component versions, supported interfaces and compatibility requirements for IMS installations.">
+<link rel="canonical" href="https://docs.ims.starco.com.kw/technical/source-baseline.html">
+<link rel="stylesheet" href="../assets/css/docs.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Component Versions and Compatibility","url":"https://docs.ims.starco.com.kw/technical/source-baseline.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" type="button" data-mobile-nav>Menu</button>
+<nav class="topnav" aria-label="Primary"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a class="active" href="../technical/index.html">Technical</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
+</div></header>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../index.html">Documentation home</a><a href="../getting-started/main-screen.html">Getting started</a><a href="../system/index.html">System</a><a href="../integration/index.html">Integration</a><h3>Technical</h3><a href="index.html">Technical Overview</a><a href="architecture.html">IMS Architecture</a><a class="active" href="source-baseline.html">Component Versions and Compatibility</a><a href="multi-company.html">Multi-Company Architecture</a><a href="security.html">Security Architecture</a><a href="secure-bootstrap.html">Secure Bootstrap</a><a href="ims-global.html">IMS Global</a><a href="ims-api.html">IMS API</a><a href="api-v1/index.html">Business API v1</a><a href="secret-vault.html">Secret Vault</a><a href="system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a></aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Technical › Component Versions and Compatibility</div>
+<h1>Component Versions and Compatibility</h1><p class="lead">Documentation versions, supported interfaces and deployment prerequisites for the IMS product family.</p>
+<div class="table-wrap"><table><thead><tr><th>Component</th><th>Documented version</th><th>Interfaces and compatibility</th></tr></thead><tbody>
+<tr><td>IMS Client</td><td>9.4.4</td><td>Released-client user guide. Windows/.NET Framework 4.8, company PostgreSQL access and authorized API bootstrap. Client 9.4.5 is not the release baseline for this guide.</td></tr>
+<tr><td>IMS Global</td><td>1.5.0.0</td><td>Global administration through IMS API; new-company provisioning includes the 24-view Business API, Partner Data and Delta contracts.</td></tr>
+<tr><td>IMS API</td><td>1.0.0.0</td><td>Business API v1, Partner Data, client bootstrap and separate administrative/internal-service interfaces.</td></tr>
+<tr><td>IMS Autos</td><td>9.1.2</td><td>Windows service on .NET Framework 4.8; scheduling and integration processing require worker-compatible company connection and credential configuration.</td></tr>
+<tr><td>Shopify Integration Server</td><td>4.2.0</td><td>Windows desktop worker on .NET 10; requires supported Shopify profile and credential configuration and a running application session.</td></tr>
+</tbody></table></div>
+<h2 id="components">Planning an installation or upgrade</h2><p>These are the versions covered by this documentation, not an inventory of any production installation. Confirm the installed component combination with your administrator before an upgrade. An API upgrade does not upgrade or reconfigure background workers.</p>
+<h2 id="compatibility">Company database contracts</h2><p>New companies created in IMS Global 1.5.0.0 receive the current API contracts. Existing company databases require the applicable approved migrations and access validation; updating IMS Global alone does not migrate them. Partner Stock Delta activation also requires company-level migration and operational acceptance for the intended catalog size.</p>
+<h2 id="workers">Worker credential compatibility</h2><p>IMS Autos 9.1.2 and Shopify Integration Server 4.2.0 use their existing worker credential configuration. API-side workload authentication and vault access are separate capabilities. Before changing a credential storage path or rotating credentials, confirm that the installed consumer supports that path and verify a controlled connection.</p>
+<p>See <a href="api-v1/index.html">Business API v1</a>, <a href="ims-global.html">IMS Global administration</a>, <a href="../tools/ims-autos.html">IMS Autos</a> and <a href="../shopify/integration-server.html">Shopify Integration Server</a>.</p>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
+</main></div><script src="../assets/js/docs.js"></script></body></html>

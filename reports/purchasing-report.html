@@ -5,9 +5,9 @@
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Purchasing Report | IMS User Guide</title>
 <meta content="How to use the IMS Purchasing Report to analyze purchases and purchase returns by supplier, transaction type, season, category, style, invoice and period, including received quantity, landed cost, local cost, expenses, retail value and markup." name="description"/>
-<link href="https://ims.starco.com.kw/reports/purchasing-report.html" rel="canonical"/>
+<link href="https://docs.ims.starco.com.kw/reports/purchasing-report.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Purchasing Report User Guide","url":"https://ims.starco.com.kw/reports/purchasing-report.html","about":"IMS purchasing, purchase returns, inventory cost and merchandise receipt analysis","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Purchasing Report User Guide","url":"https://docs.ims.starco.com.kw/reports/purchasing-report.html","about":"IMS purchasing, purchase returns, inventory cost and merchandise receipt analysis","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -222,7 +222,8 @@
 </tbody></table></div>
 <h3 id="footer-totals">Bottom summary</h3>
 <p>The bottom summary shows <strong>RCVD Qty, Count, Local Cost, Landed Cost, Invs, Expenses, Retail Price, AV. Markup</strong> and <strong>AV. Cost Rate</strong>.</p>
-<p>The summary values are recalculated from the generated rows. AV. Markup is calculated from total Retail Price and total Local Cost, while AV. Cost Rate is calculated from total Landed Cost and total FR Cost.</p>
+<p>The summary values are recalculated from the generated rows. <strong>AV. Markup = total Retail Price ÷ total Local Cost</strong>, while <strong>AV. Cost Rate = total Landed Cost ÷ total FR Cost</strong>. Row Markup uses Landed Cost, including the reported expense allocation; bottom AV. Markup uses Local Cost before those expenses. They are different ratios, and AV. Markup is not an arithmetic average of the row Markup values.</p>
+<div class="callout"><strong>Illustrative expense example</strong>For a single generated row with Local Cost 100, Expenses 20, Landed Cost 120 and Retail Price 150, row Markup is 150 ÷ 120 = 1.250. Bottom AV. Markup is 150 ÷ 100 = 1.500000. These illustrative values show why nonzero expenses make the ratios differ.</div>
 <h2 id="purchase-returns">Purchase returns</h2>
 <p>The report includes transaction codes 1 and 2. Code 1 is treated as a purchase and code 2 as a purchase return. For received quantity and the cost fields, purchase returns are subtracted from purchases so the result represents net purchasing movement for the selected criteria and dates.</p>
 <h2 id="images">View Image</h2>
@@ -269,7 +270,7 @@
 <a class="doc-link" href="gross-income.html"><div>↗</div><div><strong>Gross Income</strong><span>Review inventory, COGS and gross profit by supplier or store.</span></div></a>
 <a class="doc-link" href="main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Analyze sales using detailed merchandise and transaction criteria.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main>
 </div>
 <script src="../assets/js/docs.js"></script>

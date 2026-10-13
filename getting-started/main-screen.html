@@ -5,9 +5,9 @@
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Getting Started with IMS: Login &amp; Main Screen | IMS User Guide</title>
 <meta content="Learn how IMS starts, workstation authorization, login, the main toolbar and menus, permissions, notifications, connection status, locking and window navigation." name="description"/>
-<link href="https://ims.starco.com.kw/getting-started/main-screen.html" rel="canonical"/>
+<link href="https://docs.ims.starco.com.kw/getting-started/main-screen.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Getting Started with IMS: Login & Main Screen","about":"IMS startup, login and desktop navigation","url":"https://ims.starco.com.kw/getting-started/main-screen.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Getting Started with IMS: Login & Main Screen","about":"IMS startup, login and desktop navigation","url":"https://docs.ims.starco.com.kw/getting-started/main-screen.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -132,11 +132,13 @@
 <div class="callout tip" data-search-item="startup overview workstation login main menu permissions"><strong>Two separate approvals</strong>A workstation must be authorized to run IMS, and then a user must sign in with an authorized IMS account. Workstation authorization happens before the normal user login.</div>
 <h2 data-search-item="start IMS startup database update workstation authorization login" id="startup">What happens when IMS starts</h2>
 <ol class="steps">
-<li><strong>IMS checks the database connection.</strong> If the database server cannot be reached, normal startup cannot continue.</li>
-<li><strong>The workstation is checked.</strong> IMS verifies that this computer is registered and authorized before displaying the normal login screen.</li>
-<li><strong>The main application loads.</strong> IMS checks the installed build and may require a critical update before normal use continues.</li>
-<li><strong>The login screen appears.</strong> Enter your IMS credentials to load the menus and data allowed for your account.</li>
+<li><strong>IMS contacts the configured bootstrap API and checks the workstation.</strong> API/service failure or workstation authorization failure stops normal startup.</li>
+<li><strong>The global login screen appears.</strong> Enter your IMS credentials. Complete a required password change and sign in again if prompted.</li>
+<li><strong>IMS obtains your authorized companies.</strong> It selects the sole company automatically or asks you to choose when several are available.</li>
+<li><strong>IMS opens the selected company's database.</strong> It obtains that company's bootstrap information before opening the connection.</li>
+<li><strong>The company workspace loads.</strong> IMS applies initialization/update checks and loads the local company account and access.</li>
 </ol>
+<div class="callout"><strong>Startup troubleshooting</strong>Check the stage that failed: API availability, workstation authorization, global credentials, company membership or selected-company database reachability. A company database connection is opened after global sign-in and company selection.</div>
 <h2 data-search-item="workstation not authorized pending approval workstation ID machine name hardware changed IT approval auto approve" id="workstation">Workstation authorization</h2>
 <p>IMS controls access at workstation level as well as user level. A new computer may be registered automatically. Whether it can continue immediately or must wait for approval depends on the workstation approval setting managed by IT.</p>
 <div class="table-wrap"><table><thead><tr><th>Situation</th><th>What happens</th><th>What the user should do</th></tr></thead><tbody>
@@ -242,7 +244,7 @@
 <details data-search-item="close POS Sales Transactions"><summary>Why can I not close the POS?</summary><p>If Sales Transactions is still running, IMS blocks the POS close action and asks you to close Sales Transactions first.</p></details>
 </div>
 <div class="search-empty" data-search-empty="">No matching section on this page.</div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

@@ -4,9 +4,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Business API v1 Data Semantics | IMS Documentation</title>
 <meta name="description" content="Business meaning of sales, purchases, inventory movements, landed cost, discounts, promotions and customer/salesperson references in IMS API v1.">
-<link rel="canonical" href="https://ims.starco.com.kw/technical/api-v1/data-semantics.html">
+<link rel="canonical" href="https://docs.ims.starco.com.kw/technical/api-v1/data-semantics.html">
 <link rel="stylesheet" href="../../assets/css/docs.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Business API v1 Data Semantics","url":"https://ims.starco.com.kw/technical/api-v1/data-semantics.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Business API v1 Data Semantics","url":"https://docs.ims.starco.com.kw/technical/api-v1/data-semantics.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -15,19 +15,20 @@
 <nav class="topnav" aria-label="Primary"><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../sales/index.html">Sales</a><a href="../../inventory/index.html">Inventory</a><a href="../../financial/index.html">Financial</a><a href="../../reports/index.html">Reports</a><a href="../../manage/index.html">Manage</a><a href="../../tools/index.html">Tools</a><a href="../../system/index.html">System</a><a href="../../shopify/index.html">Shopify</a><a href="../../integration/index.html">Integration</a><a class="active" href="../../technical/index.html">Technical</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
 </div></header>
-<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../../index.html">Documentation home</a><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../system/index.html">System</a><a href="../../integration/index.html">Integration</a><h3>Technical</h3><a href="../index.html">Technical Overview</a><a href="../architecture.html">IMS Architecture</a><a href="../multi-company.html">Multi-Company Architecture</a><a href="../security.html">Security Architecture</a><a href="../secure-bootstrap.html">Secure Bootstrap</a><a href="../ims-global.html">IMS Global</a><a href="../ims-api.html">IMS API</a><a href="index.html">Business API v1</a><a href="quick-start.html">Quick Start</a><a href="authentication.html">Authentication & Access</a><a href="requests.html">Requests & Responses</a><a href="reference.html">Endpoint Reference</a><a class="active" href="data-semantics.html">Data Semantics</a><a href="errors-rate-limits.html">Errors & Rate Limits</a><a href="examples.html">Examples & Downloads</a><a href="../secret-vault.html">Secret Vault</a><a href="../system-dashboard-observability.html">System Dashboard & Observability</a><a href="../postgresql/index.html">PostgreSQL Deployment & Operations</a><a href="../it-operations-troubleshooting.html">IT Operations & Troubleshooting</a></aside>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../../index.html">Documentation home</a><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../system/index.html">System</a><a href="../../integration/index.html">Integration</a><h3>Technical</h3><a href="../index.html">Technical Overview</a><a href="../architecture.html">IMS Architecture</a><a href="../multi-company.html">Multi-Company Architecture</a><a href="../security.html">Security Architecture</a><a href="../secure-bootstrap.html">Secure Bootstrap</a><a href="../ims-global.html">IMS Global</a><a href="../ims-api.html">IMS API</a><a href="index.html">Business API v1</a><a href="quick-start.html">Quick Start</a><a href="authentication.html">Authentication & Access</a><a href="requests.html">Requests & Responses</a><a href="reference.html">Endpoint Reference</a><a class="active" href="data-semantics.html">Data Semantics</a><a href="errors-rate-limits.html">Errors & Rate Limits</a><a href="examples.html">Examples & Downloads</a><a href="../secret-vault.html">Secret Vault</a><a href="../system-dashboard-observability.html">System Dashboard & Observability</a><a href="../postgresql/index.html">PostgreSQL Deployment & Operations</a><a href="../it-operations-troubleshooting.html">IT Operations & Troubleshooting</a><a href="partner-data.html">Partner Data &amp; Stock Delta</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../../index.html">IMS Documentation</a> › <a href="../index.html">Technical</a> › <a href="index.html">Business API v1</a> › Data Semantics</div>
-<span class="badge">IMS Business API v1</span>
+<span class="badge">IMS API 1.0.0.0 • Business API v1</span>
 
 <h1>Data Semantics</h1>
-<p class="lead">Business meaning that must be understood before aggregating API values. These rules are part of the API contract, not presentation-only labels.</p>
+<p class="lead">Dates, signed quantities, amounts, cost and transaction meaning in Business API v1.</p>
+<p>These calculations require the company API contract for the documented release. Sales responses include customer and loyalty IDs without customer name, phone or email; coupon responses omit raw coupon codes. The <a href="partner-data.html">Partner Data guide</a> defines its own cost-free price and availability contract.</p>
 <h2>Sales and returns</h2>
 <ul>
 <li>Sales transaction types are 51/52; return transaction types are 53/54.</li>
-<li><code>quantity</code> is the raw line quantity. Use <code>netQuantity</code> for signed merchandise aggregation; returns are negative.</li>
-<li><code>grossSalesAmount</code>, <code>netSalesAmount</code> and <code>cogsAmount</code> are signed so returns reduce totals.</li>
-<li><code>discountPercent</code>/<code>discountAmount</code> describe the item/line markdown or discount. <code>invoiceDiscountAmount</code> is the invoice-level discount allocation stored on the line.</li>
+<li><code>quantity</code> is the raw line quantity. <code>netQuantity</code> is zero for non-merchandise lines (<code>itemType != 1</code>); merchandise quantities are sign-reversed for return types 53/54. The view does not enforce positive input quantities.</li>
+<li><code>grossSalesAmount</code> uses quantity × price for merchandise and the stored total otherwise. <code>netSalesAmount</code> uses the stored line amount minus the stored invoice-discount amount; <code>cogsAmount</code> uses quantity × item cost. These amounts are sign-reversed for types 53/54, so normal positive return values reduce sales totals.</li>
+<li><code>discountPercent</code>, <code>discountAmount</code> and <code>invoiceDiscountAmount</code> report the saved item discount percentage, item discount amount and invoice discount amount. Use these saved values rather than assuming invoice discounts were allocated using your own formula.</li>
 <li><code>isItemDiscounted</code> and <code>isInvoiceDiscounted</code> identify those two discount mechanisms; <code>isDiscounted</code> is true when either applies.</li>
 <li><code>salespersonId</code>/<code>salespersonName</code> are line-level sales-associate references.</li>
 <li><code>customerId</code> and <code>loyaltyCustomerId</code> are separate identity namespaces. They may both be null, either may be present, or both may be present. The API does not expose customer phone/email/name as part of this sales linkage.</li>
@@ -36,12 +37,12 @@
 <ul>
 <li>Transaction type 1 is Purchase; type 2 is Purchase Return. Signed cost/quantity fields reverse on returns.</li>
 <li><code>lineForeignAmount</code> is the raw line amount. <code>foreignCostAmount</code>, <code>localCostAmount</code> and <code>landedCostAmount</code> are signed business values.</li>
-<li><code>landedExpenseAmount = landedCostAmount - localCostAmount</code>.</li>
+<li>The signed line total supplies foreign cost; local cost multiplies it by <code>exchangeRate</code> and landed cost by <code>costRate</code>. <code>landedExpenseAmount = landedCostAmount - localCostAmount</code>. Type 2 reverses these signs.</li>
 <li><strong>Discount Earned is document-level.</strong> <code>documentDiscountEarned</code> is not allocated to purchase item rows and does not reduce line acquisition/landed cost.</li>
-<li>Document-level totals repeat on each row of the same purchase. Do not sum those header fields across lines; group by the purchase document first.</li>
+<li>Document-level totals repeat on each row of the same purchase. Do not sum those header fields across lines; deduplicate using the composite transaction-type, purchase-center and purchase-number identity.</li>
 </ul>
 <h2>Inventory and movements</h2>
-<p><code>inventory</code> is a current balance/valuation contract. For dated flow analysis use <code>inventory/movements</code>.</p>
+<p><code>inventory</code> is a current balance/valuation contract. Current valuation uses quantity × cost and quantity × sale price. For dated flow analysis use <code>inventory/movements</code>. Purchase movements include only state-2 documents with a receiving store; their landed unit cost is line amount × cost rate ÷ quantity, with null for a zero denominator.</p>
 <div class="table-wrap"><table><thead><tr><th>movementType</th><th>Meaning</th><th>Typical sign</th></tr></thead><tbody>
 <tr><td><code>PURCHASE</code></td><td>Received purchase stock.</td><td>Positive</td></tr>
 <tr><td><code>PURCHASE_RETURN</code></td><td>Stock returned to supplier.</td><td>Negative</td></tr>
@@ -51,12 +52,12 @@
 <tr><td><code>TRANSFER_IN</code></td><td>Stock arrives at destination store.</td><td>Positive</td></tr>
 <tr><td><code>STOCK_ADJUSTMENT</code></td><td>Signed inventory correction.</td><td>Positive or negative</td></tr>
 <tr><td><code>STOCK_DEPRECIATION</code></td><td>Write-off/depreciation movement.</td><td>Negative</td></tr>
-</tbody></table></div>
-<h2>Transfers</h2><p>A transfer exposes both sides: <code>sourceMovementQty</code> is negative and <code>destinationMovementQty</code> is positive. For a balanced transfer those movements cancel when aggregated across both stores.</p>
+</tbody></table></div><p>These are typical signs for normal positive source quantities, not positivity constraints. Adjustments retain their stored sign; depreciation is negated. Source data must be validated independently.</p>
+<p>Document totals repeat on transfer, stock-adjustment and depreciation lines as well. Deduplicate by the document identity before aggregating header totals.</p><h2>Transfers</h2><p>A transfer exposes both sides: <code>sourceMovementQty</code> is −quantity and <code>destinationMovementQty</code> is +quantity. For a balanced transfer those movements cancel when aggregated across both stores.</p>
 <h2>Markdowns, promotions and coupons</h2>
 <ul>
-<li><code>markdownPercent</code> is expressed in percentage points: <code>25</code> means 25%.</li>
-<li><code>promotionType</code> controls the meaning of <code>getValue</code>. It is not one universal unit. Examples include quantity for Buy/Get, bundle price for Bundle and a discount rate/value for discount-oriented promotion types.</li>
+<li><code>markdownPercent</code> is <code>(1 - markdown price / original price) × 100</code>, expressed in percentage points: <code>25</code> means 25%. It is null when the original price is missing or zero.</li>
+<li><code>getValue</code> carries the configured reward value. Interpret it with the promotion type and rule flags; it is not a universal percentage or monetary amount across all promotion types.</li>
 <li>Promotion relationship endpoints expose the stores/items/client categories/tiers/cashback stores attached to the promotion.</li>
 <li>Discount-coupon endpoints expose event metadata and store eligibility. Raw coupon codes/prefixes are intentionally not exposed.</li>
 </ul>

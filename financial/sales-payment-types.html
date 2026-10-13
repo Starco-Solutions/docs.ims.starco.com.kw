@@ -5,9 +5,9 @@
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Sales Payment Types | IMS User Guide</title>
 <meta content="IMS Sales Payment Types guide: maintain payment IDs, names, account/bank mapping, refund/voucher/cash-deposit/Star Card/BNPL classifications and compatibility rules." name="description"/>
-<link href="https://ims.starco.com.kw/financial/sales-payment-types.html" rel="canonical"/>
+<link href="https://docs.ims.starco.com.kw/financial/sales-payment-types.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Sales Payment Types","url":"https://ims.starco.com.kw/financial/sales-payment-types.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Sales Payment Types","url":"https://docs.ims.starco.com.kw/financial/sales-payment-types.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -147,7 +147,7 @@
 <tr><td>Bank</td><td>Marks the payment type as bank-related and enables selection from the Financial → Banks master.</td></tr>
 <tr><td>Is Active</td><td>Controls whether the payment type remains active for operational use.</td></tr>
 <tr><td>Is Refund</td><td>Classifies the payment type for refund use.</td></tr>
-<tr><td>Only Refund</td><td>Restricts the payment type to the refund side of the workflow. This option is available only when Is Refund is enabled and the type is not BNPL.</td></tr>
+<tr><td>Only Refund</td><td>Restricts the payment type to the refund side of the workflow. Supported configuration requires Is Refund and excludes Star Cards and BNPL; see the classification guidance below.</td></tr>
 <tr><td>Is Voucher</td><td>Classifies the payment method as a voucher-type payment.</td></tr>
 <tr><td>Use Cash Deposit</td><td>Uses the selected store's Cash Deposit account instead of the payment type's own Account No.</td></tr>
 <tr><td>Star Cards</td><td>Classifies the method as the payment type used for IMS Special/Star Card value.</td></tr>
@@ -159,14 +159,14 @@
 <h2 id="cash-deposit">Use the store's Cash Deposit account</h2>
 <p>Enable <strong>Use Cash Deposit</strong> when the payment should use the Cash Deposit account configured for the store instead of a dedicated Account No. on the payment type. When this option is selected, IMS disables Account No. entry to make the intended account source clear.</p>
 <h2 id="special-types">Special payment classifications</h2>
-<p>Voucher, Star Cards and BNPL are mutually exclusive classifications in this maintenance screen. Choosing one automatically clears and disables incompatible classifications so a payment type cannot be configured with contradictory behavior.</p>
-<div class="table-wrap"><table><thead><tr><th>When selected</th><th>IMS prevents combining it with</th></tr></thead><tbody>
+<p>Voucher, Star Cards and BNPL are mutually exclusive in the supported configuration policy. Their selection handlers clear and disable incompatible options, but checkbox availability is not a universal validation guarantee. Use the supported exclusions below when reviewing a payment type.</p>
+<div class="table-wrap"><table><thead><tr><th>When selected</th><th>Excluded by supported configuration policy</th></tr></thead><tbody>
 <tr><td>Is Voucher</td><td>Cash Deposit, BNPL, Bank and Star Cards.</td></tr>
 <tr><td>Star Cards</td><td>Bank, Cash Deposit, Voucher, Only Refund and BNPL.</td></tr>
 <tr><td>BNPL</td><td>Bank, Cash Deposit, Voucher, Only Refund and Star Cards.</td></tr>
 </tbody></table></div>
-<p><strong>Is Refund</strong> is maintained separately. When it is selected, <strong>Only Refund</strong> becomes available unless the payment type is classified as BNPL.</p>
-<div class="callout tip"><strong>Why IMS locks combinations</strong>The checkboxes are not merely descriptive labels. They tell downstream sales/refund/payment logic what kind of payment method this is, so IMS prevents several combinations that would represent conflicting behavior.</div>
+<p><strong>Is Refund</strong> is maintained separately. For supported configuration, use <strong>Only Refund</strong> with Is Refund and without Star Cards or BNPL. Do not treat an enabled checkbox as approval for an otherwise excluded combination.</p>
+<div class="callout warning"><strong>Compatibility review</strong>These settings affect downstream sales/refund/payment logic. The business/component owner must resolve the difference between supported policy and checkbox behavior before a definitive compatibility truth table can be published. If an existing payment type conflicts with this guidance, seek that review before changing its classification.</div>
 <h2 id="loyalty">Protected loyalty/system payment types</h2>
 <p>Some existing payment types can be marked internally as loyalty-related. When such a payment type is edited, IMS protects its classification settings and allows only the fields intended for normal maintenance. This prevents a system payment method from being accidentally converted into an unrelated Bank, Voucher, Star Card or BNPL type.</p>
 <h2 id="new">Create a payment type</h2>
@@ -181,7 +181,7 @@
 </ol>
 <p>IMS requires an ID and English Name and verifies that the ID is not already used before creating the payment type. The action is recorded in the IMS audit log.</p>
 <h2 id="edit">Edit a payment type</h2>
-<p>Select the payment method and click <strong>Edit</strong>. The payment ID remains read-only, while the editable fields and classifications can be changed according to their compatibility rules. Click Save to apply the changes or Cancel to restore the selected record without saving.</p>
+<p>Select the payment method and click <strong>Edit</strong>. The payment ID remains read-only, while the editable fields can be changed. Review classifications against the supported configuration guidance above. Click Save to apply the changes or Cancel to restore the selected record without saving.</p>
 <h2 id="financial">Relationship with Financial Posting</h2>
 <p>The account and classification settings here are part of the data used by sales-payment processing and financial integration. For the current production deployment, the resulting journals are ultimately posted through the IMS Financial Posting workflow to <strong>Al-Shamel</strong>. The payment-type definition itself remains an IMS business configuration, so it can continue to serve the same role when a different approved journal connector is introduced later.</p>
 <h2 id="related">Related documentation</h2>
@@ -191,7 +191,7 @@
 <a class="doc-link" href="../reports/sales-payments-report.html"><div>↗</div><div><strong>Store Sales Payments</strong><span>Analyze sales totals by the payment methods defined here.</span></div></a>
 <a class="doc-link" href="../manage/special-cards.html"><div>↗</div><div><strong>Special Cards</strong><span>Stored-value card activity uses the Special/Star Card payment classification.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

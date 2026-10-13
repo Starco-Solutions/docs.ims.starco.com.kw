@@ -9,6 +9,7 @@ Pages:
 - data-semantics.html
 - errors-rate-limits.html
 - examples.html
+- partner-data.html
 
 Developer downloads:
 - IMS_API_v1.http

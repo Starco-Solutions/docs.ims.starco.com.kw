@@ -4,9 +4,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Business API v1 Authentication &amp; Access | IMS Documentation</title>
 <meta name="description" content="API key authentication, company access, scopes, client validity, key lifecycle and authorization behavior for IMS Business API v1.">
-<link rel="canonical" href="https://ims.starco.com.kw/technical/api-v1/authentication.html">
+<link rel="canonical" href="https://docs.ims.starco.com.kw/technical/api-v1/authentication.html">
 <link rel="stylesheet" href="../../assets/css/docs.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Business API v1 Authentication & Access","url":"https://ims.starco.com.kw/technical/api-v1/authentication.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Business API v1 Authentication & Access","url":"https://docs.ims.starco.com.kw/technical/api-v1/authentication.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -15,10 +15,10 @@
 <nav class="topnav" aria-label="Primary"><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../sales/index.html">Sales</a><a href="../../inventory/index.html">Inventory</a><a href="../../financial/index.html">Financial</a><a href="../../reports/index.html">Reports</a><a href="../../manage/index.html">Manage</a><a href="../../tools/index.html">Tools</a><a href="../../system/index.html">System</a><a href="../../shopify/index.html">Shopify</a><a href="../../integration/index.html">Integration</a><a class="active" href="../../technical/index.html">Technical</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
 </div></header>
-<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../../index.html">Documentation home</a><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../system/index.html">System</a><a href="../../integration/index.html">Integration</a><h3>Technical</h3><a href="../index.html">Technical Overview</a><a href="../architecture.html">IMS Architecture</a><a href="../multi-company.html">Multi-Company Architecture</a><a href="../security.html">Security Architecture</a><a href="../secure-bootstrap.html">Secure Bootstrap</a><a href="../ims-global.html">IMS Global</a><a href="../ims-api.html">IMS API</a><a href="index.html">Business API v1</a><a href="quick-start.html">Quick Start</a><a class="active" href="authentication.html">Authentication & Access</a><a href="requests.html">Requests & Responses</a><a href="reference.html">Endpoint Reference</a><a href="data-semantics.html">Data Semantics</a><a href="errors-rate-limits.html">Errors & Rate Limits</a><a href="examples.html">Examples & Downloads</a><a href="../secret-vault.html">Secret Vault</a><a href="../system-dashboard-observability.html">System Dashboard & Observability</a><a href="../postgresql/index.html">PostgreSQL Deployment & Operations</a><a href="../it-operations-troubleshooting.html">IT Operations & Troubleshooting</a></aside>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../../index.html">Documentation home</a><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../system/index.html">System</a><a href="../../integration/index.html">Integration</a><h3>Technical</h3><a href="../index.html">Technical Overview</a><a href="../architecture.html">IMS Architecture</a><a href="../multi-company.html">Multi-Company Architecture</a><a href="../security.html">Security Architecture</a><a href="../secure-bootstrap.html">Secure Bootstrap</a><a href="../ims-global.html">IMS Global</a><a href="../ims-api.html">IMS API</a><a href="index.html">Business API v1</a><a href="quick-start.html">Quick Start</a><a class="active" href="authentication.html">Authentication & Access</a><a href="requests.html">Requests & Responses</a><a href="reference.html">Endpoint Reference</a><a href="data-semantics.html">Data Semantics</a><a href="errors-rate-limits.html">Errors & Rate Limits</a><a href="examples.html">Examples & Downloads</a><a href="../secret-vault.html">Secret Vault</a><a href="../system-dashboard-observability.html">System Dashboard & Observability</a><a href="../postgresql/index.html">PostgreSQL Deployment & Operations</a><a href="../it-operations-troubleshooting.html">IT Operations & Troubleshooting</a><a href="partner-data.html">Partner Data &amp; Stock Delta</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../../index.html">IMS Documentation</a> › <a href="../index.html">Technical</a> › <a href="index.html">Business API v1</a> › Authentication & Access</div>
-<span class="badge">IMS Business API v1</span>
+<span class="badge">IMS API 1.0.0.0 • Business API v1</span>
 
 <h1>Authentication &amp; Access</h1>
 <p class="lead">Business API access is controlled by API key, client status/validity, company assignments and scopes.</p>
@@ -26,7 +26,7 @@
 <pre><code>X-IMS-API-Key: YOUR_API_KEY</code></pre>
 <p>The complete key is shown only when it is generated or rotated. Existing keys cannot be recovered. Store the key in an appropriate secret store rather than source code or configuration committed to version control.</p>
 <h2>Access checks</h2>
-<ol class="steps"><li>The key must exist and be active.</li><li>The API client must be active and within its Valid From / Valid Until window.</li><li>The requested company must be assigned to the client.</li><li>The client must have the scope required by the endpoint.</li><li>The client must remain within its minute/day request limits.</li></ol>
+<ol class="steps"><li>The key must exist, be active, not revoked and not expired.</li><li>The API client must be active and within its Valid From / Valid Until window.</li><li>The requested company must be assigned to the client.</li><li>The client must have the scope required by the endpoint.</li><li>The client must remain within its minute/day request limits.</li></ol>
 <h2>Scope-to-resource map</h2>
 <div class="table-wrap"><table><thead><tr><th>Scope</th><th>Resources</th></tr></thead><tbody>
 <tr><td><code>stores.read</code></td><td><code>/stores</code></td></tr>
@@ -37,11 +37,12 @@
 <tr><td><code>transfers.read</code></td><td><code>/transfers</code></td></tr>
 <tr><td><code>adjustments.read</code></td><td><code>/stock-adjustments</code>, <code>/stock-depreciations</code></td></tr>
 <tr><td><code>promotions.read</code></td><td><code>/markdowns</code>, <code>/promotions</code> and promotion relations, <code>/discount-coupon-events</code></td></tr>
-</tbody></table></div>
+<tr><td><code>partner-data.read</code></td><td><a href="partner-data.html">Partner catalog and Stock Delta</a>; separate policy-controlled access without cost fields.</td></tr></tbody></table></div>
 <h2>Company confidentiality</h2>
-<p>When the caller does not have access to a company, the API returns the same <code>404 company_not_found</code> response used when the company is unavailable. This avoids disclosing company existence to unauthorized clients.</p>
+<p>At the company-access lookup, a caller without access receives the same <code>404 company_not_found</code> response used when the company is unavailable. Scope and request-validation failures may occur before that lookup; not every unauthorized-company request reaches the 404 response.</p>
 <h2>Key lifecycle</h2>
-<p>Keys may be generated, rotated or revoked by authorized IMS administrators. Rotation creates a replacement key and invalidates the old key. Revocation is immediate; subsequent calls with the revoked key return <code>401 unauthorized</code>.</p>
+<p>Keys may be generated, rotated or revoked by authorized IMS administrators. Rotation creates a replacement key and invalidates the old key. Revocation is checked on subsequent authorization checks; revoked keys return <code>401 unauthorized</code>.</p>
 
+<h2>Header and lifecycle details</h2><p>Send exactly one <code>X-IMS-API-Key</code> header value. The middleware trims it and requires at least 20 characters before lookup; it does not offer Bearer authentication as an alternative. Key and client state are checked against the database on each request. Expiry and Valid Until must be in the future; Valid From must not be in the future.</p><p>Stored keys use SHA-256 hashes, with only metadata and prefixes returned in key listings. Rotation inserts the replacement and revokes the old key in one transaction, with no grace period. It does not cancel already-running requests.</p><p>The access checks above are requirements, not an execution-order guarantee: quota enforcement precedes endpoint scope/validation and company access.</p>
 <footer class="page-footer"><span>IMS Documentation</span><span>Business API v1 developer guide</span></footer>
 </main></div><script src="../../assets/js/docs.js"></script></body></html>

@@ -4,9 +4,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Secure Bootstrap | IMS Documentation</title>
 <meta name="description" content="The protected startup sequence that validates the IMS workstation, authenticates the global user and establishes authorized company context.">
-<link rel="canonical" href="https://ims.starco.com.kw/technical/secure-bootstrap.html">
+<link rel="canonical" href="https://docs.ims.starco.com.kw/technical/secure-bootstrap.html">
 <link rel="stylesheet" href="../assets/css/docs.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Secure Bootstrap","url":"https://ims.starco.com.kw/technical/secure-bootstrap.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Secure Bootstrap","url":"https://docs.ims.starco.com.kw/technical/secure-bootstrap.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner">
@@ -18,10 +18,10 @@
 <div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../index.html">Documentation home</a><a href="../getting-started/main-screen.html">Getting started</a><a href="../system/index.html">System</a><a href="../integration/index.html">Integration</a><h3>Technical</h3><a href="index.html">Technical Overview</a><a href="architecture.html">IMS Architecture</a><a href="multi-company.html">Multi-Company Architecture</a><a href="security.html">Security Architecture</a><a class="active" href="secure-bootstrap.html">Secure Bootstrap</a><a href="ims-global.html">IMS Global</a><a href="ims-api.html">IMS API</a><a href="api-v1/index.html">Business API v1</a><a href="secret-vault.html">Secret Vault</a><a href="system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Technical › Secure Bootstrap</div>
-<span class="badge">IMS Build 9.4.4.0 technical baseline</span>
+<span class="badge">IMS Build 9.4.4.0 documentation</span>
 <h1>Secure Bootstrap</h1>
 <p class="lead">The protected startup sequence that validates the IMS workstation, authenticates the global user and establishes authorized company context.</p>
 <h2>Bootstrap sequence</h2><ol class="steps"><li>IMS identifies the workstation and sends the workstation identity/fingerprint and client version to IMS.Api.</li><li>IMS.Api confirms whether the workstation is authorized.</li><li>The user's global Login Name and password are authenticated.</li><li>If a password change is required, the user completes it before continuing.</li><li>The API returns only the active companies authorized for that identity, including default-company information.</li><li>The chosen company is validated and its runtime database profile is supplied for the authorized session.</li><li>The IMS client opens the selected company's operational database and applies that company's local permissions.</li></ol>
 <div class="callout"><strong>IMS Global uses the same security boundary</strong>The administration application first passes workstation validation and user authentication, then opens a separate Global Administrator session through IMS.Api.</div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div><script src="../assets/js/docs.js"></script></body></html>

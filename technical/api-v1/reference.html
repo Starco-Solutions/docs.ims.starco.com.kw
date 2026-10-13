@@ -4,9 +4,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Business API v1 Endpoint Reference | IMS Documentation</title>
 <meta name="description" content="Complete IMS Business API v1 resource list, scopes, routes, supported filters and important response fields.">
-<link rel="canonical" href="https://ims.starco.com.kw/technical/api-v1/reference.html">
+<link rel="canonical" href="https://docs.ims.starco.com.kw/technical/api-v1/reference.html">
 <link rel="stylesheet" href="../../assets/css/docs.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Business API v1 Endpoint Reference","url":"https://ims.starco.com.kw/technical/api-v1/reference.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://ims.starco.com.kw/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Business API v1 Endpoint Reference","url":"https://docs.ims.starco.com.kw/technical/api-v1/reference.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
 
 <style>
 /* Endpoint Reference: keep the primary resource table readable without horizontal scrolling. */
@@ -33,28 +33,442 @@
 <nav class="topnav" aria-label="Primary"><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../sales/index.html">Sales</a><a href="../../inventory/index.html">Inventory</a><a href="../../financial/index.html">Financial</a><a href="../../reports/index.html">Reports</a><a href="../../manage/index.html">Manage</a><a href="../../tools/index.html">Tools</a><a href="../../system/index.html">System</a><a href="../../shopify/index.html">Shopify</a><a href="../../integration/index.html">Integration</a><a class="active" href="../../technical/index.html">Technical</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
 </div></header>
-<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../../index.html">Documentation home</a><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../system/index.html">System</a><a href="../../integration/index.html">Integration</a><h3>Technical</h3><a href="../index.html">Technical Overview</a><a href="../architecture.html">IMS Architecture</a><a href="../multi-company.html">Multi-Company Architecture</a><a href="../security.html">Security Architecture</a><a href="../secure-bootstrap.html">Secure Bootstrap</a><a href="../ims-global.html">IMS Global</a><a href="../ims-api.html">IMS API</a><a href="index.html">Business API v1</a><a href="quick-start.html">Quick Start</a><a href="authentication.html">Authentication & Access</a><a href="requests.html">Requests & Responses</a><a class="active" href="reference.html">Endpoint Reference</a><a href="data-semantics.html">Data Semantics</a><a href="errors-rate-limits.html">Errors & Rate Limits</a><a href="examples.html">Examples & Downloads</a><a href="../secret-vault.html">Secret Vault</a><a href="../system-dashboard-observability.html">System Dashboard & Observability</a><a href="../postgresql/index.html">PostgreSQL Deployment & Operations</a><a href="../it-operations-troubleshooting.html">IT Operations & Troubleshooting</a></aside>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../../index.html">Documentation home</a><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../system/index.html">System</a><a href="../../integration/index.html">Integration</a><h3>Technical</h3><a href="../index.html">Technical Overview</a><a href="../architecture.html">IMS Architecture</a><a href="../multi-company.html">Multi-Company Architecture</a><a href="../security.html">Security Architecture</a><a href="../secure-bootstrap.html">Secure Bootstrap</a><a href="../ims-global.html">IMS Global</a><a href="../ims-api.html">IMS API</a><a href="index.html">Business API v1</a><a href="quick-start.html">Quick Start</a><a href="authentication.html">Authentication & Access</a><a href="requests.html">Requests & Responses</a><a class="active" href="reference.html">Endpoint Reference</a><a href="data-semantics.html">Data Semantics</a><a href="errors-rate-limits.html">Errors & Rate Limits</a><a href="examples.html">Examples & Downloads</a><a href="../secret-vault.html">Secret Vault</a><a href="../system-dashboard-observability.html">System Dashboard & Observability</a><a href="../postgresql/index.html">PostgreSQL Deployment & Operations</a><a href="../it-operations-troubleshooting.html">IT Operations & Troubleshooting</a><a href="partner-data.html">Partner Data &amp; Stock Delta</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../../index.html">IMS Documentation</a> › <a href="../index.html">Technical</a> › <a href="index.html">Business API v1</a> › Endpoint Reference</div>
-<span class="badge">IMS Business API v1</span>
-
+<span class="badge">IMS API 1.0.0.0 • Business API v1</span>
 <h1>Endpoint Reference</h1>
-<p class="lead">Business API v1 resources, required scopes, paging behavior and supported filters.</p>
-<h2>Resources</h2><div class="table-wrap reference-resources"><table class="reference-table"><thead><tr><th>Resource</th><th>Method</th><th>Route</th><th>Scope</th><th>Request model</th><th>Purpose</th></tr></thead><tbody><tr><td>Stores</td><td>GET</td><td><code>/api/v1/companies/{companyId}/stores</code></td><td><code>stores.read</code></td><td>No paging</td><td>Store/warehouse identity, location, contact, area/rent, active/transaction and store-type flags.</td></tr><tr><td>Items</td><td>GET</td><td><code>/api/v1/companies/{companyId}/items</code></td><td><code>items.read</code></td><td>Paged</td><td>Item/barcode/style/theme, merchandise hierarchy, supplier/brand, state/online, retail/cost and purchase/display dates.</td></tr><tr><td>Suppliers</td><td>GET</td><td><code>/api/v1/companies/{companyId}/suppliers</code></td><td><code>purchases.read</code></td><td>Paged</td><td>Supplier identity and VAT registration/account information.</td></tr><tr><td>Sales</td><td>GET</td><td><code>/api/v1/companies/{companyId}/sales</code></td><td><code>sales.read</code></td><td>Paged + date range</td><td>Sales/returns, line pricing/discounts, signed net/gross/COGS metrics, salesperson, customer/loyalty and promotion references.</td></tr><tr><td>Purchases</td><td>GET</td><td><code>/api/v1/companies/{companyId}/purchases</code></td><td><code>purchases.read</code></td><td>Paged + date range</td><td>Purchases/returns, supplier invoice/VAT, currency, local/landed cost, landed expense and document values.</td></tr><tr><td>Inventory</td><td>GET</td><td><code>/api/v1/companies/{companyId}/inventory</code></td><td><code>inventory.read</code></td><td>Paged</td><td>Store/item on-hand quantity, unit cost, stock value, current retail and retail value.</td></tr><tr><td>Inventory movements</td><td>GET</td><td><code>/api/v1/companies/{companyId}/inventory/movements</code></td><td><code>inventory.read</code></td><td>Paged + date range</td><td>Normalized purchase/sale/return/transfer/adjustment/depreciation movements with signed quantity/value.</td></tr><tr><td>Transfers</td><td>GET</td><td><code>/api/v1/companies/{companyId}/transfers</code></td><td><code>transfers.read</code></td><td>Paged + date range</td><td>Transfer documents, from/to store, line quantity, source/destination movements, cost/retail and document totals.</td></tr><tr><td>Stock adjustments</td><td>GET</td><td><code>/api/v1/companies/{companyId}/stock-adjustments</code></td><td><code>adjustments.read</code></td><td>Paged + date range</td><td>Signed inventory adjustments with cost/retail values and document totals.</td></tr><tr><td>Stock depreciations</td><td>GET</td><td><code>/api/v1/companies/{companyId}/stock-depreciations</code></td><td><code>adjustments.read</code></td><td>Paged + date range</td><td>Depreciation/write-off lines with negative stock movement and cost totals.</td></tr><tr><td>Markdowns</td><td>GET</td><td><code>/api/v1/companies/{companyId}/markdowns</code></td><td><code>promotions.read</code></td><td>Paged + date range</td><td>Markdown policy/item mapping with original/markdown price, amount and percentage.</td></tr><tr><td>Promotions</td><td>GET</td><td><code>/api/v1/companies/{companyId}/promotions</code></td><td><code>promotions.read</code></td><td>Paged + date range</td><td>Promotion definitions, type, buy/get controls, flags, cashback settings and validity.</td></tr><tr><td>Promotion stores</td><td>GET</td><td><code>/api/v1/companies/{companyId}/promotions/{promotionId}/stores</code></td><td><code>promotions.read</code></td><td>Paged</td><td>Stores assigned to a promotion.</td></tr><tr><td>Promotion items</td><td>GET</td><td><code>/api/v1/companies/{companyId}/promotions/{promotionId}/items</code></td><td><code>promotions.read</code></td><td>Paged</td><td>Eligible/reward items and optional special price.</td></tr><tr><td>Promotion client categories</td><td>GET</td><td><code>/api/v1/companies/{companyId}/promotions/{promotionId}/client-categories</code></td><td><code>promotions.read</code></td><td>Paged</td><td>Client categories assigned to a promotion.</td></tr><tr><td>Promotion tiers</td><td>GET</td><td><code>/api/v1/companies/{companyId}/promotions/{promotionId}/tiers</code></td><td><code>promotions.read</code></td><td>Paged</td><td>Amount thresholds and reward values.</td></tr><tr><td>Promotion cashback stores</td><td>GET</td><td><code>/api/v1/companies/{companyId}/promotions/{promotionId}/cashback-stores</code></td><td><code>promotions.read</code></td><td>Paged</td><td>Stores where promotion cashback can be redeemed.</td></tr><tr><td>Discount coupon events</td><td>GET</td><td><code>/api/v1/companies/{companyId}/discount-coupon-events</code></td><td><code>promotions.read</code></td><td>Paged</td><td>Coupon-event metadata, percentage, expiry and eligibility flags. Raw coupon codes are not exposed.</td></tr><tr><td>Discount coupon stores</td><td>GET</td><td><code>/api/v1/companies/{companyId}/discount-coupon-events/{couponEventId}/stores</code></td><td><code>promotions.read</code></td><td>Paged</td><td>Stores assigned to a discount-coupon event.</td></tr></tbody></table></div>
-<h2>Common paging parameters</h2><p>All endpoints marked <strong>Paged</strong> support <code>page</code> and <code>pageSize</code> in addition to the filters below. Default page size is 200; maximum is 1000.</p>
-<h2>Supported filters</h2><div class="table-wrap"><table><thead><tr><th>Resource</th><th>Query filters</th></tr></thead><tbody><tr><td>Items</td><td><code>itemId</code>, <code>barcode</code>, <code>style</code>, <code>supplierId</code>, <code>brandId</code>, <code>categoryId</code>, <code>subcategoryId</code>, <code>itemState</code>, <code>isOnline</code></td></tr><tr><td>Suppliers</td><td><code>supplierId</code>, <code>search</code>, <code>vatRegistered</code></td></tr><tr><td>Sales</td><td><code>fromDate</code>, <code>toDate</code>, <code>storeId</code>, <code>transactionType</code>, <code>invoiceNo</code>, <code>itemId</code>, <code>itemType</code>, <code>salespersonId</code>, <code>customerId</code>, <code>loyaltyCustomerId</code>, <code>promotionId</code>, <code>markdownId</code>, <code>couponEventId</code>, <code>isReturn</code>, <code>isDiscounted</code>, <code>isItemDiscounted</code>, <code>isInvoiceDiscounted</code></td></tr><tr><td>Purchases</td><td><code>fromDate</code>, <code>toDate</code>, <code>purchaseCenterId</code>, <code>receivingStoreId</code>, <code>transactionType</code>, <code>documentState</code>, <code>supplierId</code>, <code>purchaseNo</code>, <code>supplierInvoiceNo</code>, <code>itemId</code>, <code>statisticalPeriodId</code></td></tr><tr><td>Inventory</td><td><code>storeId</code>, <code>itemId</code>, <code>isMainStore</code>, <code>isOnlineStore</code>, <code>isDamageStore</code>, <code>isActive</code>, <code>nonZeroOnly</code></td></tr><tr><td>Inventory movements</td><td><code>fromDate</code>, <code>toDate</code>, <code>movementType</code>, <code>transactionType</code>, <code>storeId</code>, <code>relatedStoreId</code>, <code>documentCenterId</code>, <code>documentNo</code>, <code>lineNo</code>, <code>itemId</code></td></tr><tr><td>Transfers</td><td><code>fromDate</code>, <code>toDate</code>, <code>fromStoreId</code>, <code>toStoreId</code>, <code>transferNo</code>, <code>lineNo</code>, <code>itemId</code>, <code>statisticalPeriodId</code>, <code>supplierId</code></td></tr><tr><td>Stock adjustments</td><td><code>fromDate</code>, <code>toDate</code>, <code>storeId</code>, <code>adjustmentNo</code>, <code>lineNo</code>, <code>itemId</code></td></tr><tr><td>Stock depreciations</td><td><code>fromDate</code>, <code>toDate</code>, <code>storeId</code>, <code>depreciationNo</code>, <code>lineNo</code>, <code>itemId</code></td></tr><tr><td>Markdowns</td><td><code>fromDate</code>, <code>toDate</code>, <code>markdownId</code>, <code>statisticalPeriodId</code>, <code>itemId</code>, <code>returnToFullPrice</code></td></tr><tr><td>Promotions</td><td><code>fromDate</code>, <code>toDate</code>, <code>promotionId</code>, <code>promotionType</code>, <code>allStores</code>, <code>allClientCategories</code>, <code>allItems</code></td></tr><tr><td>Promotion stores</td><td><code>storeId</code></td></tr><tr><td>Promotion items</td><td><code>itemId</code>, <code>rewardItemId</code>, <code>hasSpecialPrice</code></td></tr><tr><td>Promotion client categories</td><td><code>clientCategoryId</code></td></tr><tr><td>Promotion tiers</td><td>No resource-specific filters.</td></tr><tr><td>Promotion cashback stores</td><td><code>storeId</code></td></tr><tr><td>Discount coupon events</td><td><code>couponEventId</code>, <code>expiryFrom</code>, <code>expiryTo</code>, <code>isSingleCode</code>, <code>applyOnDiscountedItems</code>, <code>requiresStarCard</code>, <code>allStores</code></td></tr><tr><td>Discount coupon stores</td><td><code>storeId</code></td></tr></tbody></table></div>
-<h2>Important response fields</h2>
-<div class="table-wrap"><table><thead><tr><th>Resource</th><th>Important fields</th></tr></thead><tbody>
-<tr><td>Stores</td><td><code>storeId</code>, <code>storeName</code>, <code>locationId</code>, <code>locationName</code>, <code>areaSqm</code>, <code>monthlyRent</code>, <code>isActive</code>, <code>transactionsEnabled</code>, <code>isMainStore</code>, <code>isOnlineStore</code>, <code>isDamageStore</code>, <code>vcountEnabled</code>.</td></tr>
-<tr><td>Items</td><td><code>itemId</code>, barcode/style/theme/name, merchandise hierarchy, supplier/brand, season/period, state/online, <code>originalPrice</code>, <code>currentPrice</code>, <code>averageLocalCost</code>, last purchase and first-display fields.</td></tr>
-<tr><td>Sales</td><td>Transaction/store/invoice/line/item, <code>salespersonId</code>/<code>salespersonName</code>, <code>customerId</code>, <code>loyaltyCustomerId</code>, promotion/markdown/coupon references, discount fields, signed <code>netQuantity</code>, <code>grossSalesAmount</code>, <code>netSalesAmount</code>, <code>cogsAmount</code>.</td></tr>
-<tr><td>Purchases</td><td>Purchase center/store/document/supplier, supplier invoice/VAT, period/shipment/currency, quantity/price, signed foreign/local/landed cost, <code>landedExpenseAmount</code>, document totals and <code>documentDiscountEarned</code>.</td></tr>
-<tr><td>Inventory</td><td><code>onHandQty</code>, <code>unitCost</code>, <code>stockValue</code>, <code>currentRetailPrice</code>, <code>retailValue</code> plus store flags.</td></tr>
-<tr><td>Inventory movements</td><td><code>movementType</code>, transaction/store/related-store/document/line/item, signed <code>movementQty</code>, <code>unitCost</code>, <code>stockValueMovement</code>.</td></tr>
-<tr><td>Transfers</td><td>From/to store, transfer/document/item references, <code>transferQty</code>, <code>sourceMovementQty</code>, <code>destinationMovementQty</code>, cost/retail and document totals.</td></tr>
-<tr><td>Adjustments / Depreciation</td><td>Store/document/line/item, signed movement quantity and cost/retail totals; notes where available.</td></tr>
-<tr><td>Markdowns / Promotions</td><td>Policy identity/date range, markdown prices/percent, promotion type/rules, eligible stores/items/categories/tiers/cashback stores and coupon-event metadata.</td></tr>
-</tbody></table></div>
-
+<p class="lead">All ordinary Business API v1 resources, query parameters and response-row fields.</p><p>All routes below use GET and require the company assignment and named scope. See <a href="requests.html">Requests &amp; Responses</a> for envelopes, required date pairs, paging and types. <code>?</code> means nullable; decimal values are JSON numbers and long is a 64-bit integer. Preserve document-number precision.</p><p>Partner-only access has a separate <a href="partner-data.html">Partner Data catalog and Stock Delta contract</a>. Ordinary resources can expose business costs and are not restricted by Partner Data policies.</p><h2>Resources</h2><ul><li><a href="#stores">stores</a></li><li><a href="#items">items</a></li><li><a href="#inventory">inventory</a></li><li><a href="#inventory-movements">inventory/movements</a></li><li><a href="#suppliers">suppliers</a></li><li><a href="#purchases">purchases</a></li><li><a href="#sales">sales</a></li><li><a href="#transfers">transfers</a></li><li><a href="#stock-adjustments">stock-adjustments</a></li><li><a href="#stock-depreciations">stock-depreciations</a></li><li><a href="#markdowns">markdowns</a></li><li><a href="#promotions">promotions</a></li><li><a href="#promotions-promotionid-stores">promotions/{promotionId}/stores</a></li><li><a href="#promotions-promotionid-items">promotions/{promotionId}/items</a></li><li><a href="#promotions-promotionid-client-categories">promotions/{promotionId}/client-categories</a></li><li><a href="#promotions-promotionid-tiers">promotions/{promotionId}/tiers</a></li><li><a href="#promotions-promotionid-cashback-stores">promotions/{promotionId}/cashback-stores</a></li><li><a href="#discount-coupon-events">discount-coupon-events</a></li><li><a href="#discount-coupon-events-couponeventid-stores">discount-coupon-events/{couponEventId}/stores</a></li></ul><h2 id="stores">stores</h2><pre><code>GET /api/v1/companies/{companyId}/stores</code></pre><p>Required scope: <code>stores.read</code>.</p><h3>Query parameters</h3><p>No query filters or pagination parameters.</p><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>storeId</code></td><td>int</td></tr>
+<tr><td><code>storeName</code></td><td>string</td></tr>
+<tr><td><code>storeNameAr</code></td><td>string</td></tr>
+<tr><td><code>locationId</code></td><td>int?</td></tr>
+<tr><td><code>locationName</code></td><td>string?</td></tr>
+<tr><td><code>phone</code></td><td>string?</td></tr>
+<tr><td><code>address</code></td><td>string?</td></tr>
+<tr><td><code>areaSqm</code></td><td>decimal?</td></tr>
+<tr><td><code>monthlyRent</code></td><td>decimal?</td></tr>
+<tr><td><code>isActive</code></td><td>bool</td></tr>
+<tr><td><code>transactionsEnabled</code></td><td>bool</td></tr>
+<tr><td><code>isMainStore</code></td><td>bool</td></tr>
+<tr><td><code>isOnlineStore</code></td><td>bool</td></tr>
+<tr><td><code>isDamageStore</code></td><td>bool</td></tr>
+<tr><td><code>vcountEnabled</code></td><td>bool</td></tr>
+</tbody></table></div><h2 id="items">items</h2><pre><code>GET /api/v1/companies/{companyId}/items</code></pre><p>Required scope: <code>items.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>itemId</code></td><td>string?</td></tr>
+<tr><td><code>barcode</code></td><td>string?</td></tr>
+<tr><td><code>style</code></td><td>string?</td></tr>
+<tr><td><code>supplierId</code></td><td>int?</td></tr>
+<tr><td><code>brandId</code></td><td>int?</td></tr>
+<tr><td><code>categoryId</code></td><td>int?</td></tr>
+<tr><td><code>subcategoryId</code></td><td>int?</td></tr>
+<tr><td><code>itemState</code></td><td>int?</td></tr>
+<tr><td><code>isOnline</code></td><td>bool?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>itemId</code></td><td>string</td></tr>
+<tr><td><code>barcode</code></td><td>string?</td></tr>
+<tr><td><code>style</code></td><td>string?</td></tr>
+<tr><td><code>theme</code></td><td>string?</td></tr>
+<tr><td><code>itemName</code></td><td>string?</td></tr>
+<tr><td><code>itemNameAr</code></td><td>string?</td></tr>
+<tr><td><code>itemType</code></td><td>int</td></tr>
+<tr><td><code>colorCode</code></td><td>string?</td></tr>
+<tr><td><code>colorName</code></td><td>string?</td></tr>
+<tr><td><code>size</code></td><td>string?</td></tr>
+<tr><td><code>unit</code></td><td>int?</td></tr>
+<tr><td><code>supplierId</code></td><td>int?</td></tr>
+<tr><td><code>supplierName</code></td><td>string?</td></tr>
+<tr><td><code>brandId</code></td><td>int?</td></tr>
+<tr><td><code>brandName</code></td><td>string?</td></tr>
+<tr><td><code>categoryId</code></td><td>int?</td></tr>
+<tr><td><code>categoryName</code></td><td>string?</td></tr>
+<tr><td><code>subcategoryId</code></td><td>int?</td></tr>
+<tr><td><code>subcategoryName</code></td><td>string?</td></tr>
+<tr><td><code>productGroupId</code></td><td>int?</td></tr>
+<tr><td><code>productGroupName</code></td><td>string?</td></tr>
+<tr><td><code>productSubgroupId</code></td><td>int?</td></tr>
+<tr><td><code>productSubgroupName</code></td><td>string?</td></tr>
+<tr><td><code>receivedSeasonId</code></td><td>string?</td></tr>
+<tr><td><code>receivedSeason</code></td><td>string?</td></tr>
+<tr><td><code>salesPeriodId</code></td><td>string?</td></tr>
+<tr><td><code>salesPeriod</code></td><td>string?</td></tr>
+<tr><td><code>ageRangeId</code></td><td>int?</td></tr>
+<tr><td><code>ageRange</code></td><td>string?</td></tr>
+<tr><td><code>genderId</code></td><td>int?</td></tr>
+<tr><td><code>gender</code></td><td>string?</td></tr>
+<tr><td><code>countryId</code></td><td>int?</td></tr>
+<tr><td><code>countryName</code></td><td>string?</td></tr>
+<tr><td><code>itemState</code></td><td>int</td></tr>
+<tr><td><code>isOnline</code></td><td>bool</td></tr>
+<tr><td><code>originalPrice</code></td><td>decimal?</td></tr>
+<tr><td><code>currentPrice</code></td><td>decimal?</td></tr>
+<tr><td><code>averageLocalCost</code></td><td>decimal?</td></tr>
+<tr><td><code>lastPurchaseDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>lastPurchaseCurrencyId</code></td><td>int?</td></tr>
+<tr><td><code>lastPurchaseCurrency</code></td><td>string?</td></tr>
+<tr><td><code>lastPurchasePrice</code></td><td>decimal?</td></tr>
+<tr><td><code>firstDisplayDate</code></td><td>DateOnly?</td></tr>
+</tbody></table></div><h2 id="inventory">inventory</h2><pre><code>GET /api/v1/companies/{companyId}/inventory</code></pre><p>Required scope: <code>inventory.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>storeId</code></td><td>int?</td></tr>
+<tr><td><code>itemId</code></td><td>string?</td></tr>
+<tr><td><code>isMainStore</code></td><td>bool?</td></tr>
+<tr><td><code>isOnlineStore</code></td><td>bool?</td></tr>
+<tr><td><code>isDamageStore</code></td><td>bool?</td></tr>
+<tr><td><code>isActive</code></td><td>bool?</td></tr>
+<tr><td><code>nonZeroOnly</code></td><td>bool?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>storeId</code></td><td>int</td></tr>
+<tr><td><code>storeName</code></td><td>string?</td></tr>
+<tr><td><code>isMainStore</code></td><td>bool</td></tr>
+<tr><td><code>isOnlineStore</code></td><td>bool</td></tr>
+<tr><td><code>isDamageStore</code></td><td>bool</td></tr>
+<tr><td><code>isActive</code></td><td>bool</td></tr>
+<tr><td><code>itemId</code></td><td>string</td></tr>
+<tr><td><code>onHandQty</code></td><td>decimal?</td></tr>
+<tr><td><code>unitCost</code></td><td>decimal?</td></tr>
+<tr><td><code>stockValue</code></td><td>decimal?</td></tr>
+<tr><td><code>currentRetailPrice</code></td><td>decimal?</td></tr>
+<tr><td><code>retailValue</code></td><td>decimal?</td></tr>
+</tbody></table></div><h2 id="inventory-movements">inventory/movements</h2><pre><code>GET /api/v1/companies/{companyId}/inventory/movements</code></pre><p>Required scope: <code>inventory.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>fromDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>toDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>movementType</code></td><td>string?</td></tr>
+<tr><td><code>transactionType</code></td><td>int?</td></tr>
+<tr><td><code>storeId</code></td><td>int?</td></tr>
+<tr><td><code>relatedStoreId</code></td><td>int?</td></tr>
+<tr><td><code>documentCenterId</code></td><td>int?</td></tr>
+<tr><td><code>documentNo</code></td><td>long?</td></tr>
+<tr><td><code>lineNo</code></td><td>long?</td></tr>
+<tr><td><code>itemId</code></td><td>string?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>movementDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>movementTime</code></td><td>TimeOnly?</td></tr>
+<tr><td><code>movementType</code></td><td>string</td></tr>
+<tr><td><code>transactionType</code></td><td>int?</td></tr>
+<tr><td><code>storeId</code></td><td>int</td></tr>
+<tr><td><code>relatedStoreId</code></td><td>int?</td></tr>
+<tr><td><code>documentCenterId</code></td><td>int</td></tr>
+<tr><td><code>documentNo</code></td><td>long</td></tr>
+<tr><td><code>lineNo</code></td><td>long</td></tr>
+<tr><td><code>itemId</code></td><td>string</td></tr>
+<tr><td><code>movementQty</code></td><td>decimal?</td></tr>
+<tr><td><code>unitCost</code></td><td>decimal?</td></tr>
+<tr><td><code>stockValueMovement</code></td><td>decimal?</td></tr>
+</tbody></table></div><h2 id="suppliers">suppliers</h2><pre><code>GET /api/v1/companies/{companyId}/suppliers</code></pre><p>Required scope: <code>purchases.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>supplierId</code></td><td>int?</td></tr>
+<tr><td><code>search</code></td><td>string?</td></tr>
+<tr><td><code>vatRegistered</code></td><td>bool?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>supplierId</code></td><td>int</td></tr>
+<tr><td><code>supplierName</code></td><td>string?</td></tr>
+<tr><td><code>supplierNameAr</code></td><td>string?</td></tr>
+<tr><td><code>vatRegistered</code></td><td>bool?</td></tr>
+<tr><td><code>vatAccountNo</code></td><td>string?</td></tr>
+</tbody></table></div><h2 id="purchases">purchases</h2><pre><code>GET /api/v1/companies/{companyId}/purchases</code></pre><p>Required scope: <code>purchases.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>fromDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>toDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>purchaseCenterId</code></td><td>int?</td></tr>
+<tr><td><code>receivingStoreId</code></td><td>int?</td></tr>
+<tr><td><code>transactionType</code></td><td>int?</td></tr>
+<tr><td><code>documentState</code></td><td>int?</td></tr>
+<tr><td><code>supplierId</code></td><td>int?</td></tr>
+<tr><td><code>purchaseNo</code></td><td>long?</td></tr>
+<tr><td><code>supplierInvoiceNo</code></td><td>string?</td></tr>
+<tr><td><code>itemId</code></td><td>string?</td></tr>
+<tr><td><code>statisticalPeriodId</code></td><td>int?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>purchaseDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>purchaseCenterId</code></td><td>int</td></tr>
+<tr><td><code>purchaseCenterName</code></td><td>string?</td></tr>
+<tr><td><code>transactionType</code></td><td>int</td></tr>
+<tr><td><code>transactionTypeName</code></td><td>string?</td></tr>
+<tr><td><code>purchaseNo</code></td><td>long</td></tr>
+<tr><td><code>lineNo</code></td><td>int</td></tr>
+<tr><td><code>documentState</code></td><td>int</td></tr>
+<tr><td><code>documentStateName</code></td><td>string?</td></tr>
+<tr><td><code>supplierId</code></td><td>int</td></tr>
+<tr><td><code>supplierName</code></td><td>string?</td></tr>
+<tr><td><code>supplierInvoiceNo</code></td><td>string?</td></tr>
+<tr><td><code>supplierInvoiceDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>supplierVatNo</code></td><td>string?</td></tr>
+<tr><td><code>receivingStoreId</code></td><td>int?</td></tr>
+<tr><td><code>receivingStoreName</code></td><td>string?</td></tr>
+<tr><td><code>statisticalPeriodId</code></td><td>int?</td></tr>
+<tr><td><code>statisticalPeriod</code></td><td>string?</td></tr>
+<tr><td><code>shipmentNo</code></td><td>string?</td></tr>
+<tr><td><code>currencyId</code></td><td>int?</td></tr>
+<tr><td><code>currencyName</code></td><td>string?</td></tr>
+<tr><td><code>currencySymbol</code></td><td>string?</td></tr>
+<tr><td><code>exchangeRate</code></td><td>decimal?</td></tr>
+<tr><td><code>costRate</code></td><td>decimal?</td></tr>
+<tr><td><code>itemId</code></td><td>string</td></tr>
+<tr><td><code>unit</code></td><td>int?</td></tr>
+<tr><td><code>quantity</code></td><td>decimal?</td></tr>
+<tr><td><code>unitPurchasePrice</code></td><td>decimal?</td></tr>
+<tr><td><code>lineForeignAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>currentRetailPrice</code></td><td>decimal?</td></tr>
+<tr><td><code>netQuantity</code></td><td>decimal?</td></tr>
+<tr><td><code>foreignCostAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>localCostAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>landedCostAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>landedExpenseAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>documentForeignTotal</code></td><td>decimal?</td></tr>
+<tr><td><code>documentDiscountEarned</code></td><td>decimal?</td></tr>
+<tr><td><code>documentNetForeignAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>documentExpenses</code></td><td>decimal?</td></tr>
+</tbody></table></div><h2 id="sales">sales</h2><pre><code>GET /api/v1/companies/{companyId}/sales</code></pre><p>Required scope: <code>sales.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>fromDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>toDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>storeId</code></td><td>int?</td></tr>
+<tr><td><code>transactionType</code></td><td>int?</td></tr>
+<tr><td><code>invoiceNo</code></td><td>long?</td></tr>
+<tr><td><code>itemId</code></td><td>string?</td></tr>
+<tr><td><code>itemType</code></td><td>int?</td></tr>
+<tr><td><code>salespersonId</code></td><td>int?</td></tr>
+<tr><td><code>customerId</code></td><td>int?</td></tr>
+<tr><td><code>loyaltyCustomerId</code></td><td>int?</td></tr>
+<tr><td><code>promotionId</code></td><td>int?</td></tr>
+<tr><td><code>markdownId</code></td><td>int?</td></tr>
+<tr><td><code>couponEventId</code></td><td>int?</td></tr>
+<tr><td><code>isReturn</code></td><td>bool?</td></tr>
+<tr><td><code>isDiscounted</code></td><td>bool?</td></tr>
+<tr><td><code>isItemDiscounted</code></td><td>bool?</td></tr>
+<tr><td><code>isInvoiceDiscounted</code></td><td>bool?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>saleDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>saleTimestamp</code></td><td>DateTime?</td></tr>
+<tr><td><code>storeId</code></td><td>int</td></tr>
+<tr><td><code>storeName</code></td><td>string?</td></tr>
+<tr><td><code>transactionType</code></td><td>int</td></tr>
+<tr><td><code>transactionTypeName</code></td><td>string?</td></tr>
+<tr><td><code>invoiceNo</code></td><td>long</td></tr>
+<tr><td><code>lineNo</code></td><td>int</td></tr>
+<tr><td><code>itemId</code></td><td>string</td></tr>
+<tr><td><code>itemType</code></td><td>int</td></tr>
+<tr><td><code>salespersonId</code></td><td>int?</td></tr>
+<tr><td><code>salespersonName</code></td><td>string?</td></tr>
+<tr><td><code>customerId</code></td><td>int?</td></tr>
+<tr><td><code>loyaltyCustomerId</code></td><td>int?</td></tr>
+<tr><td><code>promotionId</code></td><td>int?</td></tr>
+<tr><td><code>markdownId</code></td><td>int?</td></tr>
+<tr><td><code>couponEventId</code></td><td>int?</td></tr>
+<tr><td><code>quantity</code></td><td>decimal?</td></tr>
+<tr><td><code>originalUnitPrice</code></td><td>decimal?</td></tr>
+<tr><td><code>discountPercent</code></td><td>decimal?</td></tr>
+<tr><td><code>discountAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>invoiceDiscountAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>lineAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>unitCost</code></td><td>decimal?</td></tr>
+<tr><td><code>saleState</code></td><td>int?</td></tr>
+<tr><td><code>isReturn</code></td><td>bool</td></tr>
+<tr><td><code>isDiscounted</code></td><td>bool</td></tr>
+<tr><td><code>isItemDiscounted</code></td><td>bool</td></tr>
+<tr><td><code>isInvoiceDiscounted</code></td><td>bool</td></tr>
+<tr><td><code>netQuantity</code></td><td>decimal?</td></tr>
+<tr><td><code>grossSalesAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>netSalesAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>cogsAmount</code></td><td>decimal?</td></tr>
+</tbody></table></div><h2 id="transfers">transfers</h2><pre><code>GET /api/v1/companies/{companyId}/transfers</code></pre><p>Required scope: <code>transfers.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>fromDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>toDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>fromStoreId</code></td><td>int?</td></tr>
+<tr><td><code>toStoreId</code></td><td>int?</td></tr>
+<tr><td><code>transferNo</code></td><td>long?</td></tr>
+<tr><td><code>lineNo</code></td><td>int?</td></tr>
+<tr><td><code>itemId</code></td><td>string?</td></tr>
+<tr><td><code>statisticalPeriodId</code></td><td>int?</td></tr>
+<tr><td><code>supplierId</code></td><td>int?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>transferDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>transferTimestamp</code></td><td>DateTime?</td></tr>
+<tr><td><code>transactionType</code></td><td>int</td></tr>
+<tr><td><code>transactionTypeName</code></td><td>string?</td></tr>
+<tr><td><code>fromStoreId</code></td><td>int</td></tr>
+<tr><td><code>fromStoreName</code></td><td>string?</td></tr>
+<tr><td><code>toStoreId</code></td><td>int?</td></tr>
+<tr><td><code>toStoreName</code></td><td>string?</td></tr>
+<tr><td><code>transferNo</code></td><td>long</td></tr>
+<tr><td><code>lineNo</code></td><td>int</td></tr>
+<tr><td><code>itemId</code></td><td>string</td></tr>
+<tr><td><code>unit</code></td><td>int?</td></tr>
+<tr><td><code>statisticalPeriodId</code></td><td>int?</td></tr>
+<tr><td><code>statisticalPeriod</code></td><td>string?</td></tr>
+<tr><td><code>supplierId</code></td><td>int?</td></tr>
+<tr><td><code>transferQty</code></td><td>decimal?</td></tr>
+<tr><td><code>sourceMovementQty</code></td><td>decimal?</td></tr>
+<tr><td><code>destinationMovementQty</code></td><td>decimal?</td></tr>
+<tr><td><code>unitCost</code></td><td>decimal?</td></tr>
+<tr><td><code>transferCostAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>currentRetailPrice</code></td><td>decimal?</td></tr>
+<tr><td><code>transferRetailAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>documentTotalQty</code></td><td>decimal?</td></tr>
+<tr><td><code>documentTotalCost</code></td><td>decimal?</td></tr>
+<tr><td><code>documentTotalRetail</code></td><td>decimal?</td></tr>
+<tr><td><code>notes</code></td><td>string?</td></tr>
+</tbody></table></div><h2 id="stock-adjustments">stock-adjustments</h2><pre><code>GET /api/v1/companies/{companyId}/stock-adjustments</code></pre><p>Required scope: <code>adjustments.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>fromDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>toDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>storeId</code></td><td>int?</td></tr>
+<tr><td><code>adjustmentNo</code></td><td>long?</td></tr>
+<tr><td><code>lineNo</code></td><td>int?</td></tr>
+<tr><td><code>itemId</code></td><td>string?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>adjustmentDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>adjustmentTimestamp</code></td><td>DateTime?</td></tr>
+<tr><td><code>storeId</code></td><td>int</td></tr>
+<tr><td><code>storeName</code></td><td>string?</td></tr>
+<tr><td><code>adjustmentNo</code></td><td>long</td></tr>
+<tr><td><code>lineNo</code></td><td>int</td></tr>
+<tr><td><code>itemId</code></td><td>string</td></tr>
+<tr><td><code>unit</code></td><td>int?</td></tr>
+<tr><td><code>adjustmentQty</code></td><td>decimal?</td></tr>
+<tr><td><code>unitCost</code></td><td>decimal?</td></tr>
+<tr><td><code>unitRetailPrice</code></td><td>decimal?</td></tr>
+<tr><td><code>costAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>retailAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>documentTotalQty</code></td><td>decimal?</td></tr>
+<tr><td><code>documentTotalCost</code></td><td>decimal?</td></tr>
+<tr><td><code>documentTotalRetail</code></td><td>decimal?</td></tr>
+<tr><td><code>notes</code></td><td>string?</td></tr>
+</tbody></table></div><h2 id="stock-depreciations">stock-depreciations</h2><pre><code>GET /api/v1/companies/{companyId}/stock-depreciations</code></pre><p>Required scope: <code>adjustments.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>fromDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>toDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>storeId</code></td><td>int?</td></tr>
+<tr><td><code>depreciationNo</code></td><td>long?</td></tr>
+<tr><td><code>lineNo</code></td><td>int?</td></tr>
+<tr><td><code>itemId</code></td><td>string?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>depreciationDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>depreciationTimestamp</code></td><td>DateTime?</td></tr>
+<tr><td><code>storeId</code></td><td>int</td></tr>
+<tr><td><code>storeName</code></td><td>string?</td></tr>
+<tr><td><code>depreciationNo</code></td><td>long</td></tr>
+<tr><td><code>lineNo</code></td><td>int</td></tr>
+<tr><td><code>itemId</code></td><td>string</td></tr>
+<tr><td><code>unit</code></td><td>int?</td></tr>
+<tr><td><code>quantity</code></td><td>decimal?</td></tr>
+<tr><td><code>unitCost</code></td><td>decimal?</td></tr>
+<tr><td><code>stockMovementQty</code></td><td>decimal?</td></tr>
+<tr><td><code>costAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>documentTotalQty</code></td><td>decimal?</td></tr>
+<tr><td><code>documentTotalCost</code></td><td>decimal?</td></tr>
+<tr><td><code>notes</code></td><td>string?</td></tr>
+</tbody></table></div><h2 id="markdowns">markdowns</h2><pre><code>GET /api/v1/companies/{companyId}/markdowns</code></pre><p>Required scope: <code>promotions.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>fromDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>toDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>markdownId</code></td><td>int?</td></tr>
+<tr><td><code>statisticalPeriodId</code></td><td>int?</td></tr>
+<tr><td><code>itemId</code></td><td>string?</td></tr>
+<tr><td><code>returnToFullPrice</code></td><td>bool?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>markdownId</code></td><td>int</td></tr>
+<tr><td><code>markdownName</code></td><td>string?</td></tr>
+<tr><td><code>statisticalPeriodId</code></td><td>int?</td></tr>
+<tr><td><code>statisticalPeriod</code></td><td>string?</td></tr>
+<tr><td><code>startDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>endDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>returnToFullPrice</code></td><td>bool</td></tr>
+<tr><td><code>itemId</code></td><td>string</td></tr>
+<tr><td><code>originalPrice</code></td><td>decimal?</td></tr>
+<tr><td><code>markdownPrice</code></td><td>decimal?</td></tr>
+<tr><td><code>markdownAmount</code></td><td>decimal?</td></tr>
+<tr><td><code>markdownPercent</code></td><td>decimal?</td></tr>
+</tbody></table></div><h2 id="promotions">promotions</h2><pre><code>GET /api/v1/companies/{companyId}/promotions</code></pre><p>Required scope: <code>promotions.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>fromDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>toDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>promotionId</code></td><td>int?</td></tr>
+<tr><td><code>promotionType</code></td><td>string?</td></tr>
+<tr><td><code>allStores</code></td><td>bool?</td></tr>
+<tr><td><code>allClientCategories</code></td><td>bool?</td></tr>
+<tr><td><code>allItems</code></td><td>bool?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>promotionId</code></td><td>int</td></tr>
+<tr><td><code>promotionName</code></td><td>string?</td></tr>
+<tr><td><code>promotionType</code></td><td>string</td></tr>
+<tr><td><code>startDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>endDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>buyQty</code></td><td>int?</td></tr>
+<tr><td><code>getValue</code></td><td>decimal?</td></tr>
+<tr><td><code>listBQty</code></td><td>int?</td></tr>
+<tr><td><code>isDiscount</code></td><td>bool</td></tr>
+<tr><td><code>isStepDiscount</code></td><td>bool</td></tr>
+<tr><td><code>isSpecialPrice</code></td><td>bool</td></tr>
+<tr><td><code>isBundle</code></td><td>bool</td></tr>
+<tr><td><code>isInvoiceDiscount</code></td><td>bool</td></tr>
+<tr><td><code>fullPriceOnly</code></td><td>bool</td></tr>
+<tr><td><code>overrideLowerDiscount</code></td><td>bool</td></tr>
+<tr><td><code>removeClientDiscount</code></td><td>bool</td></tr>
+<tr><td><code>minimumTotalExcess</code></td><td>decimal?</td></tr>
+<tr><td><code>roundTotal</code></td><td>decimal?</td></tr>
+<tr><td><code>stepAsBuyGet</code></td><td>bool</td></tr>
+<tr><td><code>getOnAny</code></td><td>bool</td></tr>
+<tr><td><code>allStores</code></td><td>bool</td></tr>
+<tr><td><code>allClientCategories</code></td><td>bool</td></tr>
+<tr><td><code>allItems</code></td><td>bool</td></tr>
+<tr><td><code>isCashBack</code></td><td>bool</td></tr>
+<tr><td><code>cashBackIsPercent</code></td><td>bool</td></tr>
+<tr><td><code>cashBackAllStores</code></td><td>bool</td></tr>
+<tr><td><code>cashBackApplyOnCurrentReceipt</code></td><td>bool</td></tr>
+<tr><td><code>cashBackStepOnAmount</code></td><td>bool</td></tr>
+<tr><td><code>cashBackExpiryDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>cashBackExpiryAfterDays</code></td><td>int?</td></tr>
+<tr><td><code>cashBackTerms</code></td><td>string?</td></tr>
+</tbody></table></div><h2 id="promotions-promotionid-stores">promotions/{promotionId}/stores</h2><pre><code>GET /api/v1/companies/{companyId}/promotions/{promotionId}/stores</code></pre><p>Required scope: <code>promotions.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>storeId</code></td><td>int?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>promotionId</code></td><td>int</td></tr>
+<tr><td><code>storeId</code></td><td>int</td></tr>
+<tr><td><code>storeName</code></td><td>string?</td></tr>
+</tbody></table></div><h2 id="promotions-promotionid-items">promotions/{promotionId}/items</h2><pre><code>GET /api/v1/companies/{companyId}/promotions/{promotionId}/items</code></pre><p>Required scope: <code>promotions.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>itemId</code></td><td>string?</td></tr>
+<tr><td><code>rewardItemId</code></td><td>string?</td></tr>
+<tr><td><code>hasSpecialPrice</code></td><td>bool?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>promotionId</code></td><td>int</td></tr>
+<tr><td><code>itemId</code></td><td>string</td></tr>
+<tr><td><code>rewardItemId</code></td><td>string?</td></tr>
+<tr><td><code>specialPrice</code></td><td>decimal?</td></tr>
+</tbody></table></div><h2 id="promotions-promotionid-client-categories">promotions/{promotionId}/client-categories</h2><pre><code>GET /api/v1/companies/{companyId}/promotions/{promotionId}/client-categories</code></pre><p>Required scope: <code>promotions.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>clientCategoryId</code></td><td>int?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>promotionId</code></td><td>int</td></tr>
+<tr><td><code>clientCategoryId</code></td><td>int</td></tr>
+<tr><td><code>clientCategoryName</code></td><td>string?</td></tr>
+</tbody></table></div><h2 id="promotions-promotionid-tiers">promotions/{promotionId}/tiers</h2><pre><code>GET /api/v1/companies/{companyId}/promotions/{promotionId}/tiers</code></pre><p>Required scope: <code>promotions.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>promotionId</code></td><td>int</td></tr>
+<tr><td><code>amountThreshold</code></td><td>decimal?</td></tr>
+<tr><td><code>rewardValue</code></td><td>decimal?</td></tr>
+</tbody></table></div><h2 id="promotions-promotionid-cashback-stores">promotions/{promotionId}/cashback-stores</h2><pre><code>GET /api/v1/companies/{companyId}/promotions/{promotionId}/cashback-stores</code></pre><p>Required scope: <code>promotions.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>storeId</code></td><td>int?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>promotionId</code></td><td>int</td></tr>
+<tr><td><code>storeId</code></td><td>int</td></tr>
+<tr><td><code>storeName</code></td><td>string?</td></tr>
+</tbody></table></div><h2 id="discount-coupon-events">discount-coupon-events</h2><pre><code>GET /api/v1/companies/{companyId}/discount-coupon-events</code></pre><p>Required scope: <code>promotions.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>couponEventId</code></td><td>int?</td></tr>
+<tr><td><code>expiryFrom</code></td><td>DateOnly?</td></tr>
+<tr><td><code>expiryTo</code></td><td>DateOnly?</td></tr>
+<tr><td><code>isSingleCode</code></td><td>bool?</td></tr>
+<tr><td><code>applyOnDiscountedItems</code></td><td>bool?</td></tr>
+<tr><td><code>requiresStarCard</code></td><td>bool?</td></tr>
+<tr><td><code>allStores</code></td><td>bool?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>couponEventId</code></td><td>int</td></tr>
+<tr><td><code>eventName</code></td><td>string?</td></tr>
+<tr><td><code>eventNotes</code></td><td>string?</td></tr>
+<tr><td><code>isSingleCode</code></td><td>bool</td></tr>
+<tr><td><code>couponCount</code></td><td>int?</td></tr>
+<tr><td><code>discountPercent</code></td><td>decimal?</td></tr>
+<tr><td><code>expiryDate</code></td><td>DateOnly?</td></tr>
+<tr><td><code>applyOnDiscountedItems</code></td><td>bool</td></tr>
+<tr><td><code>requiresStarCard</code></td><td>bool</td></tr>
+<tr><td><code>allStores</code></td><td>bool</td></tr>
+</tbody></table></div><h2 id="discount-coupon-events-couponeventid-stores">discount-coupon-events/{couponEventId}/stores</h2><pre><code>GET /api/v1/companies/{companyId}/discount-coupon-events/{couponEventId}/stores</code></pre><p>Required scope: <code>promotions.read</code>.</p><h3>Query parameters</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>page</code></td><td>int, default 1</td></tr>
+<tr><td><code>pageSize</code></td><td>int, default 200</td></tr>
+<tr><td><code>storeId</code></td><td>int?</td></tr>
+</tbody></table></div><h3>Response row</h3><div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / default</th></tr></thead><tbody><tr><td><code>couponEventId</code></td><td>int</td></tr>
+<tr><td><code>storeId</code></td><td>int</td></tr>
+<tr><td><code>storeName</code></td><td>string?</td></tr>
+</tbody></table></div><p>Continue with <a href="data-semantics.html">Data Semantics</a> before aggregating quantities and monetary values.</p>
 <footer class="page-footer"><span>IMS Documentation</span><span>Business API v1 developer guide</span></footer>
 </main></div><script src="../../assets/js/docs.js"></script></body></html>
