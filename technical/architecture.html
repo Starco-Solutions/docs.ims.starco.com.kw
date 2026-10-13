@@ -32,5 +32,12 @@
 <h2>Session flow</h2><ol class="steps"><li>The workstation is validated.</li><li>The user authenticates against the global IMS identity.</li><li>IMS resolves active company access.</li><li>The default/selected company determines the company database runtime profile.</li><li>The client opens the company operational context and then applies company-local permissions.</li></ol>
 <div class="callout tip"><strong>Separation by design</strong>Global identity and company membership are centralized, while operational data and local authorization remain company-specific.</div>
 <h2 id="runtime-boundaries">Runtime and version boundaries</h2><p>The authorized IMS client receives a company runtime profile and connects directly to PostgreSQL; the API does not proxy all operational SQL. Secret storage at rest, API authorization and client runtime exposure are separate boundaries. The installed worker must support the configured credential storage path. API-side authentication and vault capabilities do not automatically upgrade Autos or Shopify consumers. Confirm component compatibility before onboarding or rotation; a stored-secret indicator is not a successful connection test.</p><p>See <a href="source-baseline.html">component versions and compatibility</a>.</p>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
+<h2 id="client-workflow-persistence">Client workflow persistence</h2>
+<p>The following IMS Client 9.4.5 developer notes describe writes in the selected company database:</p>
+<ul>
+<li><a href="../sales/sales-transactions.html#client-profile-data">Client's Info profile data</a>: LoyaltyCustomers field ownership, optional demographics, ERP-linked read-only profiles, and profile-save boundaries.</li>
+<li><a href="../inventory/stock-adjustments.html#balance-records">Stock Adjustment balance records</a>: parameterized bulk creation of missing store/item rows before new and edited adjustments are applied.</li>
+<li><a href="../manage/stores.html#document-counters">New-store document counters</a>: store and missing counter rows created in the same transaction, with existing counter values preserved.</li>
+</ul>
+<footer class="page-footer"><span>IMS Documentation</span><span>IMS 9.4.4 baseline; marked workflows cover IMS 9.4.5</span></footer>
 </main></div><script src="../assets/js/docs.js"></script></body></html>

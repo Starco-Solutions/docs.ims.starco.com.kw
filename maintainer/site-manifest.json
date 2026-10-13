@@ -95,7 +95,7 @@
     },
     {
       "path": "inventory/stock-adjustments.html",
-      "summary": "Signed positive/negative inventory corrections and negative discrepancy posting."
+      "summary": "Signed positive/negative inventory corrections and negative discrepancy posting; IMS 9.4.5 new and edited adjustments create missing store/item balance rows through a parameterized bulk insert before applying quantities."
     },
     {
       "path": "inventory/stock-depreciation.html",
@@ -187,7 +187,7 @@
     },
     {
       "path": "manage/stores.html",
-      "summary": "Store/branch master, POS, sections, transaction settings, financial mapping, V-Count and online-store settings."
+      "summary": "Store/branch master, POS, sections, transaction settings, financial mapping, V-Count and online-store settings; IMS 9.4.5 new-store creation atomically initializes missing document counters and preserves existing values."
     },
     {
       "path": "manage/suppliers.html",
@@ -271,11 +271,11 @@
     },
     {
       "path": "sales/sales-transactions.html",
-      "summary": "Sales and returns, payments, saved-sale versus receipt printing and uncertain-outcome verification."
+      "summary": "Sales and returns, payments, saved-sale versus receipt printing and uncertain-outcome verification; IMS 9.4.5 Client Info adds optional Gender/Nationality, editable Loyalty profiles, immediate profile Save/Cancel behavior and ERP-linked read-only profiles."
     },
     {
       "path": "sales/transactions-expert.html",
-      "summary": "Find existing transactions, review receipts and reprint or email them."
+      "summary": "Find existing transactions, review receipts and reprint or email them; IMS 9.4.5 client editing distinguishes immediate Loyalty profile Save from the separate historical-receipt Save."
     },
     {
       "path": "shopify/fulfillment-requests.html",
@@ -371,7 +371,7 @@
     },
     {
       "path": "technical/architecture.html",
-      "summary": "IMS Architecture: Windows client, IMS.Api, IMS Global, ims_global, separate company databases and background/integration services."
+      "summary": "IMS Architecture: Windows client, IMS.Api, IMS Global, ims_global, separate company databases and background/integration services; links to IMS 9.4.5 customer-profile, stock-balance and new-store persistence details."
     },
     {
       "path": "technical/ims-api.html",
@@ -411,7 +411,7 @@
     },
     {
       "path": "technical/source-baseline.html",
-      "summary": "Component Versions and Compatibility: documented versions, supported interfaces, company migrations and worker requirements."
+      "summary": "Component Versions and Compatibility: IMS Client 9.4.4 baseline with explicitly scoped 9.4.5 workflows, other documented component versions, supported interfaces, company migrations and worker requirements."
     },
     {
       "path": "technical/system-dashboard-observability.html",
