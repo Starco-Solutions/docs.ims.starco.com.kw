@@ -128,8 +128,7 @@
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Shopify</a> › Integration Server</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/shopify.webp"/><h1>Shopify Integration Server</h1></div>
 <p class="lead">The Shopify Integration Server is the background application that connects Shopify with IMS PostgreSQL. It imports online orders into IMS, creates internal fulfillment work for IMS-stock items, and pushes IMS inventory quantities back to the configured Shopify locations.</p>
-<div class="callout"><strong>Source-review scope</strong>Implementation details below reflect pinned provisional main-branch source reviewed in October 2026. They do not verify deployed component versions, live configuration or production health.</div>
-<div class="callout"><strong>Supporting component</strong>This is not a separate item on the IMS Shopify menu. The reviewed worker is a Windows desktop application, rather than a Windows service. It runs on the integration computer and works behind <a href="incoming-orders.html">Incoming Orders</a>, <a href="fulfillment-requests.html">Fulfillment Requests</a> and <a href="manage-profiles.html">Manage Profiles</a>.</div>
+<div class="callout"><strong>Supporting component</strong>This is not a separate item on the IMS Shopify menu. The worker is a Windows desktop application, rather than a Windows service. It runs on the integration computer and works behind <a href="incoming-orders.html">Incoming Orders</a>, <a href="fulfillment-requests.html">Fulfillment Requests</a> and <a href="manage-profiles.html">Manage Profiles</a>.</div>
 <h2>Component | Responsibility</h2>
 <div class="table-wrap"><table><thead><tr><th>Area</th><th>Responsibility</th></tr></thead><tbody>
 <tr><td>Order import</td><td>Reads unfulfilled Shopify orders from the active Shopify Access Stores in the configured profile and creates the IMS order/customer/item records required by Incoming Orders.</td></tr>
@@ -141,7 +140,7 @@
 <h2>One running profile</h2>
 <p>Each running instance is configured with one <strong>Profile ID</strong>. The application verifies that the profile is active, then loads all active Shopify Access records belonging to that profile. These records provide the Shopify Store URL/token, Shopify Location ID, mapped IMS Local Store and Shipping Item.</p>
 <p>This is why <a href="manage-profiles.html">Manage Profiles</a> is the configuration source for the server integration rather than a separate set of Store definitions.</p>
-<div class="callout warning"><strong>Version-dependent access</strong>The reviewed client/API save credentials in the vault, but this worker snapshot reads legacy company-database tokens. Compatibility is unresolved until the installed components' credential path is verified. Active access records are loaded by profile without filtering No Integration, so that flag alone is not a worker exclusion.</div>
+<div class="callout warning"><strong>Worker configuration</strong>Shopify Integration Server 4.2.0 uses its existing company-database token configuration. Confirm credential compatibility before moving a profile to a different storage path. Active access records are loaded by profile without filtering No Integration, so that flag alone does not exclude a profile from worker processing.</div>
 <h2>Automatic cycle</h2>
 <ol class="steps">
 <li><strong>Check IMS PostgreSQL.</strong> The application confirms the IMS database connection before an automatic cycle continues.</li>
@@ -199,7 +198,7 @@
 <h2>Retrieve one Shopify order manually</h2>
 <p>The server UI includes <strong>Get Order</strong> for support/recovery work. The value entered here is the Shopify <strong>internal Order ID found in the Shopify URL</strong>, not the displayed Shopify Order Number. After Shopify returns the order, IMS stores the normal Shopify Order Number as its Order Reference.</p>
 <div class="callout"><strong>Different identifiers</strong>Use the URL's Shopify Order ID only for this server-side retrieval tool. Inside IMS, users normally work with the imported Order Reference/Order Number.</div>
-<p>In the reviewed worker, Get Order imports the order only; its fulfillment call is disabled. It refuses an already imported order and is not a general fulfillment-replay tool. Verify and complete any required IMS fulfillment separately.</p>
+<p>In the worker, Get Order imports the order only; its fulfillment call is disabled. It refuses an already imported order and is not a general fulfillment-replay tool. Verify and complete any required IMS fulfillment separately.</p>
 <h2>Operational settings</h2>
 <div class="table-wrap"><table><thead><tr><th>Setting</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Profile ID</td><td>The active IMS Shopify profile handled by this running integration instance.</td></tr>
@@ -224,7 +223,7 @@
 <a class="doc-link" href="fulfillment-requests.html"><div>→</div><div><strong>Fulfillment Requests</strong><span>Store-side review of the Stock Transfer work created during automatic fulfillment.</span></div></a>
 <a class="doc-link" href="../tools/ims-autos.html"><div>↗</div><div><strong>IMS Autos</strong><span>The integration checks IMS Autos before starting conflicting Shopify work.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

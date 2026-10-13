@@ -132,9 +132,8 @@
 </aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Tools</a> › IMS Autos</div>
-<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/tools.webp"/><h1>IMS Autos</h1></div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/tools.webp"/><h1>IMS Autos</h1><p>Worker compatibility: IMS Autos 9.1.2 is a Windows service on .NET Framework 4.8. The API also provides dedicated service authentication, company bootstrap and workload-scoped credential access for compatible consumers. These API capabilities do not change the existing worker configuration automatically; confirm the installed worker and credential path before changing integration settings.</p></div>
 <p class="lead">IMS Autos is the administration screen for the IMS background automation service. It defines the daily maintenance time and selects which scheduled maintenance jobs the server service should run automatically.</p>
-<div class="callout"><strong>Source-review scope</strong>Implementation details below reflect pinned provisional main-branch source reviewed in October 2026. They do not verify deployed component versions, live configuration or production health.</div>
 <div class="callout"><strong>Open the screen</strong>Tools → IMS Autos.</div>
 <figure class="screenshot">
 <img alt="IMS Autos daily schedule with Sale Seasons, Stock Maintenance, Daily Stock Levels, Sell Through and customized integration options" src="../assets/images/tools-ims-autos.webp"/>
@@ -196,7 +195,7 @@
 <li>Click <strong>Save</strong>.</li>
 <li>IMS stores the schedule and writes a “Modified IMS Autos settings” entry to the activity log.</li>
 </ol>
-<p>If all daily-job checkboxes are cleared and the settings are saved, IMS removes the daily Autos schedule record rather than keeping an empty daily shift. Report-task checks and supplier-order notifications run outside that schedule-row condition; the reviewed Star Rewards and V-Count paths do not.</p>
+<p>If all daily-job checkboxes are cleared and the settings are saved, IMS removes the daily Autos schedule record rather than keeping an empty daily shift. Report-task checks and supplier-order notifications run outside that schedule-row condition; the Star Rewards and V-Count paths do not.</p>
 <h2 id="monitoring">Service monitoring and logs</h2>
 <p>The server service writes informational, success-audit and error messages to the Windows Event Log for its major jobs and connection failures. Administrators can use these logs to confirm when the daily shift started, which jobs completed, and whether a background integration or maintenance task reported an error. A success message records the worker code-path result and does not establish external business acceptance.</p>
 <h2 id="relationship">How the main Autos functions connect</h2>
@@ -208,7 +207,7 @@
 <a class="doc-link" href="../inventory/stock-level.html"><div>↗</div><div><strong>Stock Level</strong><span>Historical stock reporting uses the maintained daily stock-movement data.</span></div></a>
 <a class="doc-link" href="../reports/user-defined-reports.html"><div>↗</div><div><strong>User-Defined Reports</strong><span>Custom Report definitions can be delivered automatically through Reporting Scheduler and the Autos service.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

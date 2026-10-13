@@ -128,7 +128,6 @@
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Shopify</a> › Fulfillment Requests</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/shopify.webp"/><h1>Fulfillment Requests</h1></div>
 <p class="lead">Fulfillment Requests is the Store-side packing/confirmation screen for Stock Transfer vouchers created by the online-order fulfillment workflow. It lets the supplying Store verify what must be sent to the mapped online Store and confirm that the request is ready.</p>
-<div class="callout"><strong>Source-review scope</strong>Implementation details below reflect pinned provisional main-branch source reviewed in October 2026. They do not verify deployed component versions, live configuration or production health.</div>
 <div class="callout"><strong>Open the screen</strong>Shopify → Fulfillment Requests.</div>
 <figure class="screenshot"><img alt="Fulfillment Requests screen showing Store, confirmation state, transfer list and transferred items" src="../assets/images/shopify-fulfillment-requests.webp"/><figcaption>An unconfirmed fulfillment transfer shows the merchandise to pack and the Confirm action when it is ready.</figcaption></figure>
 <h2>Find fulfillment transfers</h2>
@@ -161,7 +160,7 @@
 <div class="callout tip"><strong>What Confirm means</strong>The button marks the IMS fulfillment transfer as confirmed/ready inside IMS. It does not create the transfer itself, and the supplied Integration Server source does not use this confirmation flag to post a Shopify fulfillment; this screen is the Store-side packing/confirmation record.</div>
 <h2>Created by the background integration</h2>
 <p>For API-connected orders, the <a href="integration-server.html">Shopify Integration Server</a> creates these Stock Transfer vouchers while importing and fulfilling the order. The server links the online Order No., Profile and Shopify Store to the transfer so the supplying Store can identify exactly what the request belongs to.</p>
-<p>Only successfully prepared Stock Transfer vouchers can appear here. The worker commits the order before its separate fulfillment transaction; an imported order without transfers can require investigation through the supported Incoming Orders workflow. The reviewed automatic loop skips existing orders, and manual Get Order imports without fulfillment, so neither waiting nor repeating retrieval is a guaranteed repair.</p>
+<p>Only successfully prepared Stock Transfer vouchers can appear here. The worker commits the order before its separate fulfillment transaction; an imported order without transfers can require investigation through the supported Incoming Orders workflow. The automatic loop skips existing orders, and manual Get Order imports without fulfillment, so neither waiting nor repeating retrieval is a guaranteed repair.</p>
 <h2>Where these transfers come from</h2>
 <p>Incoming Orders uses the Profile fulfillment rules to source IMS inventory. It checks prioritized Main Fulfillment Stores first, then other eligible Stores when necessary. IMS creates Stock Transfer vouchers from the selected physical Store(s) to the mapped online Store and links each transfer line to the online Order No.</p>
 <p>That is why one online order can result in more than one fulfillment transfer when its items must be supplied by different Stores.</p>
@@ -171,7 +170,7 @@
 <a class="doc-link" href="manage-profiles.html"><div>→</div><div><strong>Manage Profiles</strong><span>Defines Main Fulfillment Stores, priority and exclusions.</span></div></a>
 <a class="doc-link" href="../inventory/stock-transfer.html"><div>↗</div><div><strong>Stock Transfer</strong><span>The underlying IMS inventory transaction used for Store-to-online movement.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

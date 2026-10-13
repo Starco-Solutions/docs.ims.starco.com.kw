@@ -366,7 +366,7 @@
 <tr><td>Print Gift Receipt</td><td>Produces the gift-receipt output for an eligible cash sale.</td></tr>
 </tbody></table></div>
 <p>Before saving, IMS rechecks the database connection, background blocking/maintenance state, payment/customer requirements, Star Card/loyalty conditions and other rules relevant to the selected transaction type. Cash receipts can invoke Cash Payment Calc, while configured Bank/card payments can require Authorization Codes before the transaction is committed.</p>
-<div class="callout warning"><strong>Missing receipt or uncertain save</strong>The sale is committed before receipt printing. A missing receipt or print error does not mean the sale was not saved. Check the existing transaction in <a href="transactions-expert.html#print-email">Transactions Expert and reprint it</a> if present. If saving was interrupted or its outcome remains uncertain, verify the transaction before starting another sale for the same purchase.</div>
+<div class="callout warning"><strong>Receipt printing failure</strong>IMS commits the sale before attempting receipt printing. If printing fails, IMS displays the printing error and starts a new invoice. The committed invoice remains available in <a href="transactions-expert.html#print-email">Transactions Expert for reprinting</a>, subject to the required permission and transaction eligibility. Correct the printer problem and reprint the saved invoice; do not enter the same sale again because the receipt failed to print. If the save itself was interrupted and its outcome is uncertain, check Transactions Expert before entering another transaction for the same purchase.</div>
 <h2 id="status">POS context</h2>
 <p>The bottom status bar keeps the operational context visible: <strong>Store, POS No., POS Date</strong> and <strong>Active User</strong>. This is especially important for users who have access to more than one Store.</p>
 <h2 id="related">Related documentation</h2>
@@ -376,7 +376,7 @@
 <a class="doc-link" href="../manage/discount-coupons.html"><div>↗</div><div><strong>Discount Coupons</strong><span>Coupon definitions used by the Sales Transaction discount workflow.</span></div></a>
 <a class="doc-link" href="../system/group-policies.html"><div>↗</div><div><strong>Group Policies</strong><span>Controls transaction types, discounts, currency changes, deletion/printing and other Sales rights.</span></div></a>
 <a class="doc-link" href="../financial/vat-tax-configuration.html"><div>↗</div><div><strong>VAT &amp; Tax Configuration</strong><span>System VAT rate/rounding and the complete purchase/sales VAT workflow.</span></div></a></div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

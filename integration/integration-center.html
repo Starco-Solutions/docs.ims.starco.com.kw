@@ -128,7 +128,6 @@
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Integration</a> › Integration Center</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/integration.webp"/><h1>Integration Center</h1></div>
 <p class="lead">Integration Center is the IMS 9.4.4 administration screen for configurable outbound integrations. It combines endpoint setup, source-data preview, current health and synchronization history in one place.</p>
-<div class="callout"><strong>Source-review scope</strong>Implementation details below reflect pinned provisional main-branch source reviewed in October 2026. They do not verify deployed component versions, live configuration or production health.</div>
 <div class="callout"><strong>Open the screen</strong>Integration → Integration Center. The Integration menu is controlled by the <em>Integrated Reports</em> Group Policy permission.</div>
 <h2 id="tabs">Three working tabs</h2>
 <div class="table-wrap"><table><thead><tr><th>Tab</th><th>Use it for</th></tr></thead><tbody>
@@ -148,23 +147,23 @@
 <tr><td>Active</td><td>Only active integrations are eligible for execution by the integration engine.</td></tr>
 <tr><td>Source View</td><td>Database view used as the integration data source. The name can contain letters, digits, underscore and dot.</td></tr>
 <tr><td>Payload Mode</td><td>Currently fixed to GROUPED in the screen.</td></tr>
-<tr><td>Batch Size</td><td>Displayed by the current editor but not user-editable. The reviewed worker does not use Batch Size or Payload Mode to split grouped requests.</td></tr>
+<tr><td>Batch Size</td><td>Displayed by the current editor but not user-editable. The worker does not use Batch Size or Payload Mode to split grouped requests.</td></tr>
 <tr><td>Endpoint URL</td><td>Required absolute HTTP or HTTPS destination URL.</td></tr>
 <tr><td>HTTP Method</td><td>POST, PUT or PATCH.</td></tr>
 <tr><td>Auth Type</td><td>NONE, BEARER or HEADER.</td></tr>
 <tr><td>Auth Header</td><td>Required when Auth Type is HEADER.</td></tr>
-<tr><td>API Key</td><td>Required for BEARER/HEADER authentication. The reviewed client saves replacements through the secret-management API; verify compatibility with the running worker.</td></tr>
+<tr><td>API Key</td><td>Required for BEARER/HEADER authentication. The IMS client saves replacements through the secret-management API; verify compatibility with the running worker.</td></tr>
 <tr><td>Trigger Type</td><td>MORNING_SHIFT or MANUAL.</td></tr>
 <tr><td>Advanced Settings</td><td>Required JSON configuration used by the integration engine to determine dates and construct the outbound payload.</td></tr>
 </tbody></table></div>
 <div class="callout tip"><strong>Stored API keys</strong>When editing an existing integration, the API Key box is intentionally blank. Leave it blank to keep an existing stored key. Enter a value only when the key must be replaced. Auth Type NONE sends requests without authentication; changing to NONE does not establish deletion of a previously saved vault secret.</div>
-<div class="callout warning"><strong>Credential compatibility is version-dependent</strong>The reviewed client and API save keys in the central vault, while the reviewed Autos worker reads legacy company-database credentials. Compatibility between those paths remains unresolved. Before onboarding or rotating a key, verify the deployed worker's supported credential path. A stored-secret indicator confirms configuration state, not a successful worker connection.</div>
+<div class="callout warning"><strong>Check the consuming worker</strong>Before onboarding or rotating a key, confirm that IMS Autos supports the configured credential path. API-side vault support does not upgrade the worker or migrate its existing settings. A stored-secret indicator is not a successful worker connection.</div>
 <h2 id="source-contract">Source view and Preview Source</h2>
 <p>The integration engine filters the Source View by <code>__business_date</code>, groups rows by <code>__request_key</code> and sends one request per key to the configured <strong>Endpoint URL</strong>. <code>__target_code</code> identifies the business target in the sync log; it does not select another URL. The engine counts distinct <code>__record_key</code> values as the records sent.</p>
 <p>Use <strong>Preview Date</strong> and <strong>Preview Source</strong> before activating a new endpoint. Preview returns up to 200 rows for the selected business date in a read-only grid and uses the same source-view naming validation as the integration engine.</p>
 <div class="callout warning"><strong>Required integration metadata</strong>A Source View used by this framework must provide the integration metadata columns expected by the engine: <code>__business_date</code>, <code>__target_code</code>, <code>__request_key</code> and <code>__record_key</code>, in addition to the business fields referenced by the payload JSON.</div>
 <h2 id="settings">Advanced Settings JSON</h2>
-<p>New integrations start with <code>date_offset=-1</code>, <code>retry_days=6</code> and empty payload field/group arrays. These are editor-template defaults; if either date setting is absent, the reviewed engine falls back to zero. The engine also recognizes an optional <code>start_date</code>.</p>
+<p>New integrations start with <code>date_offset=-1</code>, <code>retry_days=6</code> and empty payload field/group arrays. These are editor-template defaults; if either date setting is absent, the engine falls back to zero. The engine also recognizes an optional <code>start_date</code>.</p>
 <div class="table-wrap"><table><thead><tr><th>Setting</th><th>Meaning in the current engine</th></tr></thead><tbody>
 <tr><td>date_offset</td><td>Moves the final Business Date relative to the trigger execution date. The new-record default of -1 targets the previous day.</td></tr>
 <tr><td>retry_days</td><td>Extends the run backward by this many days so missed/failed business dates can be revisited.</td></tr>
@@ -198,7 +197,7 @@
 <a class="doc-link" href="../tools/ims-autos.html"><div>↗</div><div><strong>IMS Autos</strong><span>Background service that runs scheduled integration work.</span></div></a>
 <a class="doc-link" href="../system/group-policies.html"><div>↗</div><div><strong>Group Policies</strong><span>Integrated Reports controls access to the Integration top-level menu.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation baseline</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>
