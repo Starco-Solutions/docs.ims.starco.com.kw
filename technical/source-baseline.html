@@ -26,14 +26,14 @@
 <tr><td>IMS Autos</td><td>9.1.2</td><td>Windows service on .NET Framework 4.8; scheduling and integration processing require worker-compatible company connection and credential configuration.</td></tr>
 <tr><td>Shopify Integration Server</td><td>4.2.0</td><td>Windows desktop worker on .NET 10; requires supported Shopify profile and credential configuration and a running application session.</td></tr>
 </tbody></table></div>
-<h2 id="client-945">IMS Client 9.4.5 functionality and bug fixes</h2>
+<h2 id="client-945">Client workflows and persistence</h2>
 <ul>
 <li><a href="../sales/sales-transactions.html#client-info">Client's Info</a>: optional Gender/Nationality, editable Loyalty profiles, Save/Cancel behavior and ERP-linked read-only profiles. Also used by the authorized <a href="../sales/transactions-expert.html#edit-client">historical-client editing workflow</a>.</li>
-<li><a href="../inventory/stock-adjustments.html#balance-records">Stock Adjustments bug fix</a>: repaired missing <code>item_prods</code> balance-row insertion in existing new/edit voucher workflows; no new inventory capability was introduced.</li>
+<li><a href="../inventory/stock-adjustments.html#balance-records">Stock Adjustment balance records</a>: missing <code>item_prods</code> rows are initialized before applying signed quantities when saving or editing a voucher.</li>
 <li><a href="../manage/stores.html#document-counters">New-store creation</a>: transactional initialization of missing document counters while preserving existing values.</li>
 </ul>
-<p>IMS Client 9.4.5 is live. Individual workstations must still complete their update before release-specific functionality is available locally.</p>
-<h2 id="components">Planning an installation or upgrade</h2><p>IMS Client 9.4.5 is the current production release. The other component versions below describe documented interfaces, not a guarantee that all endpoints or workers are upgraded. Verify the installed combination with your administrator; an API upgrade does not upgrade or reconfigure background workers.</p>
+<p>Verify the installed Client version on each workstation when checking compatibility with this guide.</p>
+<h2 id="components">Planning an installation or upgrade</h2><p>IMS Client 9.4.5 is the current production release. The other component versions listed above describe documented interfaces, not a guarantee that all endpoints or workers are upgraded. Verify the installed combination with your administrator; an API upgrade does not upgrade or reconfigure background workers.</p>
 <h2 id="compatibility">Company database contracts</h2><p>New companies created in IMS Global 1.5.0.0 receive the current API contracts. Existing company databases require the applicable approved migrations and access validation; updating IMS Global alone does not migrate them. Partner Stock Delta activation also requires company-level migration and operational acceptance for the intended catalog size.</p>
 <h2 id="workers">Worker credential compatibility</h2><p>IMS Autos 9.1.2 and Shopify Integration Server 4.2.0 use their existing worker credential configuration. API-side workload authentication and vault access are separate capabilities. Before changing a credential storage path or rotating credentials, confirm that the installed consumer supports that path and verify a controlled connection.</p>
 <p>See <a href="api-v1/index.html">Business API v1</a>, <a href="ims-global.html">IMS Global administration</a>, <a href="../tools/ims-autos.html">IMS Autos</a> and <a href="../shopify/integration-server.html">Shopify Integration Server</a>.</p>

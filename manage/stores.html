@@ -148,7 +148,7 @@
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <p>Store ID and Name are required. After the store has been created, its ID becomes read-only.</p>
-<p><strong>IMS Client 9.4.5:</strong> Creating a store also prepares its required transaction-number counters. Missing counters start at zero, and existing counter values are preserved. The new store and these counters are saved together in one database transaction.</p>
+<p>Creating a store also prepares its required transaction-number counters. Missing counters start at zero, and existing counter values are preserved. The new store and these counters are saved together in one database transaction.</p>
 <h3>Edit an existing store</h3>
 <ol class="steps">
 <li>Select the store.</li>
@@ -158,7 +158,7 @@
 <li>Click <strong>Save</strong> to save the store changes, or <strong>Cancel</strong> to leave the current edit.</li>
 </ol>
 <h3 id="document-counters">Developer notes: new-store document counters</h3>
-<p>In IMS Client 9.4.5, <code>SaveNew</code> inserts the store into <code>centers</code> and initializes missing <code>ims_admin.document_counters</code> rows for codes <code>1</code>, <code>2</code>, <code>51</code>, <code>52</code> and <code>81</code> using the same PostgreSQL transaction. New counter rows use <code>last_no = 0</code>. <code>ON CONFLICT (pcenter, code) DO NOTHING</code> retains existing counters without resetting their values.</p>
+<p><code>SaveNew</code> inserts the store into <code>centers</code> and initializes missing <code>ims_admin.document_counters</code> rows for codes <code>1</code>, <code>2</code>, <code>51</code>, <code>52</code> and <code>81</code> using the same PostgreSQL transaction. New counter rows use <code>last_no = 0</code>. <code>ON CONFLICT (pcenter, code) DO NOTHING</code> retains existing counters without resetting their values.</p>
 <div class="table-wrap"><table><thead><tr><th>Counter code</th><th>Document sequence</th></tr></thead><tbody>
 <tr><td>1</td><td>Purchases</td></tr>
 <tr><td>2</td><td>Purchase Returns</td></tr>
@@ -241,7 +241,7 @@
 <p>Users with the required global-attribute permission can add or edit attribute definitions. Store-specific values can then be maintained for each store.</p>
 <div class="callout"><strong>Custom reporting connection</strong>Store Custom Attributes can be exposed through IMS Custom Views and Custom Reports. This allows store-specific business fields to become columns in User-Defined Reports and scheduled custom reports.</div>
 <h2 id="reporting">How Store master data affects reporting</h2>
-<p>The Store screen now explains several criteria and columns used throughout the reporting documentation:</p>
+<p>The following Store settings determine criteria and columns used throughout the reporting documentation:</p>
 <div class="doc-list">
 <a class="doc-link" href="../reports/cash-report.html"><div>↗</div><div><strong>Cash Report</strong><span>Branch and POS values come from the Store and Point Of Sale configuration.</span></div></a>
 <a class="doc-link" href="../reports/store-sales-report.html"><div>↗</div><div><strong>Store Sales Report</strong><span>Store active status controls inactive-store inclusion, while V-Count-enabled stores can contribute Traffic and Conversion Rate data.</span></div></a>

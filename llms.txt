@@ -34,7 +34,7 @@
 - https://docs.ims.starco.com.kw/inventory/item-movement.html — One-item chronological ledger across opening balance, purchases/returns, transfers, sales/returns, depreciation and adjustments; optional selected-store running balance and Online Order reference.
 - https://docs.ims.starco.com.kw/inventory/purchases.html — Purchases and Purchase Returns: invoice items/imports, expenses, currency/cost, finalization and financial posting; IMS includes Supplier Invoice/VAT data, Tax Treatment, Taxable/VAT/Supplier Total calculations and tax references when VAT is enabled.
 - https://docs.ims.starco.com.kw/inventory/replenishment.html — Analyze recent sales and source availability, select replenishment quantities and create a prepared Stock Transfer.
-- https://docs.ims.starco.com.kw/inventory/stock-adjustments.html — Signed inventory corrections and negative discrepancy posting; IMS 9.4.5 bug fix repairs missing item_prods balance-row insertion during existing new/edit adjustment saving using parameterized SQL.
+- https://docs.ims.starco.com.kw/inventory/stock-adjustments.html — Signed inventory corrections and negative discrepancy posting; saving or editing an adjustment initializes missing item_prods balance rows before applying signed quantities.
 - https://docs.ims.starco.com.kw/inventory/stock-depreciation.html — Write off store stock at current cost, edit/void unposted vouchers and financially post depreciation.
 - https://docs.ims.starco.com.kw/inventory/stock-level.html — Current or historical stock balances with multi-criteria filters/grouping, quantity/cost/retail, images and report exports.
 - https://docs.ims.starco.com.kw/inventory/stock-transfer.html — Create store-to-store Stock Transfer vouchers by scanning, searching or importing items.
