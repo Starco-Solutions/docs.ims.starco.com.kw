@@ -133,7 +133,7 @@
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Inventory</a> › Purchases</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/inventory.webp"/><h1>Purchases</h1></div>
-<p class="lead">Purchases creates Purchase and Purchase Return documents, manages landed cost and finalization, and in IMS 9.4.4 records the supplier VAT/tax treatment when VAT is enabled.</p>
+<p class="lead">Purchases creates Purchase and Purchase Return documents, manages landed cost and finalization, and in IMS 9.4.5 records the supplier VAT/tax treatment when VAT is enabled.</p>
 <div class="callout"><strong>Open the screen</strong>Inventory → Purchases.</div>
 <div class="callout tip">
 <strong>Current financial integration</strong>
@@ -216,7 +216,7 @@ The current IMS deployment is integrated directly with the local <strong>Al-Sham
 <p>Automatic taxable modes use <strong>Net Local</strong> as the taxable amount. ZERO, EXEMPT and OUTSIDE_SCOPE calculate zero VAT. Other tax types calculate VAT using the tax code's stored rate and round the result to three decimal places using midpoint-away-from-zero rounding.</p>
 <p>When saved, IMS also splits VAT into recoverable and non-recoverable amounts from the tax code's <strong>Recoverable %</strong>, using the same three-decimal rounding for the recoverable amount.</p>
 <h3>Default treatment from the Supplier</h3>
-<p>The current IMS 9.4.4 Bahrain workflow attempts to select <code>BH_STD_10</code> for a VAT-registered supplier and <code>BH_OUT_SCOPE</code> for a non-registered supplier. If that code is not available among active tax codes, IMS selects the first available treatment.</p>
+<p>The current IMS 9.4.5 Bahrain workflow attempts to select <code>BH_STD_10</code> for a VAT-registered supplier and <code>BH_OUT_SCOPE</code> for a non-registered supplier. If that code is not available among active tax codes, IMS selects the first available treatment.</p>
 <div class="callout tip"><strong>Tax values are document data</strong>When an existing purchase is reviewed, IMS loads the tax code, taxable amount, VAT amount and tax reference saved against that document rather than simply rebuilding the values from today's settings.</div>
 <h2 id="edit">Edit an open invoice</h2>
 <p>An Open invoice can expose separate edit actions according to the user's permissions:</p>
@@ -267,7 +267,7 @@ The user guide calls this process <em>Financial Posting</em> and identifies Al-S
 <a class="doc-link" href="../manage/statistical-periods.html"><div>↗</div><div><strong>Statistical Periods</strong><span>Season/period assignment used on purchase invoices.</span></div></a>
 <a class="doc-link" href="stock-transfer.html"><div>↗</div><div><strong>Stock Transfer</strong><span>Another inventory transaction that updates location stock balances.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0 — live release</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>
