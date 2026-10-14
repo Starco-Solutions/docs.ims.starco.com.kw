@@ -51,7 +51,7 @@
     },
     {
       "path": "financial/vat-tax-configuration.html",
-      "summary": "IMS 9.4.4 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns."
+      "summary": "IMS 9.4.5 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns."
     },
     {
       "path": "getting-started/main-screen.html",
@@ -63,7 +63,7 @@
     },
     {
       "path": "integration/index.html",
-      "summary": "IMS 9.4.4 Integration overview: Starco Stock Take, V-Count Settings and Integration Center. Integration Center manages configurable outbound endpoints, source previews, health status and sync logs."
+      "summary": "IMS 9.4.5 Integration overview: Starco Stock Take, V-Count Settings and Integration Center. Integration Center manages configurable outbound endpoints, source previews, health status and sync logs."
     },
     {
       "path": "integration/integration-center.html",
@@ -87,7 +87,7 @@
     },
     {
       "path": "inventory/purchases.html",
-      "summary": "Purchases and Purchase Returns: invoice items/imports, expenses, currency/cost, finalization and financial posting; IMS 9.4.4 adds Supplier Invoice/VAT data, Tax Treatment, Taxable/VAT/Supplier Total calculations and tax references when VAT is enabled."
+      "summary": "Purchases and Purchase Returns: invoice items/imports, expenses, currency/cost, finalization and financial posting; IMS includes Supplier Invoice/VAT data, Tax Treatment, Taxable/VAT/Supplier Total calculations and tax references when VAT is enabled."
     },
     {
       "path": "inventory/replenishment.html",
@@ -315,11 +315,11 @@
     },
     {
       "path": "system/settings.html",
-      "summary": "Settings: company/time-zone/maintenance/update/email/loyalty/operator/transaction configuration. IMS 9.4.4 VAT settings include enable flag, VAT Account No., Percentage and sales rounding increment."
+      "summary": "Settings: company/time-zone/maintenance/update/email/loyalty/operator/transaction configuration. IMS 9.4.5 VAT settings include enable flag, VAT Account No., Percentage and sales rounding increment."
     },
     {
       "path": "system/system-dashboard.html",
-      "summary": "System Dashboard: current/latest IMS and updater versions, active database/server/time zone, PostgreSQL HA primary/standby state, connection latency, active workstations, Access Log, grouped live PostgreSQL sessions and the IMS 9.4.4 Performance Monitor with Min/Max/Avg timing and Good/Fair/Slow/Critical health."
+      "summary": "System Dashboard: current/latest IMS and updater versions, active database/server/time zone, PostgreSQL HA primary/standby state, connection latency, active workstations, Access Log, grouped live PostgreSQL sessions and the IMS 9.4.5 Performance Monitor with Min/Max/Avg timing and Good/Fair/Slow/Critical health."
     },
     {
       "path": "system/users-accounts.html",
@@ -411,7 +411,7 @@
     },
     {
       "path": "technical/source-baseline.html",
-      "summary": "Component Versions and Compatibility: IMS Client 9.4.4 baseline with explicitly scoped 9.4.5 workflows, other documented component versions, supported interfaces, company migrations and worker requirements."
+      "summary": "Component Versions and Compatibility: IMS Client 9.4.5 baseline with explicitly scoped 9.4.5 workflows, other documented component versions, supported interfaces, company migrations and worker requirements."
     },
     {
       "path": "technical/system-dashboard-observability.html",
