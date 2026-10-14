@@ -15,10 +15,10 @@
 <nav class="topnav" aria-label="Primary"><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../sales/index.html">Sales</a><a href="../../inventory/index.html">Inventory</a><a href="../../financial/index.html">Financial</a><a href="../../reports/index.html">Reports</a><a href="../../manage/index.html">Manage</a><a href="../../tools/index.html">Tools</a><a href="../../system/index.html">System</a><a href="../../shopify/index.html">Shopify</a><a href="../../integration/index.html">Integration</a><a class="active" href="../../technical/index.html">Technical</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
 </div></header>
-<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../../index.html">Documentation home</a><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../system/index.html">System</a><a href="../../integration/index.html">Integration</a><h3>Technical</h3><a href="../index.html">Technical Overview</a><a href="../architecture.html">IMS Architecture</a><a href="../multi-company.html">Multi-Company Architecture</a><a href="../security.html">Security Architecture</a><a href="../secure-bootstrap.html">Secure Bootstrap</a><a href="../ims-global.html">IMS Global</a><a href="../ims-api.html">IMS API</a><a href="index.html">Business API v1</a><a href="quick-start.html">Quick Start</a><a href="authentication.html">Authentication & Access</a><a href="requests.html">Requests & Responses</a><a href="reference.html">Endpoint Reference</a><a href="data-semantics.html">Data Semantics</a><a href="errors-rate-limits.html">Errors & Rate Limits</a><a class="active" href="examples.html">Examples & Downloads</a><a href="../secret-vault.html">Secret Vault</a><a href="../system-dashboard-observability.html">System Dashboard & Observability</a><a href="../postgresql/index.html">PostgreSQL Deployment & Operations</a><a href="../it-operations-troubleshooting.html">IT Operations & Troubleshooting</a><a href="partner-data.html">Partner Data &amp; Stock Delta</a></aside>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../../index.html">Documentation home</a><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../system/index.html">System</a><a href="../../integration/index.html">Integration</a><h3>Technical</h3><a href="../index.html">Technical Overview</a><a href="../architecture.html">IMS Architecture</a><a href="../multi-company.html">Multi-Company Architecture</a><a href="../security.html">Security Architecture</a><a href="../secure-bootstrap.html">Secure Bootstrap</a><a href="../ims-global.html">IMS Global</a><a href="../ims-global-api-administration.html">API Administration (administrators)</a><a href="../ims-api.html">IMS API</a><a href="index.html">Business API v1</a><a href="quick-start.html">Quick Start</a><a href="authentication.html">Authentication & Access</a><a href="requests.html">Requests & Responses</a><a href="reference.html">Endpoint Reference</a><a href="data-semantics.html">Data Semantics</a><a href="errors-rate-limits.html">Errors & Rate Limits</a><a class="active" href="examples.html">Examples & Downloads</a><a href="../secret-vault.html">Secret Vault</a><a href="../system-dashboard-observability.html">System Dashboard & Observability</a><a href="../postgresql/index.html">PostgreSQL Deployment & Operations</a><a href="../it-operations-troubleshooting.html">IT Operations & Troubleshooting</a><a href="partner-data.html">Partner Data &amp; Stock Delta</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../../index.html">IMS Documentation</a> › <a href="../index.html">Technical</a> › <a href="index.html">Business API v1</a> › Examples & Downloads</div>
-<span class="badge">IMS API 1.0.0.0 • Business API v1</span>
+<span class="badge">IMS API 1.1.0.0 • Business API v1</span>
 
 <h1>Examples &amp; Downloads</h1>
 <p class="lead">Practical examples for common clients plus complete request collections for Business API v1.</p>
@@ -35,6 +35,69 @@ var response = await http.GetAsync(
 
 response.EnsureSuccessStatusCode();
 string json = await response.Content.ReadAsStringAsync();</code></pre>
+<h2 id="customers">Customers: monthly full-catalog export</h2>
+<p>These examples use synthetic placeholders and fictional response values. Replace the host, company ID and API key with approved values. The key needs <code>customers.read</code>. The monthly schedule belongs to your integration. Retrieve every page; the API supplies no customer Delta, date filtering or push delivery.</p>
+<h3>curl</h3><pre><code>curl "https://api.example.com/api/v1/companies/1/customers?page=1&amp;pageSize=200" \
+  -H "X-IMS-API-Key: YOUR_API_KEY" \
+  -H "Accept: application/json"</code></pre>
+<h3>PowerShell: collect all pages before reconciliation</h3><pre><code>$baseUrl = "https://api.example.com"
+$companyId = 1
+$headers = @{ "X-IMS-API-Key" = "YOUR_API_KEY"; "Accept" = "application/json" }
+$page = 1
+$customers = [System.Collections.Generic.List[object]]::new()
+do {
+    $uri = "$baseUrl/api/v1/companies/$companyId/customers?page=$page&amp;pageSize=200"
+    $response = Invoke-RestMethod -Method Get -Uri $uri -Headers $headers -ErrorAction Stop
+    foreach ($customer in $response.data) { $customers.Add($customer) }
+    $page++
+} while ($page -le $response.totalPages)
+# Reconcile only after the entire download succeeds.
+# Each request has its own snapshot; this is not an export-wide snapshot.
+# Do not log or publish customer payloads or API keys.</code></pre>
+<h3>HTTP request</h3><pre><code>GET /api/v1/companies/1/customers?page=1&amp;pageSize=200 HTTP/1.1
+Host: api.example.com
+X-IMS-API-Key: YOUR_API_KEY
+Accept: application/json</code></pre>
+<h3>Synthetic response</h3><p>Both rows below contain all twelve fields. The first has missing enrichment; the second illustrates a real zero discount. Preserve this distinction.</p><pre><code>{
+  &quot;companyId&quot;: 1,
+  &quot;companyCode&quot;: &quot;EXAMPLE&quot;,
+  &quot;companyName&quot;: &quot;Example Company&quot;,
+  &quot;page&quot;: 1,
+  &quot;pageSize&quot;: 200,
+  &quot;count&quot;: 2,
+  &quot;totalCount&quot;: 2,
+  &quot;totalPages&quot;: 1,
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: 10001,
+      &quot;firstName&quot;: &quot;Example&quot;,
+      &quot;lastName&quot;: &quot;Customer&quot;,
+      &quot;gender&quot;: null,
+      &quot;dateOfBirth&quot;: null,
+      &quot;phone&quot;: &quot;00000000001&quot;,
+      &quot;email&quot;: &quot;customer@example.invalid&quot;,
+      &quot;nationality&quot;: null,
+      &quot;city&quot;: null,
+      &quot;starRewardsRegistered&quot;: true,
+      &quot;customerCategory&quot;: null,
+      &quot;discountPercent&quot;: null
+    },
+    {
+      &quot;id&quot;: 10002,
+      &quot;firstName&quot;: &quot;Sample&quot;,
+      &quot;lastName&quot;: &quot;Customer&quot;,
+      &quot;gender&quot;: null,
+      &quot;dateOfBirth&quot;: null,
+      &quot;phone&quot;: &quot;00000000002&quot;,
+      &quot;email&quot;: null,
+      &quot;nationality&quot;: null,
+      &quot;city&quot;: null,
+      &quot;starRewardsRegistered&quot;: true,
+      &quot;customerCategory&quot;: &quot;Example category&quot;,
+      &quot;discountPercent&quot;: 0
+    }
+  ]
+}</code></pre><p><code>id</code> identifies the loyalty customer, not an ERP customer. See <a href="data-semantics.html#customers">identity, matching and export consistency</a>.</p>
 <h2>Downloads</h2>
 <div class="doc-list">
 <a class="doc-link" href="IMS_API_v1.http"><div>↓</div><div><strong>IMS_API_v1.http</strong><span>Ready-to-run Visual Studio / VS Code HTTP Client requests for every Business API v1 endpoint.</span></div></a>

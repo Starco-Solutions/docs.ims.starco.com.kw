@@ -2,7 +2,7 @@
   "info": {
     "name": "IMS Business API v1",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": "Read-only IMS Business API v1 examples. Replace collection variables before use."
+    "description": "Read-only IMS API 1.1.0.0 examples using the /api/v1 route contract. Synthetic placeholders only. Replace collection variables with approved connection values before use."
   },
   "variable": [
     {
@@ -88,6 +88,24 @@
           ],
           "path": []
         }
+      }
+    },
+    {
+      "name": "Customers (full catalog)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/customers?page=1&pageSize=200",
+        "description": "Requires approved customer access, active company assignment and customers.read. Monthly full-catalog pull, scheduled by your integration. Pagination only; read every page before reconciliation. No customer Delta, push or date filters. Separate pages do not share an export-wide snapshot."
       }
     },
     {
