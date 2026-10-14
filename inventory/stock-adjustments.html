@@ -193,9 +193,6 @@ The current IMS deployment posts eligible Stock Adjustment discrepancy journals 
 <h2 id="edit">Edit an unposted adjustment</h2>
 <p>An authorized user can edit an existing voucher while it has not been financially posted. IMS first reverses the effect of the original adjustment, replaces the voucher details, and then applies the revised signed quantities.</p>
 <p>The resulting balance reflects the revised quantities after the edit completes successfully.</p>
-<h3 id="balance-records">Developer notes: stock-balance records</h3>
-<p>Both <code>SaveNew</code> and <code>UpdateVoucher</code> call <code>EnsureItemProdsRecords</code> after writing the new voucher details and before applying the signed stock update. The helper collects distinct Item Codes from the detail grid and submits one parameterized bulk insert into <code>item_prods</code>, using paired <code>text[]</code> product and <code>numeric[]</code> cost arrays.</p>
-<p>For a missing row, the insert uses the selected store, the first encountered cost for that Item Code, zero quantity and the supplier from the matching <code>items.vendor</code>. <code>ON CONFLICT (prods, prodn) DO NOTHING</code> preserves existing store/item rows and their values. The subsequent stock update sums the voucher lines by store and Item Code before applying the signed quantity. Deduplication here affects only balance-row creation; repeated detail quantities still contribute to the adjustment total.</p>
 <h2 id="void">Void an adjustment</h2>
 <p>An unposted voucher can be voided after confirmation. IMS reverses its stock effect, removes the item detail rows and sets the voucher totals to zero.</p>
 <p>The deleted quantity/cost information is retained in the Notes together with the previous notes, and the action is written to the transaction log.</p>

@@ -157,8 +157,7 @@
 <li>Use the enabled Add/Edit controls if POS terminals, Sections or Custom Attributes also need maintenance.</li>
 <li>Click <strong>Save</strong> to save the store changes, or <strong>Cancel</strong> to leave the current edit.</li>
 </ol>
-<h3 id="document-counters">Developer notes: new-store document counters</h3>
-<p><code>SaveNew</code> inserts the store into <code>centers</code> and initializes missing <code>ims_admin.document_counters</code> rows for codes <code>1</code>, <code>2</code>, <code>51</code>, <code>52</code> and <code>81</code> using the same PostgreSQL transaction. New counter rows use <code>last_no = 0</code>. <code>ON CONFLICT (pcenter, code) DO NOTHING</code> retains existing counters without resetting their values.</p>
+<h3 id="document-counters">Document numbering</h3>
 <div class="table-wrap"><table><thead><tr><th>Counter code</th><th>Document sequence</th></tr></thead><tbody>
 <tr><td>1</td><td>Purchases</td></tr>
 <tr><td>2</td><td>Purchase Returns</td></tr>
@@ -166,7 +165,6 @@
 <tr><td>52</td><td>Credit Sales and Returns</td></tr>
 <tr><td>81</td><td>Stock Transfers, including online-order fulfillment transfers</td></tr>
 </tbody></table></div>
-<p>The transaction commits after both inserts succeed. This initialization belongs to new-store creation; editing an existing store does not backfill its counters.</p>
 <h2 id="basic">Basic Store Info</h2>
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>ID</td><td>Unique numeric store identifier used throughout IMS.</td></tr>
