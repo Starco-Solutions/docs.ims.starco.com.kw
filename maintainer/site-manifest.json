@@ -95,7 +95,7 @@
     },
     {
       "path": "inventory/stock-adjustments.html",
-      "summary": "Signed positive/negative inventory corrections and negative discrepancy posting; IMS 9.4.5 new and edited adjustments create missing store/item balance rows through a parameterized bulk insert before applying quantities."
+      "summary": "Signed inventory corrections and negative discrepancy posting; IMS 9.4.5 bug fix repairs missing item_prods balance-row insertion during existing new/edit adjustment saving using parameterized SQL."
     },
     {
       "path": "inventory/stock-depreciation.html",
