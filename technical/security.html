@@ -18,7 +18,7 @@
 <div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../index.html">Documentation home</a><a href="../getting-started/main-screen.html">Getting started</a><a href="../system/index.html">System</a><a href="../integration/index.html">Integration</a><h3>Technical</h3><a href="index.html">Technical Overview</a><a href="architecture.html">IMS Architecture</a><a href="multi-company.html">Multi-Company Architecture</a><a class="active" href="security.html">Security Architecture</a><a href="secure-bootstrap.html">Secure Bootstrap</a><a href="ims-global.html">IMS Global</a><a href="ims-api.html">IMS API</a><a href="api-v1/index.html">Business API v1</a><a href="secret-vault.html">Secret Vault</a><a href="system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Technical › Security Architecture</div>
-<span class="badge">IMS Build 9.4.4.0 documentation</span>
+<span class="badge">IMS Build 9.4.5.0 documentation</span>
 <h1>Security Architecture</h1>
 <p class="lead">Layered IMS security covering workstation authorization, global authentication, Global Administrator access, company membership and company-local permissions.</p>
 <h2>Security layers</h2><div class="table-wrap"><table><thead><tr><th>Layer</th><th>Control</th></tr></thead><tbody>
@@ -33,5 +33,5 @@
 <h2>Authorization boundaries</h2><p>The Business API uses API keys, client-company assignments and endpoint scopes. Bootstrap, Global administration and runtime-secret APIs use separate session contracts. A Business API key does not grant Global Administrator or runtime-secret access.</p>
 <p>Runtime-secret checks include client version, session/workstation binding, active user, active company membership and authorized workstation. These checks do not establish fine-grained company Group Policy or menu-level enforcement in the API. Company-local permissions remain a separate layer.</p>
 <h2>Availability and session state</h2><p>Bootstrap and Global Administrator sessions are held in process memory. Plan routing and session continuity explicitly for multiple API instances; database replication alone does not provide API-session continuity.</p>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0 — live release</span></footer>
 </main></div><script src="../assets/js/docs.js"></script></body></html>
