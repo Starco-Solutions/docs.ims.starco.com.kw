@@ -106,18 +106,19 @@
 - https://docs.ims.starco.com.kw/system/workstation-admin.html — Central workstation authorization through IMS Global: current fields, Refresh, Approve, Block and self-block safeguard.
 
 ## Technical
-- https://docs.ims.starco.com.kw/technical/api-v1/authentication.html — API-key lifecycle, client validity, company authorization and scope-to-resource mapping.
+- https://docs.ims.starco.com.kw/technical/api-v1/authentication.html — External API authentication, authorized companies, least-privilege scopes including customers.read, and access prerequisites.
 - https://docs.ims.starco.com.kw/technical/api-v1/data-semantics.html — Signed quantities, transaction dates, sales and purchase returns, cost, repeated document totals and promotion semantics.
 - https://docs.ims.starco.com.kw/technical/api-v1/errors-rate-limits.html — 400/401/403/404/429 behavior and rate-limit handling.
-- https://docs.ims.starco.com.kw/technical/api-v1/examples.html — curl, PowerShell, C# plus downloadable .http and Postman collections.
-- https://docs.ims.starco.com.kw/technical/api-v1/index.html — IMS API 1.0.0.0 Business API v1: authentication, nine scopes, resources, response fields, semantics and Partner Data.
-- https://docs.ims.starco.com.kw/technical/api-v1/partner-data.html — Partner Data policy setup, cost-free catalog, physical stock availability, full-sync handshake and safe Stock Delta cursor workflow.
+- https://docs.ims.starco.com.kw/technical/api-v1/examples.html — Synthetic curl, PowerShell, HTTP and Postman examples for Business API integrations, Customers Catalog and Partner synchronization.
+- https://docs.ims.starco.com.kw/technical/api-v1/index.html — IMS API 1.1.0.0 Business API v1 for external integrations: authentication, scopes, resources, Customers Catalog and Partner Data synchronization.
+- https://docs.ims.starco.com.kw/technical/api-v1/partner-data.html — Partner catalog and Stock Delta consumer contract: access prerequisites, baseline handshake, policy version, pagination and safe cursor advancement.
 - https://docs.ims.starco.com.kw/technical/api-v1/quick-start.html — Business API v1 quick start with X-IMS-API-Key, company routing and first working requests.
-- https://docs.ims.starco.com.kw/technical/api-v1/reference.html — All 19 ordinary Business API operations with complete query parameters and response fields, types and nullability.
+- https://docs.ims.starco.com.kw/technical/api-v1/reference.html — All 20 ordinary Business API operations with query parameters, response fields, types and nullability, including the read-only Customers Catalog.
 - https://docs.ims.starco.com.kw/technical/api-v1/requests.html — Dates, paging (default 200, max 1000), filtering and response-envelope conventions.
-- https://docs.ims.starco.com.kw/technical/architecture.html — IMS Architecture: Windows client, IMS.Api, IMS Global, ims_global, separate company databases and background/integration services; links to IMS 9.4.5 customer-profile, stock-balance and new-store persistence details.
-- https://docs.ims.starco.com.kw/technical/ims-api.html — IMS API 1.0.0.0: bootstrap, Global administration, Business API, Partner Data and separate internal-service authorization.
-- https://docs.ims.starco.com.kw/technical/ims-global.html — IMS Global 1.5.0.0: 24-view new-company provisioning, protected administrator, company policies, API Administration and Partner Data.
+- https://docs.ims.starco.com.kw/technical/architecture.html — IMS Architecture: Windows client, IMS API, IMS Global, separate company databases and background services; workflow persistence and audience-specific guides.
+- https://docs.ims.starco.com.kw/technical/ims-api.html — IMS API 1.1.0.0: Business API v1, Customers Catalog, Partner Data, bootstrap and separate administrative/internal-service boundaries.
+- https://docs.ims.starco.com.kw/technical/ims-global-api-administration.html — IMS Global administrator guide: clients, companies and scopes, Partner Data configuration, API keys, quotas, Request Log, Admin Audit and Customers Catalog migration prerequisites.
+- https://docs.ims.starco.com.kw/technical/ims-global.html — IMS Global 1.6.0.0: company provisioning, global users, company-local policy assignment and administrator workflows.
 - https://docs.ims.starco.com.kw/technical/index.html — Technical overview for IMS architecture, multi-company, security, bootstrap, Global administration, API, Secret Vault, observability, PostgreSQL and IT operations.
 - https://docs.ims.starco.com.kw/technical/it-operations-troubleshooting.html — IT Operations & Troubleshooting for access, company routing, databases, API/bootstrap, workstations and new-company rollout.
 - https://docs.ims.starco.com.kw/technical/multi-company.html — Multi-Company Architecture: global identity/company membership with independent company databases and company-local operational permissions. New company databases are created and initialized by IMS Global through Companies → Create DB; use the supported provisioning workflow rather than manual company database creation.
@@ -125,7 +126,7 @@
 - https://docs.ims.starco.com.kw/technical/secret-vault.html — Secret Vault: server-mediated storage of sensitive credentials including company database secrets.
 - https://docs.ims.starco.com.kw/technical/secure-bootstrap.html — Secure Bootstrap: workstation check, global login, password-change enforcement, authorized company list and company database routing.
 - https://docs.ims.starco.com.kw/technical/security.html — Security Architecture: workstation authorization, global authentication, Global Administrator sessions, company membership and company-local permissions.
-- https://docs.ims.starco.com.kw/technical/source-baseline.html — Component Versions and Compatibility: IMS Client 9.4.5 baseline with explicitly scoped 9.4.5 workflows, other documented component versions, supported interfaces, company migrations and worker requirements.
+- https://docs.ims.starco.com.kw/technical/source-baseline.html — IMS Client Build 9.4.5.0, IMS API 1.1.0.0, IMS Global 1.6.0.0 and independent worker versions; installation and migration prerequisites.
 - https://docs.ims.starco.com.kw/technical/system-dashboard-observability.html — System Dashboard & Observability: versions, active database/server, HA state, latency, workstations, sessions and transaction performance; transaction telemetry exists only where Store Debugging Mode is enabled.
 
 ## Tools
