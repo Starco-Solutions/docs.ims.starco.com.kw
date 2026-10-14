@@ -115,7 +115,7 @@
 - https://docs.ims.starco.com.kw/technical/api-v1/quick-start.html — Business API v1 quick start with X-IMS-API-Key, company routing and first working requests.
 - https://docs.ims.starco.com.kw/technical/api-v1/reference.html — All 20 ordinary Business API operations with query parameters, response fields, types and nullability, including the read-only Customers Catalog.
 - https://docs.ims.starco.com.kw/technical/api-v1/requests.html — Dates, paging (default 200, max 1000), filtering and response-envelope conventions.
-- https://docs.ims.starco.com.kw/technical/architecture.html — IMS Architecture: Windows client, IMS API, IMS Global, separate company databases and background services; workflow persistence and audience-specific guides.
+- https://docs.ims.starco.com.kw/technical/architecture.html — IMS Architecture: Windows client, IMS API, IMS Global, separate company databases and background services; audience-specific operational and technical guides.
 - https://docs.ims.starco.com.kw/technical/ims-api.html — IMS API 1.1.0.0: Business API v1, Customers Catalog, Partner Data, bootstrap and separate administrative/internal-service boundaries.
 - https://docs.ims.starco.com.kw/technical/ims-global-api-administration.html — IMS Global administrator guide: clients, companies and scopes, Partner Data configuration, API keys, quotas, Request Log, Admin Audit and Customers Catalog migration prerequisites.
 - https://docs.ims.starco.com.kw/technical/ims-global.html — IMS Global 1.6.0.0: company provisioning, global users, company-local policy assignment and administrator workflows.

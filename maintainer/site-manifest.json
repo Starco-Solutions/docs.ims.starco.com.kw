@@ -371,7 +371,7 @@
     },
     {
       "path": "technical/architecture.html",
-      "summary": "IMS Architecture: Windows client, IMS API, IMS Global, separate company databases and background services; workflow persistence and audience-specific guides."
+      "summary": "IMS Architecture: Windows client, IMS API, IMS Global, separate company databases and background services; audience-specific operational and technical guides."
     },
     {
       "path": "technical/ims-api.html",
