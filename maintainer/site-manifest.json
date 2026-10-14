@@ -75,7 +75,7 @@
     },
     {
       "path": "integration/v-count-settings.html",
-      "summary": "Maintains V-Count credentials and hourly/daily/category/traffic endpoints. Daily mode clears the duty window; Hourly mode stores valid 0\u201323 start/end hours for IMS Autos. V-Count traffic is used by IMS Store traffic/conversion reporting."
+      "summary": "Maintains V-Count credentials and hourly/daily/category/traffic endpoints. Daily mode clears the duty window; Hourly mode stores valid 0–23 start/end hours for IMS Autos. V-Count traffic is used by IMS Store traffic/conversion reporting."
     },
     {
       "path": "inventory/index.html",
@@ -335,7 +335,7 @@
     },
     {
       "path": "technical/api-v1/authentication.html",
-      "summary": "API-key lifecycle, client validity, company authorization and scope-to-resource mapping."
+      "summary": "External API authentication, authorized companies, least-privilege scopes including customers.read, and access prerequisites."
     },
     {
       "path": "technical/api-v1/data-semantics.html",
@@ -347,15 +347,15 @@
     },
     {
       "path": "technical/api-v1/examples.html",
-      "summary": "curl, PowerShell, C# plus downloadable .http and Postman collections."
+      "summary": "Synthetic curl, PowerShell, HTTP and Postman examples for Business API integrations, Customers Catalog and Partner synchronization."
     },
     {
       "path": "technical/api-v1/index.html",
-      "summary": "IMS API 1.0.0.0 Business API v1: authentication, nine scopes, resources, response fields, semantics and Partner Data."
+      "summary": "IMS API 1.1.0.0 Business API v1 for external integrations: authentication, scopes, resources, Customers Catalog and Partner Data synchronization."
     },
     {
       "path": "technical/api-v1/partner-data.html",
-      "summary": "Partner Data policy setup, cost-free catalog, physical stock availability, full-sync handshake and safe Stock Delta cursor workflow."
+      "summary": "Partner catalog and Stock Delta consumer contract: access prerequisites, baseline handshake, policy version, pagination and safe cursor advancement."
     },
     {
       "path": "technical/api-v1/quick-start.html",
@@ -363,7 +363,7 @@
     },
     {
       "path": "technical/api-v1/reference.html",
-      "summary": "All 19 ordinary Business API operations with complete query parameters and response fields, types and nullability."
+      "summary": "All 20 ordinary Business API operations with query parameters, response fields, types and nullability, including the read-only Customers Catalog."
     },
     {
       "path": "technical/api-v1/requests.html",
@@ -371,15 +371,19 @@
     },
     {
       "path": "technical/architecture.html",
-      "summary": "IMS Architecture: Windows client, IMS.Api, IMS Global, ims_global, separate company databases and background/integration services; links to IMS 9.4.5 customer-profile, stock-balance and new-store persistence details."
+      "summary": "IMS Architecture: Windows client, IMS API, IMS Global, separate company databases and background services; workflow persistence and audience-specific guides."
     },
     {
       "path": "technical/ims-api.html",
-      "summary": "IMS API 1.0.0.0: bootstrap, Global administration, Business API, Partner Data and separate internal-service authorization."
+      "summary": "IMS API 1.1.0.0: Business API v1, Customers Catalog, Partner Data, bootstrap and separate administrative/internal-service boundaries."
+    },
+    {
+      "path": "technical/ims-global-api-administration.html",
+      "summary": "IMS Global administrator guide: clients, companies and scopes, Partner Data configuration, API keys, quotas, Request Log, Admin Audit and Customers Catalog migration prerequisites."
     },
     {
       "path": "technical/ims-global.html",
-      "summary": "IMS Global 1.5.0.0: 24-view new-company provisioning, protected administrator, company policies, API Administration and Partner Data."
+      "summary": "IMS Global 1.6.0.0: company provisioning, global users, company-local policy assignment and administrator workflows."
     },
     {
       "path": "technical/index.html",
@@ -391,7 +395,7 @@
     },
     {
       "path": "technical/multi-company.html",
-      "summary": "Multi-Company Architecture: global identity/company membership with independent company databases and company-local operational permissions. New company databases are created and initialized by IMS Global through Companies \u2192 Create DB; use the supported provisioning workflow rather than manual company database creation."
+      "summary": "Multi-Company Architecture: global identity/company membership with independent company databases and company-local operational permissions. New company databases are created and initialized by IMS Global through Companies → Create DB; use the supported provisioning workflow rather than manual company database creation."
     },
     {
       "path": "technical/postgresql/index.html",
@@ -411,7 +415,7 @@
     },
     {
       "path": "technical/source-baseline.html",
-      "summary": "Component Versions and Compatibility: IMS Client 9.4.5 baseline with explicitly scoped 9.4.5 workflows, other documented component versions, supported interfaces, company migrations and worker requirements."
+      "summary": "IMS Client Build 9.4.5.0, IMS API 1.1.0.0, IMS Global 1.6.0.0 and independent worker versions; installation and migration prerequisites."
     },
     {
       "path": "technical/system-dashboard-observability.html",

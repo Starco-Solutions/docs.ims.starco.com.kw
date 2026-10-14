@@ -14,6 +14,13 @@ GET {{baseUrl}}/api/v1/companies/{{companyId}}/items?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
+### Customers (requires customers.read and approved access; full catalog, pagination only)
+# Schedule monthly in your integration. Read every page before reconciliation.
+# Separate page requests do not share one export-wide snapshot.
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/customers?page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
 ### Suppliers
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/suppliers?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
