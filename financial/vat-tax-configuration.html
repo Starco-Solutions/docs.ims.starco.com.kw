@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>VAT &amp; Tax Configuration | IMS User Guide</title>
-<meta content="IMS 9.4.4 VAT and tax configuration guide covering System Settings, purchase tax codes, Supplier VAT data, Purchases and VAT-inclusive Sales." name="description"/>
+<meta content="IMS 9.4.5 VAT and tax configuration guide covering System Settings, purchase tax codes, Supplier VAT data, Purchases and VAT-inclusive Sales." name="description"/>
 <link href="https://docs.ims.starco.com.kw/financial/vat-tax-configuration.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"VAT & Tax Configuration","url":"https://docs.ims.starco.com.kw/financial/vat-tax-configuration.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -133,7 +133,7 @@
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Financial</a> › VAT &amp; Tax Configuration</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/financial.webp"/><h1>VAT &amp; Tax Configuration</h1></div>
-<p class="lead">IMS 9.4.4 expands VAT from a simple sales setting into a complete workflow covering company VAT settings, purchase tax treatments, supplier VAT registration, purchase documents and VAT-aware sales/returns.</p>
+<p class="lead">VAT processing covers company VAT settings, purchase tax treatments, supplier VAT registration, purchase documents and VAT-aware sales/returns.</p>
 <div class="callout"><strong>This is a guide, not a separate menu command</strong>The VAT workflow is configured through <strong>System → Settings</strong>, <strong>Financial → Integration Setup</strong>, <strong>Manage → Suppliers</strong> and <strong>Inventory → Purchases</strong>. Sales Transactions and Transactions Expert display the resulting sales VAT values.</div>
 <h2 id="flow">VAT configuration flow</h2>
 <div class="table-wrap"><table><thead><tr><th>Step</th><th>IMS area</th><th>What is configured</th></tr></thead><tbody>
@@ -175,7 +175,7 @@
 </tbody></table></div>
 <h2 id="suppliers">3. Maintain Supplier VAT information</h2>
 <p>When VAT is enabled, <strong>Manage → Suppliers</strong> shows a VAT Information section. Select <strong>VAT Registered</strong> for a registered supplier and enter its <strong>VAT Account No.</strong>. IMS will not save a VAT-registered supplier with a blank VAT Account No.</p>
-<p>Purchases reads these fields when a supplier is selected. The current IMS 9.4.4 Bahrain defaults attempt to select <code>BH_STD_10</code> for a VAT-registered supplier and <code>BH_OUT_SCOPE</code> for a non-registered supplier; if that code is not present, IMS selects the first active tax code.</p>
+<p>Purchases reads these fields when a supplier is selected. The current IMS 9.4.5 Bahrain defaults attempt to select <code>BH_STD_10</code> for a VAT-registered supplier and <code>BH_OUT_SCOPE</code> for a non-registered supplier; if that code is not present, IMS selects the first active tax code.</p>
 <h2 id="purchases">4. Record VAT on Purchases</h2>
 <p>When VAT is enabled, the Purchase screen adds Supplier Invoice and VAT/tax fields. Tax values are saved with the purchase document so the selected tax treatment and calculated split are retained with the invoice.</p>
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>Behavior</th></tr></thead><tbody>
@@ -200,7 +200,7 @@
 <a class="doc-link" href="../inventory/purchases.html"><div>↗</div><div><strong>Purchases</strong><span>Enter supplier invoice data, tax treatment and VAT values.</span></div></a>
 <a class="doc-link" href="../sales/sales-transactions.html"><div>↗</div><div><strong>Sales Transactions</strong><span>VAT-inclusive sales and receipt-based returns.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0 — live release</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

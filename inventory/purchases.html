@@ -133,7 +133,7 @@
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Inventory</a> › Purchases</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/inventory.webp"/><h1>Purchases</h1></div>
-<p class="lead">Purchases creates Purchase and Purchase Return documents, manages landed cost and finalization, and in IMS 9.4.4 records the supplier VAT/tax treatment when VAT is enabled.</p>
+<p class="lead">Purchases creates Purchase and Purchase Return documents, manages landed cost and finalization, and records the supplier VAT/tax treatment when VAT is enabled.</p>
 <div class="callout"><strong>Open the screen</strong>Inventory → Purchases.</div>
 <div class="callout tip">
 <strong>Current financial integration</strong>
@@ -153,7 +153,7 @@ The current IMS deployment is integrated directly with the local <strong>Al-Sham
 <h2 id="states">Invoice states</h2>
 <div class="table-wrap"><table><thead><tr><th>State</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Open</td><td>The invoice has been saved but has not yet updated the final stock/cost balances. It can still be edited or deleted according to user rights.</td></tr>
-<tr><td>On Hold</td><td>IMS is in the finalization/costing process, or a finalization was interrupted before completion. Recovery/Roll Back is available for this state.</td></tr>
+<tr><td>On Hold</td><td>An invoice displayed as On Hold is unavailable for normal editing, deletion and financial posting. Have an authorized administrator review its status before continuing.</td></tr>
 <tr><td>Finalized</td><td>Inventory and costing have been committed. The invoice can no longer be edited or deleted and becomes eligible for financial posting.</td></tr>
 <tr><td>Deleted</td><td>The open invoice was deleted from normal use and its item details/totals were cleared.</td></tr>
 </tbody></table></div>
@@ -216,7 +216,7 @@ The current IMS deployment is integrated directly with the local <strong>Al-Sham
 <p>Automatic taxable modes use <strong>Net Local</strong> as the taxable amount. ZERO, EXEMPT and OUTSIDE_SCOPE calculate zero VAT. Other tax types calculate VAT using the tax code's stored rate and round the result to three decimal places using midpoint-away-from-zero rounding.</p>
 <p>When saved, IMS also splits VAT into recoverable and non-recoverable amounts from the tax code's <strong>Recoverable %</strong>, using the same three-decimal rounding for the recoverable amount.</p>
 <h3>Default treatment from the Supplier</h3>
-<p>The current IMS 9.4.4 Bahrain workflow attempts to select <code>BH_STD_10</code> for a VAT-registered supplier and <code>BH_OUT_SCOPE</code> for a non-registered supplier. If that code is not available among active tax codes, IMS selects the first available treatment.</p>
+<p>The current IMS 9.4.5 Bahrain workflow attempts to select <code>BH_STD_10</code> for a VAT-registered supplier and <code>BH_OUT_SCOPE</code> for a non-registered supplier. If that code is not available among active tax codes, IMS selects the first available treatment.</p>
 <div class="callout tip"><strong>Tax values are document data</strong>When an existing purchase is reviewed, IMS loads the tax code, taxable amount, VAT amount and tax reference saved against that document rather than simply rebuilding the values from today's settings.</div>
 <h2 id="edit">Edit an open invoice</h2>
 <p>An Open invoice can expose separate edit actions according to the user's permissions:</p>
@@ -233,14 +233,14 @@ The current IMS deployment is integrated directly with the local <strong>Al-Sham
 <p>Finalized, Deleted and currently On Hold invoices cannot be edited. Purchase Returns do not offer the purchase-only Currency and Expenses edit actions.</p>
 <h2 id="finalize">Finalize a purchase</h2>
 <p>Finalization is the point where an Open purchase becomes an inventory/cost transaction. IMS warns the user that the process is irreversible through normal editing and that average cost will be recalculated.</p>
-<p>During finalization, IMS temporarily places the invoice/items On Hold, backs up the affected destination-store balances for recovery, calculates the resulting average costs, updates destination-store quantities and costs, updates last-purchase information, and then marks the invoice <strong>Finalized</strong>.</p>
+<p>During finalization, IMS locks the invoice and affected stock/item records, calculates the resulting average costs, updates the selected store's quantities and the affected items' costs, and marks the invoice <strong>Finalized</strong> in one database transaction. A purchase also updates last-purchase information. Activity logging and display refresh take place after the database transaction.</p>
 <div class="callout warning"><strong>Review before Finalize</strong>Check the receiving Store, Statistical Period, Shipment No., Currency/Exchange Rate, Expenses, invoice discount, item quantities and prices before finalizing. After successful finalization the invoice is no longer editable or deletable.</div>
-<h3 id="recovery">Automatic recovery and Roll Back</h3>
-<p>IMS keeps temporary recovery data while finalization is in progress and attempts to restore affected balances and costs if an update fails. Finalization uses separate temporary-hold, recovery, stock/cost and cleanup steps; recovery is best effort, not a guarantee that an error restores the entire operation.</p>
-<div class="callout warning"><strong>Interrupted finalization</strong>Keep the invoice identity and error details. Before another finalization or Roll Back attempt, have an authorized administrator reconcile invoice state, item holds, balances, costs and recovery status. Do not assume an On Hold invoice can safely be recovered by repeating the action.</div>
+<h3 id="recovery">Finalization outcome</h3>
+<p>Finalization reports whether the database transaction completed, was rolled back, or has an unconfirmed commit outcome. A display-refresh failure after a confirmed commit does not reverse the finalized document.</p>
+<div class="callout warning"><strong>Interrupted finalization</strong>Keep the invoice identity and any error details. If the commit outcome is unconfirmed, refresh and reconcile the document before retrying. Have an authorized administrator review any status that remains unclear.</div>
 <h2 id="returns">Purchase Returns</h2>
 <p>A Purchase Return follows the same Open → Finalize workflow but removes quantity from the selected store. Before committing the return, IMS verifies that the store has enough quantity for every returned item.</p>
-<p>If any returned quantity exceeds the current store balance, finalization is stopped and IMS creates a variance log containing Item Code, Return Qty, Current Balance and Variance so the discrepancy can be corrected.</p>
+<p>If any returned quantity exceeds the current store balance, IMS rolls back finalization and attempts to write a variance log containing Item Code, Return Qty, Current Balance and Variance. IMS displays a warning if the log cannot be written.</p>
 <h2 id="financial">Financial integration — current Al-Shamel deployment</h2>
 <p>Once a purchase or purchase return is Finalized, users with the <strong>Financial Posting</strong> permission can open the posting window. In the current deployment, IMS connects directly to <strong>Al-Shamel</strong> and writes the resulting journal to the financial system. When VAT is enabled, the saved purchase-tax record supplies the document tax treatment, tax amount and recoverable/non-recoverable split used by the VAT-aware purchasing workflow.</p>
 <p>The posting window builds a balanced journal using the store account/cost-center setup, the selected <strong>LC / Supplier Account</strong>, the Earned Discount account when an invoice discount exists, and the configured accounts for Purchasing Expenses.</p>
@@ -267,7 +267,7 @@ The user guide calls this process <em>Financial Posting</em> and identifies Al-S
 <a class="doc-link" href="../manage/statistical-periods.html"><div>↗</div><div><strong>Statistical Periods</strong><span>Season/period assignment used on purchase invoices.</span></div></a>
 <a class="doc-link" href="stock-transfer.html"><div>↗</div><div><strong>Stock Transfer</strong><span>Another inventory transaction that updates location stock balances.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0 — live release</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

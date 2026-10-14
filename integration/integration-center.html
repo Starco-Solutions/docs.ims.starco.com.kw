@@ -127,7 +127,7 @@
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Integration</a> › Integration Center</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/integration.webp"/><h1>Integration Center</h1></div>
-<p class="lead">Integration Center is the IMS 9.4.4 administration screen for configurable outbound integrations. It combines endpoint setup, source-data preview, current health and synchronization history in one place.</p>
+<p class="lead">Integration Center is the IMS 9.4.5 administration screen for configurable outbound integrations. It combines endpoint setup, source-data preview, current health and synchronization history in one place.</p>
 <div class="callout"><strong>Open the screen</strong>Integration → Integration Center. The Integration menu is controlled by the <em>Integrated Reports</em> Group Policy permission.</div>
 <h2 id="tabs">Three working tabs</h2>
 <div class="table-wrap"><table><thead><tr><th>Tab</th><th>Use it for</th></tr></thead><tbody>
@@ -175,7 +175,7 @@
 <div class="callout warning"><strong>Complete the payload definition before execution</strong>The new-record template intentionally starts with empty <code>payload.root_fields</code> and <code>payload.groups</code> arrays. Before an endpoint can run successfully, define at least the payload group structure and make sure every field named in the JSON exists in the Source View. The current payload builder starts from the first configured group.</div>
 <h2 id="schedule">Triggers and execution</h2>
 <p><strong>MORNING_SHIFT</strong> endpoints are selected by the IMS Autos background integration engine after daily maintenance has cleared its transaction-blocking state. For each active endpoint, the engine calculates the Business Date window from the Advanced Settings, reads the Source View and submits one request per <code>__request_key</code>.</p>
-<p><strong>MANUAL</strong> is a supported trigger classification, but Integration Center itself does not provide a Run button in IMS 9.4.4. The screen is used to configure, preview and monitor the endpoint.</p>
+<p><strong>MANUAL</strong> is a supported trigger classification, but Integration Center itself does not provide a Run button in IMS 9.4.5. The screen is used to configure, preview and monitor the endpoint.</p>
 <p>On a normal, non-forced rerun, a request key with a SUCCESS log for the same integration and Business Date is skipped. Unsuccessful keys may be revisited on later runs while their dates remain in the configured window; this is not an immediate transport retry policy. External sending and success logging are separate operations, so a lost acknowledgement or failed log write can cause a resend. Exactly-once delivery is not guaranteed.</p>
 <h2 id="clone">Clone an endpoint</h2>
 <p>Select an integration and click <strong>Clone</strong>. IMS prepares a new record using the current configuration, proposes <code>_COPY</code> on the Integration Code and <em>Copy</em> on the name. Clone copies endpoint configuration, never the API key. Enter a key before saving a BEARER or HEADER clone; HEADER also requires an Auth Header.</p>
@@ -197,7 +197,7 @@
 <a class="doc-link" href="../tools/ims-autos.html"><div>↗</div><div><strong>IMS Autos</strong><span>Background service that runs scheduled integration work.</span></div></a>
 <a class="doc-link" href="../system/group-policies.html"><div>↗</div><div><strong>Group Policies</strong><span>Integrated Reports controls access to the Integration top-level menu.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0 — live release</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

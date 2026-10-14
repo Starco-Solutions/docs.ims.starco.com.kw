@@ -177,7 +177,7 @@
 <tr><td>Finalizing</td><td>IMS updates the targeted stores' transaction-enabled settings and commits the rebuild. A single-store run enables that store; an all-store run with no initially active stores enables all stores. Previous settings are not always restored.</td></tr>
 </tbody></table></div>
 <h2 id="missing-rows">Missing item/store balances</h2>
-<p>Stock Maintenance also repairs a specific structural case: a valid transaction history can exist for an Item Code and Store even when the corresponding <code>item_prods</code> balance row is missing. IMS creates that missing Item/Store record before it reapplies the opening quantity and transaction movements.</p>
+<p>If transaction history exists for an Item Code and Store without a corresponding <code>item_prods</code> balance row, Stock Maintenance creates the Item/Store record before applying the opening quantity and transaction movements.</p>
 <h2 id="safety">Transaction safety and rollback</h2>
 <p>The balance recalculation and store-status writes use one database transaction. IMS attempts rollback for failures inside that transaction. Check store transaction settings after completion because the previous enabled/disabled state is not guaranteed to be restored.</p>
 <p>The Stock Maintenance activity-log entry is written after the balance transaction commits. An activity-log error can therefore occur after the rebuild has been saved; an error alone does not prove that no changes were committed.</p>
@@ -190,7 +190,7 @@
 <a class="doc-link" href="../inventory/item-movement.html"><div>↗</div><div><strong>Item Movement</strong><span>Trace the source transactions that contribute to one item's balance.</span></div></a>
 <a class="doc-link" href="../inventory/stock-adjustments.html"><div>↗</div><div><strong>Stock Adjustments</strong><span>Use an approved adjustment when the stock quantity itself requires a business correction rather than a recalculation.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.4.0 documentation</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0 — live release</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>
