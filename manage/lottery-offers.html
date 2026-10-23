@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a class="active" href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a class="active" href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -64,7 +64,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -117,8 +117,8 @@
 <a href="../integration/starco-stock-take.html">Starco Stock Take</a>
 <a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
 <h3>Modules</h3><a href="../index.html#sales">Sales</a><a href="../index.html#inventory">Inventory</a><a href="../index.html#financial">Financial</a><a href="../index.html#reports">Reports</a><a href="../index.html#manage">Manage</a><a href="../index.html#tools">Tools</a><a href="../index.html#system">System</a><a href="../index.html#shopify">Shopify</a><a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Manage › Lottery Offers</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/manage.webp"/><h1>Lottery Offers</h1></div>
@@ -168,10 +168,18 @@
 <div class="callout"><strong>Historical protection</strong>This keeps the lottery definition available after sales activity has created chance records against it.</div>
 <h2 id="how-data-relates">How the data relates</h2>
 <p>The offer header is stored separately from its store assignments. Sales-side lottery activity is recorded separately as lottery chance records referencing the Offer ID. This is why an offer can be maintained here while the resulting customer/sales participation is preserved independently.</p>
+<h2 id="pos-chances">Eligibility and issuing chances at the POS</h2>
+<p>Star Lottery uses the store and the transaction working date, including both campaign boundary dates. Exactly one active lottery offer must match that store/date. It does not use the Special Offers customer-category or item lists. Identify the purchaser correctly so the chance records retain the sale's customer reference.</p>
+<p>On a saved sale, IMS divides the net receipt amount by the campaign trigger and discards the fractional remainder. An amount equal to the trigger earns one chance, despite the setup label <strong>If Total &gt;</strong>. Each chance has its own code and retains the campaign, issuing store, receipt and customer reference. Lottery chance slips are a separate print output. Reprinting an existing receipt is not a new qualifying purchase.</p>
+<h2 id="lottery-refunds">Returns and existing chances</h2>
+<p>A linked refund examines the original receipt's uncancelled chances. It cancels all remaining chances when the refund covers their combined trigger value; otherwise it cancels one chance for each whole trigger amount in that refund, starting with the highest remaining chance code. A refund smaller than one trigger does not cancel a chance in that operation. Cancelled chances remain recorded with the cancelling receipt and store. Ending a campaign prevents new qualifying sales; it does not delete previously issued chances.</p>
+<p>For a customer enquiry, use the original receipt and store to check the recorded chance codes and cancellation references before accepting a printed slip as eligible. The configured Draw Date is campaign information; this maintenance screen does not select a winner.</p>
+<div class="callout"><strong>Hypothetical example</strong>A campaign runs 1–15 November, with a trigger of 20.000 and draw date 20 November. A qualifying net sale of 65.000 earns three chances. A linked refund of 25.000 cancels one remaining chance. The other two retain their original codes.</div>
+<p><a href="promotions-loyalty.html">Compare all Promotions &amp; Loyalty programs</a>.</p>
 <h2 id="related">Related documentation</h2>
 <div class="doc-list">
 <a class="doc-link" href="special-offers.html"><div>↗</div><div><strong>Special Offers</strong><span>Configure direct POS promotions such as discounts, Buy/Get, bundles, Cash Back and Step Discounts.</span></div></a>
 <a class="doc-link" href="discount-coupons.html"><div>↗</div><div><strong>Discount Coupons</strong><span>Create code-based percentage discount events.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main></div><script src="../assets/js/docs.js"></script></body></html>

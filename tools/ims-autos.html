@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a class="active" href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a class="active" href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -128,13 +128,13 @@
 <a href="../index.html#system">System</a>
 <a href="../index.html#shopify">Shopify</a>
 <a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Tools</a> › IMS Autos</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/tools.webp"/><h1>IMS Autos</h1></div>
 <p class="lead">IMS Autos is the administration screen for the IMS background automation service. It defines the daily maintenance time and selects which scheduled maintenance jobs the server service should run automatically.</p>
-<p>Worker compatibility: IMS Autos 9.1.2 is a Windows service on .NET Framework 4.8. The API also provides dedicated service authentication, company bootstrap and workload-scoped credential access for compatible consumers. These API capabilities do not change the existing worker configuration automatically; confirm the installed worker and credential path before changing integration settings.</p>
+<p>IMS Autos <strong>9.2</strong> is a <strong>.NET 10 Windows service</strong>. One service runs independent company workers, each using its own authorized database, schedules and time zone. The employee screen configures the selected IMS company; service enrollment and company grants are administered separately in <a href="../technical/service-administration.html">service administration</a>.</p>
 <div class="callout"><strong>Open the screen</strong>Tools → IMS Autos.</div>
 <figure class="screenshot">
 <img alt="IMS Autos daily schedule with Sale Seasons, Stock Maintenance, Daily Stock Levels, Sell Through and customized integration options" src="../assets/images/tools-ims-autos.webp"/>
@@ -144,8 +144,8 @@
 <p>The IMS client screen does not perform the scheduled jobs itself. It saves the automation schedule and enabled options in the IMS database. The <strong>IMS Autos Windows service</strong> running on the server reads those settings and executes the background work.</p>
 <p>This separation allows an administrator to configure automation from the normal IMS client while the server continues to execute the jobs even when that user's workstation is closed.</p>
 <h2 id="time">Run every day at</h2>
-<p>Select the daily maintenance time, then enable the required jobs. The server worker compares the configured hour and minute with database-local time using the configured time zone. Scheduled report tasks instead use the worker host clock; keep both clocks and time zones correctly configured.</p>
-<div class="callout warning"><strong>Daily maintenance shift</strong>During the scheduled maintenance shift IMS sets the Autos maintenance state so normal transaction processing can be blocked while the selected maintenance jobs are running. This is a cooperative application maintenance state, not a universal database lock. Choose a low-activity time appropriate for the business. If a shift fails, review the error and maintenance state with qualified support; the outer error handler does not guarantee that the state is cleared.</div>
+<p>Select the daily maintenance time, then enable the required jobs. The server worker compares the configured hour and minute with database-local time using the configured time zone. Scheduled report tasks also use the company time zone. Set the schedule for that company’s business day; a second company can run at a different local time on the same service host.</p>
+<div class="callout warning"><strong>Daily maintenance shift</strong>During the scheduled maintenance shift IMS sets the Autos maintenance state so normal transaction processing can be blocked while the selected maintenance jobs are running. This is a cooperative application maintenance state, not a universal database lock. Choose a low-activity time appropriate for the business. The service clears the maintenance state when the shift exits. If a database outage prevents completion, have an administrator review the company activity log and current maintenance status before resuming transactions.</div>
 <h2 id="jobs">Scheduled daily jobs</h2>
 <div class="table-wrap"><table><thead><tr><th>Option</th><th>What the server does</th></tr></thead><tbody>
 <tr><td>Apply Sale Seasons</td><td>Processes Sale Season start/end rules. Newly starting seasons apply their configured sale prices; ended seasons either return eligible items to original price or leave them in the applicable post-sale/outlet state according to the Sale Season policy.</td></tr>
@@ -154,7 +154,7 @@
 <tr><td>Refresh Sell Through Materialized View</td><td>Refreshes the Sell Through materialized view so Sell Through reporting uses the latest prepared inventory/sales aggregates.</td></tr>
 <tr><td>Call Customized Integrations Processes</td><td>Controls the existing V-Count integration schedule in the current server service, including configured sales/traffic exchange. Integration Center MORNING_SHIFT endpoints are handled separately after the daily maintenance shift.</td></tr>
 </tbody></table></div>
-<div class="callout"><strong>Integration Center in IMS 9.4.5</strong>After the scheduled daily maintenance shift completes and normal transactions are re-enabled, IMS Autos runs active Integration Center endpoints whose Trigger Type is <code>MORNING_SHIFT</code>. This execution is separate from the <strong>Call Customized Integrations Processes</strong> checkbox used by the V-Count schedule.</div>
+<div class="callout"><strong>Integration Center</strong>After the scheduled daily maintenance shift completes and normal transactions are re-enabled, IMS Autos runs active Integration Center endpoints whose Trigger Type is <code>MORNING_SHIFT</code>. This execution is separate from the <strong>Call Customized Integrations Processes</strong> checkbox used by the V-Count schedule.</div>
 <h2 id="daily-stock">Daily stock movement maintenance</h2>
 <p>The option shown as <strong>Save Daily Stock Levels</strong> maintains IMS daily stock-movement data rather than simply saving one static quantity snapshot. For each recalculated date, the service rebuilds daily movement from:</p>
 <div class="table-wrap"><table><thead><tr><th>Source</th><th>Movement treatment</th></tr></thead><tbody>
@@ -168,6 +168,8 @@
 <h2 id="loyalty">Loyalty housekeeping during the daily shift</h2>
 <p>The server worker also performs required Loyalty/Star Rewards housekeeping as part of the daily automation shift when the corresponding loyalty settings are in use. This includes processing eligible pending reward activity after the configured return period and maintaining applicable loyalty state.</p>
 <p>This housekeeping is part of the server-side automation workflow rather than a separate checkbox on the IMS Autos screen.</p>
+<h2 id="processes">Nine business processes and receipt delivery</h2>
+<p>The nine scheduled business processes are <strong>loyalty calculations, Sale Seasons, stock recalculation, daily stock movements, Sell Through refresh, Integration Center morning integrations, V-Count, scheduled reports and supplier-order notifications</strong>. Receipt delivery is an additional recurring workload. The daily options below do not enable or disable the independent Shopify workers.</p>
 <h2 id="background">Other background work handled by IMS Autos</h2>
 <p>The Autos service is more than the five daily checkboxes. The current server worker also performs background jobs that have their own schedules or triggers:</p>
 <div class="table-wrap"><table><thead><tr><th>Background function</th><th>Purpose</th></tr></thead><tbody>
@@ -178,15 +180,17 @@
 <tr><td>Star Rewards automation</td><td>Performs recurring Loyalty/Star Rewards maintenance such as applicable expiry and automated loyalty-offer processing.</td></tr>
 </tbody></table></div>
 <div class="callout tip"><strong>Reporting Scheduler</strong>The report schedule itself is defined under Tools → Reporting Scheduler. IMS Autos is the server worker that checks those active tasks and executes them at the required time.</div>
+<h2 id="report-delivery">Scheduled reports and no-sales periods</h2>
+<p>Use <a href="reporting-scheduler.html">Reporting Scheduler</a> to choose the Custom Report, daily/weekly/monthly period, recipients and Email/FTP destinations. Autos produces tab-delimited TXT, comma-delimited CSV or XLSX as configured. For a report with no data rows, it sends a no-sales email identifying the reporting period without an empty report attachment; no file is uploaded to FTP for that empty result. Review task results and errors rather than assuming that an absent attachment means a failed report.</p>
 <h2 id="online-order-notifications">Online-order supplier notifications</h2>
-<p>This workflow is independent from the daily Autos schedule. The Autos service uses a <strong>30-second</strong> timer that pauses during each callback and restarts afterward. Checks are therefore separated by processing time as well as the timer interval, rather than a guaranteed 30-second delivery time. <strong>CheckNewOrders</strong> runs on the recurring path when the IMS database connection is available.</p>
+<p>This workflow is independent from the daily Autos schedule. Each company worker waits <strong>30 seconds after its current cycle finishes</strong> before its next cycle. Processing duration is additional, so this is not a guaranteed email delivery interval. Supplier-order checks run when company authorization and the database connection are available.</p>
 <ol class="steps">
 <li>For each configured online Profile/Store, IMS Autos reads the last processed order date.</li>
 <li>It finds newer records already created in IMS <strong>Orders</strong>.</li>
 <li>It loads the inventory-item lines from <strong>Order Details</strong> and groups them by <strong>Supplier + Brand</strong>.</li>
 <li>Recipients are selected from the Supplier Mailing List: global recipients, supplier-wide/all-brand recipients, and exact supplier/brand recipients.</li>
 <li>Autos sends an HTML “new transfer request” email containing Order No., Barcode, Description, SKU/Style, Color, Size and Qty.</li>
-<li>After processing the batch, Autos advances the last processed order date for that Profile/Store, including when an email send reports failure. A failed supplier email is not guaranteed to retry automatically; review the failure before arranging an approved resend.</li>
+<li>After all required sends succeed, Autos advances the last processed order date for that Profile/Store. If sending or saving the result fails, a later cycle can revisit the batch; check the company log and already received messages before arranging an additional resend.</li>
 </ol>
 <div class="callout tip"><strong>JIT workflow timing</strong>For a JIT online order, the supplier notification happens after the Shopify service has inserted the order into IMS — <strong>before</strong> the later JIT purchasing transaction created when Incoming Orders is invoiced.</div>
 <h2 id="save">Save the Autos schedule</h2>
@@ -198,7 +202,14 @@
 </ol>
 <p>If all daily-job checkboxes are cleared and the settings are saved, IMS removes the daily Autos schedule record rather than keeping an empty daily shift. Report-task checks and supplier-order notifications run outside that schedule-row condition; the Star Rewards and V-Count paths do not.</p>
 <h2 id="monitoring">Service monitoring and logs</h2>
-<p>The server service writes informational, success-audit and error messages to the Windows Event Log for its major jobs and connection failures. Administrators can use these logs to confirm when the daily shift started, which jobs completed, and whether a background integration or maintenance task reported an error. A success message records the worker code-path result and does not establish external business acceptance.</p>
+<p>The service records job name, level and message in the current company’s activity log. Use Tools → IMS Autos to inspect company activity and the Windows Event Log for service-level or unavailable-company-log messages. A completed job message describes processing; it does not prove that an external recipient read an email or accepted an integration result.</p>
+<h3 id="activity-log">Company activity log filters</h3><p>Choose From and To dates and a Level (All by default), then refresh. The initial range is today and the preceding six days. To includes the whole day. The newest 1,000 entries appear first, with timestamp, job name, level and message; timestamps display in the workstation’s local time. Narrow the filters to investigate a job. From must not be later than To.</p>
+<h2 id="receipt-delivery">Receipt email and WhatsApp delivery</h2>
+<p>After a cashier obtains verbal consent and queues a digital receipt, Autos processes that company’s enabled Email and WhatsApp channels. It verifies the original invoice, consent and recipient, renders one original receipt PDF, and sends that document through the configured channel. Gift receipt copies are not included in this delivery PDF. Email uses the company SMTP configuration; WhatsApp uses the company’s configured provider/template and authorized credential.</p>
+<div class="table-wrap"><table><thead><tr><th>Result</th><th>Operator meaning</th></tr></thead><tbody><tr><td>Pending / queued</td><td>The request is waiting for Autos. It has not established provider acceptance.</td></tr><tr><td>Processing</td><td>The worker is preparing or sending the receipt. Do not create another request while it is being checked.</td></tr><tr><td>Sent / accepted</td><td>The email server or WhatsApp provider accepted the request. This does not prove customer delivery or reading.</td></tr><tr><td>Failed</td><td>Review the reported reason. Selected temporary rejections and pre-send availability failures can retry automatically, up to three attempts. Configuration, consent and recipient problems require attention.</td></tr><tr><td>Outcome unknown / manual review</td><td>A send may have occurred. Check the existing receipt request and provider evidence with an authorized administrator before arranging another send; Autos does not automatically resend an uncertain outcome.</td></tr></tbody></table></div>
+<p>Before taking another action, locate the original transaction in <a href="../sales/transactions-expert.html">Transactions Expert</a>, confirm its identity and inspect the existing receipt result. If the customer needs an immediate copy while delivery is being checked, follow the supported paper-printing workflow. Do not treat a provider message identifier or sent timestamp as a delivery confirmation.</p>
+<h2 id="authorization">Company enablement</h2>
+<p>The service identity must have a grant for the company, and <strong>Autos Enabled</strong> must be selected for that company in IMS Global. These are separate controls from the daily job checkboxes. Disabling Autos stops admission of new company work when authorization is refreshed; active work drains rather than being forcibly interrupted. The control does not stop Shopify’s separate workers.</p>
 <h2 id="relationship">How the main Autos functions connect</h2>
 <div class="doc-list">
 <a class="doc-link" href="stock-maintenance.html"><div>↗</div><div><strong>Stock Maintenance</strong><span>The manual version of the full stock-balance reconstruction that Autos can run on schedule.</span></div></a>
@@ -208,7 +219,7 @@
 <a class="doc-link" href="../inventory/stock-level.html"><div>↗</div><div><strong>Stock Level</strong><span>Historical stock reporting uses the maintained daily stock-movement data.</span></div></a>
 <a class="doc-link" href="../reports/user-defined-reports.html"><div>↗</div><div><strong>User-Defined Reports</strong><span>Custom Report definitions can be delivered automatically through Reporting Scheduler and the Autos service.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>IMS Client 9.4.6 · IMS Autos 9.2</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

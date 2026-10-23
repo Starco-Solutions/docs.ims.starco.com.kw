@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Clients Visits | IMS User Guide</title>
-<meta content="How to use IMS Clients Visits (1.0 Beta) to measure new-client visits, spending, total sales and contribution percentage by store or period." name="description"/>
+<meta content="How to use IMS Clients Visits to measure new-client visits, spending, total sales and contribution percentage by store or period." name="description"/>
 <link href="https://docs.ims.starco.com.kw/reports/clients-visits.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Clients Visits User Guide","url":"https://docs.ims.starco.com.kw/reports/clients-visits.html","about":"IMS new-client visits and spending report","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a class="active" href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a class="active" href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -120,17 +120,17 @@
 <a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
 <h3>Modules</h3>
 <a href="../index.html#sales">Sales</a><a href="../index.html#inventory">Inventory</a><a href="../index.html#financial">Financial</a><a href="../index.html#reports">Reports</a><a href="../index.html#manage">Manage</a><a href="../index.html#tools">Tools</a><a href="../index.html#system">System</a><a href="../index.html#shopify">Shopify</a><a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Reports › Clients Visits</div>
-<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/reports.webp"/><h1>Clients Visits <small>(1.0 Beta)</small></h1></div>
+<div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/reports.webp"/><h1>Clients Visits</h1></div>
 <p class="lead">Clients Visits measures newly identified customer visits and the sales generated by those customers. It compares their spending with total cash sales for the selected stores and can summarize the result by store, day, week, month, year or hour.</p>
 <div class="callout"><strong>Open the report</strong>Reports → Clients Visits</div>
 <figure class="screenshot"><img alt="IMS Reports menu with Clients Visits selected" src="../assets/images/clients-visits-menu.webp"/><figcaption>Path: Reports → Clients Visits.</figcaption></figure>
 <h2 id="purpose">What the report measures</h2>
 <p>IMS identifies new-client activity from cash-sale records that do not have a linked customer master record but do contain a usable telephone number. The report looks at the first qualifying transaction date for that telephone number at the store and checks whether it falls inside the selected reporting period.</p>
-<div class="callout tip"><strong>Important</strong>This is a <strong>1.0 Beta</strong> report. It is an analytical indicator based on POS telephone data; it is not the same thing as the registered customer or Star Rewards database.</div>
+<div class="callout tip"><strong>Important</strong>This report is an analytical indicator based on POS telephone data; it is not the same thing as the registered customer or Star Rewards database.</div>
 <h2 id="run">Run the report</h2>
 <ol class="steps">
 <li>Select one or more <strong>Stores</strong>, or leave <strong>All</strong> selected.</li>
@@ -162,7 +162,7 @@
 <tr><td>All</td><td>Selects all stores available to the logged-in user.</td></tr>
 <tr><td>Include inactive stores</td><td>Loads inactive stores into the selection list. This option is visible only to users with access to all departments.</td></tr>
 <tr><td>Date From / To</td><td>Defines the reporting period.</td></tr>
-<tr><td>Hours From / To</td><td>The Beta screen includes an hour-range selector; see the Beta note below before relying on it as a filter.</td></tr>
+<tr><td>Hours From / To</td><td>Use Group By → Hour for hourly analysis. The report is selected by store and date range.</td></tr>
 </tbody></table></div>
 <h3 id="stores">Store selection</h3>
 <p>If the user has access to only one store, IMS selects it automatically and disables the All and multi-store controls. With multiple available stores, click the Store field to choose the required locations.</p>
@@ -176,7 +176,7 @@
 <tr><td>Hour</td><td>Groups by transaction hour.</td></tr>
 <tr><td>Store</td><td>Adds a Store column when multiple stores are selected.</td></tr>
 </tbody></table></div>
-<div class="callout warning"><strong>Beta note — Hours From/To</strong>In the supplied Clients Visits 1.0 Beta source, the Hours From/To controls enable the hour selectors, but the current report query does not apply that selected range as a filter. <strong>Group By → Hour does work as an hourly breakdown.</strong></div>
+<div class="callout warning"><strong>Hourly analysis</strong><strong>Group By → Hour</strong> provides an hourly breakdown for the selected stores and dates. The Hours From/To controls do not narrow the report results.</div>
 <h2 id="columns">Report columns</h2>
 <div class="table-wrap"><table><thead><tr><th>Column</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Day / Week / Month / Year / Hour</td><td>Displayed when the corresponding period grouping is selected.</td></tr>
@@ -195,12 +195,12 @@
 <tr><td>Percent</td><td>Spent Amount ÷ Total Sales.</td></tr>
 </tbody></table></div>
 <h3 id="new-client-definition">What counts as a new client?</h3>
-<p>The Beta source requires the normal customer ID to be absent or zero and requires a telephone number that is neither blank nor the placeholder <strong>000</strong>. The first qualifying transaction is evaluated by store and telephone number.</p>
+<p>A qualifying transaction requires the normal customer ID to be absent or zero and requires a telephone number that is neither blank nor the placeholder <strong>000</strong>. The first qualifying transaction is evaluated by store and telephone number.</p>
 <div class="callout"><strong>Why this matters</strong>A person can appear in Clients Visits without being a registered IMS customer or Star Rewards member. The report is using POS telephone data to estimate newly identified visitors.</div>
 <h2 id="totals">Summary totals</h2>
 <p>The bottom panel shows <strong>New Clients, Spent Amt, Total Sales</strong> and the overall percentage. The overall percentage is calculated from the totals, not by averaging the row percentages.</p>
 <h2 id="output">Export and printing</h2>
-<p>Clients Visits 1.0 Beta does not currently provide the standard IMS Export To Excel, Send By Email, Save As, or print toolbar. The result is viewed directly in the grid.</p>
+<p>Clients Visits does not provide the standard IMS Export To Excel, Send By Email, Save As, or print toolbar. The result is viewed directly in the grid.</p>
 <h2 id="permissions">Permissions</h2>
 <p>Clients Visits uses the same Reports-menu permission as Clients History. If the menu item is not visible, the logged-in user's IMS policy does not grant access to client-history reporting.</p>
 <h2 id="examples">Common uses</h2>
@@ -216,7 +216,7 @@
 <a class="doc-link" href="star-rewards-history.html"><div>↗</div><div><strong>Star Rewards History</strong><span>Review loyalty registration, wallet and reward transactions.</span></div></a>
 <a class="doc-link" href="store-sales-report.html"><div>↗</div><div><strong>Store Sales Report</strong><span>Compare overall store sales, traffic and conversion performance.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main>
 </div>
 <script src="../assets/js/docs.js"></script>

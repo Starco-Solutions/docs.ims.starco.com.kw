@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a class="active" href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a class="active" href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -128,8 +128,8 @@
 <a href="../index.html#system">System</a>
 <a href="../index.html#shopify">Shopify</a>
 <a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">System</a> › Group Policies</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/system.webp"/><h1>Group Policies</h1></div>
@@ -152,18 +152,18 @@
 <tr><td>Description</td><td>Selecting a permission displays its business description at the bottom of the screen.</td></tr>
 </tbody></table></div>
 <h2 id="categories">Permission categories</h2>
-<p>IMS organizes the current permission catalog into these functional areas:</p>
-<div class="table-wrap"><table><thead><tr><th>Category</th><th>Current permissions</th><th>Examples</th></tr></thead><tbody>
-<tr><td>Main</td><td>10</td><td>Open/Close POS, End POS Day, cash drawer, cost/markup/profit visibility, export and email.</td></tr>
-<tr><td>Sales</td><td>21</td><td>Create/view/edit/print/delete sales and returns, exchanges, sales date, currency and scanned-item control.</td></tr>
-<tr><td>Inventory</td><td>18</td><td>Stock Transfers, Transfer Following, Replenishment, Purchases, Stock Depreciation, Adjustments, Stock Level and Item Movement.</td></tr>
-<tr><td>Finance</td><td>14</td><td>Financial integration, posting, posted transactions, banks, currencies, payment types, expenses, cash receipts and gift vouchers.</td></tr>
-<tr><td>Reports</td><td>11</td><td>Daily Cash/Store reports, Sales Men/Ladies, client reports, Star Rewards, Gross Income, Main Sales, Purchasing and User-Defined Reports.</td></tr>
-<tr><td>Setup</td><td>20</td><td>Suppliers, Stores, Sales Men/Ladies, Items, Categories, Sale Seasons, offers, VIP Customers, loyalty tiers and Star Cards.</td></tr>
-<tr><td>Settings</td><td>7</td><td>Change Password, printing defaults, Users Accounts, Group Policies, System Log, System Settings and updates.</td></tr>
-<tr><td>Tools</td><td>7</td><td>Label Printing, IMS Interactive, IMS Autos, Reporting Scheduler, Custom Reports and Global Custom Attributes.</td></tr>
-<tr><td>Shopify</td><td>8</td><td>Shopify orders/transfers/settings and online-order invoice/refund/exchange/state operations.</td></tr>
-<tr><td>Integration</td><td>1</td><td>Controls access to the Integration top-level menu, including Starco Stock Take, V-Count and Integration Center.</td></tr>
+<p>The screen loads permission names, descriptions and categories from the company’s permission catalog. The following functional areas help you find the relevant controls; the available list depends on that catalog:</p>
+<div class="table-wrap"><table><thead><tr><th>Category</th><th>Catalog</th><th>Examples</th></tr></thead><tbody>
+<tr><td>Main</td><td>Company catalog</td><td>Open/Close POS, End POS Day, cash drawer, cost/markup/profit visibility, export and email.</td></tr>
+<tr><td>Sales</td><td>Company catalog</td><td>Create/view/edit/print/delete sales and returns, exchanges, sales date, currency and scanned-item control.</td></tr>
+<tr><td>Inventory</td><td>Company catalog</td><td>Stock Transfers, Transfer Following, Replenishment, Purchases, Stock Depreciation, Adjustments, Stock Level and Item Movement.</td></tr>
+<tr><td>Finance</td><td>Company catalog</td><td>Financial integration, posting, posted transactions, banks, currencies, payment types, expenses, cash receipts and gift vouchers.</td></tr>
+<tr><td>Reports</td><td>Company catalog</td><td>Daily Cash/Store reports, Sales Men/Ladies, client reports, Star Rewards, Gross Income, Main Sales, Purchasing and User-Defined Reports.</td></tr>
+<tr><td>Setup</td><td>Company catalog</td><td>Suppliers, Stores, Sales Men/Ladies, Items, Categories, Sale Seasons, offers, VIP Customers, loyalty tiers and Star Cards.</td></tr>
+<tr><td>Settings</td><td>Company catalog</td><td>Change Password, printing defaults, Users Accounts, Group Policies, System Log, System Settings and updates.</td></tr>
+<tr><td>Tools</td><td>Company catalog</td><td>Label Printing, IMS Interactive, IMS Autos, Reporting Scheduler, Custom Reports and Global Custom Attributes.</td></tr>
+<tr><td>Shopify</td><td>Company catalog</td><td>Shopify orders/transfers/settings and online-order invoice/refund/exchange/state operations.</td></tr>
+<tr><td>Integration</td><td>Company catalog</td><td>Controls access to the Integration top-level menu, including Starco Stock Take, V-Count and Integration Center.</td></tr>
 </tbody></table></div>
 <h2 id="sync">All tab and category tabs stay synchronized</h2>
 <p>The <strong>All</strong> tab and the category tabs are two views of the same policy. Checking or clearing a permission in All updates the same permission in its category tab, and changing it inside a category updates the corresponding permission in All.</p>
@@ -190,63 +190,63 @@
 </tbody></table></div>
 <div class="callout warning"><strong>Administrative permissions</strong>Permissions such as Manage User Accounts, Manage Group Policies, financial setup/posting, deletion rights and unrestricted transaction functions can materially change system data or security. Assign them only to roles that require them.</div>
 <h2 id="reference">Permission reference</h2>
-<p>The following reference mirrors the current IMS permission catalog. Expand a category when you need the meaning of a specific permission.</p>
+<p>The following reference explains the operational permissions shown by IMS. Use the current company’s list in Group Policies to confirm availability. Expand a category when you need the meaning of a specific permission.</p>
 <details class="policy-reference">
-<summary><strong>Main</strong> <span>(10 permissions)</span></summary>
+<summary><strong>Main</strong> <span></span></summary>
 <div class="table-wrap"><table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>Open/Close POS</td><td>Open or close the POS shift.</td></tr><tr><td>End POS Day</td><td>End the POS business day permanently.</td></tr><tr><td>Open Cash Drawer</td><td>Allow the user to open the cash drawer.</td></tr><tr><td>Show Cash Drawer Button</td><td>Show the Cash Drawer button on the main form.</td></tr><tr><td>Import Trans. Items</td><td>Import items into sales or transfer transactions.</td></tr><tr><td>Show Cost Of Goods Sold</td><td>Show Cost of Goods Sold in reports and stock-transfer views.</td></tr><tr><td>Show Price Mark Up</td><td>Show Price Markup on sales reports.</td></tr><tr><td>Show Gross Profit</td><td>Show Gross Profit on sales reports</td></tr><tr><td>Export Reports To File</td><td>Allow user to export reports to text, csv or excel files.</td></tr><tr><td>Can Send Email</td><td>Allow user to send email from any report view and create his own contact list.</td></tr>
 </tbody></table></div>
 </details>
 <details class="policy-reference">
-<summary><strong>Sales</strong> <span>(21 permissions)</span></summary>
+<summary><strong>Sales</strong> <span></span></summary>
 <div class="table-wrap"><table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>Add Cash Sales</td><td>Add new cash sales transaction</td></tr><tr><td>Add Cash Returns</td><td>Add new cash returns transaction</td></tr><tr><td>Add Credit Sales</td><td>Add new credit sales transaction</td></tr><tr><td>Add Credit Returns</td><td>Add new credit returns transaction</td></tr><tr><td>Add Exchange Receipt</td><td>Add exchange receipt</td></tr><tr><td>Add Return With No Restrict</td><td>Allow returns without the original sales receipt or after the normal return period has passed.</td></tr><tr><td>View Cash Sales</td><td>Iterate through cash sales transactions</td></tr><tr><td>View Credit Sales</td><td>Iterate through credit sales transactions</td></tr><tr><td>Edit Cash Sales Sales Man</td><td>Edit the salesperson on existing cash sales or returns.</td></tr><tr><td>Edit sales transactions date</td><td>Edit sales transactions date</td></tr><tr><td>Edit Cash Sales Payment Type</td><td>Edit the payment type on existing, non-posted cash sales or returns.</td></tr><tr><td>Edit Cash Sales Total Disc</td><td>Edit the discount on existing, non-posted cash sales or returns.</td></tr><tr><td>Edit Cash Sales Client Info</td><td>Edit client information on existing cash sales or returns.</td></tr><tr><td>Edit Credit Sales Sales Man</td><td>Edit the salesperson on existing credit sales or returns.</td></tr><tr><td>Edit Credit Sales Total Disc</td><td>Edit the discount on existing, non-posted credit sales or returns.</td></tr><tr><td>Print Cash Sales</td><td>Print existing cash sales or Return transactions</td></tr><tr><td>Print Credit Sales</td><td>Print existing credit sales or Return transactions</td></tr><tr><td>Delete Cash Sales</td><td>Delete existing and NON POSTED cash sales transaction</td></tr><tr><td>Delete Credit Sales</td><td>Delete existing and NON POSTED credit sales transaction</td></tr><tr><td>Remove Scanned Item</td><td>Remove item from sales transactions after scanning.</td></tr><tr><td>Change Sales Currency</td><td>Change currency on sales transactions</td></tr>
 </tbody></table></div>
 </details>
 <details class="policy-reference">
-<summary><strong>Inventory</strong> <span>(18 permissions)</span></summary>
+<summary><strong>Inventory</strong> <span></span></summary>
 <div class="table-wrap"><table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>View Stock Transfers</td><td>Review stock transfer vouchers in Transactions Expert.</td></tr><tr><td>Add Stock Transfers</td><td>Add new stock transfer vouchers</td></tr><tr><td>Edit Stock Transfers</td><td>Edit existing non-posted stock transfer vouchers from Transactions Expert.</td></tr><tr><td>Delete Stock Transfers</td><td>Delete existing non-posted stock transfer vouchers from Transactions Expert.</td></tr><tr><td>Print Stock Transfers</td><td>Print existing stock transfer vouchers from Transactions Expert.</td></tr><tr><td>Follow Stock Transfers</td><td>Follow up stock transfers</td></tr><tr><td>Replenishment</td><td>Replenish Store stock.</td></tr><tr><td>View Purchasing Invoices</td><td>View Purchasing Invoices</td></tr><tr><td>Add Purchasing Invoices</td><td>Add Purchasing Invoices</td></tr><tr><td>Edit Purchasing Invoices</td><td>Edit Purchasing Invoices</td></tr><tr><td>Delete Purchasing Invoices</td><td>Delete Purchasing Invoices</td></tr><tr><td>Finalize Purchasing Invoices</td><td>Finalize purchasing invoices.</td></tr><tr><td>View Damage Vouchers</td><td>View Damage Vouchers</td></tr><tr><td>Manage Damage Vouchers</td><td>Manage Damage Vouchers</td></tr><tr><td>View Inventory Adjustments</td><td>View Inventory Adjustments</td></tr><tr><td>Manage Inventory Adjustments</td><td>Manage Inventory Adjustments</td></tr><tr><td>View Stock Level</td><td>View Stock Level</td></tr><tr><td>View Item Card</td><td>View Item Card</td></tr>
 </tbody></table></div>
 </details>
 <details class="policy-reference">
-<summary><strong>Finance</strong> <span>(14 permissions)</span></summary>
+<summary><strong>Finance</strong> <span></span></summary>
 <div class="table-wrap"><table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>View Financial Integration</td><td>View Financial Integration</td></tr><tr><td>Edit Financial Integration</td><td>Edit Financial Integration</td></tr><tr><td>Edit Financial Database</td><td>Edit Financial Database</td></tr><tr><td>Colse Financial Period</td><td>Close the financial period.</td></tr><tr><td>Post Transactions to GL</td><td>Post Transactions to GL</td></tr><tr><td>Veiw Posted Transactions</td><td>View posted transactions.</td></tr><tr><td>Manage POS Banks</td><td>Manage POS Banks</td></tr><tr><td>View Currencies</td><td>View Currencies</td></tr><tr><td>Manage Currencies</td><td>Manage Currencies</td></tr><tr><td>Manage Sales Payments Types</td><td>Manage Sales Payments Types</td></tr><tr><td>Manage Purchase Expenses</td><td>Manage Purchase Expenses</td></tr><tr><td>Add Cash Receipts</td><td>Add Cash Receipts</td></tr><tr><td>Edit Cash Receipts</td><td>Edit or void Cash Receipts</td></tr><tr><td>Manage Gift Vouchers</td><td>Add or edit manually issued gift vouchers.</td></tr>
 </tbody></table></div>
 </details>
 <details class="policy-reference">
-<summary><strong>Reports</strong> <span>(11 permissions)</span></summary>
+<summary><strong>Reports</strong> <span></span></summary>
 <div class="table-wrap"><table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>View Daily Cash Report</td><td>View daily cash closing and sales payments reports</td></tr><tr><td>View Daily Store Report</td><td>View the Store daily sales report.</td></tr><tr><td>View Sales Men Sales Report</td><td>View Sales Men/Ladies sales report</td></tr><tr><td>View Client Report</td><td>View client history and visits reports.</td></tr><tr><td>View All Clients</td><td>View all clients data with no restrictions</td></tr><tr><td>View Star Rewards History</td><td>View Star Rewards history</td></tr><tr><td>View Gross Income Report</td><td>View Gross Income Report</td></tr><tr><td>View Gift Vouchers Summery</td><td>View the Gift Vouchers Summary report.</td></tr><tr><td>View Main Sales Report</td><td>View main sales and sell through reports</td></tr><tr><td>View Purchasing Report</td><td>View purchasing report</td></tr><tr><td>Vew User-Defined Reports</td><td>View custom reports created by IMS users</td></tr>
 </tbody></table></div>
 </details>
 <details class="policy-reference">
-<summary><strong>Setup</strong> <span>(20 permissions)</span></summary>
+<summary><strong>Setup</strong> <span></span></summary>
 <div class="table-wrap"><table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
-<tr><td>View Suppliers</td><td>View Suppliers</td></tr><tr><td>Manage Suppliers</td><td>Add/Edit Suppliers</td></tr><tr><td>View Stores</td><td>View Stores / POS</td></tr><tr><td>Manage Stores</td><td>Add/Edit Stores / POS</td></tr><tr><td>Manage Sales Men</td><td>Add/Edit Sales Men / Ladies</td></tr><tr><td>View Item Data</td><td>View Item Data</td></tr><tr><td>Manage Item Data</td><td>Add/Edit Item Data</td></tr><tr><td>Manage Service Items</td><td>Add/Edit Service Items</td></tr><tr><td>View Categories</td><td>View Categories</td></tr><tr><td>Manage Categories</td><td>Add or edit item categories.</td></tr><tr><td>View Sale Seasons</td><td>View Sale Seasons</td></tr><tr><td>Manage Sale Seasons</td><td>Manage Sale Seasons</td></tr><tr><td>View Special Offers</td><td>View special offers / Give away promotion / Star Rewards offer</td></tr><tr><td>Manage Special Offer</td><td>Create or edit Special Offers, Give Away promotions, Star Rewards offers and Lottery offers.</td></tr><tr><td>Disc Coupons</td><td>Manage Discount Coupons.</td></tr><tr><td>View VIP Customers</td><td>View VIP Customers</td></tr><tr><td>Manage VIP Customers</td><td>Add/Edit VIP Customers</td></tr><tr><td>Star Clients (NOT Implemented)</td><td>Add/Edit Star Clients (NOT Implemented)</td></tr><tr><td>Manage Star Rewards Tiers</td><td>Add/Edit Star Rewards Tiers</td></tr><tr><td>Manage Star Cards</td><td>Add/Edit Star Cards</td></tr>
+<tr><td>View Suppliers</td><td>View Suppliers</td></tr><tr><td>Manage Suppliers</td><td>Add/Edit Suppliers</td></tr><tr><td>View Stores</td><td>View Stores / POS</td></tr><tr><td>Manage Stores</td><td>Add/Edit Stores / POS</td></tr><tr><td>Manage Sales Men</td><td>Add/Edit Sales Men / Ladies</td></tr><tr><td>View Item Data</td><td>View Item Data</td></tr><tr><td>Manage Item Data</td><td>Add/Edit Item Data</td></tr><tr><td>Manage Service Items</td><td>Add/Edit Service Items</td></tr><tr><td>View Categories</td><td>View Categories</td></tr><tr><td>Manage Categories</td><td>Add or edit item categories.</td></tr><tr><td>View Sale Seasons</td><td>View Sale Seasons</td></tr><tr><td>Manage Sale Seasons</td><td>Manage Sale Seasons</td></tr><tr><td>View Special Offers</td><td>View special offers / Give away promotion / Star Rewards offer</td></tr><tr><td>Manage Special Offer</td><td>Create or edit Special Offers, Give Away promotions, Star Rewards offers and Lottery offers.</td></tr><tr><td>Disc Coupons</td><td>Manage Discount Coupons.</td></tr><tr><td>View VIP Customers</td><td>View VIP Customers</td></tr><tr><td>Manage VIP Customers</td><td>Add/Edit VIP Customers</td></tr><tr><td>Manage Star Rewards Tiers</td><td>Add/Edit Star Rewards Tiers</td></tr><tr><td>Manage Star Cards</td><td>Add/Edit Star Cards</td></tr>
 </tbody></table></div>
 </details>
 <details class="policy-reference">
-<summary><strong>Settings</strong> <span>(7 permissions)</span></summary>
+<summary><strong>Settings</strong> <span></span></summary>
 <div class="table-wrap"><table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>Change Password</td><td>Allow the user to change their password.</td></tr><tr><td>Set Printing Defaults</td><td>Set a default printer for transactions and reports.</td></tr><tr><td>Manage User Accounts</td><td>Add, edit or delete user accounts</td></tr><tr><td>Manage Group Policies</td><td>Add, edit or delete group policies</td></tr><tr><td>View System Log</td><td>View System Log</td></tr><tr><td>Manage System Settings</td><td>Manage System Settings</td></tr><tr><td>Check For System Update</td><td>Allow the user to check for IMS updates.</td></tr>
 </tbody></table></div>
 </details>
 <details class="policy-reference">
-<summary><strong>Tools</strong> <span>(7 permissions)</span></summary>
+<summary><strong>Tools</strong> <span></span></summary>
 <div class="table-wrap"><table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>Label Printing</td><td>Label Printing</td></tr><tr><td>IMS Interactive</td><td>SQL Interactive and Stock Level Tools</td></tr><tr><td>IMS Autos</td><td>Configure IMS Autos options.</td></tr><tr><td>Reporting Scheduler</td><td>Configure custom reports sending or exporting scheduler</td></tr><tr><td>Create Custom Reports</td><td>Create or edit custom reports.</td></tr><tr><td>Custom Reports Admin</td><td>Create or edit custom reports owned by other users.</td></tr><tr><td>Global Custom Attributes</td><td>Create a custom attribute for stores or suppliers.</td></tr>
 </tbody></table></div>
 </details>
 <details class="policy-reference">
-<summary><strong>Shopify</strong> <span>(8 permissions)</span></summary>
+<summary><strong>Shopify</strong> <span></span></summary>
 <div class="table-wrap"><table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>Manage Shopify Orders</td><td>View and manage Shopify orders.</td></tr><tr><td>View Shopify Transfers</td><td>View Shopify transfers.</td></tr><tr><td>Manage Shopify Settings</td><td>Manage Shopify settings.</td></tr><tr><td>Add Online Order</td><td>Add new order for offline stores</td></tr><tr><td>Issue Invoice</td><td>Issue invoices for orders</td></tr><tr><td>Issue Refund</td><td>Issue refund invoices for orders</td></tr><tr><td>Issue Exchange</td><td>Issue exchange invoices for orders</td></tr><tr><td>Change Order State</td><td>Change order state "Delivered or Canceled"</td></tr>
 </tbody></table></div>
 </details>
 <details class="policy-reference">
-<summary><strong>Integration</strong> <span>(1 permissions)</span></summary>
+<summary><strong>Integration</strong> <span></span></summary>
 <div class="table-wrap"><table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>Integrated Reports</td><td>Show the Integration top-level menu, including Starco Stock Take, V-Count Settings and Integration Center.</td></tr>
 </tbody></table></div>
@@ -256,7 +256,7 @@
 <a class="doc-link" href="users-accounts.html"><div>←</div><div><strong>Users Accounts</strong><span>Assign users to Group Policies through the Member Of list and combine policy rights with Store/Supplier access scope.</span></div></a>
 <a class="doc-link" href="index.html"><div>↗</div><div><strong>System</strong><span>Return to the System menu overview.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>System Dashboard | IMS User Guide</title>
-<meta content="IMS System Dashboard guide: IMS Global/current versions, active database/server information, PostgreSQL HA state, connection/workstation/session data and the IMS 9.4.5 transaction Performance Monitor." name="description"/>
+<meta content="IMS System Dashboard guide: current versions, active database/server information, connection and workstation data, access logs, database sessions and transaction Performance Monitor." name="description"/>
 <link href="https://docs.ims.starco.com.kw/system/system-dashboard.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"System Dashboard","url":"https://docs.ims.starco.com.kw/system/system-dashboard.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a class="active" href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a class="active" href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -128,17 +128,14 @@
 <a href="../index.html#system">System</a>
 <a href="../index.html#shopify">Shopify</a>
 <a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">System</a> › System Dashboard</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/system.webp"/><h1>System Dashboard</h1></div>
-<p class="lead">System Dashboard is a read-only operational view of the IMS client, PostgreSQL server, high-availability cluster, active connections, recent workstations, access information and recorded transaction performance.</p>
-<div class="callout"><strong>Open the screen</strong>System → System Dashboard.</div>
-<figure class="screenshot">
-<img alt="IMS System Dashboard showing application versions, PostgreSQL server information, HA cluster state, connection statistics, workstation information, access log and active database sessions" src="../assets/images/system-dashboard.webp"/>
-<figcaption>The dashboard brings application, database, HA, connection and workstation information into one administrative screen.</figcaption>
-</figure>
+<p class="lead">System Dashboard is a read-only operational view of the IMS client, PostgreSQL server, active connections, recent workstations, access information and recorded transaction performance.</p>
+<div class="callout"><strong>Open the screen</strong>System → System Dashboard. The menu requires the <strong>manage system settings</strong> permission.</div>
+
 <h2 id="application-version">Application Version</h2>
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Latest Version</td><td>The latest IMS application version recorded in IMS Global.</td></tr>
@@ -155,17 +152,8 @@
 <tr><td>Server's Region</td><td>The configured IMS/database time zone.</td></tr>
 <tr><td>Server's Date/Time</td><td>The current server-side date and time known to IMS.</td></tr>
 </tbody></table></div>
-<h2 id="ha">HA Cluster State</h2>
-<p>When the IMS HA monitoring tables are available, the dashboard displays the current cluster state and node information maintained under <code>ims_admin</code>.</p>
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody>
-<tr><td>Current Primary</td><td>The node ID and name currently reported as primary.</td></tr>
-<tr><td>Current Address</td><td>The current primary host and PostgreSQL port.</td></tr>
-<tr><td>Last Seen Time</td><td>The last time the cluster-status record was refreshed.</td></tr>
-<tr><td>Connected Standby</td><td>Number of connected standby nodes compared with the configured standby count.</td></tr>
-<tr><td>Missing Standby</td><td>Number of standby nodes currently reported missing.</td></tr>
-<tr><td>Total Nodes</td><td>Total number of nodes in the monitored cluster.</td></tr>
-</tbody></table></div>
-<p>The node grid shows <strong>Node ID, Node Name, Role, Node State</strong> and <strong>Lag Bytes</strong>. Primary nodes are visually highlighted to make the current role easy to identify.</p>
+<h2 id="ha">High Availability monitoring</h2>
+<p>For cluster monitoring, an administrator uses <strong>IMS Global → System → HA Health</strong>. See <a href="../technical/ims-global.html">IMS Global administration</a>. The Client System Dashboard presents workstation and company-connection diagnostics.</p>
 <h2 id="connections">Connection Statistics</h2>
 <div class="table-wrap"><table><thead><tr><th>Metric</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Connection Latency</td><td>The query-response timing measured by IMS when the dashboard opens.</td></tr>
@@ -196,7 +184,7 @@
 </ul>
 <p>The status line at the bottom combines the recent-workstation count with the current total PostgreSQL session count for the active database.</p>
 <h2 id="performance">Performance Monitor</h2>
-<p>IMS includes a transaction-performance grid to System Dashboard. It summarizes recorded transaction timings over a selected date range so administrators can compare Store/workstation performance without reading raw timing rows.</p>
+<p>The transaction Performance Monitor summarizes recorded operations in System Dashboard. It summarizes recorded transaction timings over a selected date range so administrators can compare Store/workstation performance without reading raw timing rows.</p>
 <p>The default range is the last seven days through today. Choose <strong>From</strong> and <strong>To</strong>, optionally enable <strong>Trans. Type</strong>, then click <strong>Filter</strong>.</p>
 <div class="table-wrap"><table><thead><tr><th>Column</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Store Name</td><td>Store associated with the recorded transaction.</td></tr>
@@ -205,8 +193,8 @@
 <tr><td>Min / Max / Avg.</td><td>Minimum, maximum and rounded average recorded transaction time in milliseconds for that group.</td></tr>
 <tr><td>Health</td><td>Classification based on the average: <strong>Good</strong> ≤ 1,000 ms; <strong>Fair</strong> ≤ 2,000 ms; <strong>Slow</strong> ≤ 4,000 ms; <strong>Critical</strong> &gt; 4,000 ms.</td></tr>
 </tbody></table></div>
-<div class="callout"><strong>Diagnostic data</strong>The grid reports timing rows already recorded by IMS. A Store/date range with no recorded performance data returns no rows; System Dashboard does not generate historical timings retroactively.</div>
-<div class="callout tip"><strong>Operational use</strong>The dashboard is useful when checking whether clients are on the expected IMS version, confirming which database/server is active, reviewing HA primary/standby health, inspecting current sessions and comparing recorded transaction timing by Store/workstation.</div>
+<div class="callout"><strong>Diagnostic data</strong>The grid reports timing rows already recorded by IMS. A Store/date range with no recorded performance data returns no rows; System Dashboard does not generate historical timings retroactively. Transaction timing is recorded when debugging is enabled for the Store; this view does not enable it.</div>
+<div class="callout tip"><strong>Operational use</strong>The dashboard is useful when checking whether clients are on the expected IMS version, confirming which database/server is active, inspecting current sessions and comparing recorded transaction timing by Store/workstation.</div>
 <h2 id="related">Related documentation</h2>
 <div class="doc-list">
 <a class="doc-link" href="workstation-admin.html"><div>↗</div><div><strong>Workstation Admin</strong><span>Approve, block and manage workstation authorization.</span></div></a>
@@ -214,7 +202,7 @@
 <a class="doc-link" href="../technical/postgresql/index.html"><div>↗</div><div><strong>PostgreSQL deployment guide</strong><span>Technical background for the IMS PostgreSQL and HA environment.</span></div></a>
 <a class="doc-link" href="index.html"><div>←</div><div><strong>System</strong><span>Return to the System menu overview.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Client 9.4.6</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

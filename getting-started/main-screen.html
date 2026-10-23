@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a class="active" href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a class="active" href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -69,7 +69,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -123,12 +123,12 @@
 <a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
 <h3>Modules</h3>
 <a href="../index.html#sales">Sales</a><a href="../index.html#inventory">Inventory</a><a href="../index.html#financial">Financial</a><a href="../index.html#reports">Reports</a><a href="../index.html#manage">Manage</a><a href="../index.html#tools">Tools</a><a href="../index.html#system">System</a><a href="../index.html#shopify">Shopify</a><a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Getting Started › Login &amp; Main Screen</div>
 <h1>Getting Started: Login &amp; Main Screen</h1>
-<p class="lead">This page covers IMS 9.4.5 startup, global user sign-in, company selection when required, the selected-company workspace, toolbar/menu access, connection information and navigation between open IMS screens.</p>
+<p class="lead">This page covers IMS 9.4.6 startup, global user sign-in, company selection when required, the selected-company workspace, toolbar/menu access, connection information and navigation between open IMS screens.</p>
 <div class="callout tip" data-search-item="startup overview workstation login main menu permissions"><strong>Two separate approvals</strong>A workstation must be authorized to run IMS, and then a user must sign in with an authorized IMS account. Workstation authorization happens before the normal user login.</div>
 <h2 data-search-item="start IMS startup database update workstation authorization login" id="startup">What happens when IMS starts</h2>
 <ol class="steps">
@@ -149,11 +149,11 @@
 </tbody></table></div>
 <div class="callout warning"><strong>User login cannot bypass workstation approval</strong>If the workstation itself is not authorized, IMS stops before the normal user login. Approval must be handled by an IMS administrator.</div>
 <h2 data-search-item="login user name password incorrect disabled account create password remembered username cancel" id="login">Signing in to IMS</h2>
-<p>IMS 9.4.5 authenticates the user against the <strong>IMS Global</strong> user store before connecting to a company database. Enter the Login Name and Password, then click <strong>Login</strong>.</p>
+<p>IMS 9.4.6 authenticates the user against the <strong>IMS Global</strong> user store before connecting to a company database. Enter the Login Name and Password, then click <strong>Login</strong>.</p>
 <ol class="steps">
 <li>IMS verifies the Login Name and password against the global user identity.</li>
 <li>If the account is disabled, login stops and IMS asks the user to contact the system administrator.</li>
-<li>If the account has no password yet or is marked to change it, IMS opens the create/reset-password workflow before continuing.</li>
+<li>For a new or reset account, use the temporary password supplied by your administrator. If a password change is required, complete it and sign in again.</li>
 <li>IMS loads the companies for which the user has active access.</li>
 <li>If exactly one company is available, IMS selects it automatically. If more than one is available, the <strong>Select Company / Branch</strong> window appears.</li>
 <li>After selection, IMS connects to that company's database and loads the user's company-specific Store, Supplier, Group Policy and transaction access.</li>
@@ -209,7 +209,7 @@
 <tr><td><a href="../reports/index.html"><strong>Reports</strong></a></td><td>Cash and payment reporting, Store and salesperson performance, customer/loyalty history, Gross Income, Main Sales Report, Sell Through, Purchasing and User-Defined Reports.</td></tr>
 <tr><td><a href="../manage/index.html"><strong>Manage</strong></a></td><td>Suppliers, Stores, Sales Men/Ladies, Items, merchandise classifications, seasons, promotions, customers, loyalty and special-card master data.</td></tr>
 <tr><td><a href="../tools/index.html"><strong>Tools</strong></a></td><td>Label Printing, Stock Maintenance, IMS Autos, Custom Views, Custom Reports, Reporting Scheduler and Custom Attributes.</td></tr>
-<tr><td><a href="../system/index.html"><strong>System</strong></a></td><td>Change Password, Options, Users Accounts, Group Policies, Users Activity, Settings, Workstation Admin, System Dashboard and Check for updates.</td></tr>
+<tr><td><a href="../system/index.html"><strong>System</strong></a></td><td>Change Password, Options, Users Accounts, Group Policies, Users Activity, Settings, System Dashboard and Check for updates.</td></tr>
 <tr><td><a href="../shopify/index.html"><strong>Shopify</strong></a></td><td>Incoming Orders, Fulfillment Requests, Manage Profiles and the background Shopify Integration Server.</td></tr>
 <tr><td><a href="../integration/index.html"><strong>Integration</strong></a></td><td>Starco Stock Take, V-Count Settings and Integration Center for configurable external endpoints and sync monitoring.</td></tr>
 </tbody></table></div>
@@ -237,14 +237,14 @@
 <details data-search-item="workstation not authorized"><summary>Why does IMS close before I can log in?</summary><p>If the database is available but the workstation is not authorized, IMS stops before user login. Give the Workstation ID and Machine Name from the warning to IT so they can review the workstation.</p></details>
 <details data-search-item="hardware fingerprint changed"><summary>Why does a previously working PC suddenly require workstation approval?</summary><p>A changed workstation hardware identity can require a new approval when automatic workstation approval is disabled.</p></details>
 <details data-search-item="incorrect user name password"><summary>Why does IMS say “Incorrect User Name or Password”?</summary><p>The credentials were not accepted. Re-enter the password and verify the user name. If the account is disabled, contact the system administrator.</p></details>
-<details data-search-item="first password create password"><summary>What happens the first time I use an account with no password?</summary><p>IMS prompts you to create a password before it completes the login.</p></details>
+<details data-search-item="first password create password"><summary>How do I sign in with a new or reset account?</summary><p>Use the temporary password provided by the administrator, change it when prompted, then sign in again.</p></details>
 <details data-search-item="menu missing permissions"><summary>Why does another user have a menu that I do not see?</summary><p>IMS hides menu items according to user permissions. Ask your system administrator to check your assigned access if you need that function.</p></details>
 <details data-search-item="latency orange red"><summary>Why is connection latency showing a warning color?</summary><p>IMS changes the latency indicator after the measured database response time exceeds 75 ms. The system may still be connected, but communication with the server is slower.</p></details>
 <details data-search-item="multiple screens"><summary>Can I keep more than one IMS screen open?</summary><p>Yes. Supported screens remain inside the main workspace, and IMS adds buttons for active child screens so you can switch between them.</p></details>
 <details data-search-item="close POS Sales Transactions"><summary>Why can I not close the POS?</summary><p>If Sales Transactions is still running, IMS blocks the POS close action and asks you to close Sales Transactions first.</p></details>
 </div>
 <div class="search-empty" data-search-empty="">No matching section on this page.</div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

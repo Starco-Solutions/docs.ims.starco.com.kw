@@ -39,12 +39,14 @@
   <url><loc>https://docs.ims.starco.com.kw/manage/items.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/manage/lottery-offers.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/manage/product-groups.html</loc></url>
+  <url><loc>https://docs.ims.starco.com.kw/manage/promotions-loyalty.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/manage/sale-seasons.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/manage/sales-men-ladies.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/manage/service-items.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/manage/special-cards-profiles.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/manage/special-cards.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/manage/special-offers.html</loc></url>
+  <url><loc>https://docs.ims.starco.com.kw/manage/star-rewards.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/manage/statistical-periods.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/manage/stores.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/manage/suppliers.html</loc></url>
@@ -84,6 +86,7 @@
   <url><loc>https://docs.ims.starco.com.kw/system/users-activity.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/system/workstation-admin.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/technical/api-v1/authentication.html</loc></url>
+  <url><loc>https://docs.ims.starco.com.kw/technical/api-v1/customer-delta.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/technical/api-v1/data-semantics.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/technical/api-v1/errors-rate-limits.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/technical/api-v1/examples.html</loc></url>
@@ -103,6 +106,7 @@
   <url><loc>https://docs.ims.starco.com.kw/technical/secret-vault.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/technical/secure-bootstrap.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/technical/security.html</loc></url>
+  <url><loc>https://docs.ims.starco.com.kw/technical/service-administration.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/technical/source-baseline.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/technical/system-dashboard-observability.html</loc></url>
   <url><loc>https://docs.ims.starco.com.kw/tools/custom-attributes.html</loc></url>

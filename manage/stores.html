@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a class="active" href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a class="active" href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a class="active" href="../manage/stores.html">Stores</a>
@@ -120,8 +120,8 @@
 <a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
 <h3>Modules</h3>
 <a href="../index.html#sales">Sales</a><a href="../index.html#inventory">Inventory</a><a href="../index.html#financial">Financial</a><a href="../index.html#reports">Reports</a><a href="../index.html#manage">Manage</a><a href="../index.html#tools">Tools</a><a href="../index.html#system">System</a><a href="../index.html#shopify">Shopify</a><a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Manage › Stores</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/manage.webp"/><h1>Manage Stores</h1></div>
@@ -129,7 +129,6 @@
 <div class="callout"><strong>Open the screen</strong>Manage → Stores</div>
 <figure class="screenshot"><img alt="IMS Manage menu with Stores selected" src="../assets/images/manage-stores-menu.webp"/><figcaption>Path: Manage → Stores.</figcaption></figure>
 <h2 id="screen">Store master screen</h2>
-<figure class="screenshot"><img alt="IMS Manage Stores screen showing store settings, POS, sections, financial information and custom attributes" src="../assets/images/manage-stores-screen.webp"/><figcaption>The Store master combines operational, transaction, financial and reporting-related configuration in one place.</figcaption></figure>
 <h2 id="find">Find and filter stores</h2>
 <p>The left side of the screen lists stores and provides two ways to narrow the list:</p>
 <div class="table-wrap"><table><thead><tr><th>Control</th><th>Purpose</th></tr></thead><tbody>
@@ -148,7 +147,7 @@
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <p>Store ID and Name are required. After the store has been created, its ID becomes read-only.</p>
-<p>Creating a store also prepares its required transaction-number counters. Missing counters start at zero, and existing counter values are preserved. The new store and these counters are saved together in one database transaction.</p>
+<p>IMS assigns document numbers within each store's document sequences.</p>
 <h3>Edit an existing store</h3>
 <ol class="steps">
 <li>Select the store.</li>
@@ -173,6 +172,8 @@
 <tr><td>Supplier</td><td>Links the store to the applicable supplier record when the business setup requires that relationship.</td></tr>
 <tr><td>Phone</td><td>Store phone number.</td></tr>
 <tr><td>Address</td><td>Store address.</td></tr>
+<tr><td>Area (Sqm)</td><td>Store area in square metres. Leave blank when no area is recorded.</td></tr>
+<tr><td>Rent</td><td>Monthly rent in the company local currency. Leave blank when no rent is recorded.</td></tr>
 <tr><td>Location</td><td>Optionally assigns the store to an IMS Location. This relationship is used by reports that filter or group stores by Location.</td></tr>
 </tbody></table></div>
 <h2 id="settings">Store Settings</h2>
@@ -185,6 +186,7 @@
 <tr><td>Transactions Enabled</td><td>Controls whether the store is enabled for transaction processing.</td></tr>
 <tr><td>Star Rewards Active</td><td>Enables Star Rewards participation for the store.</td></tr>
 <tr><td>Integrate with V-Count</td><td>Marks the store for the IMS V-Count people-traffic integration. Imported traffic is used by reporting features that show Traffic and Conversion Rate.</td></tr>
+<tr><td>Debugging Mode Enabled</td><td>Enables transaction timing information for the store, available through the <a href="../system/system-dashboard.html">Performance Monitor</a>.</td></tr>
 <tr><td>Fulfillment Priority</td><td>Stores the priority used by supported fulfillment workflows.</td></tr>
 </tbody></table></div>
 <div class="callout"><strong>Shopify-linked stores</strong>If a store is being used as the local transaction store for an active Shopify store profile, IMS keeps the local store Active, Online Store and Transactions Enabled so the integration can continue using it.</div>
@@ -227,7 +229,7 @@
 <tr><td>Account No.</td><td>Financial account number stored for the store.</td></tr>
 <tr><td>Cash Deposit</td><td>Cash-deposit account/mapping stored for the store.</td></tr>
 </tbody></table></div>
-<p>The detailed accounting workflow for these fields will be cross-linked when the Financial modules are documented.</p>
+<p>See <a href="../financial/integration-setup.html">Financial Integration Setup</a> for account mappings and <a href="../financial/posting.html">Posting</a> for journal review and posting.</p>
 <h2 id="attributes">Custom Attributes</h2>
 <p>Store Custom Attributes extend the standard store master with business-specific values. The attribute definition is global, while the <strong>Value</strong> is stored independently for each store.</p>
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody>
@@ -268,7 +270,7 @@
 <a class="doc-link" href="../reports/main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Analyze store, location and merchandise performance.</span></div></a>
 <a class="doc-link" href="../reports/store-sales-report.html"><div>↗</div><div><strong>Store Sales Report</strong><span>Review daily, weekly, monthly, yearly and hourly store sales including traffic and conversion.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main>
 </div>
 <script src="../assets/js/docs.js"></script>
