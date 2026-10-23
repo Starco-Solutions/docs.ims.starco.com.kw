@@ -422,6 +422,10 @@
       "summary": "IMS Security Guard & Secure Bootstrap: workstation authorization, version gates, global authentication, password changes, company routing and credential bootstrap."
     },
     {
+      "path": "technical/security-guidance.html",
+      "summary": "General security recommendations for IMS administrators: workstation protection, credentials and keys, logs, network access, recovery and incident handling; distinct from verified IMS controls."
+    },
+    {
       "path": "technical/security.html",
       "summary": "Security Architecture: workstation authorization, global authentication, Global Administrator sessions, company membership and company-local permissions."
     },
