@@ -159,8 +159,9 @@
 <tr><td>Style / Description / Color / Size</td><td>Product and variant details.</td></tr>
 <tr><td>Sold</td><td>Net quantity sold by the destination store during the selected date/hour criteria.</td></tr>
 <tr><td>Transfer</td><td>Quantity currently selected to replenish.</td></tr>
-<tr><td>Store balance columns</td><td>Positive on-hand quantity currently available in the source/destination stores, or in other stores when Show Other Store's Balance is enabled.</td></tr>
+<tr><td>Store balance columns</td><td>Recorded positive on-hand quantity in the selected stores and, when Show Other Store's Balance is enabled, other Stores. Recorded quantity does not by itself establish suitability for replenishment.</td></tr>
 </tbody></table></div>
+<div class="callout warning"><strong>Damage stock</strong>The report can display balances from an authorized <a href="../manage/stores.html#damage-locations">Damage Location</a>, including when Show Other Store's Balance is enabled. Those units are reserved for inspection or operational action, not ordinary replenishment. Confirm the source Store and exclude damage stock when preparing transfers; Shopify's online-stock exclusion is a separate rule.</div>
 <h2 id="quantities">Choose quantities to transfer</h2>
 <p>Select a row and use <strong>+</strong> to add one unit to its Transfer quantity. IMS simultaneously reduces the displayed available quantity in the selected From-store column. Use <strong>−</strong> to reverse one selected unit and return it to the displayed source balance.</p>
 <p>The keyboard <strong>+</strong> and <strong>−</strong> keys perform the same actions while the report grid has focus.</p>
