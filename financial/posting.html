@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a class="active" href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a class="active" href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -128,8 +128,8 @@
 <a href="../index.html#system">System</a>
 <a href="../index.html#shopify">Shopify</a>
 <a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Financial</a> › Posting</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/financial.webp"/><h1>Posting</h1></div>
@@ -139,7 +139,7 @@
 <img alt="IMS Posting screen with date criteria, transaction-type checkboxes, stores and journal tabs" src="../assets/images/financial-posting.webp"/>
 <figcaption>Posting separates sales, COGS and Stock Transfer journals into review tabs before they are sent to the current financial system.</figcaption>
 </figure>
-<div class="callout tip"><strong>Current production connector</strong>Posting currently writes the approved journals directly to the local <strong>Al-Shamel Financial Management System</strong>. The business workflow is documented as Financial Posting so the same user process can later support another approved connector.</div>
+<div class="callout tip"><strong>Current financial connector</strong>Posting currently writes the approved journals directly to the local <strong>Al-Shamel Financial Management System</strong>.</div>
 <h2 id="criteria">Choose what to post</h2>
 <p>Select the <strong>Date From</strong> and <strong>To</strong>, then select the required transaction family.</p>
 <div class="table-wrap"><table><thead><tr><th>Option</th><th>Transactions included</th></tr></thead><tbody>
@@ -194,7 +194,7 @@
 <a class="doc-link" href="journals-monitoring.html"><div>↗</div><div><strong>Journals Monitoring</strong><span>Find source transactions whose IMS journal is missing or unbalanced before posting.</span></div></a>
 <a class="doc-link" href="integration-setup.html"><div>↗</div><div><strong>Integration Setup</strong><span>Defines the current financial connector and core account mappings.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

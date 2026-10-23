@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a class="active" href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a class="active" href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -128,8 +128,8 @@
 <a href="../index.html#system">System</a>
 <a href="../index.html#shopify">Shopify</a>
 <a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Inventory</a> › Stock Depreciation</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/inventory.webp"/><h1>Stock Depreciation</h1></div>
@@ -137,11 +137,14 @@
 <div class="callout"><strong>Open the screen</strong>Inventory → Stock Depreciation.</div>
 <div class="callout tip">
 <strong>Current financial integration</strong>
-The current IMS deployment posts Stock Depreciation journals directly to the local <strong>Al-Shamel Financial Management System</strong>. The user guide refers to this business process as <strong>Financial Posting</strong> so the inventory workflow remains independent from the financial connector used by a future IMS integration.
+The current IMS deployment posts Stock Depreciation journals directly to the local <strong>Al-Shamel Financial Management System</strong>.
 </div>
 <h2 id="store">Select the store</h2>
 <p>Select the required Branch/Store. IMS loads the Stock Depreciation vouchers belonging to that location and uses the store's current inventory balance, financial account, cost center and accounting branch when processing the voucher.</p>
 <p>The first/previous/next/last controls let you browse the location's existing depreciation vouchers, and the Voucher No. field can be used to jump directly to a known voucher number.</p>
+<h2 id="damage-stock">Damage stock versus a write-off</h2>
+<p>A <a href="../manage/stores.html#damage-locations">Damage Location</a> holds recorded stock separately from ordinary saleable locations. The location flag and a transfer into it do not depreciate the stock or establish that it is permanently unsaleable; it may be awaiting physical inspection or another operational decision. A Stock Depreciation voucher is the separate action that reduces the selected location’s on-hand quantity and supports the write-off’s financial posting.</p>
+<p>Select the location that actually holds the units being written off. Check its balance and related transfers before saving; do not write off the same units again in their former location. Shopify already excludes physical balances in Damage Locations, so removing those excluded units is not the same as reducing the eligible online-store quantity. See <a href="../shopify/integration-server.html">Shopify online availability</a> for its separate store exclusions and item-level damaged-quantity deduction.</p>
 <h2 id="new">Create a new depreciation voucher</h2>
 <ol class="steps">
 <li>Select the store where the stock is being written off.</li>
@@ -208,7 +211,7 @@ The current IMS deployment posts Stock Depreciation journals directly to the loc
 <a class="doc-link" href="../reports/purchasing-report.html"><div>↗</div><div><strong>Purchasing Report</strong><span>Includes purchasing and cost measures used alongside inventory analysis.</span></div></a>
 <a class="doc-link" href="../manage/stores.html"><div>↗</div><div><strong>Manage Stores</strong><span>Store transaction and financial setup affect depreciation processing and posting.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

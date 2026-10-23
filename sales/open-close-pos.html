@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a class="active" href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a class="active" href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -128,8 +128,8 @@
 <a href="../index.html#system">System</a>
 <a href="../index.html#shopify">Shopify</a>
 <a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Sales</a> › Open/Close POS</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/open-close-pos.webp"/><h1>Open/Close POS</h1></div>
@@ -178,7 +178,7 @@
 <tr><td>Branch / POS</td><td>The Store and configured POS terminal whose shift is being managed.</td></tr><tr><td>POS Date</td><td>The active business date for that POS.</td></tr><tr><td>Opened by / Open Date</td><td>User and server date/time that opened the shift.</td></tr><tr><td>Open Cash</td><td>Cash float recorded when the shift was opened.</td></tr><tr><td>Credit/Debit Cards Machines</td><td>The bank/card-machine definitions active during the shift.</td></tr><tr><td>Closed by / Close Date</td><td>User and server date/time that closed the active shift.</td></tr><tr><td>Close Cash</td><td>Physical cash recorded during close.</td></tr><tr><td>Notes</td><td>Opening and closing notes retained with the shift record.</td></tr></tbody></table></div>
 <h2>Permissions and safeguards</h2><p>Open/Close POS respects IMS maintenance mode and database-connection checks. The separate <strong>Close Day</strong> action is hidden when the active user's Group Policy does not include the End POS Day permission.</p><p>This distinction lets normal shift operators open/close shifts while reserving permanent end-of-day control for the appropriate role.</p>
 <h2>Related documentation</h2><div class="doc-list"><a class="doc-link" href="index.html"><div>←</div><div><strong>Sales</strong><span>Return to the five Sales toolbar functions.</span></div></a><a class="doc-link" href="../system/group-policies.html"><div>↗</div><div><strong>Group Policies</strong><span>Open/Close POS and End POS Day are controlled by IMS permissions.</span></div></a><a class="doc-link" href="../financial/banks.html"><div>↗</div><div><strong>Banks</strong><span>Bank/card-machine definitions are used when opening a POS shift.</span></div></a></div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

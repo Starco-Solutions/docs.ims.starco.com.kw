@@ -15,9 +15,10 @@ for entry in manifest['pages']:
 lines = ['# IMS Documentation', '', '> IMS user, administrator and developer documentation. See Component Versions and Compatibility for release requirements.']
 section = None
 for entry in manifest['pages']:
-    group = entry['path'].split('/')[0] if '/' in entry['path'] else 'Overview'
+    group = ('Business API' if entry['path'].startswith('technical/api-v1/')
+             else entry['path'].split('/')[0] if '/' in entry['path'] else 'Overview')
     if group != section:
-        lines.extend(['', '## ' + group.replace('-', ' ').title()])
+        lines.extend(['', '## ' + (group if group == 'Business API' else group.replace('-', ' ').title())])
         section = group
     lines.append(f"- {origin}/{entry['path']} — {entry['summary']}")
 (ROOT / 'llms.txt').write_text('\n'.join(lines) + '\n')

@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a class="active" href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a class="active" href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -128,8 +128,8 @@
 <a href="../index.html#system">System</a>
 <a href="../index.html#shopify">Shopify</a>
 <a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Inventory</a> › Stock Adjustments</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/inventory.webp"/><h1>Stock Adjustments</h1></div>
@@ -137,7 +137,7 @@
 <div class="callout"><strong>Open the screen</strong>Inventory → Stock Adjustments.</div>
 <div class="callout tip">
 <strong>Current financial integration</strong>
-The current IMS deployment posts eligible Stock Adjustment discrepancy journals directly to the local <strong>Al-Shamel Financial Management System</strong>. This guide uses the generic business term <strong>Financial Posting</strong> so the stock-adjustment workflow remains valid when another financial connector is introduced later.
+The current IMS deployment posts eligible Stock Adjustment discrepancy journals directly to the local <strong>Al-Shamel Financial Management System</strong>.
 </div>
 <h2 id="purpose">When to use Stock Adjustments</h2>
 <p>Use Stock Adjustments when an approved correction must change the on-hand quantity without creating a Purchase, Stock Transfer or Stock Depreciation voucher. Typical examples include correcting a stock-count difference or fixing an inventory quantity that is known to be inaccurate.</p>
@@ -188,7 +188,6 @@ The current IMS deployment posts eligible Stock Adjustment discrepancy journals 
 <p>If validation fails, IMS creates an <strong>-ErrorLog.txt</strong> file beside the import file containing the row number and reason. Retail and Cost values are taken from the IMS item master and do not need to be supplied in the file.</p>
 <h2 id="stock-effect">How the adjustment changes stock</h2>
 <p>When a new voucher is saved, IMS adds each signed adjustment quantity to the selected store's current on-hand balance. Therefore a +5 adjustment increases stock by five units and a -5 adjustment reduces stock by five units.</p>
-<p>When saving or editing an adjustment, IMS creates any required store/item balance records before applying the adjustment quantities. Missing balances start at zero; existing records retain their values, and repeated Item Codes do not create duplicate balance records.</p>
 <p>Affected items are also queued for the normal IMS online-item update process so connected online inventory processes can react to the change.</p>
 <h2 id="edit">Edit an unposted adjustment</h2>
 <p>An authorized user can edit an existing voucher while it has not been financially posted. IMS first reverses the effect of the original adjustment, replaces the voucher details, and then applies the revised signed quantities.</p>
@@ -218,7 +217,7 @@ A positive-cost adjustment changes the IMS inventory balance but is not posted t
 <a class="doc-link" href="../manage/stores.html"><div>↗</div><div><strong>Manage Stores</strong><span>Store and financial setup are used by Stock Adjustment processing and posting.</span></div></a>
 <a class="doc-link" href="../manage/items.html"><div>↗</div><div><strong>Manage Items</strong><span>Provides the Retail Price, Cost, Unit and product details used by the adjustment voucher.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

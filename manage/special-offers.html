@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a class="active" href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a class="active" href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -120,8 +120,8 @@
 <a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
 <h3>Modules</h3>
 <a href="../index.html#sales">Sales</a><a href="../index.html#inventory">Inventory</a><a href="../index.html#financial">Financial</a><a href="../index.html#reports">Reports</a><a href="../index.html#manage">Manage</a><a href="../index.html#tools">Tools</a><a href="../index.html#system">System</a><a href="../index.html#shopify">Shopify</a><a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Manage › Special Offers</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/manage.webp"/><h1>Manage Special Offers</h1></div>
@@ -130,7 +130,7 @@
 <figure class="screenshot"><img alt="IMS Manage menu with Special Offers selected" src="../assets/images/manage-special-offers-menu.webp"/><figcaption>Path: Manage → Special Offers.</figcaption></figure>
 <h2 id="structure">How a Special Offer is structured</h2>
 <p>Every offer starts with the same core information: <strong>ID</strong>, <strong>Name</strong>, <strong>Start</strong> and <strong>End</strong>. The center section changes according to the selected offer type, while the <strong>Apply On</strong> area controls Stores, Client Categories and Items.</p>
-<div class="callout tip"><strong>Screenshot policy</strong>This is a feature-rich screen, but the guide intentionally avoids repeating nearly identical screenshots. The five offer types are explained below using tables and examples. One Cash Back screenshot is included because that mode adds materially different voucher, expiry and redemption controls.</div>
+
 <h2 id="types">The five offer types</h2>
 <div class="table-wrap"><table><thead><tr><th>Offer Type</th><th>Rule</th><th>Typical use</th></tr></thead><tbody>
 <tr><td><strong>Give Discount</strong></td><td>Give a percentage discount to eligible items, or apply the discount on the total invoice amount. It can also use a special price list instead of one percentage.</td><td>“15% off selected items”, “10% off the invoice”, or item-specific promotional prices.</td></tr>
@@ -175,7 +175,7 @@
 <p>For <strong>As buy get</strong>, the Discounts Policy list can contain multiple quantity/percentage entries. The percentage option is fixed for these tier definitions.</p>
 <h2 id="cashback">Cash Back</h2>
 <p>Cash Back is the most specialized mode because it can issue a value for later use or apply the benefit immediately to the current receipt.</p>
-<figure class="screenshot"><img alt="IMS Special Offers Cash Back configuration with thresholds, expiry and redemption stores" src="../assets/images/manage-special-offers-cashback.webp"/><figcaption>Cash Back adds threshold/value criteria, voucher terms, expiry and redemption-store controls. This is the only extra offer-type screenshot retained because the layout changes significantly.</figcaption></figure>
+<figure class="screenshot"><img alt="IMS Special Offers Cash Back configuration with thresholds, expiry and redemption stores" src="../assets/images/manage-special-offers-cashback.webp"/><figcaption>Cash Back adds threshold/value criteria, voucher terms, expiry and redemption-store controls. Choose current-receipt or later-voucher behavior before setting the terms.</figcaption></figure>
 <h3>Cash Back Criteria</h3>
 <p>Each criterion pairs a qualifying total with a benefit. The benefit can be a fixed currency value or, when <strong>Give percent from Total</strong> is selected, a percentage.</p>
 <div class="callout"><strong>Example</strong>50.000 → 10.000, 100.000 → 20.000, 150.000 → 30.000. The list is ordered by the qualifying total.</div>
@@ -243,13 +243,33 @@
 </div>
 <h2 id="permissions">Permissions</h2>
 <p>New, Edit and Delete are controlled by the IMS <strong>Manage Special Offer</strong> access policy. If the user does not have this right, the maintenance actions are disabled.</p>
+<h2 id="pos-calculation">POS eligibility and calculation reference</h2>
+<p>The offer must match the working date, store and customer category. Select the correct customer before reviewing the offer result. Item lists are resolved to Item Codes. POS evaluates eligible sale lines and shows the resulting prices and discount; a return line is not another purchased unit. Quantity offers operate on merchandise items, excluding Service Items. The optional <strong>receipt total exceeded</strong> condition is strict: equality with that minimum does not pass.</p>
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th>Calculation and operator check</th></tr></thead><tbody>
+<tr><td>Item percentage discount</td><td>Uses original price × (1 − discount). Full-price-only excludes already discounted items. Override replaces an existing discount only when the offer percentage is greater. Without either override or full-price eligibility, an existing item discount is retained.</td></tr>
+<tr><td>Special price list</td><td>The imported price is translated to a discount from original price for that item when Apply Offer is selected. A missing price entry, or a price at/above original price, leaves the current discount. Review the actual line price.</td></tr>
+<tr><td>Buy/Get free</td><td>Both purchased and benefit items must be on the receipt. IMS selects the lowest-priced eligible lines as free. For Buy N/Get M, when N &gt; M the current calculation grants one free line per complete N+M group; otherwise it grants M per complete group. Thus Buy 3/Get 1 requires four eligible items and makes one free.</td></tr>
+<tr><td>Step List A/List B</td><td>List A provides qualifying quantity and List B identifies discounted lines. For A-count N and B-count M, the allowance is floor(A quantity/N) when N &gt; M, otherwise floor(A quantity/N) × M. Discounts apply to available List B lines in receipt order, up to that allowance.</td></tr>
+<tr><td>Step as Buy/Get</td><td>Uses the same eligible merchandise group rather than two lists. Without Get on Any, the discount allowance uses complete N+M groups, with one benefit when N &gt; M and M benefits otherwise. With Get on Any and a single percentage, all but one eligible item receive the percentage. With a quantity/percentage policy, the highest reached quantity threshold supplies the percentage and eligible items receive that tier's discount.</td></tr>
+<tr><td>Bundle</td><td>Each complete group of N eligible items is priced at the configured total; incomplete groups do not earn another bundle. IMS distributes the difference from original prices evenly, rounds the per-item discount down to two decimals, and places the three-decimal remainder on the highest-original-price item in the group. Check individual line values as well as the bundle total.</td></tr>
+<tr><td>Invoice percentage</td><td>Applies a second discount to current line amounts, rounded to two decimals per line. It applies when there is no client discount or the offer forces that discount off. Optional rounding sets the final receipt to the configured increment and allocates the difference to a line.</td></tr>
+<tr><td>Round Net Amount</td><td>For item/step discounts, rounds the resulting price to the nearest multiple of the configured increment and recalculates the effective discount. Midpoint rounding follows nearest-even rounding, not an unconditional upward rounding rule.</td></tr>
+</tbody></table></div>
+<h2 id="cashback-calculation">Cashback amount and payment exclusions</h2>
+<p>Cashback uses eligible merchandise value net of return lines. The qualifying base cannot exceed the receipt's merchandise total less voucher payments and Star Rewards redemption. For a threshold list, the highest reached threshold supplies the benefit. For Step on every N amount, whole steps are counted; any remainder does not form another step. A fixed criterion is a currency amount. A percentage criterion becomes that percentage of the qualifying base; in repeating-step mode the percentage criterion is multiplied by the number of whole steps before conversion.</p>
+<p><strong>Apply on current receipt</strong> distributes the calculated benefit as a receipt discount and does not issue a later-use cashback voucher. In voucher mode, the saved voucher carries its amount, campaign, issue receipt/store and expiry. A later redemption checks existence, unused/uncancelled status, expiry and allowed redemption stores; company settings govern multiple vouchers. The customer receives promotional value, not a Star Card balance or Star Rewards points.</p>
+<h2 id="offer-returns">Refund, cancellation and retained promotion result</h2>
+<p>Use the original receipt when returning promotional goods. Buy/Get, bundle, step and current-receipt cashback transactions enter the offer recalculation workflow, so the benefit is reconsidered for the remaining purchase. Do not refund a free item as if it were bought at full price.</p>
+<p>For an issued cashback voucher that has not been used, IMS warns that the voucher will be cancelled unless the transaction is only a size exchange. If it has already been used, the return workflow restricts the original purchase to size exchange and identifies the redemption receipt/store. Cancellation remains associated with the return receipt. The original sales record retains the offer reference and posted line/receipt discounts; changing the setup later does not rewrite those historical amounts.</p>
+<div class="callout"><strong>Hypothetical example</strong>A Buy 3/Get 1 campaign has four eligible items priced 12.000, 10.000, 8.000 and 6.000, with one unit on each line. The 6.000 item is free and the total is 30.000. Removing an item changes eligibility, so the cashier must review the recalculated receipt. In a separate cashback campaign, a 60.000 qualifying base with a 50.000 → 10.000 fixed criterion creates a 10.000 voucher, or a 10.000 current-receipt benefit if that option is selected.</div>
+<p><a href="promotions-loyalty.html">Promotions &amp; Loyalty overview</a>.</p>
 <h2 id="related">Related documentation</h2>
 <div class="doc-list">
 <a class="doc-link" href="sale-seasons.html"><div>←</div><div><strong>Manage Sale Seasons</strong><span>Scheduled item markdown pricing.</span></div></a>
 <a class="doc-link" href="items.html"><div>↗</div><div><strong>Manage Items</strong><span>Item Code, Style and Color master data used by offer imports.</span></div></a>
 <a class="doc-link" href="../reports/main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Review the sales and discount results recorded by the POS.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main>
 </div>
 <script src="../assets/js/docs.js"></script>

@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/main-sales-report.html">Reports</a><a href="../manage/suppliers.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a class="active" href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/main-sales-report.html">Reports</a><a href="../manage/suppliers.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a class="active" href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -61,7 +61,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
 <a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
@@ -122,8 +122,8 @@
 <a href="../index.html#system">System</a>
 <a href="../index.html#shopify">Shopify</a>
 <a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Shopify</a> › Integration Server</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/shopify.webp"/><h1>Shopify Integration Server</h1></div>
@@ -137,10 +137,13 @@
 <tr><td>Monitoring</td><td>Maintains automatic/manual logs, connection/error counters, Shopify product counts and API-rate monitoring.</td></tr>
 <tr><td>Manual maintenance</td><td>Provides full, draft, style and file-based inventory updates plus a one-order retrieval tool.</td></tr>
 </tbody></table></div>
-<h2>One running profile</h2>
-<p>Each running instance is configured with one <strong>Profile ID</strong>. The application verifies that the profile is active, then loads all active Shopify Access records belonging to that profile. These records provide the Shopify Store URL/token, Shopify Location ID, mapped IMS Local Store and Shipping Item.</p>
-<p>This is why <a href="manage-profiles.html">Manage Profiles</a> is the configuration source for the server integration rather than a separate set of Store definitions.</p>
-<div class="callout warning"><strong>Worker configuration</strong>Shopify Integration Server 4.2.0 uses its existing company-database token configuration. Confirm credential compatibility before moving a profile to a different storage path. Active access records are loaded by profile without filtering No Integration, so that flag alone does not exclude a profile from worker processing.</div>
+<h2 id="companies-profiles">Multiple companies and independent profiles</h2>
+<p>Shopify Integration Server <strong>4.4.0</strong> is a .NET 10 Windows desktop application. Select a <strong>Company</strong>, then a <strong>Profile</strong>. Each company/profile worker owns its connection, schedule, state, counters and logs. Selecting a different company or profile changes the displayed worker; it does not stop the other workers.</p>
+<p>At startup, the application authenticates with IMS API, discovers authorized companies and loads their active profiles. Each worker loads active Shopify Access records with <strong>No Integration disabled</strong>. Store URLs, Location IDs, Local Stores and Shipping Items come from Manage Profiles; each App Token is obtained separately through the authorized IMS API service. A profile with no active integrated stores cannot initialize.</p>
+<p>Company discovery runs at application startup. Restart after changing company grants so newly authorized companies can be discovered. Before each automatic or manual operation, the worker obtains or renews company and Store authorization. If renewal fails, it cannot admit that operation. An operation already admitted uses its authorized connection and token snapshot until it finishes.</p>
+<h2 id="start-stop">Start, Stop and operator scope</h2>
+<ol class="steps"><li>Select the company and profile and verify its Active Stores and last error.</li><li>Set that profile’s interval, logging, API throttle and Run on startup preference.</li><li>Click <strong>Start</strong> for automatic processing. Connection and product-count checks run first; the first cycle follows one configured interval.</li><li>Click <strong>Stop</strong> before a manual operation. Stop cancels the wait for the next cycle and lets active work finish; wait for the profile to show Stopped.</li><li>Choose the intended Store and manual operation. A profile runs one operation at a time; other profiles can continue independently.</li></ol>
+<p>Company/profile settings and logs are separate. Start Minimized and Minimize to tray are application preferences. Closing the application drains its workers and ends processing; Run on startup is an application preference, not Windows startup registration.</p>
 <h2>Automatic cycle</h2>
 <ol class="steps">
 <li><strong>Check IMS PostgreSQL.</strong> The application confirms the IMS database connection before an automatic cycle continues.</li>
@@ -153,7 +156,7 @@
 <li><strong>Wait for the configured interval</strong> and repeat.</li>
 </ol>
 <h2>How a Shopify order becomes an IMS order</h2>
-<p>The background application uses the Shopify <strong>Order Number</strong> as the IMS Order Reference. Before creating a new IMS order it checks the profile/Store/order-reference identity. Order creation repeats the duplicate check under a transaction and same-order lock.</p>
+<p>The background application uses the Shopify <strong>Order Number</strong> as the IMS Order Reference. Before creating a new IMS order it checks the profile/Store/order-reference identity. An already imported order is not imported again by ordinary retrieval.</p>
 <div class="callout tip"><strong>JIT supplier notification is handled by IMS Autos</strong>After the Shopify Integration Server writes a new order into IMS, it does not itself send the JIT supplier email. <a href="../tools/ims-autos.html">IMS Autos</a> independently checks for newly created online orders and sends Supplier/Brand order requests using the Mailing List configured in the Supplier master.</div>
 <p>For every line, the integration reads the Shopify variant so IMS can use its <strong>barcode, SKU, options, current sold price and compare-at/original price</strong>. The barcode is the primary bridge between the Shopify variant and the IMS Item Code.</p>
 <h3>Items not yet in IMS</h3>
@@ -172,22 +175,23 @@
 <li>IMS creates one Stock Transfer voucher per supplying Store to the mapped online Store, records the online Order No. against the transfer lines, updates stock balances and creates the transfer journal entries.</li>
 <li>The supplying Store sees the resulting voucher in <a href="fulfillment-requests.html">Fulfillment Requests</a>.</li>
 </ol>
-<div class="callout warning"><strong>Import and fulfillment have separate outcomes</strong>The order commits before a separate fulfillment transaction allocates stock and commits transfers, fulfillment identities, balances and journals together. If fulfillment fails, the imported order can remain without transfers. The automatic loop skips existing orders, so waiting or restarting does not establish recovery. Use the supported IMS order workflow with qualified support to investigate and complete required fulfillment. IMS transfer preparation is distinct from Shopify fulfillment completion and Store-side packing confirmation.</div>
+<div class="callout warning"><strong>Import and fulfillment have separate outcomes</strong>An imported order can exist without completed fulfillment transfers. Review its linked transfers in Incoming Orders and use the supported order workflow with qualified support to complete any outstanding fulfillment; repeating retrieval does not replay fulfillment. IMS transfer preparation is distinct from Shopify fulfillment completion and Store-side packing confirmation.</div>
 <h2>Inventory quantity sent to Shopify</h2>
 <p>The automatic inventory process is profile-aware. It considers only items belonging to suppliers allowed by the profile and only items that have an online Handle.</p>
 <div class="table-wrap"><table><thead><tr><th>Rule</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Online-enabled item</td><td>If the IMS item is not marked available online, its calculated Shopify quantity is zero.</td></tr>
-<tr><td>Eligible physical stock</td><td>Stock is summed from active, transfer-enabled physical Stores. Online Stores, inactive Stores, non-transfer Stores and damage Stores are excluded.</td></tr>
+<tr><td>Eligible physical stock</td><td>Stock is summed from active, transfer-enabled physical Stores. Online Stores, inactive Stores, non-transfer Stores and <a href="../manage/stores.html#damage-locations">Damage Locations</a> are excluded. Damage-location stock may be awaiting inspection; exclusion does not establish a permanent write-off.</td></tr>
 <tr><td>Profile exclusions</td><td>Stores in the profile's Excluded Stores list are not counted in the quantity sent to Shopify.</td></tr>
-<tr><td>Damaged quantity</td><td><strong>damagedQty</strong> is deducted from the available total.</td></tr>
+<tr><td>Damaged quantity</td><td>The item-level <strong>damagedQty</strong> is deducted separately from the eligible physical-store total. A transfer from a Damage Location adds to this item quantity; see <a href="../manage/stores.html#damage-locations">Damage Locations</a>.</td></tr>
 <tr><td>Reduce By Qty</td><td>The item's configured <strong>Reduce By Qty</strong> is also deducted as an online safety/reserve quantity.</td></tr>
 <tr><td>Negative result</td><td>Shopify is sent zero rather than a negative inventory value.</td></tr>
 </tbody></table></div>
 <p>The integration finds the Shopify product using the IMS <strong>Handle</strong>, then matches the exact variant by <strong>barcode</strong> and sets the inventory level at the Shopify <strong>Location ID</strong> configured for that Store.</p>
-<div class="callout tip"><strong>Current automatic synchronization</strong>The active automatic path synchronizes <strong>inventory quantity</strong>. Price-update logic is not part of the active automatic synchronization path in this build.</div>
+<div class="callout tip"><strong>Current automatic synchronization</strong>The active automatic path synchronizes <strong>inventory quantity</strong>. It does not publish item titles, images, online descriptions or prices to Shopify. An item-master change can select the item for quantity recalculation without turning this inventory cycle into a metadata or price synchronization service.</div>
 <h3>Incremental inventory and mapping failures</h3>
-<p>The worker reads the shared item-change journal using a fixed database-time window and a separate last-balance-update watermark for each profile. It does not consume or delete the shared journal. A reported inventory batch success advances that profile's watermark; transient update failures retain it for reprocessing on a later cycle.</p>
+<p>The worker reads changes from IMS item-master and store-stock Delta timestamps. Each profile has its own last successful balance timestamp. A cycle captures a fixed safe upper timestamp from the database and reads changes at or after the saved timestamp and strictly before that upper timestamp. The following cycle includes the boundary. Both kinds of change select the item once, within the profile’s supplier scope. The profile cursor advances only after the inventory batch succeeds; temporary API/update failures leave it unchanged for another cycle. A profile without supplier configuration cannot consume the window.</p>
 <p>Missing or nonunique products, missing product IDs and unmatched barcode variants do not all count as batch failures. Watermark advancement therefore does not prove every item was matched or updated. Review <strong>No Variants Found</strong> diagnostics, repair mapping and arrange a controlled inventory refresh when required.</p>
+<h2 id="delta-example">Hypothetical inventory example</h2><p>A profile has 12 units in eligible physical Stores, 3 in a damage Store, 2 units marked damaged on the item and a Reduce By Qty reserve of 1. The damage Store is excluded; the online quantity is <strong>12 − 2 − 1 = 9</strong>. A later sale changes the stock Delta timestamp and selects the item for the next safe window. If the item is not online-enabled or the final quantity is negative, Shopify receives zero. Review profile exclusions separately: a Store excluded from this profile contributes no stock to this calculation.</p>
 <h2>Manual inventory maintenance</h2>
 <div class="table-wrap"><table><thead><tr><th>Mode</th><th>Use</th></tr></thead><tbody>
 <tr><td>Update All</td><td>Recalculates and sends the complete eligible inventory set for the selected Shopify Store/location.</td></tr>
@@ -198,10 +202,10 @@
 <h2>Retrieve one Shopify order manually</h2>
 <p>The server UI includes <strong>Get Order</strong> for support/recovery work. The value entered here is the Shopify <strong>internal Order ID found in the Shopify URL</strong>, not the displayed Shopify Order Number. After Shopify returns the order, IMS stores the normal Shopify Order Number as its Order Reference.</p>
 <div class="callout"><strong>Different identifiers</strong>Use the URL's Shopify Order ID only for this server-side retrieval tool. Inside IMS, users normally work with the imported Order Reference/Order Number.</div>
-<p>In the worker, Get Order imports the order only; its fulfillment call is disabled. It refuses an already imported order and is not a general fulfillment-replay tool. Verify and complete any required IMS fulfillment separately.</p>
+<p>In the worker, Get Order imports the order only; it does not create fulfillment transfers. It refuses an already imported order and is not a general fulfillment-replay tool. Verify and complete any required IMS fulfillment separately.</p>
 <h2>Operational settings</h2>
 <div class="table-wrap"><table><thead><tr><th>Setting</th><th>Meaning</th></tr></thead><tbody>
-<tr><td>Profile ID</td><td>The active IMS Shopify profile handled by this running integration instance.</td></tr>
+<tr><td>Company / Profile</td><td>Selects the independent worker whose settings, counters, active Stores and logs are displayed.</td></tr>
 <tr><td>Interval</td><td>Seconds between automatic integration cycles.</td></tr>
 <tr><td>Max Log rows</td><td>Controls live-log clearing and regular/error list-log file rotation. Zero leaves the live lists unbounded and disables their file persistence. Exception and explicit update-failure logs use separate paths.</td></tr>
 <tr><td>Max API Calls per second</td><td>Local inventory-update throttle; it does not guarantee compliance with Shopify's effective API limits.</td></tr>
@@ -214,7 +218,7 @@
 <p>The monitoring area also shows order/inventory errors, variant update/error counts and local API-rate-limit hits. A separate “No Variants Found” logging option can be enabled when barcode/handle mapping needs investigation.</p>
 <h2>Connection and recovery behavior</h2>
 <p>The integration keeps a reusable Shopify HTTP client with a 30-second request timeout and connection pooling. Product-count connectivity checks are retried, and long manual inventory jobs create error/resume files when repeated connection failures prevent completion.</p>
-<p>The IMS database connection can be configured from <strong>IMS DB</strong> using PostgreSQL Host, Port, Database, User ID and Password. After connection, the application uses the IMS-configured timezone and identifies its PostgreSQL session as <strong>IMS-Shopify</strong> together with the server machine name.</p>
+<p>The IMS database connection and company time zone come from secure IMS API bootstrap. Service configuration contains the HTTPS API address and protected credential-file path; operators do not enter company database passwords in the integration window. See <a href="../technical/service-administration.html">Autos and Shopify service administration</a> for enrollment and renewal.</p>
 <p>Retry policies differ by operation: product-count checks retry selected connection/timeout failures up to three attempts with two-second delays; inventory product/variant/update operations use up to ten attempts with 1.5-second delays. Local logs can include contextual and database diagnostic information. Review and redact them before external sharing; these logs do not establish centralized alerting, retention or worker uptime.</p>
 <h2>Related documentation</h2>
 <div class="doc-list">
@@ -223,7 +227,7 @@
 <a class="doc-link" href="fulfillment-requests.html"><div>→</div><div><strong>Fulfillment Requests</strong><span>Store-side review of the Stock Transfer work created during automatic fulfillment.</span></div></a>
 <a class="doc-link" href="../tools/ims-autos.html"><div>↗</div><div><strong>IMS Autos</strong><span>The integration checks IMS Autos before starting conflicting Shopify work.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>IMS Client 9.4.6 · Shopify Integration Server 4.4.0</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

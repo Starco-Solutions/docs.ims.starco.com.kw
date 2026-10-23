@@ -1,124 +1,128 @@
 @baseUrl = https://api.example.com
 @companyId = 1
-@apiKey = YOUR_API_KEY
-@fromDate = 2026-09-01
-@toDate = 2026-09-30
+@apiKey = YOUR_AUTHORIZED_TEST_API_KEY
+@fromDate = 2026-10-01
+@toDate = 2026-10-01
+@promotionId = 10
+@cashbackPromotionId = 12
+@couponEventId = 20
 
-### Stores
+### Stores — stores.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/stores
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Items
-GET {{baseUrl}}/api/v1/companies/{{companyId}}/items?page=1&pageSize=200
-X-IMS-API-Key: {{apiKey}}
-Accept: application/json
-
-### Customers (requires customers.read and approved access; full catalog, pagination only)
-# Schedule monthly in your integration. Read every page before reconciliation.
-# Separate page requests do not share one export-wide snapshot.
-GET {{baseUrl}}/api/v1/companies/{{companyId}}/customers?page=1&pageSize=200
-X-IMS-API-Key: {{apiKey}}
-Accept: application/json
-
-### Suppliers
+### Suppliers — purchases.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/suppliers?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Sales
-GET {{baseUrl}}/api/v1/companies/{{companyId}}/sales?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+### Items — items.read
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/items?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Purchases
-GET {{baseUrl}}/api/v1/companies/{{companyId}}/purchases?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+### Inventory — inventory.read
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/inventory?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Inventory (non-zero only)
-GET {{baseUrl}}/api/v1/companies/{{companyId}}/inventory?nonZeroOnly=true&page=1&pageSize=200
-X-IMS-API-Key: {{apiKey}}
-Accept: application/json
-
-### Inventory movements
+### Inventory Movements — inventory.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/inventory/movements?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Transfers
+### Sales — sales.read
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/sales?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Purchases — purchases.read
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/purchases?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Stock Transfers — transfers.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/transfers?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Stock adjustments
+### Stock Adjustments — adjustments.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/stock-adjustments?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Stock depreciations
+### Stock Depreciations — adjustments.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/stock-depreciations?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Markdowns
+### Markdowns — promotions.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/markdowns?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Promotions
+### Promotions — promotions.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Promotion stores (set promotionId)
-@promotionId = 1
+### Promotion Stores — promotions.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/stores?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Promotion items
+### Promotion Items — promotions.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/items?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Promotion client categories
+### Promotion Client Categories — promotions.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/client-categories?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Promotion tiers
-GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/tiers?page=1&pageSize=200
+### Promotion Tiers — promotions.read
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{cashbackPromotionId}}/tiers?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Promotion cashback stores
-GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/cashback-stores?page=1&pageSize=200
+### Promotion Cashback Stores — promotions.read
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{cashbackPromotionId}}/cashback-stores?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Discount coupon events
+### Discount Coupon Events — promotions.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Discount coupon event stores (set couponEventId)
-@couponEventId = 1
+### Discount Coupon Event Stores — promotions.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events/{{couponEventId}}/stores?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
 
-### Partner catalog (requires partner-data.read and active policy)
+### Customers Catalog — customers.read
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/customers?page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Customer Delta — customers.read
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/customers/changes?pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Footfall — footfall.read
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/footfall?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Partner Data Items Catalog — partner-data.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items?page=1&pageSize=200
 X-IMS-API-Key: {{apiKey}}
+Accept: application/json
 
-### Partner Delta initial handshake: save baselineSince/policyVersion before catalog export
+### Partner Data Item Changes / Stock Delta — partner-data.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items/changes?pageSize=200
 X-IMS-API-Key: {{apiKey}}
-
-### Partner Delta incremental: set captured cursor values after full catalog is applied
-# Retain since/through/policyVersion across continuation pages. Never advance until all pages apply.
-@since = REPLACE_WITH_CAPTURED_BASELINE_OR_LAST_NEXT_SINCE
-@policyVersion = REPLACE_WITH_SERVER_POLICY_VERSION
-GET {{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items/changes?since={{since}}&policyVersion={{policyVersion}}&pageSize=200
-X-IMS-API-Key: {{apiKey}}
+Accept: application/json

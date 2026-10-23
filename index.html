@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>IMS Retail Management System Documentation</title>
-<meta content="Official IMS 9.4.5 documentation for a multi-company fashion retail management system covering POS, VAT, inventory, purchasing, reporting, integrations, Shopify, financial processing, automation and administration." name="description"/>
+<meta content="Official IMS 9.4.6 documentation for a multi-company fashion retail management system covering POS, VAT, inventory, purchasing, reporting, integrations, Shopify, financial processing, automation and administration." name="description"/>
 <link href="https://docs.ims.starco.com.kw/" rel="canonical"/>
 <link href="assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/","description":"Official user and technical documentation for IMS, an integrated retail management system."},{"@type":"SoftwareApplication","name":"IMS","alternateName":"Inventory Management System","applicationCategory":"BusinessApplication","operatingSystem":"Windows","url":"https://docs.ims.starco.com.kw/","description":"Integrated multi-store retail management software designed around fashion retail operations, including POS sales and returns, inventory, purchasing, merchandise management, promotions, loyalty, reporting, financial integration, e-commerce and automation."}]}</script>
@@ -14,7 +14,7 @@
 <div class="topbar-inner">
 <a class="brand" href="index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="getting-started/main-screen.html">Getting started</a><a href="sales/index.html">Sales</a><a href="inventory/index.html">Inventory</a><a href="financial/index.html">Financial</a><a href="reports/index.html">Reports</a><a href="manage/index.html">Manage</a><a href="tools/index.html">Tools</a><a href="system/index.html">System</a><a href="shopify/index.html">Shopify</a><a href="integration/index.html">Integration</a><a href="technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="getting-started/main-screen.html">Getting started</a><a href="sales/index.html">Sales</a><a href="inventory/index.html">Inventory</a><a href="financial/index.html">Financial</a><a href="reports/index.html">Reports</a><a href="manage/index.html">Manage</a><a href="tools/index.html">Tools</a><a href="system/index.html">System</a><a href="shopify/index.html">Shopify</a><a href="integration/index.html">Integration</a><a href="technical/index.html">Technical</a><a href="technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div>
 </header>
@@ -69,7 +69,7 @@
 <a href="reports/sell-through-report.html">Sell Through Report</a>
 <a href="reports/purchasing-report.html">Purchasing Report</a>
 <a href="reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="manage/index.html">Manage overview</a>
 <a href="manage/suppliers.html">Suppliers</a>
 <a href="manage/stores.html">Stores</a>
@@ -131,13 +131,13 @@
 <a href="index.html#system">System</a>
 <a href="index.html#shopify">Shopify</a>
 <a href="index.html#integration">Integration</a>
-<h3>Technical</h3><a href="technical/index.html">Technical Overview</a><a href="technical/architecture.html">IMS Architecture</a><a href="technical/multi-company.html">Multi-Company Architecture</a><a href="technical/security.html">Security Architecture</a><a href="technical/secure-bootstrap.html">Secure Bootstrap</a><a href="technical/ims-global.html">IMS Global</a><a href="technical/ims-api.html">IMS API</a><a href="technical/api-v1/index.html">Business API v1</a><a href="technical/secret-vault.html">Secret Vault</a><a href="technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="technical/index.html">Technical Overview</a><a href="technical/architecture.html">IMS Architecture</a><a href="technical/multi-company.html">Multi-Company Architecture</a><a href="technical/security.html">Security Architecture</a><a href="technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="technical/ims-global.html">IMS Global</a><a href="technical/ims-api.html">IMS API</a><a href="technical/secret-vault.html">Secret Vault</a><a href="technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <section class="hero">
-<span class="badge">IMS Build 9.4.5.0 Documentation</span>
+<span class="badge">IMS Build 9.4.6.0 Documentation</span>
 <h1>IMS Retail Management System — Documentation</h1>
-<p>Searchable, step-by-step guidance for IMS 9.4.5 — from multi-company sign-in and POS to VAT, inventory, reporting, external integrations, Shopify, automation and administration.</p>
+<p>Searchable, step-by-step guidance for IMS 9.4.6 — from multi-company sign-in and POS to VAT, inventory, reporting, external integrations, Shopify, automation and administration.</p>
 <div class="hero-actions"><a class="button" href="getting-started/main-screen.html">Start with the IMS main screen</a><a class="button secondary" href="#modules">Browse IMS modules</a></div>
 </section>
 <section class="section" id="about-ims">
@@ -198,17 +198,17 @@
 <p>Operational, sales, customer, profitability, inventory-performance and purchasing reporting.</p>
 <p style="margin-top:10px"><a href="reports/index.html">Reports overview</a> · <a href="reports/cash-report.html">Cash Report</a> · <a href="reports/store-sales-report.html">Store Sales Report</a> · <a href="reports/main-sales-report.html">Main Sales Report</a> · <a href="reports/sell-through-report.html">Sell Through</a> · <a href="reports/purchasing-report.html">Purchasing</a> · <a href="reports/user-defined-reports.html">User-Defined Reports</a></p>
 </article>
-<article class="card" data-search-item="manage suppliers stores sales men items categories groups age genders statistical periods seasons offers coupons lottery vip email special cards" id="manage">
+<article class="card" data-search-item="manage suppliers stores sales men items categories groups age genders statistical periods seasons offers coupons lottery vip email special cards promotions loyalty rewards" id="manage">
 <div class="eyebrow">Module</div><h3>Manage</h3>
 <p>Retail master data and configuration for suppliers, Stores, merchandise, promotions, customers, communications and Special Cards.</p>
-<p style="margin-top:10px"><a href="manage/index.html">Manage overview</a> · <a href="manage/suppliers.html">Suppliers</a> · <a href="manage/stores.html">Stores</a> · <a href="manage/items.html">Items</a> · <a href="manage/special-offers.html">Special Offers</a> · <a href="manage/vip-customers.html">VIP Customers</a> · <a href="manage/special-cards.html">Special Cards</a></p>
+<p style="margin-top:10px"><a href="manage/index.html">Manage overview</a> · <a href="manage/suppliers.html">Suppliers</a> · <a href="manage/stores.html">Stores</a> · <a href="manage/items.html">Items</a> · <a href="manage/promotions-loyalty.html">Promotions &amp; Loyalty</a> · <a href="manage/special-offers.html">Special Offers</a> · <a href="manage/vip-customers.html">VIP Customers</a> · <a href="manage/special-cards.html">Special Cards</a></p>
 </article>
 <article class="card" data-search-item="tools Tools Label Printing stock maintenance IMS Autos custom views custom reports reporting scheduler custom attributes" id="tools">
 <div class="eyebrow">Module</div><h3>Tools</h3>
 <p>Operational utilities, scheduled maintenance, background automation and configurable reporting tools.</p>
 <p style="margin-top:10px"><a href="tools/index.html">Tools overview</a> · <a href="tools/label-printing.html">Label Printing</a> · <a href="tools/stock-maintenance.html">Stock Maintenance</a> · <a href="tools/ims-autos.html">IMS Autos</a> · <a href="tools/custom-views.html">Custom Views</a> · <a href="tools/custom-reports.html">Custom Reports</a> · <a href="tools/reporting-scheduler.html">Reporting Scheduler</a> · <a href="tools/custom-attributes.html">Custom Attributes</a></p>
 </article>
-<article class="card" data-search-item="system change password options users accounts group policies users activity settings workstation admin system dashboard access log ha cluster sessions updates" id="system">
+<article class="card" data-search-item="system change password options users accounts group policies users activity settings workstation admin system dashboard access log sessions updates" id="system">
 <div class="eyebrow">Module</div><h3>System</h3>
 <p>User security, permissions, audit history, company-wide settings, workstation authorization, diagnostics and update functions.</p>
 <p style="margin-top:10px"><a href="system/index.html">System overview</a> · <a href="system/change-password.html">Change Password</a> · <a href="system/options.html">Options</a> · <a href="system/users-accounts.html">Users Accounts</a> · <a href="system/group-policies.html">Group Policies</a> · <a href="system/users-activity.html">Users Activity</a> · <a href="system/settings.html">Settings</a> · <a href="system/workstation-admin.html">Workstation Admin</a> · <a href="system/system-dashboard.html">System Dashboard</a></p>
@@ -222,6 +222,16 @@
 <div class="eyebrow">Module</div><h3>Integration</h3>
 <p>External workflows for stock taking and V-Count, plus Integration Center for configurable outbound endpoints, source previews and synchronization monitoring.</p>
 <p style="margin-top:10px"><a href="integration/index.html">Integration overview</a> · <a href="integration/starco-stock-take.html">Starco Stock Take</a> · <a href="integration/v-count-settings.html">V-Count Settings</a> · <a href="integration/integration-center.html">Integration Center</a></p>
+</article>
+<article class="card" data-search-item="Business API external partner developer authentication scopes contract stores suppliers items inventory movements sales purchases transfers adjustments depreciations markdowns promotions coupons customers delta footfall partner stock synchronization" id="business-api">
+<div class="eyebrow">Developer reference</div><h3>Business API</h3>
+<p>Integrate authorized company data through 22 Business API read operations and two Partner Data operations. Learn authentication, contract visibility, response fields, paging and synchronization.</p>
+<p style="margin-top:10px"><a href="technical/api-v1/index.html">Business API overview</a> · <a href="technical/api-v1/quick-start.html">Quick Start</a> · <a href="technical/api-v1/reference.html">Resource reference</a> · <a href="technical/api-v1/partner-data.html">Partner Data</a> · <a href="technical/api-v1/examples.html">Developer examples</a></p>
+</article>
+<article class="card" data-search-item="technical administration Global Security Guard Secure Bootstrap companies provisioning secret vault services recovery HA Health PostgreSQL" id="technical">
+<div class="eyebrow">Administration</div><h3>Technical</h3>
+<p>Administer companies, identities, workstations, service access and company databases. Use IMS Global for read-only HA Health monitoring.</p>
+<p style="margin-top:10px"><a href="technical/index.html">Technical overview</a> · <a href="technical/ims-global.html">IMS Global</a> · <a href="technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a> · <a href="technical/source-baseline.html">Component versions</a></p>
 </article></div>
 <section class="section" id="access">
 <h2 style="margin-top:0">Access &amp; permissions</h2>
@@ -229,7 +239,7 @@
 <div class="callout tip"><strong>Documentation rule</strong>Pages describe where a feature normally appears. If the feature is missing in IMS, check user access with your system administrator rather than assuming the installation is incomplete.</div>
 </section>
 <div class="search-empty" data-search-empty="">No matching topic on this page yet. More IMS pages will be added as documentation grows.</div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main>
 </div>
 <script src="assets/js/docs.js"></script>

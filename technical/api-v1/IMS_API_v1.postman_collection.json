@@ -1,8 +1,8 @@
 {
   "info": {
-    "name": "IMS Business API v1",
+    "name": "IMS Business API v1 — 24 operations",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": "Read-only IMS API 1.1.0.0 examples using the /api/v1 route contract. Synthetic placeholders only. Replace collection variables with approved connection values before use."
+    "description": "Synthetic examples. Set authorized test credentials locally; preserve server-provided Delta cursors."
   },
   "variable": [
     {
@@ -15,32 +15,27 @@
     },
     {
       "key": "apiKey",
-      "value": "YOUR_API_KEY",
-      "type": "secret"
+      "value": ""
     },
     {
       "key": "fromDate",
-      "value": "2026-09-01"
+      "value": "2026-10-01"
     },
     {
       "key": "toDate",
-      "value": "2026-09-30"
+      "value": "2026-10-01"
     },
     {
       "key": "promotionId",
-      "value": "1"
+      "value": "10"
     },
     {
       "key": "couponEventId",
-      "value": "1"
+      "value": "20"
     },
     {
-      "key": "since",
-      "value": "REPLACE_WITH_CAPTURED_BASELINE_OR_LAST_NEXT_SINCE"
-    },
-    {
-      "key": "policyVersion",
-      "value": "REPLACE_WITH_SERVER_POLICY_VERSION"
+      "key": "cashbackPromotionId",
+      "value": "12"
     }
   ],
   "item": [
@@ -58,55 +53,27 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/stores",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": []
-        }
-      }
-    },
-    {
-      "name": "Items",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "X-IMS-API-Key",
-            "value": "{{apiKey}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/stores",
+        "description": "Requires stores.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/stores"
           },
-          {
-            "key": "Accept",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/items?page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"count\": 1,\n  \"data\": [\n    {\n      \"storeId\": 101,\n      \"storeName\": \"Example Store\",\n      \"storeNameAr\": \"متجر تجريبي\",\n      \"locationId\": null,\n      \"locationName\": null,\n      \"phone\": \"+00000000000\",\n      \"address\": null,\n      \"areaSqm\": null,\n      \"monthlyRent\": null,\n      \"isActive\": true,\n      \"transactionsEnabled\": true,\n      \"isMainStore\": false,\n      \"isOnlineStore\": false,\n      \"isDamageStore\": false,\n      \"vcountEnabled\": false\n    }\n  ]\n}"
         }
-      }
-    },
-    {
-      "name": "Customers (full catalog)",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "X-IMS-API-Key",
-            "value": "{{apiKey}}"
-          },
-          {
-            "key": "Accept",
-            "value": "application/json"
-          }
-        ],
-        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/customers?page=1&pageSize=200",
-        "description": "Requires approved customer access, active company assignment and customers.read. Monthly full-catalog pull, scheduled by your integration. Pagination only; read every page before reconciliation. No customer Delta, push or date filters. Separate pages do not share an export-wide snapshot."
-      }
+      ]
     },
     {
       "name": "Suppliers",
@@ -122,17 +89,30 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/suppliers?page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/suppliers?page=1&pageSize=200",
+        "description": "Requires purchases.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/suppliers?page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"supplierId\": 7,\n      \"supplierName\": \"Example Supplier\",\n      \"supplierNameAr\": null,\n      \"vatRegistered\": null,\n      \"vatAccountNo\": null\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Sales",
+      "name": "Items",
       "request": {
         "method": "GET",
         "header": [
@@ -145,37 +125,27 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/sales?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": []
-        }
-      }
-    },
-    {
-      "name": "Purchases",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "X-IMS-API-Key",
-            "value": "{{apiKey}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/items?page=1&pageSize=200",
+        "description": "Requires items.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/items?page=1&pageSize=200"
           },
-          {
-            "key": "Accept",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/purchases?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"barcode\": \"DEMO000001\",\n      \"style\": \"DEMO-SHIRT\",\n      \"theme\": null,\n      \"itemName\": \"Example shirt\",\n      \"itemNameAr\": null,\n      \"itemType\": 1,\n      \"colorCode\": null,\n      \"colorName\": null,\n      \"size\": \"M\",\n      \"unit\": 1,\n      \"supplierId\": 7,\n      \"supplierName\": \"Example Supplier\",\n      \"brandId\": null,\n      \"brandName\": null,\n      \"categoryId\": null,\n      \"categoryName\": null,\n      \"subcategoryId\": null,\n      \"subcategoryName\": null,\n      \"productGroupId\": null,\n      \"productGroupName\": null,\n      \"productSubgroupId\": null,\n      \"productSubgroupName\": null,\n      \"receivedSeasonId\": null,\n      \"receivedSeason\": null,\n      \"salesPeriodId\": null,\n      \"salesPeriod\": null,\n      \"ageRangeId\": null,\n      \"ageRange\": null,\n      \"genderId\": null,\n      \"gender\": null,\n      \"countryId\": null,\n      \"countryName\": null,\n      \"itemState\": 0,\n      \"isOnline\": false,\n      \"originalPrice\": 20,\n      \"currentPrice\": 18,\n      \"averageLocalCost\": null,\n      \"lastPurchaseDate\": null,\n      \"lastPurchaseCurrencyId\": null,\n      \"lastPurchaseCurrency\": null,\n      \"lastPurchasePrice\": null,\n      \"firstDisplayDate\": null\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
       "name": "Inventory",
@@ -191,17 +161,30 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory?nonZeroOnly=true&page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory?page=1&pageSize=200",
+        "description": "Requires inventory.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory?page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"storeId\": 101,\n      \"storeName\": \"Example Store\",\n      \"isMainStore\": false,\n      \"isOnlineStore\": false,\n      \"isDamageStore\": false,\n      \"isActive\": true,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"onHandQty\": 7,\n      \"unitCost\": null,\n      \"stockValue\": null,\n      \"currentRetailPrice\": 18,\n      \"retailValue\": 126\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Inventory movements",
+      "name": "Inventory Movements",
       "request": {
         "method": "GET",
         "header": [
@@ -214,17 +197,30 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/movements?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/movements?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+        "description": "Requires inventory.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/movements?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"movementDate\": \"2026-10-01\",\n      \"movementTime\": \"10:00:00\",\n      \"movementType\": \"SALE\",\n      \"transactionType\": 51,\n      \"storeId\": 101,\n      \"relatedStoreId\": null,\n      \"documentCenterId\": 101,\n      \"documentNo\": 9001,\n      \"lineNo\": 1,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"movementQty\": -2,\n      \"unitCost\": null,\n      \"stockValueMovement\": null\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Transfers",
+      "name": "Sales",
       "request": {
         "method": "GET",
         "header": [
@@ -237,17 +233,30 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/transfers?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/sales?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+        "description": "Requires sales.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/sales?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"saleDate\": \"2026-10-01\",\n      \"saleTimestamp\": \"2026-10-01T10:00:00\",\n      \"storeId\": 101,\n      \"storeName\": \"Example Store\",\n      \"transactionType\": 51,\n      \"transactionTypeName\": null,\n      \"invoiceNo\": 9001,\n      \"lineNo\": 1,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"itemType\": 1,\n      \"salespersonId\": null,\n      \"salespersonName\": null,\n      \"customerId\": null,\n      \"loyaltyCustomerId\": null,\n      \"promotionId\": 10,\n      \"markdownId\": null,\n      \"couponEventId\": 20,\n      \"quantity\": 2,\n      \"originalUnitPrice\": 20,\n      \"discountPercent\": 10,\n      \"discountAmount\": 2,\n      \"invoiceDiscountAmount\": 0,\n      \"lineAmount\": 36,\n      \"unitCost\": null,\n      \"saleState\": null,\n      \"isReturn\": false,\n      \"isDiscounted\": true,\n      \"isItemDiscounted\": true,\n      \"isInvoiceDiscounted\": false,\n      \"netQuantity\": 2,\n      \"grossSalesAmount\": 40,\n      \"netSalesAmount\": 36,\n      \"cogsAmount\": null\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Stock adjustments",
+      "name": "Purchases",
       "request": {
         "method": "GET",
         "header": [
@@ -260,17 +269,30 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/stock-adjustments?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/purchases?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+        "description": "Requires purchases.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/purchases?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"purchaseDate\": \"2026-10-01\",\n      \"purchaseCenterId\": 101,\n      \"purchaseCenterName\": null,\n      \"transactionType\": 1,\n      \"transactionTypeName\": \"Purchase\",\n      \"purchaseNo\": 9002,\n      \"lineNo\": 1,\n      \"documentState\": 2,\n      \"documentStateName\": \"Finalized\",\n      \"supplierId\": 7,\n      \"supplierName\": \"Example Supplier\",\n      \"supplierInvoiceNo\": null,\n      \"supplierInvoiceDate\": null,\n      \"supplierVatNo\": null,\n      \"receivingStoreId\": 101,\n      \"receivingStoreName\": null,\n      \"statisticalPeriodId\": null,\n      \"statisticalPeriod\": null,\n      \"shipmentNo\": null,\n      \"currencyId\": null,\n      \"currencyName\": null,\n      \"currencySymbol\": null,\n      \"exchangeRate\": null,\n      \"costRate\": null,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"unit\": 1,\n      \"quantity\": 2,\n      \"unitPurchasePrice\": null,\n      \"lineForeignAmount\": null,\n      \"currentRetailPrice\": 18,\n      \"netQuantity\": 2,\n      \"foreignCostAmount\": null,\n      \"localCostAmount\": null,\n      \"landedCostAmount\": null,\n      \"landedExpenseAmount\": null,\n      \"documentForeignTotal\": null,\n      \"documentDiscountEarned\": null,\n      \"documentNetForeignAmount\": null,\n      \"documentExpenses\": null\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Stock depreciations",
+      "name": "Stock Transfers",
       "request": {
         "method": "GET",
         "header": [
@@ -283,14 +305,99 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/stock-depreciations?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/transfers?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+        "description": "Requires transfers.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/transfers?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"transferDate\": \"2026-10-01\",\n      \"transferTimestamp\": \"2026-10-01T10:00:00\",\n      \"transactionType\": 81,\n      \"transactionTypeName\": null,\n      \"fromStoreId\": 101,\n      \"fromStoreName\": null,\n      \"toStoreId\": 102,\n      \"toStoreName\": null,\n      \"transferNo\": 9003,\n      \"lineNo\": 1,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"unit\": 1,\n      \"statisticalPeriodId\": null,\n      \"statisticalPeriod\": null,\n      \"supplierId\": 7,\n      \"transferQty\": 2,\n      \"sourceMovementQty\": -2,\n      \"destinationMovementQty\": 2,\n      \"unitCost\": null,\n      \"transferCostAmount\": null,\n      \"currentRetailPrice\": 18,\n      \"transferRetailAmount\": 36,\n      \"documentTotalQty\": null,\n      \"documentTotalCost\": null,\n      \"documentTotalRetail\": null,\n      \"notes\": null\n    }\n  ]\n}"
         }
-      }
+      ]
+    },
+    {
+      "name": "Stock Adjustments",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/stock-adjustments?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+        "description": "Requires adjustments.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/stock-adjustments?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"adjustmentDate\": \"2026-10-01\",\n      \"adjustmentTimestamp\": \"2026-10-01T10:00:00\",\n      \"storeId\": 101,\n      \"storeName\": \"Example Store\",\n      \"adjustmentNo\": 9004,\n      \"lineNo\": 1,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"unit\": 1,\n      \"adjustmentQty\": 2,\n      \"unitCost\": null,\n      \"unitRetailPrice\": 18,\n      \"costAmount\": null,\n      \"retailAmount\": 36,\n      \"documentTotalQty\": null,\n      \"documentTotalCost\": null,\n      \"documentTotalRetail\": null,\n      \"notes\": null\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Stock Depreciations",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/stock-depreciations?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+        "description": "Requires adjustments.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/stock-depreciations?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"depreciationDate\": \"2026-10-01\",\n      \"depreciationTimestamp\": \"2026-10-01T10:00:00\",\n      \"storeId\": 101,\n      \"storeName\": \"Example Store\",\n      \"depreciationNo\": 9005,\n      \"lineNo\": 1,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"unit\": 1,\n      \"quantity\": 2,\n      \"unitCost\": null,\n      \"stockMovementQty\": -2,\n      \"costAmount\": null,\n      \"documentTotalQty\": null,\n      \"documentTotalCost\": null,\n      \"notes\": null\n    }\n  ]\n}"
+        }
+      ]
     },
     {
       "name": "Markdowns",
@@ -306,14 +413,27 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/markdowns?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/markdowns?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+        "description": "Requires promotions.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/markdowns?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"markdownId\": 1,\n      \"markdownName\": null,\n      \"statisticalPeriodId\": null,\n      \"statisticalPeriod\": null,\n      \"startDate\": \"2026-10-01\",\n      \"endDate\": \"2026-10-31\",\n      \"returnToFullPrice\": false,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"originalPrice\": 20,\n      \"markdownPrice\": 18,\n      \"markdownAmount\": 2,\n      \"markdownPercent\": 10\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
       "name": "Promotions",
@@ -329,17 +449,30 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+        "description": "Requires promotions.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"promotionId\": 10,\n      \"promotionName\": \"Example October Discount\",\n      \"promotionType\": \"DISCOUNT\",\n      \"startDate\": \"2026-10-01\",\n      \"endDate\": \"2026-10-31\",\n      \"buyQty\": null,\n      \"getValue\": 10,\n      \"listBQty\": null,\n      \"isDiscount\": true,\n      \"isStepDiscount\": false,\n      \"isSpecialPrice\": false,\n      \"isBundle\": false,\n      \"isInvoiceDiscount\": false,\n      \"fullPriceOnly\": false,\n      \"overrideLowerDiscount\": false,\n      \"removeClientDiscount\": false,\n      \"minimumTotalExcess\": null,\n      \"roundTotal\": null,\n      \"stepAsBuyGet\": false,\n      \"getOnAny\": false,\n      \"allStores\": false,\n      \"allClientCategories\": false,\n      \"allItems\": false,\n      \"isCashBack\": false,\n      \"cashBackIsPercent\": false,\n      \"cashBackAllStores\": false,\n      \"cashBackApplyOnCurrentReceipt\": false,\n      \"cashBackStepOnAmount\": false,\n      \"cashBackExpiryDate\": null,\n      \"cashBackExpiryAfterDays\": null,\n      \"cashBackTerms\": null\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Promotion stores",
+      "name": "Promotion Stores",
       "request": {
         "method": "GET",
         "header": [
@@ -352,17 +485,30 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/stores?page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/stores?page=1&pageSize=200",
+        "description": "Requires promotions.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/stores?page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"promotionId\": 10,\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"promotionId\": 10,\n      \"storeId\": 101,\n      \"storeName\": \"Example Store\"\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Promotion items",
+      "name": "Promotion Items",
       "request": {
         "method": "GET",
         "header": [
@@ -375,17 +521,30 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/items?page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/items?page=1&pageSize=200",
+        "description": "Requires promotions.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/items?page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"promotionId\": 10,\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"promotionId\": 10,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"rewardItemId\": null,\n      \"specialPrice\": null\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Promotion client categories",
+      "name": "Promotion Client Categories",
       "request": {
         "method": "GET",
         "header": [
@@ -398,17 +557,30 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/client-categories?page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/client-categories?page=1&pageSize=200",
+        "description": "Requires promotions.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/client-categories?page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"promotionId\": 10,\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"promotionId\": 10,\n      \"clientCategoryId\": 3,\n      \"clientCategoryName\": null\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Promotion tiers",
+      "name": "Promotion Tiers",
       "request": {
         "method": "GET",
         "header": [
@@ -421,17 +593,30 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/tiers?page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{cashbackPromotionId}}/tiers?page=1&pageSize=200",
+        "description": "Requires promotions.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{cashbackPromotionId}}/tiers?page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"promotionId\": 12,\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"promotionId\": 12,\n      \"amountThreshold\": 50,\n      \"rewardValue\": 5\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Promotion cashback stores",
+      "name": "Promotion Cashback Stores",
       "request": {
         "method": "GET",
         "header": [
@@ -444,17 +629,30 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{promotionId}}/cashback-stores?page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{cashbackPromotionId}}/cashback-stores?page=1&pageSize=200",
+        "description": "Requires promotions.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/promotions/{{cashbackPromotionId}}/cashback-stores?page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"promotionId\": 12,\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"promotionId\": 12,\n      \"storeId\": 101,\n      \"storeName\": \"Example Store\"\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Discount coupon events",
+      "name": "Discount Coupon Events",
       "request": {
         "method": "GET",
         "header": [
@@ -467,17 +665,30 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events?page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events?page=1&pageSize=200",
+        "description": "Requires promotions.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events?page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"couponEventId\": 20,\n      \"eventName\": null,\n      \"eventNotes\": null,\n      \"isSingleCode\": false,\n      \"couponCount\": 100,\n      \"discountPercent\": 10,\n      \"expiryDate\": \"2026-10-31\",\n      \"applyOnDiscountedItems\": false,\n      \"requiresStarCard\": false,\n      \"allStores\": true\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Discount coupon stores",
+      "name": "Discount Coupon Event Stores",
       "request": {
         "method": "GET",
         "header": [
@@ -490,17 +701,138 @@
             "value": "application/json"
           }
         ],
-        "url": {
-          "raw": "{{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events/{{couponEventId}}/stores?page=1&pageSize=200",
-          "host": [
-            "{{baseUrl}}"
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events/{{couponEventId}}/stores?page=1&pageSize=200",
+        "description": "Requires promotions.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/discount-coupon-events/{{couponEventId}}/stores?page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
           ],
-          "path": []
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"couponEventId\": 20,\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"couponEventId\": 20,\n      \"storeId\": 101,\n      \"storeName\": \"Example Store\"\n    }\n  ]\n}"
         }
-      }
+      ]
     },
     {
-      "name": "Partner catalog",
+      "name": "Customers Catalog",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/customers?page=1&pageSize=200",
+        "description": "Requires customers.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/customers?page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"id\": 10001,\n      \"firstName\": \"Example\",\n      \"lastName\": null,\n      \"gender\": null,\n      \"dateOfBirth\": null,\n      \"phone\": \"+00000000000\",\n      \"email\": null,\n      \"nationality\": null,\n      \"city\": null,\n      \"starRewardsRegistered\": true,\n      \"customerCategory\": null,\n      \"discountPercent\": 10\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Customer Delta",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/customers/changes?pageSize=200",
+        "description": "Requires customers.read. Initial full-sync handshake; use returned baseline and version for continuation."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/customers/changes?pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"fullSyncRequired\": true,\n  \"reason\": \"initial_sync_required\",\n  \"baselineSince\": \"2026-10-01T10:00:00+00:00\",\n  \"revision\": 4,\n  \"count\": 0,\n  \"data\": []\n}"
+        }
+      ]
+    },
+    {
+      "name": "Footfall",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/footfall?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200",
+        "description": "Requires footfall.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/footfall?fromDate={{fromDate}}&toDate={{toDate}}&page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"storeId\": 101,\n      \"countDate\": \"2026-10-01\",\n      \"countHour\": 10,\n      \"peopleCount\": 42\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Partner Data Items Catalog",
       "request": {
         "method": "GET",
         "header": [
@@ -514,11 +846,29 @@
           }
         ],
         "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items?page=1&pageSize=200",
-        "description": "Requires partner-data.read and active policy. Read the Partner Data guide: capture baseline before catalog export and advance only after every incremental page is applied."
-      }
+        "description": "Requires partner-data.read. See endpoint reference for contract restrictions and optional filters."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items?page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"currencyCode\": \"KWD\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"barcode\": \"DEMO000001\",\n      \"itemName\": \"Example shirt\",\n      \"itemNameAr\": null,\n      \"style\": \"DEMO-SHIRT\",\n      \"colorCode\": null,\n      \"colorName\": null,\n      \"size\": \"M\",\n      \"supplierId\": 7,\n      \"supplierName\": \"Example Supplier\",\n      \"originalPrice\": 20,\n      \"currentPrice\": 18,\n      \"discountPercent\": 10,\n      \"availableQty\": 7\n    }\n  ]\n}"
+        }
+      ]
     },
     {
-      "name": "Partner Delta initial handshake",
+      "name": "Partner Data Item Changes / Stock Delta",
       "request": {
         "method": "GET",
         "header": [
@@ -532,26 +882,26 @@
           }
         ],
         "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items/changes?pageSize=200",
-        "description": "Requires partner-data.read and active policy. Read the Partner Data guide: capture baseline before catalog export and advance only after every incremental page is applied."
-      }
-    },
-    {
-      "name": "Partner Delta incremental window",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "X-IMS-API-Key",
-            "value": "{{apiKey}}"
+        "description": "Requires partner-data.read. Initial full-sync handshake; use returned baseline and version for continuation."
+      },
+      "response": [
+        {
+          "name": "Synthetic representative response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items/changes?pageSize=200"
           },
-          {
-            "key": "Accept",
-            "value": "application/json"
-          }
-        ],
-        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items/changes?since={{since}}&policyVersion={{policyVersion}}&pageSize=200",
-        "description": "Requires partner-data.read and active policy. Read the Partner Data guide: capture baseline before catalog export and advance only after every incremental page is applied."
-      }
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"fullSyncRequired\": true,\n  \"reason\": \"initial_sync_required\",\n  \"baselineSince\": \"2026-10-01T10:00:00+00:00\",\n  \"policyVersion\": \"EXAMPLE_SERVER_VERSION\",\n  \"count\": 0,\n  \"data\": []\n}"
+        }
+      ]
     }
   ]
 }

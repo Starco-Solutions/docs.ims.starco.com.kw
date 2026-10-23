@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a class="active" href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a class="active" href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -128,8 +128,8 @@
 <a href="../index.html#system">System</a>
 <a href="../index.html#shopify">Shopify</a>
 <a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Sales</a> › Transactions Expert</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/transactions-expert.webp"/><h1>Transactions Expert</h1></div>
@@ -161,10 +161,6 @@
 <h3 id="vat-details">VAT details</h3>
 <p>When VAT is enabled, Payment Details includes <strong>VAT Base</strong>, <strong>VAT %</strong> and <strong>VAT Amount</strong>. For sales, these values come from the saved/current invoice VAT context. For receipt-based returns, Transactions Expert derives the VAT from the original sale and earlier returns so the return remains within the original invoice's VAT totals.</p>
 <h2 id="sale">Cash Sales</h2>
-<figure class="screenshot">
-<img alt="Transactions Expert showing a normal Cash Sales receipt with item lines, transaction log, receipt details and payment information" src="../assets/images/sales-transactions-expert-sale.webp"/>
-<figcaption>A normal Cash Sale shows the sold items, Receipt Details, Payment Details, transaction history and the administrative actions permitted to the current user.</figcaption>
-</figure>
 <p>A Cash Sale exposes the broadest set of correction tools because it can contain direct payment methods, Multiple Payments, vouchers, Credit/Exchange Notes, loyalty redemption and terminal/card authorization codes.</p>
 <p>The Transaction Log also links later activity to the original sale. In the example above, the original receipt records the subsequent return and size-exchange receipts, giving the user one place to follow the receipt history.</p>
 <h2 id="return">Cash Return</h2>
@@ -239,7 +235,8 @@
 <p>The action requires financial-posting authorization, an open financial period and a transaction that has not already been posted to the external Financial System.</p>
 <h2 id="print-email">Print, Email and Gift Receipt</h2>
 <p>Transactions Expert can reprint Cash Sales, Credit Sales and Stock Transfer documents when the user's policy allows the relevant print action. Email creates the transaction PDF and sends it through the configured IMS email service.</p>
-<p><strong>Print Gift</strong> is specific to an eligible positive Cash Sale; it is not offered for returns or Stock Transfers.</p>
+<p><strong>Print Gift</strong> is specific to an eligible positive Cash Sale; it is not offered for returns or Stock Transfers.</p><p>Sales reprints use the bilingual 80 mm HTML receipt and the Sales Transactions printer and copy count from <a href="../system/options.html#printing">Options</a>. Additional store copies exclude issued notes. <strong>Print Gift</strong> prints only the gift receipt, without reprinting issued notes. Printing requires the applicable Cash Sales or Credit Sales permission (or an authorized approval), and the financial period must permit the action. If HTML printing is not confirmed, inspect the printed slips and Windows queue before accepting the offered Crystal Reports reprint.</p>
+<p>Before acting on an uncertain save or digital-delivery result, find the original receipt by Store, date and number, then check its item/payment details and Transaction Log. A saved receipt is evidence of the transaction, not proof of digital delivery. Ask the delivery operator to inspect the existing request before a resend; do not create a duplicate sale. See <a href="sales-transactions.html#digital-receipts">Send Digital</a>.</p>
 <h2 id="item-tools">Item-line tools</h2>
 <p>For quick operational follow-up, the item grid provides copy actions for <strong>Item Code, EAN/Barcode and Style</strong>. This is useful when the user needs to paste the product identity into Items Search, stock investigation or another operational screen without retyping it.</p>
 <h2 id="audit">Audit and control rules</h2>
@@ -258,7 +255,7 @@
 <a class="doc-link" href="../system/group-policies.html"><div>↗</div><div><strong>Group Policies</strong><span>Controls the view, edit, print, void, COGS and financial actions used by Transactions Expert.</span></div></a>
 <a class="doc-link" href="index.html"><div>←</div><div><strong>Sales</strong><span>Return to the Sales toolbar overview.</span></div></a>
 <a class="doc-link" href="../financial/vat-tax-configuration.html"><div>↗</div><div><strong>VAT &amp; Tax Configuration</strong><span>How VAT is configured and carried through Sales and Returns.</span></div></a></div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Client 9.4.6</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a class="active" href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a class="active" href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -128,8 +128,8 @@
 <a href="../index.html#system">System</a>
 <a href="../index.html#shopify">Shopify</a>
 <a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Inventory</a> › Stock Transfer</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/inventory.webp"/><h1>Stock Transfer</h1></div>
@@ -168,6 +168,9 @@
 <h3>Stock availability</h3>
 <p>IMS compares the requested quantity with the source-store balance. When the quantity is not sufficient, IMS warns the user and normally refuses the item. A store configured to ignore balance can continue according to that store setting.</p>
 <p>Items placed <strong>On Hold</strong> are checked again during Save and cannot be transferred while they remain on hold.</p>
+<h2 id="damage-locations">Transfers involving Damage Locations</h2>
+<p>Check whether the source or destination is marked <strong>Is damage items location</strong> in <a href="../manage/stores.html#damage-locations">Manage Stores</a>. A transfer into that location moves stock into its recorded balance; it is not a write-off. When the <strong>source</strong> is a Damage Location, IMS also adds the transferred quantity to the item’s damaged-quantity total. Shopify deducts that item-level quantity separately from its eligible physical-store total, so transferring damage stock to an ordinary Store does not by itself make it available online.</p>
+<p>Use <a href="stock-depreciation.html#damage-stock">Stock Depreciation</a> when the approved business action is to remove/write off quantity, and <a href="stock-level.html#damage-stock">Stock Level</a> to reconcile the recorded quantities by location.</p>
 <h2 id="search-import">Item Search and Import Items</h2>
 <p>Press <strong>F3</strong> to open Item Search and add items without scanning them. <strong>Import Items</strong> opens the common IMS Import Items window for loading multiple inventory items from a text file. The Import Items button is shown only to users who have the corresponding import permission.</p>
 <h3 id="item-search-details">Using Item Search</h3>
@@ -239,7 +242,7 @@
 <a class="doc-link" href="../manage/stores.html"><div>↗</div><div><strong>Manage Stores</strong><span>Store transaction status, balance behavior and other store settings affect transfer processing.</span></div></a>
 <a class="doc-link" href="../manage/items.html"><div>↗</div><div><strong>Manage Items</strong><span>Item codes, barcodes, Style/Color/Size, pricing, cost and product images used by Stock Transfer.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

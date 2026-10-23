@@ -2,7 +2,27 @@
   const menu = document.querySelector('[data-mobile-nav]');
   const sidebar = document.querySelector('.sidebar');
   if (menu && sidebar) {
-    menu.addEventListener('click', () => sidebar.classList.toggle('open'));
+    const primary = document.querySelector('.topnav');
+    if (primary) {
+      const categories = primary.cloneNode(true);
+      categories.className = 'compact-primary';
+      categories.setAttribute('aria-label', 'Primary categories');
+      sidebar.prepend(categories);
+    }
+    sidebar.id = sidebar.id || 'documentation-navigation';
+    menu.setAttribute('aria-controls', sidebar.id);
+    menu.setAttribute('aria-expanded', 'false');
+    menu.addEventListener('click', () => {
+      const open = sidebar.classList.toggle('open');
+      menu.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && sidebar.classList.contains('open')) {
+        sidebar.classList.remove('open');
+        menu.setAttribute('aria-expanded', 'false');
+        menu.focus();
+      }
+    });
   }
 
   const search = document.querySelector('[data-doc-search]');

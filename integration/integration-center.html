@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/main-sales-report.html">Reports</a><a href="../manage/suppliers.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a class="active" href="index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/main-sales-report.html">Reports</a><a href="../manage/suppliers.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a class="active" href="index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -61,7 +61,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="../manage/promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
 <a href="../manage/sales-men-ladies.html">Sales Men/Ladies</a>
@@ -122,12 +122,12 @@
 <a href="../index.html#system">System</a>
 <a href="../index.html#shopify">Shopify</a>
 <a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Integration</a> › Integration Center</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/integration.webp"/><h1>Integration Center</h1></div>
-<p class="lead">Integration Center is the IMS 9.4.5 administration screen for configurable outbound integrations. It combines endpoint setup, source-data preview, current health and synchronization history in one place.</p>
+<p class="lead">Integration Center is the IMS 9.4.6 administration screen for configurable outbound integrations. It combines endpoint setup, source-data preview, current health and synchronization history in one place.</p>
 <div class="callout"><strong>Open the screen</strong>Integration → Integration Center. The Integration menu is controlled by the <em>Integrated Reports</em> Group Policy permission.</div>
 <h2 id="tabs">Three working tabs</h2>
 <div class="table-wrap"><table><thead><tr><th>Tab</th><th>Use it for</th></tr></thead><tbody>
@@ -152,12 +152,12 @@
 <tr><td>HTTP Method</td><td>POST, PUT or PATCH.</td></tr>
 <tr><td>Auth Type</td><td>NONE, BEARER or HEADER.</td></tr>
 <tr><td>Auth Header</td><td>Required when Auth Type is HEADER.</td></tr>
-<tr><td>API Key</td><td>Required for BEARER/HEADER authentication. The IMS client saves replacements through the secret-management API; verify compatibility with the running worker.</td></tr>
+<tr><td>API Key</td><td>Required for BEARER/HEADER authentication. The IMS client saves replacements through IMS Security Guard &amp; Secure Bootstrap. IMS Autos retrieves the authorized credential when it runs the endpoint.</td></tr>
 <tr><td>Trigger Type</td><td>MORNING_SHIFT or MANUAL.</td></tr>
 <tr><td>Advanced Settings</td><td>Required JSON configuration used by the integration engine to determine dates and construct the outbound payload.</td></tr>
 </tbody></table></div>
 <div class="callout tip"><strong>Stored API keys</strong>When editing an existing integration, the API Key box is intentionally blank. Leave it blank to keep an existing stored key. Enter a value only when the key must be replaced. Auth Type NONE sends requests without authentication; changing to NONE does not establish deletion of a previously saved vault secret.</div>
-<div class="callout warning"><strong>Check the consuming worker</strong>Before onboarding or rotating a key, confirm that IMS Autos supports the configured credential path. API-side vault support does not upgrade the worker or migrate its existing settings. A stored-secret indicator is not a successful worker connection.</div>
+<div class="callout tip"><strong>Verify endpoint operation</strong>After configuring or replacing a key, review the authorized company's next scheduled run in the Sync Log. A stored-key indicator confirms configuration; a SUCCESS result confirms that request was accepted by the destination.</div>
 <h2 id="source-contract">Source view and Preview Source</h2>
 <p>The integration engine filters the Source View by <code>__business_date</code>, groups rows by <code>__request_key</code> and sends one request per key to the configured <strong>Endpoint URL</strong>. <code>__target_code</code> identifies the business target in the sync log; it does not select another URL. The engine counts distinct <code>__record_key</code> values as the records sent.</p>
 <p>Use <strong>Preview Date</strong> and <strong>Preview Source</strong> before activating a new endpoint. Preview returns up to 200 rows for the selected business date in a read-only grid and uses the same source-view naming validation as the integration engine.</p>
@@ -175,7 +175,7 @@
 <div class="callout warning"><strong>Complete the payload definition before execution</strong>The new-record template intentionally starts with empty <code>payload.root_fields</code> and <code>payload.groups</code> arrays. Before an endpoint can run successfully, define at least the payload group structure and make sure every field named in the JSON exists in the Source View. The current payload builder starts from the first configured group.</div>
 <h2 id="schedule">Triggers and execution</h2>
 <p><strong>MORNING_SHIFT</strong> endpoints are selected by the IMS Autos background integration engine after daily maintenance has cleared its transaction-blocking state. For each active endpoint, the engine calculates the Business Date window from the Advanced Settings, reads the Source View and submits one request per <code>__request_key</code>.</p>
-<p><strong>MANUAL</strong> is a supported trigger classification, but Integration Center itself does not provide a Run button in IMS 9.4.5. The screen is used to configure, preview and monitor the endpoint.</p>
+<p><strong>MANUAL</strong> is a supported trigger classification, but Integration Center itself does not provide a Run button in IMS 9.4.6. The screen is used to configure, preview and monitor the endpoint.</p>
 <p>On a normal, non-forced rerun, a request key with a SUCCESS log for the same integration and Business Date is skipped. Unsuccessful keys may be revisited on later runs while their dates remain in the configured window; this is not an immediate transport retry policy. External sending and success logging are separate operations, so a lost acknowledgement or failed log write can cause a resend. Exactly-once delivery is not guaranteed.</p>
 <h2 id="clone">Clone an endpoint</h2>
 <p>Select an integration and click <strong>Clone</strong>. IMS prepares a new record using the current configuration, proposes <code>_COPY</code> on the Integration Code and <em>Copy</em> on the name. Clone copies endpoint configuration, never the API key. Enter a key before saving a BEARER or HEADER clone; HEADER also requires an Auth Header.</p>
@@ -197,7 +197,7 @@
 <a class="doc-link" href="../tools/ims-autos.html"><div>↗</div><div><strong>IMS Autos</strong><span>Background service that runs scheduled integration work.</span></div></a>
 <a class="doc-link" href="../system/group-policies.html"><div>↗</div><div><strong>Group Policies</strong><span>Integrated Reports controls access to the Integration top-level menu.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

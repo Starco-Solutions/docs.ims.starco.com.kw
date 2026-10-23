@@ -13,7 +13,7 @@
 <header class="topbar"><div class="topbar-inner">
 <a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
 <button class="mobile-nav" data-mobile-nav="" type="button">Menu</button>
-<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a class="active" href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a></nav>
+<nav aria-label="Primary" class="topnav"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a class="active" href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a href="../technical/index.html">Technical</a><a href="../technical/api-v1/index.html">Business API</a></nav>
 <div class="top-search"><span class="icon">⌕</span><input aria-label="Search documentation" data-doc-search="" placeholder="Search this page…" type="search"/></div>
 </div></header>
 <div class="layout">
@@ -66,7 +66,7 @@
 <a href="../reports/sell-through-report.html">Sell Through Report</a>
 <a href="../reports/purchasing-report.html">Purchasing Report</a>
 <a href="../reports/user-defined-reports.html">User-Defined Reports</a>
-<h3>Manage</h3>
+<h3>Manage</h3><a href="promotions-loyalty.html">Promotions &amp; Loyalty</a>
 <a href="../manage/index.html">Manage overview</a>
 <a href="../manage/suppliers.html">Suppliers</a>
 <a href="../manage/stores.html">Stores</a>
@@ -120,8 +120,8 @@
 <a href="../integration/v-count-settings.html">V-Count Settings</a><a href="../integration/integration-center.html">Integration Center</a>
 <h3>Modules</h3>
 <a href="../index.html#sales">Sales</a><a href="../index.html#inventory">Inventory</a><a href="../index.html#financial">Financial</a><a href="../index.html#reports">Reports</a><a href="../index.html#manage">Manage</a><a href="../index.html#tools">Tools</a><a href="../index.html#system">System</a><a href="../index.html#shopify">Shopify</a><a href="../index.html#integration">Integration</a>
-<h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
-</aside>
+<h3>Business API</h3><a href="../technical/api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="../technical/index.html">Technical Overview</a><a href="../technical/architecture.html">IMS Architecture</a><a href="../technical/multi-company.html">Multi-Company Architecture</a><a href="../technical/security.html">Security Architecture</a><a href="../technical/secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../technical/ims-global.html">IMS Global</a><a href="../technical/ims-api.html">IMS API</a><a href="../technical/secret-vault.html">Secret Vault</a><a href="../technical/system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="../technical/postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="../technical/it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a>
+<a href="../technical/service-administration.html">Autos and Shopify services</a></aside>
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Manage › Items</div>
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/manage.webp"/><h1>Manage Items</h1></div>
@@ -279,11 +279,69 @@
 <tr><td>Import Online Prices</td><td>Updates online original price, online current price and Online status for item/style selections used by the online integration workflow.</td></tr>
 <tr><td>Import Images</td><td>Imports Style/Color images in bulk from local file paths or HTTP/HTTPS image sources.</td></tr>
 </tbody></table></div>
-<h3 id="item-import">Import Items validation</h3>
-<p>The item-data import validates field lengths and data types, duplicate Item Codes, duplicate barcodes and duplicate Style/Color/Size combinations before saving. If invalid rows are found, IMS creates a <strong>-ValidationLog.txt</strong> file beside the import source.</p>
-<p>When the import encounters Item Codes that already exist, IMS asks whether those existing records should be updated. Identity fields such as Item Code, Style, Color and Size remain unchanged during that update.</p>
+<h3 id="item-import">Items Master: 23-column and 30-column formats</h3>
+<p>Use <strong>Import → Import Items</strong> with a header row and tab-delimited text (<code>.txt</code>, <code>.tsv</code> or <code>.tab</code>). Prepare the supplied <strong>Items_Master.xlsx</strong> template in Excel, then save as tab-delimited text; IMS does not read Excel workbooks directly. Preserve identifiers and leading zeros as text.</p>
+<p>The legacy format has exactly <strong>23 columns</strong>. The extended format has exactly <strong>30 columns</strong>: the same first 23 positions, followed by seven online/metadata fields. Import is positional, not a column-mapping wizard. Keep every column and tab separator, including empty optional cells. The extended format also checks the header sequence; use the headings below.</p>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Template heading</th><th>Required</th><th>New item: 23-column format</th><th>New item: 30-column format</th></tr></thead><tbody>
+<tr><td>1</td><td><code>ItemCode</code></td><td>Yes</td><td>Empty cell rejected</td><td>Empty cell rejected</td></tr>
+<tr><td>2</td><td><code>Style</code></td><td>Yes</td><td>Empty cell rejected</td><td>Empty cell rejected</td></tr>
+<tr><td>3</td><td><code>ColorName</code></td><td>No</td><td>Empty text</td><td>Not set</td></tr>
+<tr><td>4</td><td><code>ColorCode</code></td><td>Yes</td><td>Empty cell rejected</td><td>Empty cell rejected</td></tr>
+<tr><td>5</td><td><code>Size</code></td><td>Yes</td><td>Empty cell rejected</td><td>Empty cell rejected</td></tr>
+<tr><td>6</td><td><code>Barcode</code></td><td>Yes</td><td>Empty cell rejected</td><td>Empty cell rejected</td></tr>
+<tr><td>7</td><td><code>EnglishDescription</code></td><td>No</td><td>Empty text</td><td>Not set</td></tr>
+<tr><td>8</td><td><code>ArabicDescription</code></td><td>No</td><td>Empty text</td><td>Not set</td></tr>
+<tr><td>9</td><td><code>ItemType</code></td><td>Yes</td><td>Empty cell rejected</td><td>Empty cell rejected</td></tr>
+<tr><td>10</td><td><code>ItemState</code></td><td>No</td><td>Not set</td><td>Not set</td></tr>
+<tr><td>11</td><td><code>Category</code></td><td>No</td><td>Not set</td><td>Not set</td></tr>
+<tr><td>12</td><td><code>SubCategory</code></td><td>No</td><td>Not set</td><td>Not set</td></tr>
+<tr><td>13</td><td><code>ProductGroup</code></td><td>No</td><td>Not set</td><td>Not set</td></tr>
+<tr><td>14</td><td><code>ProductSubGroup</code></td><td>No</td><td>Not set</td><td>Not set</td></tr>
+<tr><td>15</td><td><code>ReceivedSeasonId</code></td><td>No</td><td>Not set</td><td>Not set</td></tr>
+<tr><td>16</td><td><code>SupplierId</code></td><td>No</td><td>Not set</td><td>Not set</td></tr>
+<tr><td>17</td><td><code>BrandId</code></td><td>No</td><td>Not set</td><td>Not set</td></tr>
+<tr><td>18</td><td><code>AgeRangeId</code></td><td>No</td><td>Not set</td><td>Not set</td></tr>
+<tr><td>19</td><td><code>GenderId</code></td><td>No</td><td>Not set</td><td>Not set</td></tr>
+<tr><td>20</td><td><code>OriginCode</code></td><td>No</td><td>Not set</td><td>Not set</td></tr>
+<tr><td>21</td><td><code>UnitCode</code></td><td>Yes</td><td>Empty cell rejected</td><td>Empty cell rejected</td></tr>
+<tr><td>22</td><td><code>OriginalRetailPrice</code></td><td>Yes</td><td>Empty cell rejected</td><td>Empty cell rejected</td></tr>
+<tr><td>23</td><td><code>CurrentRetailPrice</code></td><td>Yes</td><td>Empty cell rejected</td><td>Empty cell rejected</td></tr>
+<tr><td>24</td><td><code>Theme</code></td><td>No</td><td>Not in file; not set</td><td>Not set</td></tr>
+<tr><td>25</td><td><code>Handle</code></td><td>No</td><td>Not in file; not set</td><td>Not set</td></tr>
+<tr><td>26</td><td><code>IsOnline</code></td><td>No</td><td>Not in file; false</td><td>False</td></tr>
+<tr><td>27</td><td><code>ReduceByQty</code></td><td>No</td><td>Not in file; 0</td><td>0</td></tr>
+<tr><td>28</td><td><code>WebColor</code></td><td>No</td><td>Not in file; not set</td><td>Not set</td></tr>
+<tr><td>29</td><td><code>WebOriginalPrice</code></td><td>No</td><td>Not in file; not set</td><td>Not set</td></tr>
+<tr><td>30</td><td><code>WebCurrentPrice</code></td><td>No</td><td>Not in file; not set</td><td>Not set</td></tr>
+</tbody></table></div>
+<p>The two new-item columns describe empty-cell results. Columns 24–30 exist only in the extended file; for a new item created from a 23-column file, IMS still assigns the omitted fields the defaults shown above. “Not set” means the field has no supplied value. Leave optional cells empty. Numeric zero is a supplied value, not an empty cell: an <code>ItemState</code> of <code>0</code> must exist in the company master data. ItemCode and Barcode allow 15 characters, Style 30, ColorCode 50 and Size 10. ItemType must be 1 (Item) or 2 (Service); UnitCode must identify an existing unit; both retail prices are required decimals. References must exist, SubCategory must belong to Category, ProductSubGroup to ProductGroup, and Brand to Supplier. ReceivedSeasonId is text up to three characters; other reference codes are integers. Theme allows 100 characters, Handle 150, WebColor and ColorName 50, and descriptions 100. IsOnline accepts true/false or 1/0; ReduceByQty is a small integer. Prices allow up to six decimal places without thousands separators.</p>
+<h3 id="item-import-updates">Creating items versus updating existing items</h3>
+<p>Choose <strong>Yes</strong> at the update-existing-items question to update editable metadata and prices. Item Code, Style, Color and Size remain unchanged, and the primary barcode is retained. A valid different barcode for the same item can become an additional barcode. Choose <strong>No</strong> to create new items without updating existing metadata; additional barcodes can still be registered. Cancel stops the import.</p>
+<div class="table-wrap"><table><thead><tr><th>Empty optional cell when updating</th><th>23 columns</th><th>30 columns</th></tr></thead><tbody>
+<tr><td>Columns 10–20: ItemState, Category, SubCategory, ProductGroup, ProductSubGroup, ReceivedSeasonId, SupplierId, BrandId, AgeRangeId, GenderId, OriginCode</td><td>Clears the value</td><td>Preserves the existing value</td></tr>
+<tr><td>Columns 7–8: English/Arabic description</td><td>Sets empty text</td><td>Preserves the existing description</td></tr>
+<tr><td>Column 3: ColorName</td><td>Identity information is not updated</td><td>Identity information is not updated</td></tr>
+<tr><td>Columns 24–30</td><td>Not supplied; existing values preserved</td><td>Empty cells preserve existing values</td></tr>
+<tr><td>Required columns 1, 2, 4, 5, 6, 9, 21, 22, 23</td><td>Rejected</td><td>Rejected</td></tr>
+</tbody></table></div>
+<p>For an existing item, supplied ItemType, UnitCode and retail prices replace their editable values when you choose Yes. Supplied optional descriptions, references and columns 24–30 also replace their editable values. The identity and primary-barcode rules above apply in both formats even when their cells are populated. With No, neither format changes existing metadata or prices.</p>
+<p><strong>Hypothetical example:</strong> these adjacent columns keep an empty SubCategory between two tabs. The ProductGroup stays in column 13. This is a fragment, not a complete import file:</p>
+<pre><code>Category	SubCategory	ProductGroup
+10		20</code></pre>
+<p>Use all 23 or all 30 positions in the actual file. The whole file is checked for field types/lengths, required cells, duplicate Item Codes/barcodes/Style–Color–Size combinations and company references before saving. Correct the reported <strong>-ValidationLog.txt</strong> beside the source, then import again. Review the resulting new/existing-item counts. If completion is uncertain, inspect the item records and import log before retrying.</p>
+<h3 id="price-import">Retail and online price templates</h3>
+<p>Save these Excel templates as tab-delimited text with their header row. Every row must have the same number of columns as the header. Item Code targets one item; Style targets all its variants; Style plus ColorCode targets the sizes of that color.</p>
+<div class="table-wrap"><table><thead><tr><th>Template</th><th>Columns in order</th></tr></thead><tbody>
+<tr><td>PriceChanges_ByItemCode.xlsx</td><td>ItemCode, ItemState, CurrentRetailPrice</td></tr>
+<tr><td>PriceChanges_ByStyle.xlsx</td><td>Style, ItemState, CurrentRetailPrice</td></tr>
+<tr><td>PriceChanges_ByStyleColor.xlsx</td><td>Style, ItemState, CurrentRetailPrice, ColorCode</td></tr>
+<tr><td>OnlinePrices_ByItemCode.xlsx</td><td>ItemCode, WebOriginalPrice, WebCurrentPrice, IsOnline</td></tr>
+<tr><td>OnlinePrices_ByStyle.xlsx</td><td>Style, WebOriginalPrice, WebCurrentPrice, IsOnline</td></tr>
+<tr><td>OnlinePrices_ByStyleColor.xlsx</td><td>Style, WebOriginalPrice, WebCurrentPrice, ColorCode, IsOnline</td></tr>
+</tbody></table></div>
+<p>The online Style/Color template also accepts the historical final pair <strong>IsOnline, ColorCode</strong> when those headings identify the order. Online price imports require both prices and <strong>True</strong> or <strong>False</strong> for IsOnline. Retail price imports use a valid ItemState and current retail price; they do not replace the original retail price. These dedicated price templates do not use the optional-empty-cell rules of Items Master. Duplicate keys, unmatched items and invalid values are reported before saving; review the confirmation when a current price is equal to or above its original price.</p>
 <h3 id="image-import">Import Images file</h3>
-<p>The image importer expects at least two tab-separated columns:</p>
+<p>Save <strong>ItemImages.xlsx</strong> as tab-delimited text with a header row. The image importer reads the first two columns:</p>
 <div class="table-wrap"><table><thead><tr><th>Column</th><th>Value</th></tr></thead><tbody>
 <tr><td>SKU</td><td>The IMS Style_ColorCode image key.</td></tr>
 <tr><td>Image Src</td><td>A local image path or an HTTP/HTTPS image URL.</td></tr>
@@ -336,7 +394,7 @@
 <a class="doc-link" href="../reports/main-sales-report.html"><div>↗</div><div><strong>Main Sales Report</strong><span>Detailed sales analysis using the Item master dimensions.</span></div></a>
 <a class="doc-link" href="../reports/sell-through-report.html"><div>↗</div><div><strong>Sell Through Report</strong><span>Merchandise performance using received, sold and on-hand stock.</span></div></a>
 </div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.5.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Client 9.4.6</span></footer>
 </main>
 </div>
 <script src="../assets/js/docs.js"></script>

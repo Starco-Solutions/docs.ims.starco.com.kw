@@ -4,7 +4,7 @@
 
 ## Financial
 - https://docs.ims.starco.com.kw/financial/banks.html — Banks: maintain numeric bank ID plus Arabic/English names; ID fixed after creation; permission-controlled New/Edit.
-- https://docs.ims.starco.com.kw/financial/cash-receipts.html — Cash Receipts: customer receipt voucher, non-voucher Sales Payment Type, customer ID/search, amount and notes; saving reduces customer balance, edit corrects the balance effect, void restores the amount, and the screen displays journal/posting metadata when present.
+- https://docs.ims.starco.com.kw/financial/cash-receipts.html — Customer receipt vouchers, payment type, amount and notes; balance effects, supported editing, voiding and journal/posting metadata.
 - https://docs.ims.starco.com.kw/financial/close-fin-period.html — Maintain the IMS financial close-through date; close date must be before today; action history records user, timestamp and close-boundary changes.
 - https://docs.ims.starco.com.kw/financial/currencies.html — Currencies: currency name, Arabic name, symbol, display format and one Local currency; non-local currencies have effective-dated Cost Rate and POS Rate history.
 - https://docs.ims.starco.com.kw/financial/gift-vouchers.html — Gift Vouchers: individually issued Voucher No., Client Name, amount, issue/expiration dates, All Stores or selected-store validity, Available/Used/Expired/Revoked states, redemption details, search by Voucher ID or Client Name, edit expiry/store scope and revoke with voucher audit history.
@@ -14,18 +14,18 @@
 - https://docs.ims.starco.com.kw/financial/posted-transactions.html — Posted Transactions: Cash/Credit Sales, Cost of Cash/Credit and Stock Transfer journals; store/date filtering; Journal No., IMS Debit/Credit, posting user/time; optional direct financial-system totals; controlled open-period UnPost.
 - https://docs.ims.starco.com.kw/financial/posting.html — Posting: date range, Cash/Credit Sales and Returns, COGS, Stock Transfers and Purchases; optional consolidated period journals; unposted-store selection; Debit/Credit review tabs; active-store posting lock; current direct Al-Shamel posting and IMS post metadata.
 - https://docs.ims.starco.com.kw/financial/purchasing-expenses.html — Purchasing Expenses: reusable expense ID, Arabic/English description and Account No.; expense amounts are entered on Purchase invoices, contribute to landed cost and use the configured account in the Purchase journal.
-- https://docs.ims.starco.com.kw/financial/sales-payment-types.html — Payment classifications, card authorization and supported payment configuration.
-- https://docs.ims.starco.com.kw/financial/vat-tax-configuration.html — IMS 9.4.5 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns.
+- https://docs.ims.starco.com.kw/financial/sales-payment-types.html — Payment method setup, account mapping, card authorization and selection behavior.
+- https://docs.ims.starco.com.kw/financial/vat-tax-configuration.html — IMS 9.4.6 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns.
 
 ## Getting Started
 - https://docs.ims.starco.com.kw/getting-started/main-screen.html — IMS startup, workstation authorization, login, main toolbar, menus, permissions, theme behavior and connection status.
 
 ## Overview
-- https://docs.ims.starco.com.kw/index.html — IMS Retail Management System Documentation
+- https://docs.ims.starco.com.kw/index.html — IMS 9.4.6 product reference for employees, administrators and external Business API developers; module guides, Promotions & Loyalty and component compatibility.
 
 ## Integration
-- https://docs.ims.starco.com.kw/integration/index.html — IMS 9.4.5 Integration overview: Starco Stock Take, V-Count Settings and Integration Center. Integration Center manages configurable outbound endpoints, source previews, health status and sync logs.
-- https://docs.ims.starco.com.kw/integration/integration-center.html — Integration Center: Overview health counters, endpoint/source/authentication/trigger/JSON configuration, required source metadata and payload-group definition, Preview Source, clone/save behavior and seven-day Sync Log troubleshooting.
+- https://docs.ims.starco.com.kw/integration/index.html — IMS 9.4.6 Integration overview: Starco Stock Take, V-Count Settings and Integration Center. Integration Center manages configurable outbound endpoints, source previews, health status and sync logs.
+- https://docs.ims.starco.com.kw/integration/integration-center.html — Integration Center endpoint configuration, source previews, company-authorized service credentials, scheduling, health and synchronization logs.
 - https://docs.ims.starco.com.kw/integration/starco-stock-take.html — Exports Store inventory for the handheld physical-stock-taking workflow. Supports all Suppliers or one Supplier. Balance export is XML with schema and includes Supplier/Brand, Statistical Period, EAN, Item Code, Style, Description, Color, Size, Store Qty, Cost and Price. Pathfinder export creates the handheld scanning/item file.
 - https://docs.ims.starco.com.kw/integration/v-count-settings.html — Maintains V-Count credentials and hourly/daily/category/traffic endpoints. Daily mode clears the duty window; Hourly mode stores valid 0–23 start/end hours for IMS Autos. V-Count traffic is used by IMS Store traffic/conversion reporting.
 
@@ -34,7 +34,7 @@
 - https://docs.ims.starco.com.kw/inventory/item-movement.html — One-item chronological ledger across opening balance, purchases/returns, transfers, sales/returns, depreciation and adjustments; optional selected-store running balance and Online Order reference.
 - https://docs.ims.starco.com.kw/inventory/purchases.html — Purchases and Purchase Returns: invoice items/imports, expenses, currency/cost, finalization and financial posting; IMS includes Supplier Invoice/VAT data, Tax Treatment, Taxable/VAT/Supplier Total calculations and tax references when VAT is enabled.
 - https://docs.ims.starco.com.kw/inventory/replenishment.html — Analyze recent sales and source availability, select replenishment quantities and create a prepared Stock Transfer.
-- https://docs.ims.starco.com.kw/inventory/stock-adjustments.html — Signed inventory corrections and negative discrepancy posting; saving or editing an adjustment initializes missing item_prods balance rows before applying signed quantities.
+- https://docs.ims.starco.com.kw/inventory/stock-adjustments.html — Signed inventory corrections, document editing and negative discrepancy posting.
 - https://docs.ims.starco.com.kw/inventory/stock-depreciation.html — Write off store stock at current cost, edit/void unposted vouchers and financially post depreciation.
 - https://docs.ims.starco.com.kw/inventory/stock-level.html — Current or historical stock balances with multi-criteria filters/grouping, quantity/cost/retail, images and report exports.
 - https://docs.ims.starco.com.kw/inventory/stock-transfer.html — Create store-to-store Stock Transfer vouchers by scanning, searching or importing items.
@@ -49,24 +49,26 @@
 - https://docs.ims.starco.com.kw/manage/genders.html — Gender master.
 - https://docs.ims.starco.com.kw/manage/give-away-promotions.html — Serialized giveaway-voucher campaign configuration.
 - https://docs.ims.starco.com.kw/manage/index.html — Manage overview and menu map for IMS retail master data and configuration.
-- https://docs.ims.starco.com.kw/manage/items.html — Item/style master, merchandise hierarchy, prices, barcodes, images and online details.
+- https://docs.ims.starco.com.kw/manage/items.html — Items Master, 23-column and 30-column positional imports with field rules and existing-item behavior; retail prices, online prices, images, barcodes and merchandise metadata.
 - https://docs.ims.starco.com.kw/manage/lottery-offers.html — Lottery campaign dates, trigger amount, draw date and stores.
 - https://docs.ims.starco.com.kw/manage/product-groups.html — Product Group/Sub Group hierarchy.
+- https://docs.ims.starco.com.kw/manage/promotions-loyalty.html — Choose and operate IMS promotion and loyalty programs, from campaign setup through sale, customer benefit and return handling.
 - https://docs.ims.starco.com.kw/manage/sale-seasons.html — Time-based sale policies, item lists and pricing changes.
 - https://docs.ims.starco.com.kw/manage/sales-men-ladies.html — Salesperson master, active status and store-selling permissions.
 - https://docs.ims.starco.com.kw/manage/service-items.html — Service Item Codes, descriptions, account mapping and minimum prices.
 - https://docs.ims.starco.com.kw/manage/special-cards-profiles.html — Special Card expiration, one-time-use, redemption, funding and recharge rules.
 - https://docs.ims.starco.com.kw/manage/special-cards.html — Stored-value Special Cards, customer, balance, history and suspend/reactivate.
 - https://docs.ims.starco.com.kw/manage/special-offers.html — Discounts, free items, cash back, bundles and step-discount promotions.
+- https://docs.ims.starco.com.kw/manage/star-rewards.html — Operate the IMS loyalty points program: identify customers, understand earnings and tiers, redeem available value and review refunds and expiry.
 - https://docs.ims.starco.com.kw/manage/statistical-periods.html — Statistical Period / season master.
-- https://docs.ims.starco.com.kw/manage/stores.html — Store/branch master, POS, sections, transaction settings, financial mapping, V-Count and online-store settings; IMS 9.4.5 new-store creation atomically initializes missing document counters and preserves existing values.
+- https://docs.ims.starco.com.kw/manage/stores.html — Store/branch master, POS, sections, transaction settings, financial mapping, V-Count and online-store settings.
 - https://docs.ims.starco.com.kw/manage/suppliers.html — Supplier master, Brands, JIT/integration settings, custom attributes and mailing lists.
 - https://docs.ims.starco.com.kw/manage/vip-customers.html — VIP customer details, categories, contact info, discount and credit information.
 
 ## Reports
 - https://docs.ims.starco.com.kw/reports/cash-report.html — Daily Cash Report / closing by POS or all POS terminals.
 - https://docs.ims.starco.com.kw/reports/clients-history.html — Client sales and returns history.
-- https://docs.ims.starco.com.kw/reports/clients-visits.html — Newly identified client visits, spending and contribution to sales.
+- https://docs.ims.starco.com.kw/reports/clients-visits.html — Identified customer visits, hourly/day/month grouping, spending and contribution to sales.
 - https://docs.ims.starco.com.kw/reports/gift-vouchers-summary.html — Gift Voucher issue, expiry, cancellation, redemption and net valid value.
 - https://docs.ims.starco.com.kw/reports/gross-income.html — Gross Income by supplier or store, including inventory value, COGS, markup and gross profit.
 - https://docs.ims.starco.com.kw/reports/index.html — Reports overview and menu map for the IMS reporting suite.
@@ -77,64 +79,68 @@
 - https://docs.ims.starco.com.kw/reports/sell-through-report.html — Received, sold and on-hand analysis with sell-through, sales mix and profitability measures.
 - https://docs.ims.starco.com.kw/reports/star-rewards-history.html — Star Rewards profile, client finder, points, wallet and transaction history.
 - https://docs.ims.starco.com.kw/reports/store-sales-report.html — Store Sales Report with daily/weekly/monthly/yearly/hourly views, traffic and conversion.
-- https://docs.ims.starco.com.kw/reports/user-defined-reports.html — Run Custom Reports definitions and export/email/save or schedule delivery through Reporting Scheduler.
+- https://docs.ims.starco.com.kw/reports/user-defined-reports.html — Run authorized Custom Reports with fields, filters, grouping, Store/Supplier criteria and export options.
 
 ## Sales
 - https://docs.ims.starco.com.kw/sales/index.html — Sales and POS overview.
 - https://docs.ims.starco.com.kw/sales/items-search.html — Find and review items for sales.
 - https://docs.ims.starco.com.kw/sales/open-close-pos.html — Open and close a POS shift.
 - https://docs.ims.starco.com.kw/sales/open-drawer.html — Authorized cash-drawer opening.
-- https://docs.ims.starco.com.kw/sales/sales-transactions.html — Sales and returns, payments, saved-sale versus receipt printing and uncertain-outcome verification; IMS 9.4.5 Client Info adds optional Gender/Nationality, editable Loyalty profiles, immediate profile Save/Cancel behavior and ERP-linked read-only profiles.
-- https://docs.ims.starco.com.kw/sales/transactions-expert.html — Find existing transactions, review receipts and reprint or email them; IMS 9.4.5 client editing distinguishes immediate Loyalty profile Save from the separate historical-receipt Save.
+- https://docs.ims.starco.com.kw/sales/sales-transactions.html — Sales and returns, payments, consent-based email/WhatsApp digital receipts, gift contact rules, bilingual 80 mm receipt printing, copies and Crystal Reports fallback.
+- https://docs.ims.starco.com.kw/sales/transactions-expert.html — Find and inspect existing transactions; controlled returns, exchanges, updates and receipt reprinting; verify existing digital-receipt results before another action.
 
 ## Shopify
 - https://docs.ims.starco.com.kw/shopify/fulfillment-requests.html — Fulfillment Requests: Store/date/confirmation filtering of online Stock Transfer vouchers; merchandise/Order/Profile detail; COGS-sensitive cost columns; Store packing verification and confirmation of requests ready for integration processing.
-- https://docs.ims.starco.com.kw/shopify/incoming-orders.html — Incoming Orders: profile/store/date/state/customer/order search; online customer/address and merchandise detail; prioritized Store fulfillment; IMS Sales/Credit invoicing; linked Transactions Expert receipts; full and item refunds; exchanges with Shopify barcode/price lookup; JIT supplier notification by IMS Autos immediately after the Shopify service creates the IMS order, using Supplier/Brand mailing-list recipients; JIT purchasing later occurs during invoicing; payment/state changes; manual No Integration orders; order audit log.
+- https://docs.ims.starco.com.kw/shopify/incoming-orders.html — Online orders, company/profile/store filters, fulfillment, IMS invoicing, linked transactions, refunds, exchanges and supplier notifications.
 - https://docs.ims.starco.com.kw/shopify/index.html — Shopify module overview: Incoming Orders, Fulfillment Requests and Manage Profiles connect online channels with IMS sales, inventory, fulfillment and financial processing.
-- https://docs.ims.starco.com.kw/shopify/integration-server.html — Versioned Windows desktop worker: order import, separate fulfillment, inventory watermark/mapping limits, manual retrieval and recovery boundaries.
-- https://docs.ims.starco.com.kw/shopify/manage-profiles.html — Profile, supplier, store and mapping setup; protected credential replacement and worker configuration requirements.
+- https://docs.ims.starco.com.kw/shopify/integration-server.html — Shopify 4.4.0 multi-company application with independent profile workers, selectors, Start/Stop, manual operations, secure bootstrap, inventory Delta windows and quantity rules.
+- https://docs.ims.starco.com.kw/shopify/manage-profiles.html — Company-local Shopify profiles, suppliers, Stores, App Tokens, Location ID, Local Store, quantity rules and online metadata configuration.
 
 ## System
-- https://docs.ims.starco.com.kw/system/change-password.html — Change Password: the active user must first confirm the current password; the confirmation dialog masks the password, enables OK only when text is entered, compares against the current user's stored password, and then proceeds to the new/retype password dialog.
-- https://docs.ims.starco.com.kw/system/group-policies.html — Group Policies: reusable role/permission profiles; All plus categorized permission tabs; synchronized permission selections; Select All per current tab or globally; per-permission descriptions; 117 current permissions across Main, Sales, Inventory, Finance, Reports, Setup, Settings, Tools, Shopify and Integration; assigned to users through Users Accounts.
-- https://docs.ims.starco.com.kw/system/index.html — System menu and links to central IMS Global workstation administration.
+- https://docs.ims.starco.com.kw/system/change-password.html — Verify the current password through IMS Security Guard and set a matching new password of at least eight characters.
+- https://docs.ims.starco.com.kw/system/group-policies.html — Reusable company permission profiles, categorized available permissions, Select All, descriptions and assignment through Users Accounts.
+- https://docs.ims.starco.com.kw/system/index.html — Client System menu: accounts, permissions, settings, local options, activity, connection diagnostics and links to central IMS Global administration.
 - https://docs.ims.starco.com.kw/system/options.html — Options: local IMS preferences for Theme (Default/Light/Dark), installed Language, and Windows printer/copy defaults for Sales Transactions, Stock Transfers, Daily Cash Report and Other Reports; Theme/Language changes can prompt an application restart; Save writes local options and an activity-log entry.
-- https://docs.ims.starco.com.kw/system/settings.html — Settings: company/time-zone/maintenance/update/email/loyalty/operator/transaction configuration. IMS 9.4.5 VAT settings include enable flag, VAT Account No., Percentage and sales rounding increment.
-- https://docs.ims.starco.com.kw/system/system-dashboard.html — System Dashboard: current/latest IMS and updater versions, active database/server/time zone, PostgreSQL HA primary/standby state, connection latency, active workstations, Access Log, grouped live PostgreSQL sessions and the IMS 9.4.5 Performance Monitor with Min/Max/Avg timing and Good/Fair/Slow/Critical health.
-- https://docs.ims.starco.com.kw/system/users-accounts.html — Users Accounts: global IMS identity/login/contact plus current-company Store/Supplier/Group Policy/transaction scope; new users receive current-company access; Remove deactivates current-company access rather than deleting the global identity.
+- https://docs.ims.starco.com.kw/system/settings.html — Company settings, time zone, maintenance, email/WhatsApp receipt channels, loyalty, operators, transaction policies and VAT.
+- https://docs.ims.starco.com.kw/system/system-dashboard.html — Client versions, connection statistics, Workstation Info, Access Log, database sessions and Performance Monitor; cluster health is monitored separately in IMS Global.
+- https://docs.ims.starco.com.kw/system/users-accounts.html — Global identity and company-local user access, Store/Supplier/Group Policy assignments, temporary access credentials and first-login password change.
 - https://docs.ims.starco.com.kw/system/users-activity.html — Users Activity (window title System Log): audited IMS actions filtered by date, one user or All Users, and ModelsToAudit selections; results include Model, timestamp, Center, transaction no., IMS version, optional User Name, PC Name, IP address and Action Details; links to a separate Access Log viewer.
 - https://docs.ims.starco.com.kw/system/workstation-admin.html — Central workstation authorization through IMS Global: current fields, Refresh, Approve, Block and self-block safeguard.
 
-## Technical
-- https://docs.ims.starco.com.kw/technical/api-v1/authentication.html — External API authentication, authorized companies, least-privilege scopes including customers.read, and access prerequisites.
+## Business API
+- https://docs.ims.starco.com.kw/technical/api-v1/authentication.html — Business API keys, company access, scopes, supplier/store contracts, financial masking and trusted-internal exception; distinct Partner Data authorization.
+- https://docs.ims.starco.com.kw/technical/api-v1/customer-delta.html — Full customer synchronization, baseline and revision, keyset pagination, safe cursor advancement and recovery for IMS Business API.
 - https://docs.ims.starco.com.kw/technical/api-v1/data-semantics.html — Signed quantities, transaction dates, sales and purchase returns, cost, repeated document totals and promotion semantics.
 - https://docs.ims.starco.com.kw/technical/api-v1/errors-rate-limits.html — 400/401/403/404/429 behavior and rate-limit handling.
-- https://docs.ims.starco.com.kw/technical/api-v1/examples.html — Synthetic curl, PowerShell, HTTP and Postman examples for Business API integrations, Customers Catalog and Partner synchronization.
-- https://docs.ims.starco.com.kw/technical/api-v1/index.html — IMS API 1.1.0.0 Business API v1 for external integrations: authentication, scopes, resources, Customers Catalog and Partner Data synchronization.
-- https://docs.ims.starco.com.kw/technical/api-v1/partner-data.html — Partner catalog and Stock Delta consumer contract: access prerequisites, baseline handshake, policy version, pagination and safe cursor advancement.
-- https://docs.ims.starco.com.kw/technical/api-v1/quick-start.html — Business API v1 quick start with X-IMS-API-Key, company routing and first working requests.
-- https://docs.ims.starco.com.kw/technical/api-v1/reference.html — All 20 ordinary Business API operations with query parameters, response fields, types and nullability, including the read-only Customers Catalog.
+- https://docs.ims.starco.com.kw/technical/api-v1/examples.html — Synthetic executable HTTP and Postman request collections for all 24 operations, with approved test-key placeholders and synchronization examples.
+- https://docs.ims.starco.com.kw/technical/api-v1/index.html — Standalone external Business API: 22 ordinary GET operations plus two Partner Data operations; scopes, company contracts, Customer Delta and Footfall.
+- https://docs.ims.starco.com.kw/technical/api-v1/partner-data.html — Partner catalog and Stock Delta policy, baseline handshake, policy version, fixed windows, keyset pagination and safe cursor advancement.
+- https://docs.ims.starco.com.kw/technical/api-v1/quick-start.html — Business API prerequisites and first requests using X-IMS-API-Key, company routing, least-privilege scopes and contract visibility.
+- https://docs.ims.starco.com.kw/technical/api-v1/reference.html — All 24 Business API GET operations with exact routes, scopes, parameters, defaults, JSON response fields/nullability, contract visibility, pagination, errors and integration scenarios.
 - https://docs.ims.starco.com.kw/technical/api-v1/requests.html — Dates, paging (default 200, max 1000), filtering and response-envelope conventions.
-- https://docs.ims.starco.com.kw/technical/architecture.html — IMS Architecture: Windows client, IMS API, IMS Global, separate company databases and background services; audience-specific operational and technical guides.
-- https://docs.ims.starco.com.kw/technical/ims-api.html — IMS API 1.1.0.0: Business API v1, Customers Catalog, Partner Data, bootstrap and separate administrative/internal-service boundaries.
-- https://docs.ims.starco.com.kw/technical/ims-global-api-administration.html — IMS Global administrator guide: clients, companies and scopes, Partner Data configuration, API keys, quotas, Request Log, Admin Audit and Customers Catalog migration prerequisites.
-- https://docs.ims.starco.com.kw/technical/ims-global.html — IMS Global 1.6.0.0: company provisioning, global users, company-local policy assignment and administrator workflows.
-- https://docs.ims.starco.com.kw/technical/index.html — Technical overview for IMS architecture, multi-company, security, bootstrap, Global administration, API, Secret Vault, observability, PostgreSQL and IT operations.
+
+## Technical
+- https://docs.ims.starco.com.kw/technical/architecture.html — Roles and boundaries of IMS Client, IMS Global, IMS API, IMS Autos and IMS Shopify, with separate global administration and company operational databases.
+- https://docs.ims.starco.com.kw/technical/ims-api.html — IMS API 1.1.0 service responsibilities and separate boundaries for external Business API, workstation bootstrap, Global administration and internal service authentication.
+- https://docs.ims.starco.com.kw/technical/ims-global-api-administration.html — API clients, company access, scopes, ordinary supplier/store contracts, financial permission, Partner Data policies, keys, quotas and request/audit logs.
+- https://docs.ims.starco.com.kw/technical/ims-global.html — IMS Global 1.7.0 companies and provisioning, users, supplier cloning, Items Master preview/synchronization, service access, Recovery Packages and read-only HA Health.
+- https://docs.ims.starco.com.kw/technical/index.html — Technical administration: architecture, IMS Global, IMS Security Guard & Secure Bootstrap, company databases, Secret Vault, Autos/Shopify service administration and HA Health.
 - https://docs.ims.starco.com.kw/technical/it-operations-troubleshooting.html — IT Operations & Troubleshooting for access, company routing, databases, API/bootstrap, workstations and new-company rollout.
 - https://docs.ims.starco.com.kw/technical/multi-company.html — Multi-Company Architecture: global identity/company membership with independent company databases and company-local operational permissions. New company databases are created and initialized by IMS Global through Companies → Create DB; use the supported provisioning workflow rather than manual company database creation.
 - https://docs.ims.starco.com.kw/technical/postgresql/index.html — PostgreSQL Deployment & Operations, including the rule that company database provisioning is performed by IMS Global.
 - https://docs.ims.starco.com.kw/technical/secret-vault.html — Secret Vault: server-mediated storage of sensitive credentials including company database secrets.
-- https://docs.ims.starco.com.kw/technical/secure-bootstrap.html — Secure Bootstrap: workstation check, global login, password-change enforcement, authorized company list and company database routing.
+- https://docs.ims.starco.com.kw/technical/secure-bootstrap.html — IMS Security Guard & Secure Bootstrap: workstation authorization, version gates, global authentication, password changes, company routing and credential bootstrap.
 - https://docs.ims.starco.com.kw/technical/security.html — Security Architecture: workstation authorization, global authentication, Global Administrator sessions, company membership and company-local permissions.
-- https://docs.ims.starco.com.kw/technical/source-baseline.html — IMS Client Build 9.4.5.0, IMS API 1.1.0.0, IMS Global 1.6.0.0 and independent worker versions; installation and migration prerequisites.
-- https://docs.ims.starco.com.kw/technical/system-dashboard-observability.html — System Dashboard & Observability: versions, active database/server, HA state, latency, workstations, sessions and transaction performance; transaction telemetry exists only where Store Debugging Mode is enabled.
+- https://docs.ims.starco.com.kw/technical/service-administration.html — Autos and Shopify service identities, company grants, secure bootstrap, Windows runtimes, Recovery Package installation, enrollment and monitoring.
+- https://docs.ims.starco.com.kw/technical/source-baseline.html — Component versions and compatibility: Client 9.4.6, Global 1.7.0, API 1.1.0, Autos 9.2 and Shopify 4.4.0; runtime, provisioning and service prerequisites.
+- https://docs.ims.starco.com.kw/technical/system-dashboard-observability.html — Monitoring locations across IMS Client, IMS Global and IMS Shopify, with links to dashboard, performance, HA Health, API activity, Autos and Integration Center guides.
 
 ## Tools
 - https://docs.ims.starco.com.kw/tools/custom-attributes.html — Custom Attributes: define global Supplier or Store attributes; ID, Name and display Format; spaces in names are stored as underscores; values are maintained per Supplier/Store in Manage; attributes become available to Custom Reports through SupplierID/StoreID.
 - https://docs.ims.starco.com.kw/tools/custom-reports.html — Custom Reports: create reports on active Custom Views; owner/name/description/active state; all-users or selected-user access; Report Fields with header, Field Type, Custom Format and None/Sum/Average/Count/Min/Max; automatic grouping when aggregation is used; Store/Supplier Custom Attributes; Order By; report deletion blocked while Reporting Scheduler tasks use it.
 - https://docs.ims.starco.com.kw/tools/custom-views.html — Custom Views: the DBA first creates an approved public-schema base reporting view named vw_*; IMS then registers it in cr_views, loads its columns, assigns one of 12 Field Types, controls Active status, and exposes it as the data-source layer for Custom Reports. Deletion is blocked while reports use the view.
-- https://docs.ims.starco.com.kw/tools/ims-autos.html — Windows service scheduling, inclusive stock-movement window, maintenance state, reports, supplier-notification limits and outbound integrations.
+- https://docs.ims.starco.com.kw/tools/ims-autos.html — IMS Autos 9.2 .NET 10 Windows service: nine multi-company business processes, company time zones, schedules, activity filters, report delivery and email/WhatsApp receipt outcomes.
 - https://docs.ims.starco.com.kw/tools/index.html — Tools menu overview: Label Printing, Stock Maintenance, IMS Autos, Custom Views, Custom Reports, Reporting Scheduler and Custom Attributes.
 - https://docs.ims.starco.com.kw/tools/label-printing.html — Label Printing: Price/Sale label templates; Item/Barcode or Style entry; scanned-style/scanned-color expansion; optional selected-store positive balance as Qty; item/brand/style/color/size/prices list; Item/Qty, Style/Qty and Style/Color/Qty tab-delimited imports; Crystal Reports preview and print.
-- https://docs.ims.starco.com.kw/tools/reporting-scheduler.html — Reporting Scheduler: schedule Custom Reports by Day/Week/Month; optional TransDate period logic; required StoreID/SupplierID where-clause selection; TXT, CSV or XLSX output; file prefix/date format/remove header; Email and/or FTP delivery; server execution by IMS Autos; execution history in cr_TasksResults.
-- https://docs.ims.starco.com.kw/tools/stock-maintenance.html — Balance rebuild, transaction boundaries, maintenance-window guidance and post-run store-state verification.
+- https://docs.ims.starco.com.kw/tools/reporting-scheduler.html — Schedule Custom Reports by company time zone and period; TXT, CSV or XLSX, Email/FTP destinations, no-sales notices and task history.
+- https://docs.ims.starco.com.kw/tools/stock-maintenance.html — Operator-controlled stock-balance reconstruction, scope selection, maintenance status and completion checks.

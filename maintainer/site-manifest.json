@@ -7,7 +7,7 @@
     },
     {
       "path": "financial/cash-receipts.html",
-      "summary": "Cash Receipts: customer receipt voucher, non-voucher Sales Payment Type, customer ID/search, amount and notes; saving reduces customer balance, edit corrects the balance effect, void restores the amount, and the screen displays journal/posting metadata when present."
+      "summary": "Customer receipt vouchers, payment type, amount and notes; balance effects, supported editing, voiding and journal/posting metadata."
     },
     {
       "path": "financial/close-fin-period.html",
@@ -47,11 +47,11 @@
     },
     {
       "path": "financial/sales-payment-types.html",
-      "summary": "Payment classifications, card authorization and supported payment configuration."
+      "summary": "Payment method setup, account mapping, card authorization and selection behavior."
     },
     {
       "path": "financial/vat-tax-configuration.html",
-      "summary": "IMS 9.4.5 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns."
+      "summary": "IMS 9.4.6 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns."
     },
     {
       "path": "getting-started/main-screen.html",
@@ -59,15 +59,15 @@
     },
     {
       "path": "index.html",
-      "summary": "IMS Retail Management System Documentation"
+      "summary": "IMS 9.4.6 product reference for employees, administrators and external Business API developers; module guides, Promotions & Loyalty and component compatibility."
     },
     {
       "path": "integration/index.html",
-      "summary": "IMS 9.4.5 Integration overview: Starco Stock Take, V-Count Settings and Integration Center. Integration Center manages configurable outbound endpoints, source previews, health status and sync logs."
+      "summary": "IMS 9.4.6 Integration overview: Starco Stock Take, V-Count Settings and Integration Center. Integration Center manages configurable outbound endpoints, source previews, health status and sync logs."
     },
     {
       "path": "integration/integration-center.html",
-      "summary": "Integration Center: Overview health counters, endpoint/source/authentication/trigger/JSON configuration, required source metadata and payload-group definition, Preview Source, clone/save behavior and seven-day Sync Log troubleshooting."
+      "summary": "Integration Center endpoint configuration, source previews, company-authorized service credentials, scheduling, health and synchronization logs."
     },
     {
       "path": "integration/starco-stock-take.html",
@@ -95,7 +95,7 @@
     },
     {
       "path": "inventory/stock-adjustments.html",
-      "summary": "Signed inventory corrections and negative discrepancy posting; saving or editing an adjustment initializes missing item_prods balance rows before applying signed quantities."
+      "summary": "Signed inventory corrections, document editing and negative discrepancy posting."
     },
     {
       "path": "inventory/stock-depreciation.html",
@@ -147,7 +147,7 @@
     },
     {
       "path": "manage/items.html",
-      "summary": "Item/style master, merchandise hierarchy, prices, barcodes, images and online details."
+      "summary": "Items Master, 23-column and 30-column positional imports with field rules and existing-item behavior; retail prices, online prices, images, barcodes and merchandise metadata."
     },
     {
       "path": "manage/lottery-offers.html",
@@ -156,6 +156,10 @@
     {
       "path": "manage/product-groups.html",
       "summary": "Product Group/Sub Group hierarchy."
+    },
+    {
+      "path": "manage/promotions-loyalty.html",
+      "summary": "Choose and operate IMS promotion and loyalty programs, from campaign setup through sale, customer benefit and return handling."
     },
     {
       "path": "manage/sale-seasons.html",
@@ -182,12 +186,16 @@
       "summary": "Discounts, free items, cash back, bundles and step-discount promotions."
     },
     {
+      "path": "manage/star-rewards.html",
+      "summary": "Operate the IMS loyalty points program: identify customers, understand earnings and tiers, redeem available value and review refunds and expiry."
+    },
+    {
       "path": "manage/statistical-periods.html",
       "summary": "Statistical Period / season master."
     },
     {
       "path": "manage/stores.html",
-      "summary": "Store/branch master, POS, sections, transaction settings, financial mapping, V-Count and online-store settings; IMS 9.4.5 new-store creation atomically initializes missing document counters and preserves existing values."
+      "summary": "Store/branch master, POS, sections, transaction settings, financial mapping, V-Count and online-store settings."
     },
     {
       "path": "manage/suppliers.html",
@@ -207,7 +215,7 @@
     },
     {
       "path": "reports/clients-visits.html",
-      "summary": "Newly identified client visits, spending and contribution to sales."
+      "summary": "Identified customer visits, hourly/day/month grouping, spending and contribution to sales."
     },
     {
       "path": "reports/gift-vouchers-summary.html",
@@ -251,7 +259,7 @@
     },
     {
       "path": "reports/user-defined-reports.html",
-      "summary": "Run Custom Reports definitions and export/email/save or schedule delivery through Reporting Scheduler."
+      "summary": "Run authorized Custom Reports with fields, filters, grouping, Store/Supplier criteria and export options."
     },
     {
       "path": "sales/index.html",
@@ -271,11 +279,11 @@
     },
     {
       "path": "sales/sales-transactions.html",
-      "summary": "Sales and returns, payments, saved-sale versus receipt printing and uncertain-outcome verification; IMS 9.4.5 Client Info adds optional Gender/Nationality, editable Loyalty profiles, immediate profile Save/Cancel behavior and ERP-linked read-only profiles."
+      "summary": "Sales and returns, payments, consent-based email/WhatsApp digital receipts, gift contact rules, bilingual 80 mm receipt printing, copies and Crystal Reports fallback."
     },
     {
       "path": "sales/transactions-expert.html",
-      "summary": "Find existing transactions, review receipts and reprint or email them; IMS 9.4.5 client editing distinguishes immediate Loyalty profile Save from the separate historical-receipt Save."
+      "summary": "Find and inspect existing transactions; controlled returns, exchanges, updates and receipt reprinting; verify existing digital-receipt results before another action."
     },
     {
       "path": "shopify/fulfillment-requests.html",
@@ -283,7 +291,7 @@
     },
     {
       "path": "shopify/incoming-orders.html",
-      "summary": "Incoming Orders: profile/store/date/state/customer/order search; online customer/address and merchandise detail; prioritized Store fulfillment; IMS Sales/Credit invoicing; linked Transactions Expert receipts; full and item refunds; exchanges with Shopify barcode/price lookup; JIT supplier notification by IMS Autos immediately after the Shopify service creates the IMS order, using Supplier/Brand mailing-list recipients; JIT purchasing later occurs during invoicing; payment/state changes; manual No Integration orders; order audit log."
+      "summary": "Online orders, company/profile/store filters, fulfillment, IMS invoicing, linked transactions, refunds, exchanges and supplier notifications."
     },
     {
       "path": "shopify/index.html",
@@ -291,23 +299,23 @@
     },
     {
       "path": "shopify/integration-server.html",
-      "summary": "Versioned Windows desktop worker: order import, separate fulfillment, inventory watermark/mapping limits, manual retrieval and recovery boundaries."
+      "summary": "Shopify 4.4.0 multi-company application with independent profile workers, selectors, Start/Stop, manual operations, secure bootstrap, inventory Delta windows and quantity rules."
     },
     {
       "path": "shopify/manage-profiles.html",
-      "summary": "Profile, supplier, store and mapping setup; protected credential replacement and worker configuration requirements."
+      "summary": "Company-local Shopify profiles, suppliers, Stores, App Tokens, Location ID, Local Store, quantity rules and online metadata configuration."
     },
     {
       "path": "system/change-password.html",
-      "summary": "Change Password: the active user must first confirm the current password; the confirmation dialog masks the password, enables OK only when text is entered, compares against the current user's stored password, and then proceeds to the new/retype password dialog."
+      "summary": "Verify the current password through IMS Security Guard and set a matching new password of at least eight characters."
     },
     {
       "path": "system/group-policies.html",
-      "summary": "Group Policies: reusable role/permission profiles; All plus categorized permission tabs; synchronized permission selections; Select All per current tab or globally; per-permission descriptions; 117 current permissions across Main, Sales, Inventory, Finance, Reports, Setup, Settings, Tools, Shopify and Integration; assigned to users through Users Accounts."
+      "summary": "Reusable company permission profiles, categorized available permissions, Select All, descriptions and assignment through Users Accounts."
     },
     {
       "path": "system/index.html",
-      "summary": "System menu and links to central IMS Global workstation administration."
+      "summary": "Client System menu: accounts, permissions, settings, local options, activity, connection diagnostics and links to central IMS Global administration."
     },
     {
       "path": "system/options.html",
@@ -315,15 +323,15 @@
     },
     {
       "path": "system/settings.html",
-      "summary": "Settings: company/time-zone/maintenance/update/email/loyalty/operator/transaction configuration. IMS 9.4.5 VAT settings include enable flag, VAT Account No., Percentage and sales rounding increment."
+      "summary": "Company settings, time zone, maintenance, email/WhatsApp receipt channels, loyalty, operators, transaction policies and VAT."
     },
     {
       "path": "system/system-dashboard.html",
-      "summary": "System Dashboard: current/latest IMS and updater versions, active database/server/time zone, PostgreSQL HA primary/standby state, connection latency, active workstations, Access Log, grouped live PostgreSQL sessions and the IMS 9.4.5 Performance Monitor with Min/Max/Avg timing and Good/Fair/Slow/Critical health."
+      "summary": "Client versions, connection statistics, Workstation Info, Access Log, database sessions and Performance Monitor; cluster health is monitored separately in IMS Global."
     },
     {
       "path": "system/users-accounts.html",
-      "summary": "Users Accounts: global IMS identity/login/contact plus current-company Store/Supplier/Group Policy/transaction scope; new users receive current-company access; Remove deactivates current-company access rather than deleting the global identity."
+      "summary": "Global identity and company-local user access, Store/Supplier/Group Policy assignments, temporary access credentials and first-login password change."
     },
     {
       "path": "system/users-activity.html",
@@ -335,7 +343,11 @@
     },
     {
       "path": "technical/api-v1/authentication.html",
-      "summary": "External API authentication, authorized companies, least-privilege scopes including customers.read, and access prerequisites."
+      "summary": "Business API keys, company access, scopes, supplier/store contracts, financial masking and trusted-internal exception; distinct Partner Data authorization."
+    },
+    {
+      "path": "technical/api-v1/customer-delta.html",
+      "summary": "Full customer synchronization, baseline and revision, keyset pagination, safe cursor advancement and recovery for IMS Business API."
     },
     {
       "path": "technical/api-v1/data-semantics.html",
@@ -347,23 +359,23 @@
     },
     {
       "path": "technical/api-v1/examples.html",
-      "summary": "Synthetic curl, PowerShell, HTTP and Postman examples for Business API integrations, Customers Catalog and Partner synchronization."
+      "summary": "Synthetic executable HTTP and Postman request collections for all 24 operations, with approved test-key placeholders and synchronization examples."
     },
     {
       "path": "technical/api-v1/index.html",
-      "summary": "IMS API 1.1.0.0 Business API v1 for external integrations: authentication, scopes, resources, Customers Catalog and Partner Data synchronization."
+      "summary": "Standalone external Business API: 22 ordinary GET operations plus two Partner Data operations; scopes, company contracts, Customer Delta and Footfall."
     },
     {
       "path": "technical/api-v1/partner-data.html",
-      "summary": "Partner catalog and Stock Delta consumer contract: access prerequisites, baseline handshake, policy version, pagination and safe cursor advancement."
+      "summary": "Partner catalog and Stock Delta policy, baseline handshake, policy version, fixed windows, keyset pagination and safe cursor advancement."
     },
     {
       "path": "technical/api-v1/quick-start.html",
-      "summary": "Business API v1 quick start with X-IMS-API-Key, company routing and first working requests."
+      "summary": "Business API prerequisites and first requests using X-IMS-API-Key, company routing, least-privilege scopes and contract visibility."
     },
     {
       "path": "technical/api-v1/reference.html",
-      "summary": "All 20 ordinary Business API operations with query parameters, response fields, types and nullability, including the read-only Customers Catalog."
+      "summary": "All 24 Business API GET operations with exact routes, scopes, parameters, defaults, JSON response fields/nullability, contract visibility, pagination, errors and integration scenarios."
     },
     {
       "path": "technical/api-v1/requests.html",
@@ -371,23 +383,23 @@
     },
     {
       "path": "technical/architecture.html",
-      "summary": "IMS Architecture: Windows client, IMS API, IMS Global, separate company databases and background services; audience-specific operational and technical guides."
+      "summary": "Roles and boundaries of IMS Client, IMS Global, IMS API, IMS Autos and IMS Shopify, with separate global administration and company operational databases."
     },
     {
       "path": "technical/ims-api.html",
-      "summary": "IMS API 1.1.0.0: Business API v1, Customers Catalog, Partner Data, bootstrap and separate administrative/internal-service boundaries."
+      "summary": "IMS API 1.1.0 service responsibilities and separate boundaries for external Business API, workstation bootstrap, Global administration and internal service authentication."
     },
     {
       "path": "technical/ims-global-api-administration.html",
-      "summary": "IMS Global administrator guide: clients, companies and scopes, Partner Data configuration, API keys, quotas, Request Log, Admin Audit and Customers Catalog migration prerequisites."
+      "summary": "API clients, company access, scopes, ordinary supplier/store contracts, financial permission, Partner Data policies, keys, quotas and request/audit logs."
     },
     {
       "path": "technical/ims-global.html",
-      "summary": "IMS Global 1.6.0.0: company provisioning, global users, company-local policy assignment and administrator workflows."
+      "summary": "IMS Global 1.7.0 companies and provisioning, users, supplier cloning, Items Master preview/synchronization, service access, Recovery Packages and read-only HA Health."
     },
     {
       "path": "technical/index.html",
-      "summary": "Technical overview for IMS architecture, multi-company, security, bootstrap, Global administration, API, Secret Vault, observability, PostgreSQL and IT operations."
+      "summary": "Technical administration: architecture, IMS Global, IMS Security Guard & Secure Bootstrap, company databases, Secret Vault, Autos/Shopify service administration and HA Health."
     },
     {
       "path": "technical/it-operations-troubleshooting.html",
@@ -407,19 +419,23 @@
     },
     {
       "path": "technical/secure-bootstrap.html",
-      "summary": "Secure Bootstrap: workstation check, global login, password-change enforcement, authorized company list and company database routing."
+      "summary": "IMS Security Guard & Secure Bootstrap: workstation authorization, version gates, global authentication, password changes, company routing and credential bootstrap."
     },
     {
       "path": "technical/security.html",
       "summary": "Security Architecture: workstation authorization, global authentication, Global Administrator sessions, company membership and company-local permissions."
     },
     {
+      "path": "technical/service-administration.html",
+      "summary": "Autos and Shopify service identities, company grants, secure bootstrap, Windows runtimes, Recovery Package installation, enrollment and monitoring."
+    },
+    {
       "path": "technical/source-baseline.html",
-      "summary": "IMS Client Build 9.4.5.0, IMS API 1.1.0.0, IMS Global 1.6.0.0 and independent worker versions; installation and migration prerequisites."
+      "summary": "Component versions and compatibility: Client 9.4.6, Global 1.7.0, API 1.1.0, Autos 9.2 and Shopify 4.4.0; runtime, provisioning and service prerequisites."
     },
     {
       "path": "technical/system-dashboard-observability.html",
-      "summary": "System Dashboard & Observability: versions, active database/server, HA state, latency, workstations, sessions and transaction performance; transaction telemetry exists only where Store Debugging Mode is enabled."
+      "summary": "Monitoring locations across IMS Client, IMS Global and IMS Shopify, with links to dashboard, performance, HA Health, API activity, Autos and Integration Center guides."
     },
     {
       "path": "tools/custom-attributes.html",
@@ -435,7 +451,7 @@
     },
     {
       "path": "tools/ims-autos.html",
-      "summary": "Windows service scheduling, inclusive stock-movement window, maintenance state, reports, supplier-notification limits and outbound integrations."
+      "summary": "IMS Autos 9.2 .NET 10 Windows service: nine multi-company business processes, company time zones, schedules, activity filters, report delivery and email/WhatsApp receipt outcomes."
     },
     {
       "path": "tools/index.html",
@@ -447,11 +463,11 @@
     },
     {
       "path": "tools/reporting-scheduler.html",
-      "summary": "Reporting Scheduler: schedule Custom Reports by Day/Week/Month; optional TransDate period logic; required StoreID/SupplierID where-clause selection; TXT, CSV or XLSX output; file prefix/date format/remove header; Email and/or FTP delivery; server execution by IMS Autos; execution history in cr_TasksResults."
+      "summary": "Schedule Custom Reports by company time zone and period; TXT, CSV or XLSX, Email/FTP destinations, no-sales notices and task history."
     },
     {
       "path": "tools/stock-maintenance.html",
-      "summary": "Balance rebuild, transaction boundaries, maintenance-window guidance and post-run store-state verification."
+      "summary": "Operator-controlled stock-balance reconstruction, scope selection, maintenance status and completion checks."
     }
   ]
 }
