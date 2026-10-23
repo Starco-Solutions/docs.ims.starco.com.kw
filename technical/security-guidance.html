@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>General Security Recommendations | IMS Documentation</title>
+<meta name="description" content="General security recommendations for workstations, credentials, logs, networks and recovery; separate from documented IMS implementation behavior.">
+<link rel="canonical" href="https://docs.ims.starco.com.kw/technical/security-guidance.html">
+<link rel="stylesheet" href="../assets/css/docs.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"General Security Recommendations","url":"https://docs.ims.starco.com.kw/technical/security-guidance.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" type="button" data-mobile-nav>Menu</button>
+<nav class="topnav" aria-label="Primary"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a class="active" href="../technical/index.html">Technical</a><a href="api-v1/index.html">Business API</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
+</div></header>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../index.html">Documentation home</a><a href="../getting-started/main-screen.html">Getting started</a><a href="../system/index.html">System</a><a href="../integration/index.html">Integration</a><h3>Business API</h3><a href="api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="index.html">Technical Overview</a><a href="architecture.html">IMS Architecture</a><a href="multi-company.html">Multi-Company Architecture</a><a href="security.html">Security Architecture</a><a class="active" href="security-guidance.html">General Security Recommendations</a><a href="secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="ims-global.html">IMS Global</a><a href="ims-global-api-administration.html">API Administration</a><a href="ims-api.html">IMS API</a><a href="secret-vault.html">Secret Vault</a><a href="system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a><a href="service-administration.html">Autos and Shopify services</a></aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Technical › General Security Recommendations</div>
+<span class="badge">General operational guidance</span>
+<h1>General Security Recommendations</h1>
+<p class="lead">Practical security precautions for teams operating IMS environments. These are recommendations, not statements that IMS implements every measure or that an exposure has been discovered.</p>
+<div class="callout"><strong>How to read this guidance</strong>Recommendations describe actions administrators and developers should consider. They are not findings, confirmed incidents or IMS product guarantees. For implemented controls and documented boundaries, see <a href="security.html">Security Architecture</a>, <a href="secure-bootstrap.html">Secure Bootstrap</a> and <a href="secret-vault.html">Secret Vault</a>.</div>
+<h2>Types of security statements</h2>
+<div class="table-wrap"><table><thead><tr><th>Label</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Documented IMS behavior</td><td>An IMS control or interface described by the technical reference. Implementation verification is still required before treating documentation alone as source-code proof.</td></tr>
+<tr><td>General recommendation</td><td>A precaution or deployment practice to consider. Its inclusion does not imply IMS provides it automatically, that it is missing, or that a defect exists.</td></tr>
+<tr><td>Confirmed limitation</td><td>A specific limitation established through evidence and scoped to the relevant component/version. Hypothetical threats or common technology trade-offs are not confirmed defects.</td></tr>
+</tbody></table></div>
+<h2>Workstations and runtime processes</h2>
+<ul>
+<li>Keep supported workstation and server operating systems patched; retire or isolate unsupported systems according to an approved risk plan.</li>
+<li>Restrict local administrator rights and access to running processes, memory dumps, remote administration and diagnostic tools.</li>
+<li>Apply screen locks, endpoint protection and device encryption as appropriate for the deployment.</li>
+<li>Keep runtime credentials and tokens out of unattended screenshots, crash reports, support attachments and shared folders.</li>
+</ul>
+<h2>Secrets, keys and credentials</h2>
+<ul>
+<li>Grant credential and encryption-key access only to approved operators and service identities; review access periodically.</li>
+<li>Use supported IMS administration and vault workflows for credential changes. Coordinate rotation with consumers and verify connectivity afterward.</li>
+<li>Protect backup copies of encrypted secrets and the key material required for recovery; store recoverable copies under separate, controlled access.</li>
+<li>Never include live passwords, tokens, API keys or encryption keys in documentation, sample requests, tickets or scripts.</li>
+</ul>
+<h2>Logging, diagnostics and support sharing</h2>
+<ul>
+<li>Redact passwords, database connection secrets, tokens, authorization headers and sensitive personal data before retaining or sharing traces.</li>
+<li>Restrict log access, use appropriate retention limits and review logging settings after troubleshooting.</li>
+<li>Prefer masked example values and verify attachments before sending them to external providers.</li>
+</ul>
+<div class="callout"><strong>Memory exposure is not a logging finding</strong>Where an authorized component receives decrypted runtime credentials, plaintext may exist in its process memory while in use. This does not establish that credentials are stored permanently or written to logs. Either claim requires separate implementation evidence or testing.</div>
+<h2>Network and access boundaries</h2>
+<ul>
+<li>Limit PostgreSQL, API and administrative network access to the systems and operators that need it; segment POS and server networks where practical.</li>
+<li>Use approved encrypted transport, certificate validation and least-privilege database/service roles appropriate to the installation.</li>
+<li>Review API key scopes, workstation permissions, company access and service grants regularly; remove stale access.</li>
+</ul>
+<h2>Backups, recovery and incidents</h2>
+<ul>
+<li>Protect backups, document key dependencies and practice controlled restoration of databases and required secrets.</li>
+<li>Monitor authentication failures and unusual access using approved tools without treating alerts alone as proof of an incident.</li>
+<li>If credential exposure is suspected, preserve evidence privately, contain access and rotate affected credentials through an authorized response procedure.</li>
+<li>Never use unsupported direct database changes as a shortcut around IMS authorization or recovery workflows.</li>
+</ul>
+<p>These precautions complement, but do not replace, the supported <a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a> procedures and <a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a> guidance.</p>
+<footer class="page-footer"><span>IMS Documentation</span><span>General security guidance; not a product guarantee</span></footer>
+</main></div><script src="../assets/js/docs.js"></script></body></html>

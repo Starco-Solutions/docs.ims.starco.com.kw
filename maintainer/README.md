@@ -37,6 +37,17 @@ their private links, or sensitive evidence into this repository or the public
 site. A directory named `maintainer` is not an access-control boundary; treat
 tracked files as potentially public.
 
+## Security claim separation
+
+Keep descriptions of IMS security controls and runtime behavior separate from general security advice.
+
+- **Implementation documentation** describes supported IMS mechanisms, boundaries and verified limitations, with precise component/version scope when needed. A precaution is not evidence of an implemented control or a defect.
+- **General Security Recommendations** is the home for general workstation, network, credential, memory, logging, backup and operational hardening advice. Mark advice as guidance, not proof that IMS performs or lacks the described behavior.
+- A statement that authorized credentials can exist in runtime process memory does not, by itself, establish credential persistence or logging. Claims about logging, storage, vulnerabilities or guarantees require independent evidence.
+- For substantive behavior changes, follow the evidence and private correction-ledger policy below. Keep engineering vulnerabilities, investigations and remediation details in approved private records rather than publishing them as product documentation.
+
+When editing security references, check nearby summaries, navigation and discovery metadata so advice cannot be mistaken for an IMS implementation fact.
+
 ## Preserve useful technical documentation
 
 Retain accurate public architecture, schema, API, deployment, and generic
