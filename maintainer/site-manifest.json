@@ -383,7 +383,7 @@
     },
     {
       "path": "technical/architecture.html",
-      "summary": "IMS Architecture: Windows client, IMS API, IMS Global, separate company databases and background services; audience-specific operational and technical guides."
+      "summary": "Roles and boundaries of IMS Client, IMS Global, IMS API, IMS Autos and IMS Shopify, with separate global administration and company operational databases."
     },
     {
       "path": "technical/ims-api.html",
@@ -435,7 +435,7 @@
     },
     {
       "path": "technical/system-dashboard-observability.html",
-      "summary": "Client diagnostics and performance telemetry; Global System → HA Health provides read-only primary/standby, streaming, lag and observation-time monitoring through IMS API."
+      "summary": "Monitoring locations across IMS Client, IMS Global and IMS Shopify, with links to dashboard, performance, HA Health, API activity, Autos and Integration Center guides."
     },
     {
       "path": "tools/custom-attributes.html",

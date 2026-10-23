@@ -168,6 +168,9 @@
 <h3>Stock availability</h3>
 <p>IMS compares the requested quantity with the source-store balance. When the quantity is not sufficient, IMS warns the user and normally refuses the item. A store configured to ignore balance can continue according to that store setting.</p>
 <p>Items placed <strong>On Hold</strong> are checked again during Save and cannot be transferred while they remain on hold.</p>
+<h2 id="damage-locations">Transfers involving Damage Locations</h2>
+<p>Check whether the source or destination is marked <strong>Is damage items location</strong> in <a href="../manage/stores.html#damage-locations">Manage Stores</a>. A transfer into that location moves stock into its recorded balance; it is not a write-off. When the <strong>source</strong> is a Damage Location, IMS also adds the transferred quantity to the item’s damaged-quantity total. Shopify deducts that item-level quantity separately from its eligible physical-store total, so transferring damage stock to an ordinary Store does not by itself make it available online.</p>
+<p>Use <a href="stock-depreciation.html#damage-stock">Stock Depreciation</a> when the approved business action is to remove/write off quantity, and <a href="stock-level.html#damage-stock">Stock Level</a> to reconcile the recorded quantities by location.</p>
 <h2 id="search-import">Item Search and Import Items</h2>
 <p>Press <strong>F3</strong> to open Item Search and add items without scanning them. <strong>Import Items</strong> opens the common IMS Import Items window for loading multiple inventory items from a text file. The Import Items button is shown only to users who have the corresponding import permission.</p>
 <h3 id="item-search-details">Using Item Search</h3>

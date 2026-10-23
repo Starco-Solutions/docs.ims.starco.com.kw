@@ -135,10 +135,6 @@
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/sales.webp"/><h1>Sales Transactions</h1></div>
 <p class="lead">Sales Transactions is the main IMS POS workspace. It brings item scanning, transaction type, customer and loyalty information, payment, discounts, receipt totals and printing into one screen while keeping the active Store, POS, POS Date and user visible at all times.</p>
 <div class="callout"><strong>Open the screen</strong>Main toolbar → Sales Transactions.</div>
-<figure class="screenshot">
-<img alt="IMS Sales Transaction screen with four sold items, transaction type, customer details, payment details and receipt totals" src="../assets/images/sales-transactions.webp"/>
-<figcaption>A normal Sales transaction with item images enabled. Each item card shows its price/discount result while the right side holds receipt, customer and payment information.</figcaption>
-</figure>
 <h2 id="start-context">Starting a transaction and Store selection</h2>
 <p>When the user has access to more than one Store, IMS can show the Branch Selection step before Sales Transactions opens. The list contains the Stores available for transactions and only the transaction types allowed by the user's Group Policy.</p>
 <p>For a Return/Credit Return, the same start step can also accept the original sales Branch and Receipt No. so IMS can verify that the original invoice exists and still contains refundable items before loading Sales Transactions.</p>
@@ -154,10 +150,6 @@
 <p>If the active user's Group Policy does not allow the selected transaction type, IMS requests authorization from a permitted user before changing mode.</p>
 <h2 id="refund-exchange">Refund / Exchange workflow</h2>
 <p><strong>Refund / Exchange</strong> is tied to an existing sales receipt. IMS first identifies the original receipt and only loads sold lines that are still eligible to be returned; the cashier then chooses the required item(s), or enters the size-exchange workflow when that option is used.</p>
-<figure class="screenshot">
-<img alt="IMS refund workflow showing selection of the original sales receipt followed by selection of the specific items to return" src="../assets/images/sales-refund-workflow.webp"/>
-<figcaption>Refunds begin from the original receipt. IMS then presents the remaining refundable lines so the cashier can select the required items.</figcaption>
-</figure>
 <h3 id="select-receipt">1. Select the original receipt</h3>
 <p>The <strong>Sales Receipt</strong> dialog asks for the original <strong>Branch</strong> and <strong>Receipt No.</strong>. The browse button can be used for the receipt-search workflow.</p>
 <p>The browse workflow can also locate original Cash Sales by <strong>customer phone number</strong>. IMS lists matching receipts (most recent first) with their Branch, date and Receipt No., allowing the cashier to select the correct original sale when the customer does not know the receipt number.</p>
@@ -176,10 +168,7 @@
 <p>For a normal cash return, when <strong>Enable exchange sizes</strong> is active in System Settings and the receipt is eligible for exchange, IMS asks <strong>“Do you want to change sizes?”</strong>.</p>
 <p>Select <strong>Yes</strong> to continue into the dedicated size-exchange workflow. Select <strong>No</strong> to continue as a refund and choose the sold lines to return.</p>
 <h4 id="exchange-size-screen">Exchange Size screen</h4>
-<figure class="screenshot">
-<img alt="IMS Exchange Size screen showing the original item being returned on the left and a replacement size being sold on the right" src="../assets/images/sales-exchange-size.webp"/>
-<figcaption>Exchange Size creates a linked return-and-sale transaction: the original unit appears with negative quantity and the replacement unit with positive quantity.</figcaption>
-</figure>
+<p>Exchange Size creates a linked return-and-sale transaction: the original unit appears with negative quantity and the replacement unit with positive quantity.</p>
 <p>The left <strong>Return Receipt</strong> side accepts only items that exist on the original receipt and have not already been used in this exchange. The right <strong>Sales Receipt</strong> side accepts a replacement item only when it matches the returned item's Style; when <strong>Exchange sizes based on item color</strong> is enabled in System Settings, Color must match as well.</p>
 <p>The replacement cannot be the exact same Item Code, and IMS checks that sufficient balance exists in the current Store unless that Store is configured to ignore balance. Save becomes available only when the number of returned units equals the number of replacement units.</p>
 <p>The new exchange receipt keeps the original selling values used by the returned line while replacing the item/size identity, updates stock balances, marks the original line as refunded/exchanged, writes the exchange to the activity log, prints the exchange receipt and then returns Sales Transactions to a new transaction.</p>
@@ -187,10 +176,6 @@
 <p>The item-selection screen shows the original receipt's refundable lines with Item Code, Description, Style, Color, Size, Qty, original price, discounts, net amount and Sales Man/Lady. Check the required lines, use <strong>Select All</strong> when appropriate, or scan a barcode to select a matching line.</p>
 <p>At least one item must be selected. Depending on the original offer/payment rules, IMS may force all lines to be selected rather than allowing a partial return.</p>
 <h3 id="loaded-refund">5. Complete the refund transaction</h3>
-<figure class="screenshot">
-<img alt="IMS Sales Transaction screen in Refund and Exchange mode with two items loaded from the original receipt" src="../assets/images/sales-refund-transaction.webp"/>
-<figcaption>The selected items are loaded into a new Refund / Exchange transaction while the original receipt reference remains visible in red.</figcaption>
-</figure>
 <p>The return receives its own new Receipt No. The red reference message identifies the original Store, receipt number, sale date and time so the cashier can see exactly which sale is being reversed.</p>
 <p>Once the original lines are loaded, normal item entry/import is disabled: the refund is based on the selected original receipt lines rather than newly scanned merchandise.</p>
 <h3 id="refund-payment-rules">Refund payment methods</h3>
@@ -222,7 +207,7 @@
 <h2 id="items">Sold Items Details</h2>
 <p>Items can be added by scanning/entering an <strong>Item Code or Barcode</strong>, setting Qty and clicking <strong>Add</strong>. IMS searches the primary barcode, Item Code and additional-barcode records before treating the item as not found.</p>
 <p>For inventory items, IMS checks the Store balance unless the Store is configured to ignore balance. Service Items follow their service-price workflow instead of the normal stock-balance path.</p>
-<p>In the card view shown above, each sold line can display:</p>
+<p>In the card view, each sold line can display:</p>
 <div class="table-wrap"><table><thead><tr><th>Information</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Item image</td><td>The Style/Color image when available.</td></tr>
 <tr><td>Item Code and Description</td><td>The sold SKU and item description.</td></tr>
@@ -254,10 +239,6 @@
 <tr><td>VAT Base</td><td>Net amount before VAT where VAT is enabled.</td></tr>
 <tr><td>Final amount</td><td>The final payable/refundable amount displayed prominently at the bottom of Payment Details.</td></tr>
 </tbody></table></div>
-<figure class="screenshot compact-shot">
-<img alt="IMS Sales Transaction payment type list showing Multiple, direct card and bank payments, Star Card, Gift Voucher, StarReward Cash, Exchange Note and Credit Note" src="../assets/images/sales-payment-types.webp"/>
-<figcaption>Payment Type contains both ordinary tenders and special payment workflows. Special types can start their own workflow immediately when selected.</figcaption>
-</figure>
 <h3 id="payment-selection">What happens when a Payment Type is selected</h3>
 <p>Payment selection is event-driven in Sales Transactions. Ordinary payment methods are selected directly, while special payment types immediately start the additional workflow they require. In refund mode, only refund-enabled payment methods appear in the dropdown.</p>
 <div class="table-wrap"><table><thead><tr><th>Payment selection</th><th>IMS behavior</th></tr></thead><tbody>
@@ -272,10 +253,6 @@
 <div class="callout tip"><strong>The popup is intentionally automatic</strong>Selecting Multiple, Credit Note, Exchange Note, a Voucher payment or StarReward Cash can immediately open the relevant dialog. The cashier normally does not select the type and then separately press the payment-details button.</div>
 <h3 id="cash-payment-calc">Cash Payment Calc</h3>
 <p>When completing a Sales Transaction using <strong>Cash</strong>, IMS opens the Cash Payment Calc so the cashier can enter the amount physically received from the customer before confirming the receipt.</p>
-<figure class="screenshot compact-shot">
-<img alt="IMS Cash Payment Calc showing Amount, Paid and Balance" src="../assets/images/sales-cash-payment-calc.webp"/>
-<figcaption>Enter the cash received in Paid. Balance shows the difference between the tendered cash and the receipt amount.</figcaption>
-</figure>
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Amount</td><td>The cash amount due for the current receipt.</td></tr>
 <tr><td>Paid</td><td>The physical cash amount received from the customer.</td></tr>
@@ -287,10 +264,6 @@
 <p>The code must be six characters and IMS checks that the same authorization has not already been used for that payment method. With <strong>Multiple</strong> payment, IMS requests an authorization code for each terminal/card component that requires one.</p>
 <p>The recorded code becomes useful later in Transactions Expert, where an authorized user can find the original Cash Sale by Authorization Code and Bank even without knowing its Receipt No.</p>
 <h3 id="multiple-payment">Multiple Payments</h3>
-<figure class="screenshot">
-<img alt="IMS Multiple Payments Select window with cash, K-NET and card amounts, Credit Note and Exchange Note options, Redeem Voucher, Redeem Points, totals and variance" src="../assets/images/sales-multiple-payments.webp"/>
-<figcaption>A split payment must reconcile Payments Total with Invoice Total. The same window can also add Credit/Exchange Notes and launch Voucher or Star Rewards redemption.</figcaption>
-</figure>
 <p>The Multiple Payments window lists the active payment methods that can participate in the split. Enter the amount against each required payment method until <strong>Payments Total</strong> equals <strong>Invoice Total</strong>. <strong>Variance</strong> shows the difference, and OK is enabled only when the payment allocation is valid.</p>
 <p>The window can also incorporate special value sources:</p>
 <div class="table-wrap"><table><thead><tr><th>Action</th><th>Behavior</th></tr></thead><tbody>
@@ -350,7 +323,7 @@
 <p>For an existing profile, the screen can show Star Rewards registration state, Tier, available reward value/points, tier discount, last transaction and progress toward the next tier. The transaction also receives the customer's current earn multiplier.</p>
 <p>Changing the customer after points/vouchers/special payments have already been prepared can invalidate those values, so IMS may reset the redemption/payment and recalculate the receipt.</p>
 <h3 id="loyalty-redeem">Star Rewards redemption</h3>
-<p>When Star Rewards redemption is selected, IMS uses the customer's configured redemption method. If OTP/barcode validation is required, the customer code/card is validated before points are converted to a redeemable amount. The configured minimum redemption amount is also enforced.</p>
+<p>Star Rewards redemption uses the customer's valid, unexpired one-time code with <strong>Require App. OTP to redeem</strong> enabled. IMS checks the code against the identified customer and requires a positive points balance and wallet value meeting the configured minimum redemption amount. Redemption is capped at the receipt's net amount. See the <a href="../manage/star-rewards.html#redemption">Star Rewards redemption workflow</a>.</p>
 <p>If the available reward value is larger than the receipt, IMS limits redemption to the receipt value. A partial redemption becomes one component of Multiple Payments; a full redemption can cover the receipt directly.</p>
 <h3 id="star-card">Star Card</h3>
 <p>Before a Star Card can be used, IMS checks the card/profile state. The workflow can reject a suspended or expired card, a one-time card that has already been consumed, or a zero-balance card when it is not being used for an allowed recharge operation.</p>
@@ -377,14 +350,16 @@
 <p>The date can be applied to the current transaction, and the dialog also supports applying the working date to subsequent transactions in the same working session. IMS visually warns when the working/POS date differs from the Server Date so the operator is aware that the receipt is being entered with an overridden transaction date.</p>
 <h2 id="save-print">Save and Print</h2>
 <div class="table-wrap"><table><thead><tr><th>Action</th><th>Purpose</th></tr></thead><tbody>
-<tr><td>New F5</td><td>Starts a new transaction/receipt.</td></tr>
+<tr><td>New F5</td><td>Starts a new transaction/receipt. If the current editable receipt contains items, IMS asks before cancelling it.</td></tr>
 <tr><td>Save and Print F8</td><td>Saves the transaction and prints the applicable receipt.</td></tr>
 <tr><td>Save</td><td>Saves without using the normal Save-and-Print action. Availability depends on the user's transaction-date permission/workflow.</td></tr>
+<tr><td>Send Digital</td><td>Opens the consent/channel dialog, then saves and queues the selected digital copies. Paper printing is optional in that dialog.</td></tr>
 <tr><td>Print Gift Receipt</td><td>Produces the gift-receipt output for an eligible cash sale.</td></tr>
 </tbody></table></div>
 <p>Before saving, IMS rechecks the database connection, background blocking/maintenance state, payment/customer requirements, Star Card/loyalty conditions and other rules relevant to the selected transaction type. Cash receipts can invoke Cash Payment Calc, while configured Bank/card payments can require Authorization Codes before the transaction is committed.</p>
+<p><strong>Save</strong> and <strong>Save and Print (F8)</strong> do not request a digital copy. Use Send Digital for that request. A new receipt resets the previous digital selections and consent; save/print actions also clear those selections after the attempt. Obtain consent and choose channels for each transaction. These actions retain the refund/exchange eligibility and payment checks described above; F5 starts a new receipt, while F8 invokes Save and Print when its controls are enabled.</p>
 <h3 id="digital-receipts">Send Digital: consent and delivery channels</h3>
-<p><strong>Send Digital</strong> is available when the company enables Email or WhatsApp and digital-receipt configuration is available. The button also follows the current transaction’s save eligibility. If it is absent, ask the administrator to check company configuration; ordinary paper-sale processing remains available.</p>
+<p><strong>Send Digital</strong> is available when the company enables Email or WhatsApp and digital-receipt configuration is available. The button also follows the current transaction’s save eligibility. If it is absent, ask the administrator to check <a href="../system/settings.html#whatsapp">company Email and WhatsApp settings</a>; ordinary paper-sale processing remains available.</p>
 <ol><li>Enter the purchaser’s contact details in <strong>Client’s Info</strong>. Confirm the email address and international mobile number, including the country code. IMS validates email syntax and accepts a normalized mobile number of 8–15 digits, not beginning with zero. A leading + or 00 and common spaces, brackets or hyphens are normalized; IMS does not guess a country code.</li>
 <li>Ask for the customer’s <strong>verbal consent</strong>, then choose <strong>Send Digital</strong>. Select Email, WhatsApp or both. Neither channel is selected automatically. A channel is selectable only when enabled for the company and its contact is valid.</li>
 <li>Optionally select <strong>Also print</strong>. Confirm the selection to save the transaction and request the chosen digital copies. At least one channel must be selected. Cancelling the consent dialog does not request delivery.</li>

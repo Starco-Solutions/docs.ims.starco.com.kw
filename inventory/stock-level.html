@@ -184,6 +184,9 @@
 </tbody></table></div>
 <h3 id="availability-counts">Available colors and sizes</h3>
 <p>When the report is grouped by <strong>Style</strong> without drilling all the way to Size or Item Details, IMS adds availability indicators that compare variants currently in stock with the variants defined for the Style. At Style level it can show <strong>Available Colors / Total Colors</strong> and <strong>Available Sizes / Total Sizes</strong>. When Style + Color is selected, it can show the available/total Size count for that color.</p>
+<h2 id="damage-stock">Read damage stock separately from saleable availability</h2>
+<p>Stock Level reports recorded on-hand quantity for the selected authorized locations. An active <a href="../manage/stores.html#damage-locations">Damage Location</a> can therefore appear in the Store selection and its balance can be included in the report. Select or group by Store to distinguish its units from stock held in ordinary saleable locations.</p>
+<p>A combined on-hand total is not the quantity published to Shopify. The <a href="../shopify/integration-server.html">online inventory calculation</a> excludes Damage Locations and other ineligible Stores, then applies the item’s damaged quantity and online reserve deductions. A transfer changes where quantity is held; <a href="stock-depreciation.html#damage-stock">Stock Depreciation</a> removes written-off quantity from the selected location.</p>
 <h2 id="measures">Stock measures</h2>
 <p>Every generated Stock Level result includes the core inventory measures below.</p>
 <div class="table-wrap"><table><thead><tr><th>Measure</th><th>Meaning</th></tr></thead><tbody>

@@ -142,6 +142,9 @@ The current IMS deployment posts Stock Depreciation journals directly to the loc
 <h2 id="store">Select the store</h2>
 <p>Select the required Branch/Store. IMS loads the Stock Depreciation vouchers belonging to that location and uses the store's current inventory balance, financial account, cost center and accounting branch when processing the voucher.</p>
 <p>The first/previous/next/last controls let you browse the location's existing depreciation vouchers, and the Voucher No. field can be used to jump directly to a known voucher number.</p>
+<h2 id="damage-stock">Damage stock versus a write-off</h2>
+<p>A <a href="../manage/stores.html#damage-locations">Damage Location</a> holds recorded stock separately from ordinary saleable locations. The location flag and a transfer into it do not depreciate the stock or establish that it is permanently unsaleable; it may be awaiting physical inspection or another operational decision. A Stock Depreciation voucher is the separate action that reduces the selected location’s on-hand quantity and supports the write-off’s financial posting.</p>
+<p>Select the location that actually holds the units being written off. Check its balance and related transfers before saving; do not write off the same units again in their former location. Shopify already excludes physical balances in Damage Locations, so removing those excluded units is not the same as reducing the eligible online-store quantity. See <a href="../shopify/integration-server.html">Shopify online availability</a> for its separate store exclusions and item-level damaged-quantity deduction.</p>
 <h2 id="new">Create a new depreciation voucher</h2>
 <ol class="steps">
 <li>Select the store where the stock is being written off.</li>

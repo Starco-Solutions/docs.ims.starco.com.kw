@@ -135,10 +135,7 @@
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/system.webp"/><h1>Settings</h1></div>
 <p class="lead">The Settings menu opens the <strong>System Settings</strong> window, which contains company-wide IMS configuration for company identity, country/time zone, maintenance mode, locations, update-server access, email, Star Rewards, phone operators and transaction rules.</p>
 <div class="callout"><strong>Open the screen</strong>System → Settings.</div>
-<figure class="screenshot">
-<img alt="IMS System Settings screen showing general settings, phone operators, update and email settings, Star Rewards and transaction settings" src="../assets/images/system-settings.webp"/>
-<figcaption>System Settings contains company-wide configuration. Most settings are read-only until Edit is selected.</figcaption>
-</figure>
+<p>Most company settings are read-only until <strong>Edit</strong> is selected.</p>
 <div class="callout warning"><strong>Administrative configuration</strong>Changes made here affect business-wide IMS behavior. Review transaction, loyalty, tax, email and maintenance settings carefully before saving.</div>
 <h2 id="general">General Settings</h2>
 <div class="table-wrap"><table><thead><tr><th>Setting</th><th>Purpose</th></tr></thead><tbody>
@@ -153,11 +150,7 @@
 <h3>Company Logo</h3>
 <p><strong>Change Image</strong> accepts JPG, JPEG, GIF or BMP images. IMS resizes the image to 400 × 300 and, when necessary, compresses it before storing it. The stored image must remain within the application's image-size limit. <strong>Delete Image</strong> removes the stored company logo after confirmation.</p>
 <h2 id="locations">Manage Locations</h2>
-<p>Click <strong>Manage Locations</strong> to maintain named logical Locations and associate Stores with each Location. This is separate from the Store master itself: a Location is a grouping layer that can contain one or more Stores.</p>
-<figure class="screenshot compact-shot">
-<img alt="IMS Locations screen showing named locations and the stores assigned to a selected location" src="../assets/images/system-settings-locations.webp"/>
-<figcaption>The Locations screen maintains a Location ID/Name and the Stores assigned to that grouping.</figcaption>
-</figure>
+<p>Click <strong>Manage Locations</strong> to maintain a Location ID/Name for each named logical Location and associate Stores with each Location. This is separate from the Store master itself: a Location is a grouping layer that can contain one or more Stores.</p>
 <p>The Locations screen provides <strong>New</strong>, <strong>Edit</strong> and <strong>Delete</strong> actions. The Stores area uses <strong>+</strong> and <strong>-</strong> controls to maintain the Stores belonging to the selected Location.</p>
 <h2 id="update-server">Update Server</h2>
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
@@ -175,6 +168,20 @@
 <tr><td>Enable SSL</td><td>Enables the SSL/TLS option used by the configured SMTP connection.</td></tr>
 <tr><td>Auto send sales receipts</td><td>Enables email as a digital-receipt channel. The cashier still requests the customer’s verbal consent and selects Email in Send Digital for the transaction; this setting does not authorize sending every receipt automatically. WhatsApp availability is controlled separately by the company’s WhatsApp configuration. See <a href="../sales/sales-transactions.html#digital-receipts">Send Digital</a>.</td></tr>
 </tbody></table></div>
+<h3 id="whatsapp">WhatsApp Settings</h3>
+<p>Open <strong>IMS Client → System → Settings → Email Server Settings → WhatsApp Settings…</strong>. This company-specific window configures the sender and approved template used for WhatsApp receipt delivery.</p>
+<div class="table-wrap"><table><thead><tr><th>Control</th><th>Purpose and entry rules</th></tr></thead><tbody>
+<tr><td>Enable WhatsApp receipt delivery</td><td>Makes WhatsApp available as a Send Digital channel for this company. It does not send receipts automatically or replace customer consent.</td></tr>
+<tr><td>WhatsApp Business Account ID</td><td>The WABA identifier supplied by Meta: 1–32 digits, entered as an identifier.</td></tr>
+<tr><td>Phone Number ID (Meta sender)</td><td>The Meta sender identifier: 1–32 digits. This is distinct from the displayed telephone number.</td></tr>
+<tr><td>Sender phone (display only)</td><td>Optional international display number: 8–15 digits, not starting with zero, with an optional leading +. Leave blank when not needed.</td></tr>
+<tr><td>Template name</td><td>The approved Meta receipt template name: 1–100 lowercase letters, digits or underscores.</td></tr>
+<tr><td>Template language code</td><td>The exact language identifier for the approved template, such as <code>en_US</code> or <code>ar</code>. Enter 2–3 lowercase letters, optionally followed by an underscore and two uppercase country letters.</td></tr>
+<tr><td>Meta access token</td><td>A masked entry for storing or replacing the company’s token in IMS Security Vault. The stored token is not displayed or stored in the company database. Leave this field blank to preserve the existing secret.</td></tr>
+<tr><td>Edit / Save / Cancel</td><td>Choose Edit to unlock the fields. Edit becomes Save and Close becomes Cancel. Save validates and saves the configuration; Cancel reloads the saved settings and clears unsaved token entry. Close exits view mode.</td></tr>
+</tbody></table></div>
+<p>The vault-status indicator reports whether a Meta access token is stored. If status is unavailable, reconnect to verify the existing token or enter a replacement before enabling the sender. An already enabled sender can be disabled without retrieving its token; the sender and template fields still require valid values.</p>
+<p>When Email or WhatsApp is enabled and digital-receipt configuration is available, eligible sales transactions offer <strong>Send Digital</strong>. The cashier obtains verbal consent and selects Email, WhatsApp or both, using valid purchaser contact details. See <a href="../sales/sales-transactions.html#digital-receipts">Send Digital and consent</a>. A queued request awaits <a href="../tools/ims-autos.html#receipt-delivery">IMS Autos receipt delivery</a>; queueing is not successful delivery, and provider acceptance does not prove the customer received or read the message.</p>
 <h2 id="rewards">Star Rewards Settings</h2>
 <p>This area controls the company-wide Star Rewards/Loyalty configuration.</p>
 <div class="table-wrap"><table><thead><tr><th>Setting</th><th>Purpose</th></tr></thead><tbody>

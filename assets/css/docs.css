@@ -45,8 +45,10 @@ table{border-collapse:collapse;width:100%;min-width:650px;overflow-wrap:normal}t
 body.searching .search-hidden{display:none!important}
 body.searching .search-empty.visible{display:block}
 mark.doc-search-hit{background:#ffed9c;padding:0 1px}
-@media(min-width:901px) and (max-width:1300px){.topnav{display:none}}
-@media(max-width:900px){
+@media(min-width:1301px) and (max-width:1400px){.top-search{min-width:0;width:150px}.top-search input{min-width:0}}
+.compact-primary{display:none}
+@media(max-width:1300px){
+  .compact-primary{display:block;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:20px}
   .topbar-inner{gap:10px;padding:0 12px}
   .topnav{display:none}.top-search{min-width:0;flex:1}.mobile-nav{display:block}
   .layout{grid-template-columns:1fr}.sidebar{display:none;position:fixed;z-index:40;left:0;top:58px;width:min(86vw,320px);height:calc(100vh - 58px);box-shadow:8px 0 25px rgba(0,0,0,.18)}.sidebar.open{display:block}

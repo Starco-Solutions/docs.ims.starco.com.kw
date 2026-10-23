@@ -136,10 +136,6 @@
 <p class="lead">IMS Autos is the administration screen for the IMS background automation service. It defines the daily maintenance time and selects which scheduled maintenance jobs the server service should run automatically.</p>
 <p>IMS Autos <strong>9.2</strong> is a <strong>.NET 10 Windows service</strong>. One service runs independent company workers, each using its own authorized database, schedules and time zone. The employee screen configures the selected IMS company; service enrollment and company grants are administered separately in <a href="../technical/service-administration.html">service administration</a>.</p>
 <div class="callout"><strong>Open the screen</strong>Tools → IMS Autos.</div>
-<figure class="screenshot">
-<img alt="IMS Autos daily schedule with Sale Seasons, Stock Maintenance, Daily Stock Levels, Sell Through and customized integration options" src="../assets/images/tools-ims-autos.webp"/>
-<figcaption>IMS Autos configures the daily maintenance shift; the actual jobs are executed by the IMS Autos service running on the server.</figcaption>
-</figure>
 <h2 id="architecture">Configuration screen and server service</h2>
 <p>The IMS client screen does not perform the scheduled jobs itself. It saves the automation schedule and enabled options in the IMS database. The <strong>IMS Autos Windows service</strong> running on the server reads those settings and executes the background work.</p>
 <p>This separation allows an administrator to configure automation from the normal IMS client while the server continues to execute the jobs even when that user's workstation is closed.</p>

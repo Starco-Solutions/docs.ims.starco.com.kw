@@ -120,7 +120,7 @@
 - https://docs.ims.starco.com.kw/technical/api-v1/requests.html — Dates, paging (default 200, max 1000), filtering and response-envelope conventions.
 
 ## Technical
-- https://docs.ims.starco.com.kw/technical/architecture.html — IMS Architecture: Windows client, IMS API, IMS Global, separate company databases and background services; audience-specific operational and technical guides.
+- https://docs.ims.starco.com.kw/technical/architecture.html — Roles and boundaries of IMS Client, IMS Global, IMS API, IMS Autos and IMS Shopify, with separate global administration and company operational databases.
 - https://docs.ims.starco.com.kw/technical/ims-api.html — IMS API 1.1.0 service responsibilities and separate boundaries for external Business API, workstation bootstrap, Global administration and internal service authentication.
 - https://docs.ims.starco.com.kw/technical/ims-global-api-administration.html — API clients, company access, scopes, ordinary supplier/store contracts, financial permission, Partner Data policies, keys, quotas and request/audit logs.
 - https://docs.ims.starco.com.kw/technical/ims-global.html — IMS Global 1.7.0 companies and provisioning, users, supplier cloning, Items Master preview/synchronization, service access, Recovery Packages and read-only HA Health.
@@ -133,7 +133,7 @@
 - https://docs.ims.starco.com.kw/technical/security.html — Security Architecture: workstation authorization, global authentication, Global Administrator sessions, company membership and company-local permissions.
 - https://docs.ims.starco.com.kw/technical/service-administration.html — Autos and Shopify service identities, company grants, secure bootstrap, Windows runtimes, Recovery Package installation, enrollment and monitoring.
 - https://docs.ims.starco.com.kw/technical/source-baseline.html — Component versions and compatibility: Client 9.4.6, Global 1.7.0, API 1.1.0, Autos 9.2 and Shopify 4.4.0; runtime, provisioning and service prerequisites.
-- https://docs.ims.starco.com.kw/technical/system-dashboard-observability.html — Client diagnostics and performance telemetry; Global System → HA Health provides read-only primary/standby, streaming, lag and observation-time monitoring through IMS API.
+- https://docs.ims.starco.com.kw/technical/system-dashboard-observability.html — Monitoring locations across IMS Client, IMS Global and IMS Shopify, with links to dashboard, performance, HA Health, API activity, Autos and Integration Center guides.
 
 ## Tools
 - https://docs.ims.starco.com.kw/tools/custom-attributes.html — Custom Attributes: define global Supplier or Store attributes; ID, Name and display Format; spaces in names are stored as underscores; values are maintained per Supplier/Store in Manage; attributes become available to Custom Reports through SupplierID/StoreID.

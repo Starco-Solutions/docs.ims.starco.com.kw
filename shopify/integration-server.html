@@ -180,9 +180,9 @@
 <p>The automatic inventory process is profile-aware. It considers only items belonging to suppliers allowed by the profile and only items that have an online Handle.</p>
 <div class="table-wrap"><table><thead><tr><th>Rule</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Online-enabled item</td><td>If the IMS item is not marked available online, its calculated Shopify quantity is zero.</td></tr>
-<tr><td>Eligible physical stock</td><td>Stock is summed from active, transfer-enabled physical Stores. Online Stores, inactive Stores, non-transfer Stores and damage Stores are excluded.</td></tr>
+<tr><td>Eligible physical stock</td><td>Stock is summed from active, transfer-enabled physical Stores. Online Stores, inactive Stores, non-transfer Stores and <a href="../manage/stores.html#damage-locations">Damage Locations</a> are excluded. Damage-location stock may be awaiting inspection; exclusion does not establish a permanent write-off.</td></tr>
 <tr><td>Profile exclusions</td><td>Stores in the profile's Excluded Stores list are not counted in the quantity sent to Shopify.</td></tr>
-<tr><td>Damaged quantity</td><td><strong>damagedQty</strong> is deducted from the available total.</td></tr>
+<tr><td>Damaged quantity</td><td>The item-level <strong>damagedQty</strong> is deducted separately from the eligible physical-store total. A transfer from a Damage Location adds to this item quantity; see <a href="../manage/stores.html#damage-locations">Damage Locations</a>.</td></tr>
 <tr><td>Reduce By Qty</td><td>The item's configured <strong>Reduce By Qty</strong> is also deducted as an online safety/reserve quantity.</td></tr>
 <tr><td>Negative result</td><td>Shopify is sent zero rather than a negative inventory value.</td></tr>
 </tbody></table></div>
