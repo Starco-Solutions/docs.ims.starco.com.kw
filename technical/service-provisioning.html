@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Autos and Shopify Provisioning | IMS Documentation</title>
+<meta name="description" content="Administrator runbook for provisioning independent IMS Autos and Shopify identities, company access, recovery installers and verification.">
+<link rel="canonical" href="https://docs.ims.starco.com.kw/technical/service-provisioning.html">
+<link rel="stylesheet" href="../assets/css/docs.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Autos and Shopify Provisioning","url":"https://docs.ims.starco.com.kw/technical/service-provisioning.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" type="button" data-mobile-nav>Menu</button>
+<nav class="topnav" aria-label="Primary"><a href="../getting-started/main-screen.html">Getting started</a><a href="../sales/index.html">Sales</a><a href="../inventory/index.html">Inventory</a><a href="../financial/index.html">Financial</a><a href="../reports/index.html">Reports</a><a href="../manage/index.html">Manage</a><a href="../tools/index.html">Tools</a><a href="../system/index.html">System</a><a href="../shopify/index.html">Shopify</a><a href="../integration/index.html">Integration</a><a class="active" href="../technical/index.html">Technical</a><a href="api-v1/index.html">Business API</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
+</div></header>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../index.html">Documentation home</a><a href="../getting-started/main-screen.html">Getting started</a><a href="../system/index.html">System</a><a href="../integration/index.html">Integration</a><h3>Business API</h3><a href="api-v1/index.html">Business API overview</a><h3>Technical</h3><a href="index.html">Technical Overview</a><a href="architecture.html">IMS Architecture</a><a href="source-baseline.html">Component Versions and Compatibility</a><a href="multi-company.html">Multi-Company Architecture</a><a href="security.html">Security Architecture</a><a href="security-guidance.html">General Security Recommendations</a><a href="secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="ims-global.html">IMS Global</a><a href="ims-global-api-administration.html">API Administration</a><a href="ims-api.html">IMS API</a><a href="secret-vault.html">Secret Vault</a><a href="system-dashboard-observability.html">System Dashboard &amp; Observability</a><a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a><a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a><a href="service-administration.html">Autos and Shopify services</a><a class="active" href="service-provisioning.html">Service Provisioning</a></aside>
+<main>
+<div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › <a href="index.html">Technical</a> › Autos and Shopify Provisioning</div>
+<h1>Autos and Shopify provisioning</h1>
+<p class="lead">Administrator procedure for IMS Autos 9.2, Shopify Integration Server 4.4.0, IMS Global 1.7.0 and IMS API 1.1.0. Register service identities, authorize companies, prepare the published binaries and use the one-time recovery installer without transferring raw service credentials.</p>
+<div class="callout"><strong>Scope and authority</strong>Use this guide only on an expressly approved administration host and database. The company schema and required role grants must already exist. Provisioning a service identity does not create a company database, migrate old data, create a Shopify Store App Token, activate Autos schedules or start Shopify workers. Keep real connection strings, tokens, company IDs and host details in approved private operational records—not public documentation.</div>
+<h2 id="components">Identity and workload boundaries</h2>
+<div class="table-wrap"><table><thead><tr><th>Part</th><th>Purpose</th><th>Authorization</th></tr></thead><tbody>
+<tr><td><code>IMS.AutosProvisioner.exe</code></td><td>Administrative utility compiled from <code>IMS_API/tools/IMS.AutosProvisioner</code> and <strong>distributed with IMS Global Release</strong> under <code>IMS_GlobalFolder\Tools\IMS.AutosProvisioner\</code>. Registers service identities and manages approved company/workload credentials. It is not a Windows service or a component of the generated recovery installer.</td><td>Explicitly approved Global PostgreSQL administrator connection, provided via <code>IMS_AUTOS_PROVISIONING_GLOBAL</code> in the administrator process environment.</td></tr>
+<tr><td>IMS Global → Services</td><td>Choose Company, Service and Service Identity; Grant/Revoke Company Access; separately enable Autos scheduling; Generate Recovery Package.</td><td>Authorized Global administrator session through IMS API.</td></tr>
+<tr><td>IMS Autos</td><td>Windows service under <code>LocalSystem</code>, with a protected service credential, authorized companies and separate schedules/time zones.</td><td>Autos service identity, company grant, company Autos Enabled and applicable company-local job settings.</td></tr>
+<tr><td>IMS Shopify</td><td>Windows desktop application with independent company/profile workers.</td><td>Separate Shopify service identity and company grant, active profiles and permitted per-Store App Tokens. No Shopify-wide Autos Enabled switch.</td></tr>
+</tbody></table></div>
+<p>Although the registration utility is named <code>IMS.AutosProvisioner</code>, the identity registry is shared. A <em>first grant in IMS Global</em> assigns the selected identity to Autos or Shopify. Do not use the utility's Autos-only <code>grant-company</code> operation to grant a Shopify identity; Shopify grants use <code>shopify_service.company_access</code>, while Autos grants use <code>autos_service.company_access</code>.</p>
+<h2 id="provisioner-path">Provisioner file paths: source, Release and installed Global</h2>
+<p>The provisioner is deployed with <strong>IMS Global</strong>, but its approved compiled binaries originate in the separate IMS API project. Stage a complete <code>IMS_API/tools/IMS.AutosProvisioner/bin/Release/net10.0/</code> output inside the Global <em>source project</em> before building. The final Global release copies the whole tool folder; it is not created by the Autos/Shopify recovery installer.</p>
+<div class="table-wrap"><table><thead><tr><th>Location</th><th>Expected path</th></tr></thead><tbody>
+<tr><td>Global source staging</td><td><code>IMS_Global (repository)\IMS_Global (project)\Tools\IMS.AutosProvisioner\</code></td></tr>
+<tr><td>Global x64 Release output</td><td><code>IMS_Global (project)\bin\x64\Release\net10.0-windows\Tools\IMS.AutosProvisioner\</code></td></tr>
+<tr><td>Installed Global administration folder</td><td><code>IMS_GlobalFolder\Tools\IMS.AutosProvisioner\IMS.AutosProvisioner.exe</code></td></tr>
+</tbody></table></div>
+<p>For example, with a repository at <code>D:\Sources\IMS_Global</code>, the correct build input is <code>D:\Sources\IMS_Global\IMS_Global\Tools\IMS.AutosProvisioner\</code>. A deployment might use <code>C:\Starco\IMS_Global\Tools\IMS.AutosProvisioner\</code>. The deployed directory or <code>bin</code> output is <strong>not</strong> the source staging location. The tool binaries are Git-ignored and must be supplied as approved release inputs.</p>
+<h2 id="prepare">1. Prepare the approved administration environment</h2>
+<ol class="steps">
+<li>Confirm the current authorized IMS Global and IMS API versions, approved company registry and production schema migrations. New-company database roles and API contracts are provisioned by Global's company-creation procedure; service identities and per-company grants are separate.</li>
+<li>Use the approved IMS Global <strong>Release distribution</strong> and run <code>IMS_GlobalFolder\Tools\IMS.AutosProvisioner\IMS.AutosProvisioner.exe</code> (example: <code>C:\Starco\IMS_Global\Tools\IMS.AutosProvisioner\IMS.AutosProvisioner.exe</code>). Keep the matching <code>.dll</code>, <code>.deps.json</code>, <code>.runtimeconfig.json</code> and all other published dependencies alongside it. Global copies these files from its source-project staging folder as part of the Release build; it does <strong>not</strong> compile or download new IMS API provisioner binaries. Do not run any accompanying <code>IMS.Api.exe</code> as the provisioner, or distribute private development settings.</li>
+<li>Use a privileged PowerShell session on the authorized administration host; do not copy its provisioning environment to the Autos/Shopify service host. Configure <code>IMS_AUTOS_PROVISIONING_GLOBAL</code> for the exact approved Global database and transport mode. The utility defaults to <code>VerifyFull</code> if SSL Mode is omitted. <code>Disable</code> is supported only when approved for that database. Never bypass certificate validation.</li>
+</ol>
+<pre><code># Execute in an approved administrative PowerShell session.
+# Enter credentials interactively; do not paste a database password into history.
+$pg = Get-Credential -Message "Approved Global PostgreSQL administrator"
+$builder = [System.Data.Common.DbConnectionStringBuilder]::new()
+$builder["Host"] = "APPROVED-PRIVATE-DB-HOST"
+$builder["Database"] = "ims_global"
+$builder["Username"] = $pg.UserName
+$builder["Password"] = $pg.GetNetworkCredential().Password
+$builder["SSL Mode"] = "Disable"  # Only where this DB transport mode is approved.
+$env:IMS_AUTOS_PROVISIONING_GLOBAL = $builder.ConnectionString
+Remove-Variable builder, pg
+# Remove the environment variable when provisioning is complete:
+# Remove-Item Env:IMS_AUTOS_PROVISIONING_GLOBAL</code></pre>
+<p>Verify the intended host/database and role without printing the connection string or password. The utility reports completion without displaying credential values. End the session or remove the environment variable after all approved commands.</p>
+<h2 id="register">2. Register Autos and Shopify identities</h2>
+<p>Run <code>create-service</code> once for each new identity, keeping the generated IDs in the approved private administration record. Choose clearly distinguishable display names for each environment. Do not paste a previously issued bearer credential into a terminal argument, ticket or application setting.</p>
+<pre><code># Example deployed IMS Global root; use your approved installation root.
+$globalFolder = "C:\Starco\IMS_Global"
+$provisioner = Join-Path $globalFolder "Tools\IMS.AutosProvisioner\IMS.AutosProvisioner.exe"
+$autosId = [guid]::NewGuid().ToString()
+$shopifyId = [guid]::NewGuid().ToString()
+&amp; $provisioner create-service $autosId "IMS Autos ENV"
+&amp; $provisioner create-service $shopifyId "IMS Shopify ENV"
+# Store both IDs in the approved administrative record.
+# First assign Autos and Shopify identities in their separate IMS Global
+# Services grants; do not use Autos-only grant-company for Shopify.</code></pre>
+<p>The utility also supports <code>issue</code>, <code>revoke-credential</code>, <code>disable-service</code>, <code>disable-company</code>, and vault/workload commands for specifically approved administrative procedures. The normal recovery installer obtains new protected credentials through single-use API enrollment; <strong>do not manually issue or distribute service credentials merely to run that installer</strong>. <code>grant-company</code> is an Autos-specific grant path and is not the standard route for assigning Shopify.</p>
+<h2 id="grants">3. Grant access from IMS Global</h2>
+<ol class="steps">
+<li>Open <strong>IMS Global → Services → Service Administration</strong> and select the approved company.</li>
+<li>Select <strong>IMS Autos</strong>, choose the new Autos identity, then <strong>Grant Company Access</strong>. Verify <strong>Service access: GRANTED</strong>.</li>
+<li>Switch Service to <strong>IMS Shopify</strong>, choose the separate Shopify identity, and grant company access. Confirm its independent <strong>GRANTED</strong> status.</li>
+<li>Leave <strong>Autos: DISABLED</strong> until installation, company schedules and connected destinations have been checked. Shopify does not use this switch; its company/profile worker must be explicitly started in the desktop application.</li>
+</ol>
+<p>For a newly created company, repeat the relevant company grants and configure Autos job settings, Shopify Profile and Store mapping, and any approved workload references. The existence of a Global company record alone does not grant either worker access.</p>
+<h2 id="packages">4. Package and verify the Global service distribution</h2>
+<p>IMS Global Release distributes <strong>three approved components</strong>: the Autos 9.2 and Shopify 4.4 published ZIPs, and the complete provisioner folder under <code>Tools</code>. The <strong>Generate Recovery Package</strong> operation uses <em>only</em> the two service ZIP files and the controlled <code>RecoveryAssets</code> scripts; it does not embed the provisioner.</p>
+<pre><code>IMS_GlobalFolder/
+  IMS_Global.exe
+  Packages/
+    IMS-Autos-9.2.zip
+      net10.0-windows/
+        IMSAutos.exe
+        IMSAutos.runtimeconfig.json
+        appsettings.json
+        ... other matching published files ...
+    IMS-Shopify-4.4.zip
+      net10.0-windows/
+        ShopifyIMS.exe
+        ShopifyIMS.runtimeconfig.json
+        shopify-service.json
+        ... other matching published files ...
+  Tools/
+    IMS.AutosProvisioner/
+      IMS.AutosProvisioner.exe
+      IMS.AutosProvisioner.dll
+      IMS.AutosProvisioner.deps.json
+      IMS.AutosProvisioner.runtimeconfig.json
+      IMS.Api.dll
+      Npgsql.dll
+      ... all other matching dependencies ...
+  ReleaseAssets/
+    ServiceBundles.manifest.json
+    Verify-IMSServicesReleaseAssets.ps1
+  RecoveryAssets/
+    Import-AutosServiceCredential.ps1
+    Import-ShopifyServiceCredential.ps1
+    Install-AutosCredential-System.ps1
+    Install-IMS-Services.ps1
+    Install-IMS-Services.cmd</code></pre>
+<p>The Autos and Shopify ZIP files must have the <code>net10.0-windows</code> directory at ZIP root, not loose application files. The provisioner is distributed as an extracted administration folder with IMS Global; its original source ZIP, if supplied independently, is <strong>not a third recovery-installer input</strong>. Do not substitute Debug binaries, outdated dependencies, private application settings or generated browser-cache folders.</p>
+<h3 id="distribution-checklist">Release packaging checklist</h3>
+<ol class="steps">
+<li>Stage the approved Autos ZIP at <code>IMS_Global (project)\Packages\IMS-Autos-9.2.zip</code>, including the current receipt-delivery implementation.</li>
+<li>Stage the approved Shopify ZIP at <code>IMS_Global (project)\Packages\IMS-Shopify-4.4.zip</code>, preserving all published application and runtime files.</li>
+<li>Stage the complete provisioner Release output at <code>IMS_Global (project)\Tools\IMS.AutosProvisioner\</code>, including matching dependency DLLs and runtime configuration.</li>
+<li>Build IMS Global in <strong>Release x64</strong>. Inspect the same <code>Packages</code>, <code>Tools\IMS.AutosProvisioner</code> and <code>ReleaseAssets</code> directories under the final Global distribution. Recovery preflight is separate from normal Release validation and does not require issuing a live enrollment ticket.</li>
+</ol>
+<h3 id="release-validation">Automatic build verification</h3>
+<p>From Windows PowerShell inside the <strong>IMS Global project directory</strong> (containing <code>IMS_Global.csproj</code>), run:</p>
+<pre><code>powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File ".\ReleaseAssets\Verify-IMSServicesReleaseAssets.ps1" -ProjectRoot "."
+dotnet build ".\IMS_Global.csproj" -c Release -p:Platform=x64
+powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File ".\ReleaseAssets\Verify-IMSServicesReleaseAssets.ps1" -ProjectRoot ".\bin\x64\Release\net10.0-windows"</code></pre>
+<p>The manifest <code>ReleaseAssets\ServiceBundles.manifest.json</code> pins the approved package sizes, SHA-256 hashes and individual provisioner file hashes. The Release build runs the verifier against <strong>source assets before build</strong> and <strong>copied output assets after build</strong>. Both checks must pass; a missing, modified or incomplete bundle blocks the Release build. Ordinary <strong>Debug</strong> builds do not enforce this Release-only gate. For publish/deployment to another path, verify the final installed distribution separately.</p>
+<div class="callout"><strong>Controlled dependencies</strong>IMS Global copies approved files but does not rebuild Autos, Shopify or the provisioner. An update to one of those releases requires a correspondingly reviewed update to the approved manifest; replacing an old ZIP without its matching manifest must fail verification. The published binaries are Git-ignored and must not contain secrets or private development credentials. The Global recovery generator independently validates its two ZIP inputs and approved importer scripts before producing a single-use enrollment ticket.</div>
+<h2 id="recovery">5. Generate and execute one recovery installer</h2>
+<ol class="steps">
+<li>Prepare a replacement Windows machine with .NET 10 <strong>Windows Desktop Runtime x64</strong> and Windows PowerShell. Confirm the machine can reach the API over HTTPS and the authorized company database endpoints. Network TLS to the API and PostgreSQL database SSL are separate configuration layers.</li>
+<li>Preserve the required nonsecret Autos <code>CredentialsByCompany</code> references and Shopify <code>config.ini</code> preferences. Drain active work and isolate the old Autos/Shopify host before installation; never run both hosts with the same business workload active.</li>
+<li>In Global, select <strong>Generate Recovery Package</strong>. Confirm the displayed Autos and Shopify identities and approved API HTTPS origin. The generated executable contains a <strong>single-use 30-minute enrollment ticket</strong>, not a stored service bearer token or database password. Keep the executable private.</li>
+<li>Sign in on the target machine <strong>as the intended Shopify desktop user</strong> and run the generated <code>IMS-Services-Recovery-…exe</code>, elevating under that same Windows account. Running as a different administrator would protect Shopify's DPAPI credential for the wrong account. Do not run as SYSTEM.</li>
+<li>The installer checks package hashes and runtime, stages both applications, redeems the ticket, installs Autos credential protection for <code>LocalSystem</code>, provisions Shopify's protected credential for the signed-in user, configures and starts the <code>IMS Autos</code> service, and creates a Shopify shortcut.</li>
+<li>Open Shopify from its shortcut and verify the intended company/profile and Store mappings. Shopify is a <strong>desktop application</strong> and does not start synchronized workers just because its shortcut was created. Enable each intended profile's automatic <strong>Start</strong>/<strong>Run on startup</strong> choices only after checking the configuration; this preference is not a Windows startup registration.</li>
+</ol>
+<p>If the ticket expires or was redeemed, generate a new recovery package; do not rerun the old ticket as a recovery strategy. New enrolled bearer credentials have a <strong>30-day lifetime</strong> and shorter authorization leases; arrange renewal before expiry. The recovery installer does not automatically revoke old-host credentials, so retire them only after the replacement is verified and the old host is isolated.</p>
+<h2 id="verify">6. Verify startup before enabling business operations</h2>
+<pre><code>dotnet --list-runtimes
+Get-CimInstance Win32_Service -Filter "Name='IMS Autos'" |
+    Select-Object Name, State, StartMode, StartName, PathName
+# After post-install checks, end provisioning credentials in this shell:
+Remove-Item Env:IMS_AUTOS_PROVISIONING_GLOBAL -ErrorAction SilentlyContinue</code></pre>
+<div class="table-wrap"><table><thead><tr><th>Check</th><th>Expected observation</th></tr></thead><tbody>
+<tr><td><code>dotnet --list-runtimes</code></td><td><code>Microsoft.WindowsDesktop.App 10.x</code> is installed.</td></tr>
+<tr><td>Windows Service</td><td>Name <code>IMS Autos</code>, State Running, StartMode Auto, StartName <code>LocalSystem</code>, PathName ending in the installed <code>IMSAutos.exe</code>.</td></tr>
+<tr><td>Autos administration and logs</td><td>Approved identity/company grant, separate Autos Enabled switch and relevant company <code>autos.job_log</code> outcomes. Windows Service Control Manager events can confirm state changes; an application startup Event Log entry is not required.</td></tr>
+<tr><td>Shopify application</td><td>The intended company and profile load; each integrated Store has its own authorized App Token/Location ID/Local Store; no immediate connection error. A stopped profile with zero errors has not yet demonstrated live synchronization.</td></tr>
+<tr><td>Business acceptance</td><td>Only after authorization, configuration and job controls are verified, run an approved test cycle and inspect the actual operation results, saved logs and inventory/order effects. Shopify inventory delta updates depend on current <code>item_prods.delta_time</code> writes in the compatible client workflow.</td></tr>
+</tbody></table></div>
+<p>After restoring any nonsecret Autos company workload mappings, verify Autos <code>DatabaseSslMode</code> agrees with the API's <code>Autos:Database:SslMode</code>. The documented IMS 9 delivery uses <code>Disable</code> for PostgreSQL and HTTPS for the API. A deployment using <code>VerifyFull</code> must configure database certificate trust and an absolute valid root-certificate path where required; neither worker silently downgrades certificate checks.</p>
+<h2 id="renewal">7. New companies, credential retirement and incident handling</h2>
+<p>A new company requires the Global-created database, intended company role grants, registration in the Global company registry, specific Autos/Shopify company grants, and independently configured business controls. Autos company enabling controls only Autos scheduling. Shopify company authorization does not itself create a profile, map a Store or add App Tokens. Reopen/restart Shopify to discover a newly authorized company.</p>
+<p>Stop the Shopify profile through <strong>Stop</strong> and allow in-flight work to finish before changing it. An API authorization expiry prevents admission of new work but does not forcibly retract an already admitted operation. For Autos, disabling the company stops future scheduling while the current company cycle completes.</p>
+<p>On an installation error, capture the installer phase and safe service-state diagnostics; do not disclose tokens, database passwords or private payloads in logs or screenshots. Review the installed files, service state and authorizations before issuing another ticket. Keep prior credentials available for controlled rollback until the new host has passed its acceptance checks.</p>
+<p>See <a href="service-administration.html">Autos and Shopify service administration</a>, <a href="../tools/ims-autos.html">IMS Autos business jobs</a>, <a href="../shopify/integration-server.html">Shopify integration worker</a>, and <a href="secret-vault.html">Secret Vault</a>.</p>
+<footer class="page-footer"><span>IMS Documentation</span><span>Global 1.7.0 · API 1.1.0 · Autos 9.2 · Shopify 4.4.0</span></footer>
+</main></div><script src="../assets/js/docs.js"></script></body></html>

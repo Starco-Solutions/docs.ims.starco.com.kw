@@ -221,6 +221,18 @@
 <h3 id="transfer-repair">Corrupted Stock Transfer recovery</h3>
 <p>Transactions Expert compares the transfer header quantity with its detail lines. If they do not agree, IMS identifies the voucher as corrupted and exposes the administrator <strong>Fix</strong> recovery action.</p>
 <p>The recovery process can reconstruct the transfer detail from the locally recorded transfer log when a valid log is available; otherwise it can recalculate the transfer header quantity/cost/retail totals from the existing detail rows. After recovery, the journal can also be rebuilt. This function is intended for system recovery, not normal transfer editing.</p>
+<h2 id="promotion-linked-operations">Linked promotional returns, retained sales and size exchanges</h2>
+<p>For a supported original receipt with Special Offers, open the original sale and trace the linked operation through its saved return and, where applicable, retained-sale or size-replacement receipts. The original sale's discounts and promotion attribution remain part of its historical record; a later edit to Special Offers does not reprice that original sale.</p>
+<div class="table-wrap"><table><thead><tr><th>Saved document</th><th>How to recognize it</th></tr></thead><tbody>
+<tr><td>Original promotional sale</td><td>Original Sales receipt, prices, Sales Man/Lady and promotions.</td></tr>
+<tr><td>Promotional reversal / refund</td><td>Cash Return linked to the current retained/original receipt, with the returned original units and operation audit.</td></tr>
+<tr><td>Retained Sale after partial refund</td><td>New Cash Sales document carrying the recalculated remaining merchandise. It is not an Exchange Transaction.</td></tr>
+<tr><td>Genuine size replacement</td><td>Exchange Transaction / Size Exchange Replacement with the eligible new SKU and the linked return.</td></tr>
+<tr><td>Pending physical intake</td><td>Unresolved supervisor review of reserved original units; it is not a posted refund, replacement or available-stock movement.</td></tr>
+</tbody></table></div>
+<p>The <strong>Transaction Log</strong> records the acting IMS user, operation reference, source and linked document keys, and the customer settlement. The <strong>Sales Man/Lady</strong> fields describe the saved merchandise salesperson, which is not necessarily the user processing the return. An internal full-document reversal is not the amount of cash handed back to the customer; inspect the operation settlement and payment breakdown separately.</p>
+<p>Linked promotion operations are handled through the coordinated original-receipt workflow. Do not use an isolated legacy edit or void command to bypass those links. Supported original-sale voids retain an auditable history. An interrupted or uncertain print does not undo the committed transaction; retrieve and reprint the saved receipt rather than resaving the basket.</p>
+<p>See <a href="sales-transactions.html#promotion-refunds">POS promotion refund workflow</a> and <a href="../manage/special-offers.html#offer-returns">historical Special Offer calculation</a>.</p>
 <h2 id="financial">Financial status and Journal Entry</h2>
 <p>The Financial panel distinguishes a transaction with no IMS journal from one whose journal exists and/or has been posted. It shows the journal number, posting user and posting time when available.</p>
 <figure class="screenshot compact-shot">

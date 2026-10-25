@@ -159,7 +159,7 @@
     },
     {
       "path": "manage/promotions-loyalty.html",
-      "summary": "Choose and operate IMS promotion and loyalty programs, from campaign setup through sale, customer benefit and return handling."
+      "summary": "Compare IMS promotion and loyalty programs, including Special Offer combination limits, original-promotion refunds, retained-basket repricing, exchanges and supervised pending intake."
     },
     {
       "path": "manage/sale-seasons.html",
@@ -183,7 +183,7 @@
     },
     {
       "path": "manage/special-offers.html",
-      "summary": "Discounts, free items, cash back, bundles and step-discount promotions."
+      "summary": "Configure Special Offers, eligibility, explicit multi-offer compatibility by Store/date and offer type, quantity rules, discount/cashback calculations, and original-promotion refund, exchange and pending-settlement handling."
     },
     {
       "path": "manage/star-rewards.html",
@@ -279,11 +279,11 @@
     },
     {
       "path": "sales/sales-transactions.html",
-      "summary": "Sales and returns, payments, consent-based email/WhatsApp digital receipts, gift contact rules, bilingual 80 mm receipt printing, copies and Crystal Reports fallback."
+      "summary": "POS Sales Transactions, payment and digital receipt workflows, plus original-promotion Preview Settlement, linked retained sale/size exchange and supervised pending intake."
     },
     {
       "path": "sales/transactions-expert.html",
-      "summary": "Find and inspect existing transactions; controlled returns, exchanges, updates and receipt reprinting; verify existing digital-receipt results before another action."
+      "summary": "Historical Sales, Returns, size exchanges, journals and audit, including linked promotional reversal/retained-sale documents, salesperson lineage and actual customer settlement."
     },
     {
       "path": "shopify/fulfillment-requests.html",
@@ -299,7 +299,7 @@
     },
     {
       "path": "shopify/integration-server.html",
-      "summary": "Shopify 4.4.0 multi-company application with independent profile workers, selectors, Start/Stop, manual operations, secure bootstrap, inventory Delta windows and quantity rules."
+      "summary": "Shopify 4.4.0 multi-company desktop worker: profile authorization, order/fulfillment cycles, per-store App Tokens, stock delta synchronization and provisioning."
     },
     {
       "path": "shopify/manage-profiles.html",
@@ -399,7 +399,7 @@
     },
     {
       "path": "technical/index.html",
-      "summary": "Technical administration: architecture, IMS Global, IMS Security Guard & Secure Bootstrap, company databases, Secret Vault, Autos/Shopify service administration and HA Health."
+      "summary": "IMS technical reference map for API, Client, Global, security, databases, operations, Autos/Shopify services and the provisioning runbook."
     },
     {
       "path": "technical/it-operations-troubleshooting.html",
@@ -431,7 +431,11 @@
     },
     {
       "path": "technical/service-administration.html",
-      "summary": "Autos and Shopify service identities, company grants, secure bootstrap, Windows runtimes, Recovery Package installation, enrollment and monitoring."
+      "summary": "IMS Autos and Shopify service identities, grants, company bootstrap, protected runtime settings, recovery enrollment, company jobs and detailed provisioning runbook."
+    },
+    {
+      "path": "technical/service-provisioning.html",
+      "summary": "Autos 9.2 and Shopify 4.4 provisioning: source, x64 Release and installed IMS Global Tools/IMS.AutosProvisioner paths; approved three-bundle hashes, company grants and single-use recovery."
     },
     {
       "path": "technical/source-baseline.html",
@@ -455,7 +459,7 @@
     },
     {
       "path": "tools/ims-autos.html",
-      "summary": "IMS Autos 9.2 .NET 10 Windows service: nine multi-company business processes, company time zones, schedules, activity filters, report delivery and email/WhatsApp receipt outcomes."
+      "summary": "IMS Autos 9.2 .NET 10 Windows service: company schedules, nine business jobs, company logging, receipt delivery and links to authorization/provisioning."
     },
     {
       "path": "tools/index.html",
