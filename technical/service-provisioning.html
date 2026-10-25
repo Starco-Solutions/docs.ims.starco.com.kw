@@ -23,16 +23,24 @@
 <div class="callout"><strong>Scope and authority</strong>Use this guide only on an expressly approved administration host and database. The company schema and required role grants must already exist. Provisioning a service identity does not create a company database, migrate old data, create a Shopify Store App Token, activate Autos schedules or start Shopify workers. Keep real connection strings, tokens, company IDs and host details in approved private operational records—not public documentation.</div>
 <h2 id="components">Identity and workload boundaries</h2>
 <div class="table-wrap"><table><thead><tr><th>Part</th><th>Purpose</th><th>Authorization</th></tr></thead><tbody>
-<tr><td><code>IMS.AutosProvisioner.exe</code></td><td>Administrative utility built from <code>IMS_API/tools/IMS.AutosProvisioner</code> and installed under <code>IMS_GlobalFolder\Tools\IMS.AutosProvisioner\</code>. Registers service identities and supports approved credentials, company and workload-secret administration. It is not a background service or a component of the generated recovery installer.</td><td>Explicitly approved Global PostgreSQL administrator connection, provided via <code>IMS_AUTOS_PROVISIONING_GLOBAL</code> in the administrator process environment.</td></tr>
+<tr><td><code>IMS.AutosProvisioner.exe</code></td><td>Administrative utility compiled from <code>IMS_API/tools/IMS.AutosProvisioner</code> and <strong>distributed with IMS Global Release</strong> under <code>IMS_GlobalFolder\Tools\IMS.AutosProvisioner\</code>. Registers service identities and manages approved company/workload credentials. It is not a Windows service or a component of the generated recovery installer.</td><td>Explicitly approved Global PostgreSQL administrator connection, provided via <code>IMS_AUTOS_PROVISIONING_GLOBAL</code> in the administrator process environment.</td></tr>
 <tr><td>IMS Global → Services</td><td>Choose Company, Service and Service Identity; Grant/Revoke Company Access; separately enable Autos scheduling; Generate Recovery Package.</td><td>Authorized Global administrator session through IMS API.</td></tr>
 <tr><td>IMS Autos</td><td>Windows service under <code>LocalSystem</code>, with a protected service credential, authorized companies and separate schedules/time zones.</td><td>Autos service identity, company grant, company Autos Enabled and applicable company-local job settings.</td></tr>
 <tr><td>IMS Shopify</td><td>Windows desktop application with independent company/profile workers.</td><td>Separate Shopify service identity and company grant, active profiles and permitted per-Store App Tokens. No Shopify-wide Autos Enabled switch.</td></tr>
 </tbody></table></div>
 <p>Although the registration utility is named <code>IMS.AutosProvisioner</code>, the identity registry is shared. A <em>first grant in IMS Global</em> assigns the selected identity to Autos or Shopify. Do not use the utility's Autos-only <code>grant-company</code> operation to grant a Shopify identity; Shopify grants use <code>shopify_service.company_access</code>, while Autos grants use <code>autos_service.company_access</code>.</p>
+<h2 id="provisioner-path">Provisioner file paths: source, Release and installed Global</h2>
+<p>The provisioner is deployed with <strong>IMS Global</strong>, but its approved compiled binaries originate in the separate IMS API project. Stage a complete <code>IMS_API/tools/IMS.AutosProvisioner/bin/Release/net10.0/</code> output inside the Global <em>source project</em> before building. The final Global release copies the whole tool folder; it is not created by the Autos/Shopify recovery installer.</p>
+<div class="table-wrap"><table><thead><tr><th>Location</th><th>Expected path</th></tr></thead><tbody>
+<tr><td>Global source staging</td><td><code>IMS_Global (repository)\IMS_Global (project)\Tools\IMS.AutosProvisioner\</code></td></tr>
+<tr><td>Global x64 Release output</td><td><code>IMS_Global (project)\bin\x64\Release\net10.0-windows\Tools\IMS.AutosProvisioner\</code></td></tr>
+<tr><td>Installed Global administration folder</td><td><code>IMS_GlobalFolder\Tools\IMS.AutosProvisioner\IMS.AutosProvisioner.exe</code></td></tr>
+</tbody></table></div>
+<p>For example, with a repository at <code>D:\Sources\IMS_Global</code>, the correct build input is <code>D:\Sources\IMS_Global\IMS_Global\Tools\IMS.AutosProvisioner\</code>. A deployment might use <code>C:\Starco\IMS_Global\Tools\IMS.AutosProvisioner\</code>. The deployed directory or <code>bin</code> output is <strong>not</strong> the source staging location. The tool binaries are Git-ignored and must be supplied as approved release inputs.</p>
 <h2 id="prepare">1. Prepare the approved administration environment</h2>
 <ol class="steps">
 <li>Confirm the current authorized IMS Global and IMS API versions, approved company registry and production schema migrations. New-company database roles and API contracts are provisioned by Global's company-creation procedure; service identities and per-company grants are separate.</li>
-<li>Use the approved <strong>Release</strong> output of <code>IMS_API/tools/IMS.AutosProvisioner</code>. The standard installed admin-tools location is <code>IMS_GlobalFolder\Tools\IMS.AutosProvisioner\IMS.AutosProvisioner.exe</code> (for example <code>C:\Starco\IMS_Global\Tools\IMS.AutosProvisioner\IMS.AutosProvisioner.exe</code>). Keep the required <code>IMS.AutosProvisioner.deps.json</code>, <code>IMS.AutosProvisioner.runtimeconfig.json</code> and published DLL dependencies alongside it. The accompanying <code>IMS.Api.exe</code>, if present in the build output, is <strong>not</strong> the provisioner command to run. Verify supplied configuration files contain no secrets. IMS Global does not compile or install this utility automatically.</li>
+<li>Use the approved IMS Global <strong>Release distribution</strong> and run <code>IMS_GlobalFolder\Tools\IMS.AutosProvisioner\IMS.AutosProvisioner.exe</code> (example: <code>C:\Starco\IMS_Global\Tools\IMS.AutosProvisioner\IMS.AutosProvisioner.exe</code>). Keep the matching <code>.dll</code>, <code>.deps.json</code>, <code>.runtimeconfig.json</code> and all other published dependencies alongside it. Global copies these files from its source-project staging folder as part of the Release build; it does <strong>not</strong> compile or download new IMS API provisioner binaries. Do not run any accompanying <code>IMS.Api.exe</code> as the provisioner, or distribute private development settings.</li>
 <li>Use a privileged PowerShell session on the authorized administration host; do not copy its provisioning environment to the Autos/Shopify service host. Configure <code>IMS_AUTOS_PROVISIONING_GLOBAL</code> for the exact approved Global database and transport mode. The utility defaults to <code>VerifyFull</code> if SSL Mode is omitted. <code>Disable</code> is supported only when approved for that database. Never bypass certificate validation.</li>
 </ol>
 <pre><code># Execute in an approved administrative PowerShell session.
@@ -70,47 +78,56 @@ $shopifyId = [guid]::NewGuid().ToString()
 <li>Leave <strong>Autos: DISABLED</strong> until installation, company schedules and connected destinations have been checked. Shopify does not use this switch; its company/profile worker must be explicitly started in the desktop application.</li>
 </ol>
 <p>For a newly created company, repeat the relevant company grants and configure Autos job settings, Shopify Profile and Store mapping, and any approved workload references. The existence of a Global company record alone does not grant either worker access.</p>
-<h2 id="packages">4. Prepare the recovery packages</h2>
-<p>IMS Global's <strong>Generate Recovery Package</strong> reads exactly two published application ZIP files from <code>IMS_GlobalFolder\Packages</code> and the unchanged installer/importer assets from <code>IMS_GlobalFolder\RecoveryAssets</code>. The ZIPs must contain the <code>net10.0-windows</code> folder at ZIP root, <strong>not</strong> just an EXE or loose application files. The provisioner is a separate administrator-only tool installed under <code>Tools</code>.</p>
+<h2 id="packages">4. Package and verify the Global service distribution</h2>
+<p>IMS Global Release distributes <strong>three approved components</strong>: the Autos 9.2 and Shopify 4.4 published ZIPs, and the complete provisioner folder under <code>Tools</code>. The <strong>Generate Recovery Package</strong> operation uses <em>only</em> the two service ZIP files and the controlled <code>RecoveryAssets</code> scripts; it does not embed the provisioner.</p>
 <pre><code>IMS_GlobalFolder/
+  IMS_Global.exe
   Packages/
     IMS-Autos-9.2.zip
       net10.0-windows/
         IMSAutos.exe
         IMSAutos.runtimeconfig.json
         appsettings.json
-        ... other published files and runtimes ...
+        ... other matching published files ...
     IMS-Shopify-4.4.zip
       net10.0-windows/
         ShopifyIMS.exe
         ShopifyIMS.runtimeconfig.json
         shopify-service.json
-        ... other published files and runtimes ...
+        ... other matching published files ...
   Tools/
     IMS.AutosProvisioner/
       IMS.AutosProvisioner.exe
+      IMS.AutosProvisioner.dll
       IMS.AutosProvisioner.deps.json
       IMS.AutosProvisioner.runtimeconfig.json
-      IMS.AutosProvisioner.dll
       IMS.Api.dll
       Npgsql.dll
-      ... other matching required dependencies ...
+      ... all other matching dependencies ...
+  ReleaseAssets/
+    ServiceBundles.manifest.json
+    Verify-IMSServicesReleaseAssets.ps1
   RecoveryAssets/
     Import-AutosServiceCredential.ps1
     Import-ShopifyServiceCredential.ps1
     Install-AutosCredential-System.ps1
     Install-IMS-Services.ps1
     Install-IMS-Services.cmd</code></pre>
-<p>Use approved current published builds, preserve each component's required dependencies and native/runtime subfolders, and check the two ZIPs' internal structure. Do not package older application binaries, private developer settings or generated browser-cache folders. The provisioner may be distributed separately as an administrator-only ZIP, but <strong>Global does not read that ZIP and does not embed it in the recovery installer</strong>; extract its approved contents into <code>Tools\IMS.AutosProvisioner</code>. Global validates its two ZIP inputs and importer integrity before issuing an enrollment ticket. IExpress generates the single-file installer on the administration machine.</p>
-<h3 id="distribution-checklist">Global distribution refresh checklist</h3>
-<p>Whenever IMS Global is rebuilt, moved or distributed, check <strong>all three independently maintained bundles</strong> rather than assuming a build automatically refreshes them:</p>
+<p>The Autos and Shopify ZIP files must have the <code>net10.0-windows</code> directory at ZIP root, not loose application files. The provisioner is distributed as an extracted administration folder with IMS Global; its original source ZIP, if supplied independently, is <strong>not a third recovery-installer input</strong>. Do not substitute Debug binaries, outdated dependencies, private application settings or generated browser-cache folders.</p>
+<h3 id="distribution-checklist">Release packaging checklist</h3>
 <ol class="steps">
-<li><strong>Autos package:</strong> confirm the approved latest Autos 9.2 <code>net10.0-windows</code> release files are inside <code>Packages\IMS-Autos-9.2.zip</code>, including the current receipt-delivery implementation and runtime dependencies.</li>
-<li><strong>Shopify package:</strong> confirm the approved latest Shopify 4.4 <code>net10.0-windows</code> release files are inside <code>Packages\IMS-Shopify-4.4.zip</code>, with its matching runtime/configuration file structure.</li>
-<li><strong>Provisioner distribution:</strong> confirm the approved Release bundle of <code>IMS.AutosProvisioner</code> has been refreshed in <code>Tools\IMS.AutosProvisioner</code>. This tool is not a third input to the recovery generator.</li>
-<li><strong>Release verification:</strong> check build/version provenance and file hashes against the approved release inputs; inspect ZIP structure and run the Global recovery preflight before packaging the administrative distribution. Do not create a live enrollment ticket simply to check file presence.</li>
+<li>Stage the approved Autos ZIP at <code>IMS_Global (project)\Packages\IMS-Autos-9.2.zip</code>, including the current receipt-delivery implementation.</li>
+<li>Stage the approved Shopify ZIP at <code>IMS_Global (project)\Packages\IMS-Shopify-4.4.zip</code>, preserving all published application and runtime files.</li>
+<li>Stage the complete provisioner Release output at <code>IMS_Global (project)\Tools\IMS.AutosProvisioner\</code>, including matching dependency DLLs and runtime configuration.</li>
+<li>Build IMS Global in <strong>Release x64</strong>. Inspect the same <code>Packages</code>, <code>Tools\IMS.AutosProvisioner</code> and <code>ReleaseAssets</code> directories under the final Global distribution. Recovery preflight is separate from normal Release validation and does not require issuing a live enrollment ticket.</li>
 </ol>
-<div class="callout"><strong>Source builds are not release bundles</strong>Global's project copies named <code>Packages</code> ZIPs and <code>RecoveryAssets</code> scripts to its output when those files are present locally. Those ZIP binaries are not regenerated by compiling IMS Global, and <code>Packages</code> contents are excluded by the repository's normal Git ignore rules. An updated Global source checkout therefore does <strong>not</strong> prove the installed Autos/Shopify ZIPs or provisioner tool were refreshed. Maintain a verified release distribution and keep production credentials out of it.</div>
+<h3 id="release-validation">Automatic build verification</h3>
+<p>From Windows PowerShell inside the <strong>IMS Global project directory</strong> (containing <code>IMS_Global.csproj</code>), run:</p>
+<pre><code>powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File ".\ReleaseAssets\Verify-IMSServicesReleaseAssets.ps1" -ProjectRoot "."
+dotnet build ".\IMS_Global.csproj" -c Release -p:Platform=x64
+powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File ".\ReleaseAssets\Verify-IMSServicesReleaseAssets.ps1" -ProjectRoot ".\bin\x64\Release\net10.0-windows"</code></pre>
+<p>The manifest <code>ReleaseAssets\ServiceBundles.manifest.json</code> pins the approved package sizes, SHA-256 hashes and individual provisioner file hashes. The Release build runs the verifier against <strong>source assets before build</strong> and <strong>copied output assets after build</strong>. Both checks must pass; a missing, modified or incomplete bundle blocks the Release build. Ordinary <strong>Debug</strong> builds do not enforce this Release-only gate. For publish/deployment to another path, verify the final installed distribution separately.</p>
+<div class="callout"><strong>Controlled dependencies</strong>IMS Global copies approved files but does not rebuild Autos, Shopify or the provisioner. An update to one of those releases requires a correspondingly reviewed update to the approved manifest; replacing an old ZIP without its matching manifest must fail verification. The published binaries are Git-ignored and must not contain secrets or private development credentials. The Global recovery generator independently validates its two ZIP inputs and approved importer scripts before producing a single-use enrollment ticket.</div>
 <h2 id="recovery">5. Generate and execute one recovery installer</h2>
 <ol class="steps">
 <li>Prepare a replacement Windows machine with .NET 10 <strong>Windows Desktop Runtime x64</strong> and Windows PowerShell. Confirm the machine can reach the API over HTTPS and the authorized company database endpoints. Network TLS to the API and PostgreSQL database SSL are separate configuration layers.</li>

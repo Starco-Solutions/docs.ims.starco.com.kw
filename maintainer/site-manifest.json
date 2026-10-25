@@ -435,7 +435,7 @@
     },
     {
       "path": "technical/service-provisioning.html",
-      "summary": "Autos 9.2 / Shopify 4.4 provisioning guide: exact IMS_GlobalFolder/Tools/IMS.AutosProvisioner path, protected identity registration, separate grants, Autos/Shopify ZIP distribution refresh, one-time recovery installation and verification."
+      "summary": "Autos 9.2 and Shopify 4.4 provisioning: source, x64 Release and installed IMS Global Tools/IMS.AutosProvisioner paths; approved three-bundle hashes, company grants and single-use recovery."
     },
     {
       "path": "technical/source-baseline.html",

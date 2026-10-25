@@ -133,7 +133,7 @@
 - https://docs.ims.starco.com.kw/technical/security-guidance.html — General security recommendations for IMS administrators: workstation protection, credentials and keys, logs, network access, recovery and incident handling; distinct from verified IMS controls.
 - https://docs.ims.starco.com.kw/technical/security.html — Security Architecture: workstation authorization, global authentication, Global Administrator sessions, company membership and company-local permissions.
 - https://docs.ims.starco.com.kw/technical/service-administration.html — IMS Autos and Shopify service identities, grants, company bootstrap, protected runtime settings, recovery enrollment, company jobs and detailed provisioning runbook.
-- https://docs.ims.starco.com.kw/technical/service-provisioning.html — Autos 9.2 / Shopify 4.4 provisioning guide: exact IMS_GlobalFolder/Tools/IMS.AutosProvisioner path, protected identity registration, separate grants, Autos/Shopify ZIP distribution refresh, one-time recovery installation and verification.
+- https://docs.ims.starco.com.kw/technical/service-provisioning.html — Autos 9.2 and Shopify 4.4 provisioning: source, x64 Release and installed IMS Global Tools/IMS.AutosProvisioner paths; approved three-bundle hashes, company grants and single-use recovery.
 - https://docs.ims.starco.com.kw/technical/source-baseline.html — Component versions and compatibility: Client 9.4.6, Global 1.7.0, API 1.1.0, Autos 9.2 and Shopify 4.4.0; runtime, provisioning and service prerequisites.
 - https://docs.ims.starco.com.kw/technical/system-dashboard-observability.html — Monitoring locations across IMS Client, IMS Global and IMS Shopify, with links to dashboard, performance, HA Health, API activity, Autos and Integration Center guides.
 
