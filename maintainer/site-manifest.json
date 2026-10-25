@@ -159,7 +159,7 @@
     },
     {
       "path": "manage/promotions-loyalty.html",
-      "summary": "Compare IMS promotion and loyalty programs and follow supported original-sale promotion refunds, retained-basket repricing, size exchanges and supervised pending intake."
+      "summary": "Compare IMS promotion and loyalty programs, including Special Offer combination limits, original-promotion refunds, retained-basket repricing, exchanges and supervised pending intake."
     },
     {
       "path": "manage/sale-seasons.html",
@@ -183,7 +183,7 @@
     },
     {
       "path": "manage/special-offers.html",
-      "summary": "Configure Special Offers, unit-level quantity rules, eligibility, discount/cashback calculations, and original-promotion partial refund, full refund, size-exchange and pending-settlement handling."
+      "summary": "Configure Special Offers, eligibility, explicit multi-offer compatibility by Store/date and offer type, quantity rules, discount/cashback calculations, and original-promotion refund, exchange and pending-settlement handling."
     },
     {
       "path": "manage/star-rewards.html",
