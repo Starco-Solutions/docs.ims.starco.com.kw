@@ -87,7 +87,7 @@
     },
     {
       "path": "inventory/purchases.html",
-      "summary": "Purchases and Purchase Returns: invoice entry, landed cost, VAT, eligible Open-purchase Edit VAT corrections and audit, finalization, posting and later-edit VAT recalculation."
+      "summary": "Purchases and Purchase Returns: entry, landed cost, Edit VAT permissions, recoverable/nonrecoverable VAT, responsible-user audit, later-edit recalculation, finalization and financial posting."
     },
     {
       "path": "inventory/replenishment.html",
@@ -183,7 +183,7 @@
     },
     {
       "path": "manage/special-offers.html",
-      "summary": "Special Offers: Give Discount, Free Item, Step Discount with optional highest-original-price unit protection, Bundle and Cash Back; campaign eligibility, SKU scope, quantity tiers and retained-basket refund calculations."
+      "summary": "Special Offers: Give Discount, Free Item, Step Discount and Bundle/Cash Back; multi-offer compatibility, eligibility, configurable quantity tiers, import modes, highest-price protection and retained-basket refunds."
     },
     {
       "path": "manage/star-rewards.html",
@@ -279,11 +279,11 @@
     },
     {
       "path": "sales/sales-transactions.html",
-      "summary": "Sales Transactions: POS entry, original-receipt refunds and size exchanges, promotional full reversal and recalculated retained sale, settlement preview, payment methods, VAT and receipt delivery."
+      "summary": "Sales Transactions: POS entry, original-receipt promotional refunds, full reversal and recalculated retained sale, customer settlement, supervised pending intake, size exchanges, payment methods, VAT and receipt delivery."
     },
     {
       "path": "sales/transactions-expert.html",
-      "summary": "Transactions Expert: receipt enquiry, returned-item Current Price and Disc%, linked promotional reversals and retained sales, payment details, VAT, transaction log and financial review."
+      "summary": "Transactions Expert: returned-item prices, historical return and promotional reversal displays, linked reversal receipts and retained sales, customer settlement, salesperson lineage, payments, VAT, journals and audit."
     },
     {
       "path": "shopify/fulfillment-requests.html",

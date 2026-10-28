@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Manage Special Offers | IMS User Guide</title>
-<meta content="IMS Special Offers guide: campaign eligibility, SKU selection, Step Discount quantity tiers, optional highest-priced unit protection, Cash Back, Bundle and retained-basket refunds." name="description"/>
+<meta content="IMS Special Offers: Give Discount, Free Item, Step Discount and Bundle/Cash Back; multi-offer compatibility, eligibility, configurable quantity tiers, import modes, highest-price protection and retained-basket refunds." name="description"/>
 <link href="https://docs.ims.starco.com.kw/manage/special-offers.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Manage Special Offers User Guide","url":"https://docs.ims.starco.com.kw/manage/special-offers.html","about":"IMS retail promotion and special-offer configuration","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -172,7 +172,15 @@
 <tr><td>As buy get</td><td>Build a <strong>Discounts Policy</strong> made of quantity → percentage tiers. For example, Buy 2 → Get 15%, Buy 3 → Get 20%.</td></tr>
 </tbody></table></div>
 <p>For the standard List A/List B version, the import file contains two Item Code columns after the header: <strong>List A</strong> and <strong>List B</strong>. IMS validates both lists against the Item master.</p>
-<p>For <strong>As buy get</strong>, the Discounts Policy list can contain multiple quantity/percentage entries. The percentage option is fixed for these tier definitions.</p>
+<p>For <strong>As buy get</strong>, add multiple quantity thresholds to <strong>Discounts Policy</strong> and set the discount percentage for each threshold. The <strong>percentage benefit type</strong> is selected automatically and cannot be changed to a fixed monetary amount; the <strong>percentage values are configurable</strong>. For example, configure 2 eligible items → 20% and 3 or more → 25%.</p>
+<h3 id="step-imports">Import columns by Step Discount mode</h3>
+<div class="table-wrap"><table><thead><tr><th>Operating mode</th><th>Import selection</th><th>Required columns</th></tr></thead><tbody>
+<tr><td>As buy get</td><td>Itemcode</td><td>One: Item Code</td></tr>
+<tr><td>As buy get</td><td>Style</td><td>One: Style</td></tr>
+<tr><td>As buy get</td><td>Style - Color</td><td>Two: Style and Color</td></tr>
+<tr><td>Standard List A / List B</td><td>Itemcode</td><td>Two: List A Item Code and List B Item Code</td></tr>
+</tbody></table></div>
+<p>Include a header row in every text file and separate two-column values with a tab. Itemcode selects exact Item Codes; Style expands to matching Item Codes, and Style - Color expands to codes matching that combination. Standard List A / List B is a separate operating mode; its two-list format does not apply to As buy get Itemcode or Style imports. See <a href="#item-import">Item selection and import files</a> for the full import guide.</p>
 <h3 id="keep-highest-full-price">Keep one highest-priced eligible unit</h3>
 <p>For an incremental <strong>Step Discount → As buy get</strong> offer, <strong>Keep highest-priced eligible item at full price</strong> (<code>StepKeepHighestFullPrice</code>) is optional and starts unchecked. Leave it unchecked to keep the existing Step Discount calculation. The checkbox is available in New/Edit after at least one <strong>Discounts Policy</strong> entry exists; leaving this mode or removing all policy entries clears it.</p>
 <ol class="steps">
