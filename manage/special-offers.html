@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Manage Special Offers | IMS User Guide</title>
-<meta content="IMS Special Offers user guide: Give Discount, Give Free Item, Cash Back, Bundle and Step Discount promotions, store/client/item targeting, item imports, price lists, voucher expiry and offer rules." name="description"/>
+<meta content="IMS Special Offers: Give Discount, Free Item, Step Discount and Bundle/Cash Back; multi-offer compatibility, eligibility, configurable quantity tiers, import modes, highest-price protection and retained-basket refunds." name="description"/>
 <link href="https://docs.ims.starco.com.kw/manage/special-offers.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"IMS Manage Special Offers User Guide","url":"https://docs.ims.starco.com.kw/manage/special-offers.html","about":"IMS retail promotion and special-offer configuration","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -172,7 +172,34 @@
 <tr><td>As buy get</td><td>Build a <strong>Discounts Policy</strong> made of quantity → percentage tiers. For example, Buy 2 → Get 15%, Buy 3 → Get 20%.</td></tr>
 </tbody></table></div>
 <p>For the standard List A/List B version, the import file contains two Item Code columns after the header: <strong>List A</strong> and <strong>List B</strong>. IMS validates both lists against the Item master.</p>
-<p>For <strong>As buy get</strong>, the Discounts Policy list can contain multiple quantity/percentage entries. The percentage option is fixed for these tier definitions.</p>
+<p>For <strong>As buy get</strong>, add multiple quantity thresholds to <strong>Discounts Policy</strong> and set the discount percentage for each threshold. The <strong>percentage benefit type</strong> is selected automatically and cannot be changed to a fixed monetary amount; the <strong>percentage values are configurable</strong>. For example, configure 2 eligible items → 20% and 3 or more → 25%.</p>
+<h3 id="step-imports">Import columns by Step Discount mode</h3>
+<div class="table-wrap"><table><thead><tr><th>Operating mode</th><th>Import selection</th><th>Required columns</th></tr></thead><tbody>
+<tr><td>As buy get</td><td>Itemcode</td><td>One: Item Code</td></tr>
+<tr><td>As buy get</td><td>Style</td><td>One: Style</td></tr>
+<tr><td>As buy get</td><td>Style - Color</td><td>Two: Style and Color</td></tr>
+<tr><td>Standard List A / List B</td><td>Itemcode</td><td>Two: List A Item Code and List B Item Code</td></tr>
+</tbody></table></div>
+<p>Include a header row in every text file and separate two-column values with a tab. Itemcode selects exact Item Codes; Style expands to matching Item Codes, and Style - Color expands to codes matching that combination. Standard List A / List B is a separate operating mode; its two-list format does not apply to As buy get Itemcode or Style imports. See <a href="#item-import">Item selection and import files</a> for the full import guide.</p>
+<h3 id="keep-highest-full-price">Keep one highest-priced eligible unit</h3>
+<p>For an incremental <strong>Step Discount → As buy get</strong> offer, <strong>Keep highest-priced eligible item at full price</strong> (<code>StepKeepHighestFullPrice</code>) is optional and starts unchecked. Leave it unchecked to keep the existing Step Discount calculation. The checkbox is available in New/Edit after at least one <strong>Discounts Policy</strong> entry exists; leaving this mode or removing all policy entries clears it.</p>
+<ol class="steps">
+<li>Open <strong>Manage → Special Offers</strong>, choose New or Edit, then select <strong>Step Discount</strong> and <strong>As buy get</strong>.</li>
+<li>In <strong>Discounts Policy</strong>, add quantity <strong>2 → 20%</strong> and quantity <strong>3 → 25%</strong>. These are total eligible-unit thresholds. No separate 4-unit tier is needed for this campaign.</li>
+<li>Select <strong>Keep highest-priced eligible item at full price</strong>.</li>
+<li>Set the campaign dates, Stores and Client Categories. For a selected-SKU campaign, clear <strong>All Items</strong> and select/import the intended Item Codes using the <a href="#item-import">item targeting controls</a>. Check the full-price-only, client-discount and receipt-total conditions before saving.</li>
+<li>Save, then review the eligible quantities and resulting line prices in POS before using the campaign.</li>
+</ol>
+<div class="table-wrap"><table><thead><tr><th>Eligible units in the basket</th><th>Result with the policy above</th></tr></thead><tbody>
+<tr><td>1</td><td>No discount from this promotion.</td></tr>
+<tr><td>2</td><td>One highest-priced eligible unit is protected; the other unit receives 20%.</td></tr>
+<tr><td>3</td><td>One highest-priced eligible unit is protected; the other two receive 25%.</td></tr>
+<tr><td>4 or more</td><td>One highest-priced eligible unit is protected; all remaining eligible units receive 25%.</td></tr>
+</tbody></table></div>
+<p>IMS uses the highest quantity threshold reached, then discounts all but one eligible unit. Only eligible sale merchandise counts: the offer's date, Store, customer category, item scope and full-price-only condition still apply. Service Items and return lines do not add qualifying units. Multiple units of the same SKU count individually, and a row can split into protected and discounted quantities.</p>
+<p>The protected unit is selected by <strong>Original Price</strong>, not its current discounted price. If several eligible units share that highest original price, the last qualifying unit in receipt order is protected. A quantity on one row still protects only one unit.</p>
+<div class="callout tip"><strong>What “at full price” means here</strong>The protected unit receives no additional discount from this Step offer. An ordinary item markdown already on that unit remains when full-price-only is off; the checkbox does not restore its original price. The other eligible units receive the selected tier calculated from original price, rather than an extra percentage stacked on their current markdown. Existing client/invoice discount and rounding settings still apply. Review the final line prices.</div>
+<p>Before enabling this option, have your administrator confirm that every POS and refund workstation handling the offer supports it. The setting does not enable itself on existing campaigns.</p>
 <h2 id="cashback">Cash Back</h2>
 <p>Cash Back is the most specialized mode because it can issue a value for later use or apply the benefit immediately to the current receipt.</p>
 <figure class="screenshot"><img alt="IMS Special Offers Cash Back configuration with thresholds, expiry and redemption stores" src="../assets/images/manage-special-offers-cashback.webp"/><figcaption>Cash Back adds threshold/value criteria, voucher terms, expiry and redemption-store controls. Choose current-receipt or later-voucher behavior before setting the terms.</figcaption></figure>
@@ -259,7 +286,7 @@
 <tr><td>Special price list</td><td>The imported price is translated to a discount from original price for that item when Apply Offer is selected. A missing price entry, or a price at/above original price, leaves the current discount. Review the actual line price.</td></tr>
 <tr><td>Buy/Get free</td><td>Each complete group of Buy N plus Get M eligible merchandise units provides M free units. A partial group earns no additional free unit. Entered quantities count as units (not just distinct grid rows); IMS selects the lowest-priced eligible units for the benefit. A single entered row may be split into paid and free quantities.</td></tr>
 <tr><td>Step List A/List B</td><td>Each complete N qualifying units from List A permits up to M discounted units from List B, subject to eligible B quantity. Repeated units count individually, and benefits are applied to eligible List B units in receipt order.</td></tr>
-<tr><td>Step as Buy/Get</td><td>In the standard mode, each complete N+M eligible merchandise units permits M discounted units; incomplete groups do not earn an extra benefit. With Get on Any and one percentage, all but one eligible unit can receive that percentage. With a quantity/percentage policy, the highest reached threshold supplies the discount for eligible units.</td></tr>
+<tr><td>Step as Buy/Get</td><td>In the standard mode, each complete N+M eligible merchandise units permits M discounted units; incomplete groups do not earn an extra benefit. With Get on Any and one percentage, all but one eligible unit can receive that percentage. With a quantity/percentage policy, the highest reached threshold supplies the discount for eligible units. When <a href="#keep-highest-full-price">Keep highest-priced eligible item at full price</a> is enabled, one highest-original-price eligible unit is excluded from this Step discount.</td></tr>
 <tr><td>Bundle</td><td>Each complete group of N eligible units is priced at the configured bundle total; incomplete groups do not earn another bundle. IMS allocates the group discount among eligible units with rounding and a remainder adjustment while preserving the qualifying group total and nonnegative item discounts. Review both individual unit prices and the group total, particularly with different item prices or quantities.</td></tr>
 <tr><td>Invoice percentage</td><td>Applies a second discount to current line amounts, rounded to two decimals per line. It applies when there is no client discount or the offer forces that discount off. Optional rounding sets the final receipt to the configured increment and allocates the difference to a line.</td></tr>
 <tr><td>Round Net Amount</td><td>For item/step discounts, rounds the resulting price to the nearest multiple of the configured increment and recalculates the effective discount. Midpoint rounding follows nearest-even rounding, not an unconditional upward rounding rule.</td></tr>
@@ -275,7 +302,7 @@
 <li>Select the exact original units to return; a repeated Item Code may represent more than one separately saved unit.</li>
 <li>IMS calculates the value of the <strong>remaining basket</strong> using the original eligible offers and the quantities that remain. A free-item, step or bundle benefit can move to another eligible unit, or cease to apply when a quantity threshold is no longer met.</li>
 <li>Review the signed incremental customer settlement shown in <a href="../sales/sales-transactions.html#promotion-refunds">Preview Settlement</a>. It is not necessarily equal to the old printed price of the returned line.</li>
-<li>On a supported completed refund, IMS saves linked reversal and, when merchandise remains, a newly priced retained-sale receipt. The original sale and its promotion history remain available for enquiry.</li>
+<li>On a supported completed refund, IMS reverses the full original basket (or the current retained receipt after an earlier partial return) and, when merchandise remains, saves a newly priced retained-sale receipt. The original sale and its promotion history remain available for enquiry.</li>
 </ol>
 <div class="callout tip"><strong>Hypothetical Buy 1 Get 1 example</strong>Three eligible units cost 10.000, 7.000 and 5.000. Originally the 5.000 unit is free, so the customer paid 17.000. If the customer returns that free unit, the remaining 10.000 and 7.000 units still qualify; the 7.000 unit becomes free. Retained purchase: 10.000; customer refund: 7.000. Refunding the old free line as 0.000 would not represent the revised promotion.</div>
 <h3 id="offer-exchange">Size exchanges and linked receipts</h3>

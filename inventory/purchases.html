@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Purchases | IMS User Guide</title>
-<meta content="IMS Purchases guide: purchase invoices and returns, import items, expenses, currency and landed cost, finalization, inventory costing and Al-Shamel financial posting." name="description"/>
+<meta content="IMS Purchases and Purchase Returns: entry, landed cost, Edit VAT permissions, recoverable/nonrecoverable VAT, responsible-user audit, later-edit recalculation, finalization and financial posting." name="description"/>
 <link href="https://docs.ims.starco.com.kw/inventory/purchases.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Purchases","url":"https://docs.ims.starco.com.kw/inventory/purchases.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -207,7 +207,7 @@ The current IMS deployment is integrated directly with the local <strong>Al-Sham
 <tr><td>Supplier VAT No.</td><td>Loaded from the selected Supplier. Required for a DOMESTIC treatment with a positive tax rate.</td></tr>
 <tr><td>Tax Treatment</td><td>Required active Purchase VAT / Tax Code.</td></tr>
 <tr><td>Taxable Amount</td><td>For non-manual tax codes IMS uses Net Local. For MANUAL base mode it is entered by the user and must be greater than zero.</td></tr>
-<tr><td>VAT Amount</td><td>Automatically calculated from Taxable Amount × tax rate for taxable automatic modes. MANUAL base mode permits adjustment on a new document.</td></tr>
+<tr><td>VAT Amount</td><td>Automatically calculated from Taxable Amount × tax rate for taxable automatic modes. MANUAL base mode permits adjustment on a new document. For an eligible saved purchase, use <a href="#edit-vat">Edit VAT</a>.</td></tr>
 <tr><td>Supplier Total</td><td>Net Local + VAT only when the tax code Posting Mode is SUPPLIER; otherwise it remains Net Local.</td></tr>
 <tr><td>Tax Reference No.</td><td>Required for IMPORT_PAID and IMPORT_DEFERRED treatments.</td></tr>
 <tr><td>Tax Reference Date</td><td>Optional date stored with the tax/customs reference.</td></tr>
@@ -227,10 +227,23 @@ The current IMS deployment is integrated directly with the local <strong>Al-Sham
 <tr><td>Discount</td><td>Change the invoice discount.</td></tr>
 <tr><td>Currency</td><td>Change purchase currency/exchange data.</td></tr>
 <tr><td>Expenses</td><td>Change the purchasing-expense allocation.</td></tr>
+<tr><td>Edit VAT</td><td>Correct only the VAT Amount on an eligible Open purchase; see <a href="#edit-vat">the VAT correction procedure</a>.</td></tr>
 <tr><td>Notes</td><td>Edit the purchase notes.</td></tr>
 <tr><td>Finalize</td><td>Start the inventory/cost finalization process.</td></tr>
 </tbody></table></div>
 <p>Finalized, Deleted and currently On Hold invoices cannot be edited. Purchase Returns do not offer the purchase-only Currency and Expenses edit actions.</p>
+<h3 id="edit-vat">Correct the VAT amount on a saved purchase</h3>
+<p>Open <strong>Inventory → Purchases</strong>, find the invoice and choose <strong>Edit → Edit VAT</strong>. This action requires the <strong>Edit Purchases</strong> permission and enabled company VAT. It applies only to an <strong>Open purchase</strong> with no posted journal, one existing VAT record and an active positive-rate tax treatment. Purchase Returns, Finalized, On Hold or Deleted documents, and ZERO, EXEMPT or OUTSIDE_SCOPE treatments are not eligible.</p>
+<ol class="steps">
+<li>Compare the saved VAT Amount with the supplier's tax invoice.</li>
+<li>Choose <strong>Edit VAT</strong> and enter the corrected <strong>VAT Amount</strong>. Only that amount is editable in this mode; the tax treatment, rate, taxable amount and supplier/reference details remain unchanged.</li>
+<li>Enter a non-negative amount with no more than three decimal places. For example, correct <strong>3,558.058</strong> to <strong>3,803.120 BHD</strong> when that is the amount supported by the supplier invoice.</li>
+<li>Review Supplier Total, then click <strong>Save</strong>. Reopen/review the invoice and its Log to confirm the saved amount and the named user responsible for the change. Cancel leaves the saved amount unchanged.</li>
+</ol>
+<p>Supplier Total includes the corrected VAT only for the <strong>SUPPLIER</strong> posting mode. Saving recalculates the recoverable VAT using the tax code's current <strong>Recoverable %</strong>, rounded to three decimals, and assigns the remainder to non-recoverable VAT. These are recalculated tax allocations; Edit VAT does not change merchandise prices, invoice discounts or purchasing expenses.</p>
+<p>IMS rejects invalid amounts, invalid recoverable percentages and missing or conflicting VAT records. It rechecks eligibility on Save. If the stored VAT record changed since you opened it, refresh/reopen the invoice, compare the current values and enter the correction again only if it is still needed. Do not repeatedly save from an outdated view. If IMS cannot confirm the save outcome, reopen and reconcile the invoice before retrying.</p>
+<p>A saved correction records the before/after VAT amounts against the signed-in responsible user in the transaction Log. Financial posting still requires the configured VAT accounts. If the saved split includes non-recoverable VAT, posting is blocked until it is assigned to inventory/expense cost through the appropriate accounting process; <strong>Edit VAT does not perform that cost allocation</strong>.</p>
+<div class="callout warning"><strong>Review VAT after later purchase edits</strong>Subsequent changes to items, discounts or currency can recalculate and replace a manually corrected VAT amount. Complete those changes first where possible, then recheck VAT against the supplier invoice before finalizing or posting.</div>
 <h2 id="finalize">Finalize a purchase</h2>
 <p>Finalization is the point where an Open purchase becomes an inventory/cost transaction. IMS warns the user that the process is irreversible through normal editing and that average cost will be recalculated.</p>
 <p>During finalization, IMS locks the invoice and affected stock/item records, calculates the resulting average costs, updates the selected store's quantities and the affected items' costs, and marks the invoice <strong>Finalized</strong> in one database transaction. A purchase also updates last-purchase information. Activity logging and display refresh take place after the database transaction.</p>
