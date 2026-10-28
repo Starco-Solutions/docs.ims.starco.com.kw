@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Transactions Expert | IMS User Guide</title>
-<meta content="IMS Transactions Expert guide: search/review Cash Sales, Credit Sales and Stock Transfers; authorized edits, transaction logs, reprint/email/void, journal rebuild and Sales/Cost journal inspection integrated with Al-Shamel." name="description"/>
+<meta content="IMS Transactions Expert guide: receipt enquiry, returned-item prices and discounts, linked reversals and retained sales, payments, VAT, transaction log and financial review." name="description"/>
 <link href="https://docs.ims.starco.com.kw/sales/transactions-expert.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Transactions Expert","url":"https://docs.ims.starco.com.kw/sales/transactions-expert.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -158,6 +158,9 @@
 <tr><td>Transaction Log</td><td>Date/time, user and recorded action history. Related return/exchange activity and void reason can also appear here.</td></tr>
 <tr><td>Financial</td><td>IMS journal status, journal number, posting user/time, View Journal and controlled Rebuild functions.</td></tr>
 </tbody></table></div>
+<h3 id="returned-item-prices">Reading returned-item prices</h3>
+<p>In <strong>Sold Items Details</strong>, <strong>Current Price</strong> is the original unit price less the item discount, before any separate invoice discount. For a return, the discount is shown as a reduction even when the underlying reversal carries signed amounts. <strong>Disc%</strong> expresses that reduction relative to Original Price; it is not a surcharge. Review Qty, invoice discount and Net Amount separately when reconciling the receipt.</p>
+<p>For a partial promotional return, inspect both the linked full reversal and the recalculated <strong>Retained Sale</strong>. The reversal's receipt total is not the customer's cash refund. See the <a href="sales-transactions.html#promotion-refunds">worked settlement example</a> and the operation's settlement details.</p>
 <h3 id="vat-details">VAT details</h3>
 <p>When VAT is enabled, Payment Details includes <strong>VAT Base</strong>, <strong>VAT %</strong> and <strong>VAT Amount</strong>. For sales, these values come from the saved/current invoice VAT context. For receipt-based returns, Transactions Expert derives the VAT from the original sale and earlier returns so the return remains within the original invoice's VAT totals.</p>
 <h2 id="sale">Cash Sales</h2>

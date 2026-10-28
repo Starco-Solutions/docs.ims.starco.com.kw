@@ -18,7 +18,7 @@
 - https://docs.ims.starco.com.kw/financial/vat-tax-configuration.html — IMS 9.4.6 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns.
 
 ## Getting Started
-- https://docs.ims.starco.com.kw/getting-started/main-screen.html — IMS startup, workstation authorization, login, main toolbar, menus, permissions, theme behavior and connection status.
+- https://docs.ims.starco.com.kw/getting-started/main-screen.html — IMS 9.4.6 startup, workstation authorization, login, company selection, main toolbar, permissions, notifications and installed-build versus available-update title notices.
 
 ## Overview
 - https://docs.ims.starco.com.kw/index.html — IMS 9.4.6 product reference for employees, administrators and external Business API developers; module guides, Promotions & Loyalty and component compatibility.
@@ -32,7 +32,7 @@
 ## Inventory
 - https://docs.ims.starco.com.kw/inventory/index.html — Inventory module overview.
 - https://docs.ims.starco.com.kw/inventory/item-movement.html — One-item chronological ledger across opening balance, purchases/returns, transfers, sales/returns, depreciation and adjustments; optional selected-store running balance and Online Order reference.
-- https://docs.ims.starco.com.kw/inventory/purchases.html — Purchases and Purchase Returns: invoice items/imports, expenses, currency/cost, finalization and financial posting; IMS includes Supplier Invoice/VAT data, Tax Treatment, Taxable/VAT/Supplier Total calculations and tax references when VAT is enabled.
+- https://docs.ims.starco.com.kw/inventory/purchases.html — Purchases and Purchase Returns: invoice entry, landed cost, VAT, eligible Open-purchase Edit VAT corrections and audit, finalization, posting and later-edit VAT recalculation.
 - https://docs.ims.starco.com.kw/inventory/replenishment.html — Analyze recent sales and source availability, select replenishment quantities and create a prepared Stock Transfer.
 - https://docs.ims.starco.com.kw/inventory/stock-adjustments.html — Signed inventory corrections, document editing and negative discrepancy posting.
 - https://docs.ims.starco.com.kw/inventory/stock-depreciation.html — Write off store stock at current cost, edit/void unposted vouchers and financially post depreciation.
@@ -58,7 +58,7 @@
 - https://docs.ims.starco.com.kw/manage/service-items.html — Service Item Codes, descriptions, account mapping and minimum prices.
 - https://docs.ims.starco.com.kw/manage/special-cards-profiles.html — Special Card expiration, one-time-use, redemption, funding and recharge rules.
 - https://docs.ims.starco.com.kw/manage/special-cards.html — Stored-value Special Cards, customer, balance, history and suspend/reactivate.
-- https://docs.ims.starco.com.kw/manage/special-offers.html — Configure Special Offers, eligibility, explicit multi-offer compatibility by Store/date and offer type, quantity rules, discount/cashback calculations, and original-promotion refund, exchange and pending-settlement handling.
+- https://docs.ims.starco.com.kw/manage/special-offers.html — Special Offers: Give Discount, Free Item, Step Discount with optional highest-original-price unit protection, Bundle and Cash Back; campaign eligibility, SKU scope, quantity tiers and retained-basket refund calculations.
 - https://docs.ims.starco.com.kw/manage/star-rewards.html — Operate the IMS loyalty points program: identify customers, understand earnings and tiers, redeem available value and review refunds and expiry.
 - https://docs.ims.starco.com.kw/manage/statistical-periods.html — Statistical Period / season master.
 - https://docs.ims.starco.com.kw/manage/stores.html — Store/branch master, POS, sections, transaction settings, financial mapping, V-Count and online-store settings.
@@ -86,8 +86,8 @@
 - https://docs.ims.starco.com.kw/sales/items-search.html — Find and review items for sales.
 - https://docs.ims.starco.com.kw/sales/open-close-pos.html — Open and close a POS shift.
 - https://docs.ims.starco.com.kw/sales/open-drawer.html — Authorized cash-drawer opening.
-- https://docs.ims.starco.com.kw/sales/sales-transactions.html — POS Sales Transactions, payment and digital receipt workflows, plus original-promotion Preview Settlement, linked retained sale/size exchange and supervised pending intake.
-- https://docs.ims.starco.com.kw/sales/transactions-expert.html — Historical Sales, Returns, size exchanges, journals and audit, including linked promotional reversal/retained-sale documents, salesperson lineage and actual customer settlement.
+- https://docs.ims.starco.com.kw/sales/sales-transactions.html — Sales Transactions: POS entry, original-receipt refunds and size exchanges, promotional full reversal and recalculated retained sale, settlement preview, payment methods, VAT and receipt delivery.
+- https://docs.ims.starco.com.kw/sales/transactions-expert.html — Transactions Expert: receipt enquiry, returned-item Current Price and Disc%, linked promotional reversals and retained sales, payment details, VAT, transaction log and financial review.
 
 ## Shopify
 - https://docs.ims.starco.com.kw/shopify/fulfillment-requests.html — Fulfillment Requests: Store/date/confirmation filtering of online Stock Transfer vouchers; merchandise/Order/Profile detail; COGS-sensitive cost columns; Store packing verification and confirmation of requests ready for integration processing.
