@@ -142,8 +142,8 @@
 <h2 id="criteria">Search criteria</h2>
 <p>Select the transaction <strong>Type</strong>, Stores and Date From/To. The current monitor supports:</p>
 <div class="table-wrap"><table><thead><tr><th>Type</th><th>Transactions checked</th></tr></thead><tbody>
-<tr><td>Sales</td><td>Inventory sales/returns using transaction codes 51, 52, 53 and 54.</td></tr>
-<tr><td>Stock Transfers</td><td>Active/non-deleted Stock Transfer transactions using code 81.</td></tr>
+<tr><td>Sales</td><td>Cash and credit sales with their corresponding customer returns.</td></tr>
+<tr><td>Stock Transfers</td><td>Eligible, active Stock Transfer transactions.</td></tr>
 </tbody></table></div>
 <p>The screen starts on Sales and defaults Date From to approximately seven days before today. The Store selector uses the standard IMS multi-selection behavior and only includes stores available to the user. If the user has access to exactly one store, IMS selects and locks that store automatically.</p>
 <section class="ims-multiselect-guide" id="multi-select">
@@ -153,8 +153,8 @@
 <h2 id="missing">Get Missing</h2>
 <p><strong>Get Missing</strong> finds an operational transaction for which IMS cannot find the matching prepared journal record.</p>
 <div class="table-wrap"><table><thead><tr><th>Type</th><th>Missing condition</th></tr></thead><tbody>
-<tr><td>Sales</td><td>A qualifying Sales/Return transaction exists in the sales header, but no matching entry exists in <code>sic_journal</code> for the same transaction code, store and invoice number.</td></tr>
-<tr><td>Stock Transfers</td><td>A qualifying non-deleted/non-zero Stock Transfer exists, but no matching <code>sic_journal</code> record exists.</td></tr>
+<tr><td>Sales</td><td>An eligible sale or return has no corresponding prepared financial journal.</td></tr>
+<tr><td>Stock Transfers</td><td>An eligible Stock Transfer has no corresponding prepared financial journal.</td></tr>
 </tbody></table></div>
 <p>If no missing rows are found, IMS reports that no missing transactions were found for the selected criteria.</p>
 <h2 id="unbalanced">Get Unbalanced</h2>
@@ -171,7 +171,7 @@
 <tr><td>Debit / Credit</td><td>Prepared journal totals; populated for Get Unbalanced results.</td></tr>
 </tbody></table></div>
 <h2 id="open-source">Open the source transaction</h2>
-<p>Select/click a result row. IMS opens that exact transaction in <strong>Transactions Expert</strong> using its Store, transaction code and invoice/voucher number. After Transactions Expert closes, Journals Monitoring automatically reruns the same Missing or Unbalanced check so the result reflects any correction that was made.</p>
+<p>Select/click a result row. IMS opens the selected transaction in <strong>Transactions Expert</strong>. After Transactions Expert closes, Journals Monitoring automatically reruns the same Missing or Unbalanced check so the result reflects any correction that was made.</p>
 <div class="callout tip"><strong>What this screen monitors</strong>Journals Monitoring checks whether the IMS prepared journal exists and balances. Use <a href="posted-transactions.html">Posted Transactions</a> when the question is whether a journal that IMS already posted matches the current financial-system totals.</div>
 <h2 id="workflow">Typical finance-control workflow</h2>
 <ol class="steps">

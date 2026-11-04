@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Stock Depreciation | IMS User Guide</title>
-<meta content="IMS Stock Depreciation guide: write off store inventory, scan/import items, review cost, edit or void vouchers, and post depreciation journals to the current Al-Shamel financial system." name="description"/>
+<meta content="IMS Stock Depreciation guide: write off store inventory, scan/import items, review cost, edit or void vouchers, and post depreciation journals through the configured supported financial integration." name="description"/>
 <link href="https://docs.ims.starco.com.kw/inventory/stock-depreciation.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Stock Depreciation","url":"https://docs.ims.starco.com.kw/inventory/stock-depreciation.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -137,7 +137,7 @@
 <div class="callout"><strong>Open the screen</strong>Inventory → Stock Depreciation.</div>
 <div class="callout tip">
 <strong>Current financial integration</strong>
-The current IMS deployment posts Stock Depreciation journals directly to the local <strong>Al-Shamel Financial Management System</strong>.
+Eligible Stock Depreciation journals can be posted through the configured supported financial integration.
 </div>
 <h2 id="store">Select the store</h2>
 <p>Select the required Branch/Store. IMS loads the Stock Depreciation vouchers belonging to that location and uses the store's current inventory balance, financial account, cost center and accounting branch when processing the voucher.</p>
@@ -190,8 +190,8 @@ The current IMS deployment posts Stock Depreciation journals directly to the loc
 <p>An unposted depreciation voucher can be voided after confirmation. IMS restores the depreciated quantities to the store balance, removes the voucher item lines and sets the voucher Total Qty and Total Cost to zero.</p>
 <p>The original quantity/cost information is retained in the voucher notes together with the previous note, and the Void action is written to the transaction log.</p>
 <div class="callout warning"><strong>Posted vouchers</strong>A voucher cannot be edited or voided while a financial journal is attached to it. Unpost the financial journal first when correction is authorized.</div>
-<h2 id="financial">Financial Posting — current Al-Shamel deployment</h2>
-<p>Users with Financial Posting permission can post an unposted Stock Depreciation voucher to the current Al-Shamel financial system. IMS requires the store's financial setup and the configured <strong>Depreciation Account</strong> before posting.</p>
+<h2 id="financial">Financial Posting</h2>
+<p>Users with Financial Posting permission can post an unposted Stock Depreciation voucher through the configured supported financial integration. IMS requires the store's financial setup and the configured <strong>Depreciation Account</strong> before posting.</p>
 <p>The generated journal uses the voucher's Total Cost:</p>
 <div class="table-wrap"><table><thead><tr><th>Journal side</th><th>Account</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Debit</td><td>Depreciation Account</td><td>Recognizes the inventory write-off/depreciation expense.</td></tr>
@@ -199,7 +199,7 @@ The current IMS deployment posts Stock Depreciation journals directly to the loc
 </tbody></table></div>
 <p>Both lines use the store's configured accounting branch and cost center. After a successful post, IMS stores the Journal No., posting user and posting date/time on the voucher and records the action in the transaction log.</p>
 <h3 id="unpost">Unpost the financial journal</h3>
-<p>After a voucher has been posted through IMS, the action changes to <strong>UnPost</strong>. With confirmation, IMS removes the corresponding journal from Al-Shamel, clears the posting information from the Stock Depreciation voucher and records the unpost action in the log.</p>
+<p>After a voucher has been posted through IMS, the action changes to <strong>UnPost</strong>. With confirmation, IMS performs the supported financial unposting action, updates the voucher posting status and records the authorized action in the log.</p>
 <p>A voucher marked as manually posted is displayed as such and is not offered for normal IMS posting from this screen.</p>
 <h2 id="log">Transaction log</h2>
 <p>The Log panel shows the date/time, IMS user and action recorded against the selected voucher. Typical entries include creating, editing, voiding, financial posting and unposting.</p>

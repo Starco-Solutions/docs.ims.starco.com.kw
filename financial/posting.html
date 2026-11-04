@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Posting | IMS User Guide</title>
-<meta content="IMS Financial Posting guide: choose Sales, COGS, Stock Transfer or Purchase activity, review journal entries by store/account/cost center and post them to the current Al-Shamel financial system." name="description"/>
+<meta content="IMS Financial Posting guide: choose Sales, COGS, Stock Transfer or Purchase activity, review entries by store/account/cost center and post through the configured financial integration." name="description"/>
 <link href="https://docs.ims.starco.com.kw/financial/posting.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Posting","url":"https://docs.ims.starco.com.kw/financial/posting.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -139,15 +139,15 @@
 <img alt="IMS Posting screen with date criteria, transaction-type checkboxes, stores and journal tabs" src="../assets/images/financial-posting.webp"/>
 <figcaption>Posting separates sales, COGS and Stock Transfer journals into review tabs before they are sent to the current financial system.</figcaption>
 </figure>
-<div class="callout tip"><strong>Current financial connector</strong>Posting currently writes the approved journals directly to the local <strong>Al-Shamel Financial Management System</strong>.</div>
+<div class="callout tip"><strong>Financial integration</strong>Posting sends approved journals through the financial connection configured for the IMS company. Review the connection and permissions before posting.</div>
 <h2 id="criteria">Choose what to post</h2>
 <p>Select the <strong>Date From</strong> and <strong>To</strong>, then select the required transaction family.</p>
 <div class="table-wrap"><table><thead><tr><th>Option</th><th>Transactions included</th></tr></thead><tbody>
-<tr><td>Cash Sales</td><td>Cash Sales and Cash Returns (transaction codes 51 and 53) — retail-value journal entries.</td></tr>
-<tr><td>Credit Sales</td><td>Credit Sales and Credit Returns (52 and 54) — retail-value journal entries.</td></tr>
+<tr><td>Cash Sales</td><td>Cash Sales and corresponding Cash Returns — retail-value journal entries.</td></tr>
+<tr><td>Credit Sales</td><td>Credit Sales and corresponding Credit Returns — retail-value journal entries.</td></tr>
 <tr><td>Cost beside Cash Sales</td><td>COGS/cost journal entries associated with Cash Sales/Returns.</td></tr>
 <tr><td>Cost beside Credit Sales</td><td>COGS/cost journal entries associated with Credit Sales/Returns.</td></tr>
-<tr><td>Stock Transfers</td><td>Stock Transfer financial entries (code 81).</td></tr>
+<tr><td>Stock Transfers</td><td>Stock Transfer financial entries.</td></tr>
 <tr><td>Purchases</td><td>Finalized Purchase/Purchase Return transactions that have not yet been posted.</td></tr>
 </tbody></table></div>
 <p>The sales and cost options can be combined. <strong>Stock Transfers</strong> and <strong>Purchases</strong> are separate posting modes and clear the other transaction selections when chosen.</p>

@@ -178,7 +178,7 @@
 <p>This makes it possible to answer questions such as “How much was collected by this bank?”, “How much was paid by this K-NET method?”, or “What was the net amount for a specific payment provider?” without changing the underlying report.</p>
 <h2 id="summary">Payment summary</h2>
 <p>With no grouping options selected, the result contains one row per payment method and an <strong>Amount</strong> column. The bottom <strong>Total Amount</strong> is the sum of all displayed Amount values for the selected criteria.</p>
-<figure class="screenshot"><img alt="IMS Sales Payments Report summarized by payment method" src="../assets/images/sales-payments-summary.webp"/><figcaption>Payment summary with no optional grouping. Each payment method is shown once for the selected criteria.</figcaption></figure>
+
 <div class="callout warning"><strong>Returns can be negative</strong>Cash-return payment activity can appear as negative amounts. The Total Amount is a net total of the rows returned by the selected criteria.</div>
 <h2 id="grouping">Grouping options</h2>
 <p>The three grouping checkboxes are independent and can be used alone or together. IMS adds the selected fields before the Payment column.</p>
@@ -190,10 +190,10 @@
 <p>If more than one option is selected, IMS combines them. For example, selecting <strong>Store + Transaction Type + Receipt No.</strong> produces a detailed result organized by Store, Transaction, Receipt and Payment.</p>
 <h3 id="by-transaction">Group by transaction type</h3>
 <p>This view makes sales and returns explicit. A return line can therefore show a negative payment value while sales for the same payment method appear as positive values.</p>
-<figure class="screenshot"><img alt="IMS Sales Payments Report grouped by transaction type" src="../assets/images/sales-payments-by-transaction.webp"/><figcaption>Grouped by transaction type: Cash Returns and Cash Sales are separated before payment method.</figcaption></figure>
+
 <h3 id="by-receipt">Group by receipt number</h3>
 <p>Use receipt grouping when you need to trace payment activity back to individual receipts. The report keeps the selected Store, Transaction, Bank, Payment and date filters; only the level of detail changes.</p>
-<figure class="screenshot"><img alt="IMS Sales Payments Report grouped by receipt number" src="../assets/images/sales-payments-by-receipt.webp"/><figcaption>Grouped by receipt number: each receipt/payment combination is shown separately.</figcaption></figure>
+
 <h3 id="by-store">Group by store</h3>
 <p>A screenshot is not required for every option. When <strong>Group by store</strong> is selected, IMS adds the Store column to the result and calculates payment totals separately for each selected store. It can be combined with Transaction Type and Receipt No. grouping when deeper detail is required.</p>
 <h2 id="amount">Amount and Total Amount</h2>

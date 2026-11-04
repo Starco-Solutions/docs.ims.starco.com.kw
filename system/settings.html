@@ -177,7 +177,7 @@
 <tr><td>Sender phone (display only)</td><td>Optional international display number: 8–15 digits, not starting with zero, with an optional leading +. Leave blank when not needed.</td></tr>
 <tr><td>Template name</td><td>The approved Meta receipt template name: 1–100 lowercase letters, digits or underscores.</td></tr>
 <tr><td>Template language code</td><td>The exact language identifier for the approved template, such as <code>en_US</code> or <code>ar</code>. Enter 2–3 lowercase letters, optionally followed by an underscore and two uppercase country letters.</td></tr>
-<tr><td>Meta access token</td><td>A masked entry for storing or replacing the company’s token in IMS Security Vault. The stored token is not displayed or stored in the company database. Leave this field blank to preserve the existing secret.</td></tr>
+<tr><td>Meta access token</td><td>A protected entry for adding or replacing the company's Meta token. Existing token values are not displayed. Leave the field blank to retain the current token when editing.</td></tr>
 <tr><td>Edit / Save / Cancel</td><td>Choose Edit to unlock the fields. Edit becomes Save and Close becomes Cancel. Save validates and saves the configuration; Cancel reloads the saved settings and clears unsaved token entry. Close exits view mode.</td></tr>
 </tbody></table></div>
 <p>The vault-status indicator reports whether a Meta access token is stored. If status is unavailable, reconnect to verify the existing token or enter a replacement before enabling the sender. An already enabled sender can be disabled without retrieving its token; the sender and template fields still require valid values.</p>

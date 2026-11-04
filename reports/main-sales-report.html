@@ -141,7 +141,7 @@
 <h2 id="run">Run a report</h2>
 <ol class="steps"><li>Select the Date From and To.</li><li>Select Location, Store, Supplier and Brand as needed.</li><li>Use the Transactions, Categories and Items tabs for additional filters.</li><li>Select the required Group By options.</li><li>Click <strong>Get Data</strong>.</li><li>Review the grid and the totals at the bottom of the screen.</li></ol>
 <p>While data is being retrieved, <strong>Get Data</strong> changes to <strong>Cancel</strong>. Click it again if you need to stop the running report.</p>
-<figure class="screenshot"><img alt="IMS Main Sales Report grouped by store with traffic and conversion rate" src="../assets/images/msr-main.webp"/><figcaption>Main tab: an example grouped by Store with Traffic and Conv. Rate available.</figcaption></figure>
+
 <h2 id="main-criteria">Main criteria</h2>
 <div class="table-wrap"><table><thead><tr><th>Option</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>Location</td><td>Select one or more business locations.</td></tr><tr><td>Store</td><td>Select one or more stores available within your access and selected location(s).</td></tr><tr><td>Suppliers</td><td>Restrict merchandise to selected suppliers.</td></tr><tr><td>Brands</td><td>Restrict merchandise to selected brands; brand selection depends on supplier selection.</td></tr><tr><td>Date From / To</td><td>Defines the transaction date range.</td></tr><tr><td>Hours From / To</td><td>Optionally restricts transactions to selected hours.</td></tr><tr><td>Service Only</td><td>Reports service items rather than normal merchandise.</td></tr><tr><td>Collapsed View</td><td>Shows a compact set of principal sales columns.</td></tr><tr><td>Include inactive stores</td><td>Includes inactive stores in store selection for historical reporting.</td></tr>
@@ -166,17 +166,17 @@
 <p><strong>Filters decide which transactions are included.</strong> <strong>Group By decides how those transactions are divided into rows.</strong></p>
 <p>Time grouping supports None, Hour, Day, Week, Month and Year. Additional grouping dimensions are available across the Main, Transactions, Categories and Items tabs.</p>
 <h2 id="transactions">Transactions tab</h2>
-<figure class="screenshot"><img alt="Main Sales Report Transactions tab grouped by receipt number, date and time" src="../assets/images/msr-transactions.webp"/><figcaption>Transactions tab: this example is grouped by Receipt, showing receipt number, date and time for transaction-level analysis.</figcaption></figure>
-<p>Transaction filters include Transaction, Sales Man/Lady, Client Category, VIP Client ID, Client Phone and Coupon. The transaction selector uses IMS sales/return transaction codes 51, 52, 53 and 54. Grouping can include Transaction Type, Receipt, Client Category, Client and Sales Man/Lady.</p>
+
+<p>Transaction filters include Transaction, Sales Man/Lady, Client Category, VIP Client ID, Client Phone and Coupon. The transaction selector includes cash and credit sales together with their corresponding returns. Grouping can include Transaction Type, Receipt, Client Category, Client and Sales Man/Lady.</p>
 <h2 id="categories">Categories tab</h2>
-<figure class="screenshot"><img alt="Main Sales Report Categories tab grouped by selling period" src="../assets/images/msr-categories.webp"/><figcaption>Categories tab: merchandise classifications can be used as filters or grouping dimensions.</figcaption></figure>
+
 <p>Available classifications include Age Range, Gender, Received Season, Selling Period, Category, Sub Category, Group and Sub Group. Dependent category lists are adjusted when a parent classification is selected.</p>
 <h2 id="items">Items tab &amp; product images</h2>
-<figure class="screenshot"><img alt="Main Sales Report Items tab with product images" src="../assets/images/msr-items.webp"/><figcaption>Items tab with Style + Color grouping and View Image enabled.</figcaption></figure>
+
 <p>Item criteria include State, Item Code, Theme, Style, Color, Color Name, Size, Quantity, Original Price, Current Price and Discount Breakdown. Quantity and price fields support comparison operators.</p>
 <div class="callout tip"><strong>Images</strong>IMS can display product images when Style and Color Code are available in the generated report. Very large image reports trigger a warning before loading.</div>
 <h2 id="returns">Sales and returns</h2>
-<p>Returns are treated as negative values in the sales report. Codes 53 and 54 reduce net quantity, net sales, cost and gross amount rather than increasing them.</p>
+<p>Returns are treated as negative values in the sales report. Customer returns reduce net quantity, net sales, cost and gross amount rather than increasing them.</p>
 <h2 id="kpis">Report KPIs</h2>
 <div class="table-wrap"><table><thead><tr><th>KPI</th><th>Meaning in IMS</th></tr></thead><tbody>
 <tr><td>Full Qty / Full Amt</td><td>Net quantity / amount for lines without item discount.</td></tr><tr><td>Disc Qty / Disc Amt</td><td>Net quantity / amount for discounted lines.</td></tr><tr><td>Gross Amt</td><td>Value before discounts, with returns deducted.</td></tr><tr><td>TotalQty / Net Qty</td><td>Full Qty + Discounted Qty. Both quantities already include negative returns; do not subtract returns again.</td></tr><tr><td>TotalSales / Net Sales</td><td>Full Amt + Disc Amt. Both amounts are already net of their respective returns and discounts.</td></tr><tr><td>Invs_Count</td><td>Distinct receipt numbers represented by that report row.</td></tr><tr><td>ATV</td><td>Net Sales ÷ receipt count.</td></tr><tr><td>UPT</td><td>Net Qty ÷ receipt count.</td></tr><tr><td>ADR</td><td>Average discount rate: 1 − (Net Sales ÷ Gross Amount).</td></tr><tr><td>AV_Price</td><td>Net Sales ÷ Net Qty.</td></tr><tr><td>SalesMix</td><td>Row Net Sales as a proportion of the selected report.</td></tr><tr><td>TotalCost</td><td>Net merchandise cost after returns.</td></tr><tr><td>GrossProfit</td><td>Net Sales − Total Cost.</td></tr><tr><td>GPM</td><td>Gross Profit ÷ Net Sales.</td></tr><tr><td>M.Up / MarkUp</td><td>Net Sales ÷ Total Cost.</td></tr>
@@ -185,7 +185,7 @@
 <div class="callout"><strong>Illustrative sale/return example</strong>Sell 10 full-price units and return 2: Full Qty is 8. Sell 5 discounted units and return 1: Disc Qty is 4. Net Qty is 8 + 4 = 12, not 9. With a full-price unit net amount of 10 and discounted unit net amount of 8, and no additional discounts, Full Amt is 80, Disc Amt is 32 and Net Sales is 112. These are illustrative values, not production data.</div>
 <div class="callout warning"><strong>Bottom Count is not invoice count</strong>The Count box at the bottom shows the number of rows currently displayed in the report. Use <code>Invs_Count</code> for the receipt count within a report row.</div>
 <h2 id="traffic">Traffic &amp; Conversion Rate</h2>
-<p><strong>Conversion Rate = sales receipts ÷ Traffic.</strong> For conversion, IMS counts sales transaction codes 51 and 52. Return codes 53 and 54 are excluded from the conversion numerator.</p>
+<p><strong>Conversion Rate = sales receipts ÷ Traffic.</strong> For conversion, IMS counts cash and credit sales receipts. Return receipts are excluded from the conversion numerator.</p>
 <p>Traffic can be added only when the report can be correctly matched to V-Count data. Valid traffic groupings are Location, Store and/or a time period. Product, customer, salesperson, transaction-type and other sales-specific groupings or filters disable traffic because store traffic cannot be accurately divided across those rows.</p>
 <div class="callout tip"><strong>Missing traffic is not necessarily an error</strong>If sales exist but there is no corresponding V-Count record, IMS leaves Traffic and Conv. Rate blank instead of reporting a false zero.</div>
 <h2 id="output">Export, email and Save As</h2>
@@ -196,7 +196,7 @@
 <div class="faq">
 <details><summary>Why is Conversion Rate missing?</summary><p>The selected grouping or filters cannot be matched fairly to store traffic, or no V-Count data exists for that row.</p></details>
 <details><summary>Why does Count change when I add Group By fields?</summary><p>The bottom Count is the number of displayed rows, so additional grouping usually creates more rows.</p></details>
-<details><summary>Do returns increase conversion?</summary><p>No. Returns reduce the financial and quantity results, but return codes 53 and 54 are excluded from the conversion numerator.</p></details>
+<details><summary>Do returns increase conversion?</summary><p>No. Returns reduce the financial and quantity results, but return receipts are excluded from the conversion numerator.</p></details>
 <details><summary>Why can I not load images?</summary><p>View Image requires Style and Color Code to be present in the generated report.</p></details>
 </div>
 <div class="search-empty" data-search-empty="">No matching section on this page.</div>

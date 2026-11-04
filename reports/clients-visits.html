@@ -140,7 +140,7 @@
 <li>Click <strong>Get Report</strong>.</li>
 <li>Review NewClients, SpentAmount, TotalSales and Percent, plus the totals at the bottom.</li>
 </ol>
-<figure class="screenshot"><img alt="IMS Clients Visits report" src="../assets/images/clients-visits-summary.webp"/><figcaption>Example with no period grouping: new-client spending is compared with total cash sales for the selected store and date.</figcaption></figure>
+
 <section class="ims-multiselect-guide" id="multi-select">
 <h2>Using IMS multi-selection fields</h2>
 <p>Some IMS criteria fields open a compact multi-selection list instead of a normal drop-down. You can select several values without holding Ctrl.</p>
@@ -187,7 +187,7 @@
 <tr><td>Percent</td><td><strong>SpentAmount ÷ TotalSales</strong>.</td></tr>
 </tbody></table></div>
 <h2 id="calculation">How IMS calculates the result</h2>
-<p>The report uses Cash Sales and Cash Returns only: IMS transaction codes <strong>51</strong> and <strong>53</strong>. Code 53 returns are treated as negative amounts in both new-client spending and total store sales.</p>
+<p>The report uses Cash Sales and Cash Returns only. Cash Returns reduce both new-client spending and total store sales.</p>
 <div class="table-wrap"><table><thead><tr><th>Measure</th><th>IMS calculation</th></tr></thead><tbody>
 <tr><td>New Clients</td><td>Count of distinct qualifying telephone numbers whose first matching store transaction falls in the selected period.</td></tr>
 <tr><td>Spent Amount</td><td>Qualifying clients' cash sales less cash returns.</td></tr>

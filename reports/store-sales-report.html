@@ -147,7 +147,7 @@
 <li>If required, enable <strong>Consider returns on other stores</strong> or <strong>Include inactive stores</strong>.</li>
 <li>Click <strong>Get Report</strong>.</li>
 </ol>
-<figure class="screenshot"><img alt="IMS Store Sales Report showing daily results for one store" src="../assets/images/ssr-daily.webp"/><figcaption>Daily Store Sales Report for one branch, including traffic, conversion rate and retail KPIs.</figcaption></figure>
+
 <h2 id="criteria">Report criteria</h2>
 <div class="table-wrap"><table><thead><tr><th>Option</th><th>What it does</th></tr></thead><tbody>
 <tr><td>Branch</td><td>Selects the store to report when All Stores is not enabled.</td></tr>
@@ -159,11 +159,11 @@
 <tr><td>Consider returns on other stores</td><td>Uses the cross-store-return reporting logic so returns processed in another store can be considered against the related sales store.</td></tr>
 </tbody></table></div>
 <h3 id="transaction-types">How transaction types are combined</h3>
-<p>The Store Sales Report consolidates the corresponding sale and return transaction codes:</p>
+<p>The Store Sales Report combines each selected sales type with its corresponding customer returns:</p>
 <div class="table-wrap"><table><thead><tr><th>Selection</th><th>IMS transactions included</th><th>Conversion counts</th></tr></thead><tbody>
-<tr><td>Cash Sales</td><td>Cash Sale (51) + Cash Return (53)</td><td>Cash Sale (51) only</td></tr>
-<tr><td>Credit Sales</td><td>Credit Sale (52) + Credit Return (54)</td><td>Credit Sale (52) only</td></tr>
-<tr><td>All Types</td><td>51, 52, 53 and 54</td><td>Sales 51 and 52 only</td></tr>
+<tr><td>Cash Sales</td><td>Cash sales less cash returns</td><td>Cash sales receipts only</td></tr>
+<tr><td>Credit Sales</td><td>Credit sales less credit returns</td><td>Credit sales receipts only</td></tr>
+<tr><td>All Types</td><td>Both sales types less their returns</td><td>All sales receipts, excluding returns</td></tr>
 </tbody></table></div>
 <div class="callout tip"><strong>Why this matters</strong>Returns reduce the sales result, but they do not count as a customer conversion. Therefore <strong>Conv. Rate</strong> may not equal the displayed <strong>Inv's ÷ Traffic</strong> when the period contains refunds.</div>
 <h2 id="periods">Daily, weekly, monthly, yearly and hourly views</h2>
@@ -175,13 +175,13 @@
 <tr><td>Yearly</td><td>Rows are grouped by calendar year.</td></tr>
 <tr><td>Hours From</td><td>Rows are grouped by date and hour. Choose <strong>Any</strong> to show all hours, or choose a From/To hour range.</td></tr>
 </tbody></table></div>
-<figure class="screenshot"><img alt="IMS Store Sales Report grouped weekly" src="../assets/images/ssr-weekly.webp"/><figcaption>Weekly view. Traffic and conversion are aggregated for the complete week before the conversion percentage is calculated.</figcaption></figure>
-<figure class="screenshot"><img alt="IMS Store Sales Report grouped by hour" src="../assets/images/ssr-hourly.webp"/><figcaption>Hourly view: each row represents one hour within the selected date range.</figcaption></figure>
+
+
 <div class="callout warning"><strong>Hour validation</strong>If a specific starting hour is selected, the ending hour cannot be earlier than the starting hour. IMS displays “Check Hours criteria.” for an invalid range.</div>
 <p>When you switch between Daily, Weekly, Monthly and Yearly, IMS can immediately refresh the report. Selecting Hours clears the current output so the hour criteria can be set before running the report.</p>
 <h2 id="all-stores">All Stores</h2>
 <p>Enable <strong>All Stores</strong> to compare branches in one report. IMS disables the Branch selector and adds the Store column so each period is shown separately for each store.</p>
-<figure class="screenshot"><img alt="IMS Store Sales Report for all stores with store and date columns" src="../assets/images/ssr-all-stores.webp"/><figcaption>All Stores view: one row per Store + period. Traffic remains blank for stores/periods where no V-Count record is available.</figcaption></figure>
+
 <h2 id="kpis">Columns and KPI formulas</h2>
 <div class="table-wrap"><table><thead><tr><th>Column / KPI</th><th>Meaning in IMS</th></tr></thead><tbody>
 <tr><td>Full Qty / Full Amt</td><td>Net quantity and amount for lines without item discount.</td></tr>
@@ -202,7 +202,7 @@
 </tbody></table></div>
 <p>The summary boxes at the bottom recalculate the same KPIs across all displayed rows. ATV and UPT are calculated from the overall Net Amount / Net Quantity divided by the total invoice count; ADR, Markup and GPM are also recalculated from the report totals rather than averaged from row percentages.</p>
 <h2 id="traffic">Traffic and Conversion Rate</h2>
-<p>IMS matches the sales result with V-Count data from <strong>people_traffic</strong> for the same store and period.</p>
+<p>IMS matches the sales result with authorized V-Count traffic data for the same store and period.</p>
 <p><strong>Conversion Rate = sales-only invoice count ÷ Traffic.</strong> IMS calculates conversion after the selected period has been aggregated, so a weekly result uses total weekly sales conversions divided by total weekly traffic, rather than averaging daily conversion percentages.</p>
 <div class="callout tip"><strong>No V-Count data</strong>If there is no traffic record for a store/period, IMS leaves Traffic and Conv. Rate blank. It does not display a false zero.</div>
 <h2 id="cross-store-returns">Consider returns on other stores</h2>
@@ -223,7 +223,7 @@
 <h2 id="faq">Common questions</h2>
 <div class="faq">
 <details><summary>Why is Traffic blank for some stores?</summary><p>There is no matching V-Count record for that store and period. IMS intentionally leaves Traffic and Conv. Rate blank rather than showing zero.</p></details>
-<details><summary>Why is Conv. Rate not equal to Inv's divided by Traffic?</summary><p>The Inv's column includes the report's sale + refund transaction count. Conversion uses sales only: code 51 for Cash, code 52 for Credit, or codes 51 and 52 when All Types is selected.</p></details>
+<details><summary>Why is Conv. Rate not equal to Inv's divided by Traffic?</summary><p>The Inv's column includes the report's sale + refund transaction count. Conversion counts only sales receipts: Cash Sales, Credit Sales or both when All Types is selected.</p></details>
 <details><summary>How do I compare every store by day?</summary><p>Select All Stores, choose Daily, set the date range, then click Get Report. The Store column will be added automatically.</p></details>
 <details><summary>How do I see sales by hour?</summary><p>Select Hours From. Leave the first hour as Any to include all hours, or choose a starting hour and ending hour, then click Get Report.</p></details>
 <details><summary>Why are COGS, Markup or Profit missing?</summary><p>Those columns are controlled by the logged-in user's IMS permissions.</p></details>

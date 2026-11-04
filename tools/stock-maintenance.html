@@ -177,7 +177,7 @@
 <tr><td>Finalizing</td><td>IMS saves the recalculated balances and updates the targeted stores' transaction settings. Review those settings before resuming transactions.</td></tr>
 </tbody></table></div>
 <h2 id="missing-rows">Missing item/store balances</h2>
-<p>If transaction history exists for an Item Code and Store without a corresponding <code>item_prods</code> balance row, Stock Maintenance creates the Item/Store record before applying the opening quantity and transaction movements.</p>
+<p>When the selected store is missing an item balance, Stock Maintenance can restore the item/store balance as part of its supported recalculation. Review the resulting figures and job status before relying on the balance.</p>
 <h2 id="safety">Completion and store settings</h2>
 <p>After <strong>Done</strong>, review the balances in Stock Level and confirm which stores should accept transactions. A single-store run enables transactions for that store. An all-store run re-enables the stores that were enabled at the start; if none were enabled, it enables all stores.</p>
 <p>If an error appears, record its message and check the balances and store settings with your administrator before starting another run.</p>

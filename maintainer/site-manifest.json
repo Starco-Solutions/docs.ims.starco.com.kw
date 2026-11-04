@@ -27,11 +27,11 @@
     },
     {
       "path": "financial/integration-setup.html",
-      "summary": "Current Al-Shamel DSN/User/Password connection plus central account mappings for Cash/Credit Sales and Returns, Sales Discount, COGS, Discount Earned, Depreciation, Discrepancies, VAT and Gift Issue Center handling."
+      "summary": "Configure a supported financial-system connection and the accounting mappings used by Sales, Returns, COGS, VAT, depreciation and other financial workflows."
     },
     {
       "path": "financial/journals-monitoring.html",
-      "summary": "Journals Monitoring: Sales and Stock Transfer diagnostics; Get Missing detects source transactions without sic_journal; Get Unbalanced finds Debit/Credit mismatch; click row opens Transactions Expert and refreshes the check."
+      "summary": "Journals Monitoring: review sales and transfer transactions missing prepared journals or showing unbalanced Debit/Credit totals; open Transactions Expert for investigation."
     },
     {
       "path": "financial/posted-transactions.html",
@@ -39,7 +39,7 @@
     },
     {
       "path": "financial/posting.html",
-      "summary": "Posting: date range, Cash/Credit Sales and Returns, COGS, Stock Transfers and Purchases; optional consolidated period journals; unposted-store selection; Debit/Credit review tabs; active-store posting lock; current direct Al-Shamel posting and IMS post metadata."
+      "summary": "Posting: select Cash/Credit Sales and Returns, COGS, transfers or purchases; review balanced journals and post through the configured financial integration."
     },
     {
       "path": "financial/purchasing-expenses.html",
@@ -335,7 +335,7 @@
     },
     {
       "path": "system/users-activity.html",
-      "summary": "Users Activity (window title System Log): audited IMS actions filtered by date, one user or All Users, and ModelsToAudit selections; results include Model, timestamp, Center, transaction no., IMS version, optional User Name, PC Name, IP address and Action Details; links to a separate Access Log viewer."
+      "summary": "Users Activity (window title System Log): audited IMS actions filtered by date, one user or All Users, and the selected System Models; results include Model, timestamp, Center, transaction no., IMS version, optional User Name, PC Name, IP address and Action Details; links to a separate Access Log viewer."
     },
     {
       "path": "system/workstation-admin.html",
@@ -399,11 +399,11 @@
     },
     {
       "path": "technical/ims-server-deployment.html",
-      "summary": "IMS Server Deployment 1.1.0: offline prerequisites, PostgreSQL 18.3+ within 18.x, Fresh Installation, Disaster Recovery, encryption-key preservation, first-workstation approval and verification."
+      "summary": "IMS Server Deployment 1.1.0: Windows prerequisites, PostgreSQL 18.3+ within 18.x, Fresh Installation, Disaster Recovery, initial workstation requirements and verification."
     },
     {
       "path": "technical/ims-update-server.html",
-      "summary": "IMS API-authorized Client and Global updates: local/UNC sources, Global_Update.zip assembly detection, workstation approval, protected ticket keys, two nodes, legacy migration and troubleshooting."
+      "summary": "IMS API-authorized Client and Global updates: approved local/shared release sources, workstation approval, single- or two-node configuration, migration and troubleshooting."
     },
     {
       "path": "technical/index.html",
@@ -423,11 +423,11 @@
     },
     {
       "path": "technical/secret-vault.html",
-      "summary": "Secret Vault: server-mediated storage of sensitive credentials including company database secrets."
+      "summary": "Credential Administration: use IMS administration screens to manage or replace protected database and integration credentials without exposing saved passwords."
     },
     {
       "path": "technical/secure-bootstrap.html",
-      "summary": "IMS Security Guard & Secure Bootstrap: workstation authorization, version gates, global authentication, password changes, company routing and credential bootstrap."
+      "summary": "IMS Security Guard and sign-in: workstation approval, user authentication, password changes, permitted companies, version requirements and troubleshooting."
     },
     {
       "path": "technical/security-guidance.html",
@@ -439,11 +439,7 @@
     },
     {
       "path": "technical/service-administration.html",
-      "summary": "IMS Autos and Shopify service identities, grants, company bootstrap, protected runtime settings, recovery enrollment, company jobs and detailed provisioning runbook."
-    },
-    {
-      "path": "technical/service-provisioning.html",
-      "summary": "Autos 9.2 and Shopify 4.4 provisioning: source, x64 Release and installed IMS Global Tools/IMS.AutosProvisioner paths; approved three-bundle hashes, company grants and single-use recovery."
+      "summary": "Install and maintain Autos and Shopify through IMS Global company grants and Generate Recovery Package, with operational checks and troubleshooting."
     },
     {
       "path": "technical/source-baseline.html",
@@ -455,7 +451,7 @@
     },
     {
       "path": "tools/custom-attributes.html",
-      "summary": "Custom Attributes: define global Supplier or Store attributes; ID, Name and display Format; spaces in names are stored as underscores; values are maintained per Supplier/Store in Manage; attributes become available to Custom Reports through SupplierID/StoreID."
+      "summary": "Custom Attributes: configure Supplier or Store attributes using the Name and display Format fields; maintain values in Manage and expose eligible attributes through Custom Reports."
     },
     {
       "path": "tools/custom-reports.html",
@@ -463,7 +459,7 @@
     },
     {
       "path": "tools/custom-views.html",
-      "summary": "Custom Views: the DBA first creates an approved public-schema base reporting view named vw_*; IMS then registers it in cr_views, loads its columns, assigns one of 12 Field Types, controls Active status, and exposes it as the data-source layer for Custom Reports. Deletion is blocked while reports use the view."
+      "summary": "Custom Views: register an approved database reporting view created by the DBA, classify its fields, control availability and use it as a data source in Custom Reports."
     },
     {
       "path": "tools/ims-autos.html",

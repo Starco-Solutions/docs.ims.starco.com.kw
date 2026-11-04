@@ -124,7 +124,7 @@
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/manage.webp"/><h1>Discount Coupons</h1></div>
 <p class="lead">Discount Coupons creates percentage-discount coupon events for use in sales transactions. An event can use one coupon code or generate a numbered series of coupon codes, and can control the expiry date, eligible stores, whether already-discounted items are included and whether a Star Card is required.</p>
 <div class="callout"><strong>Open the screen</strong>Manage → Discount Coupons.</div>
-<figure class="screenshot"><img alt="IMS Discount Coupons maintenance screen" src="../assets/images/manage-discount-coupons.webp"/><figcaption>The Discount Coupons screen combines event information, coupon criteria, usage totals and store selection in one window.</figcaption></figure>
+
 <h2 id="overview">How Discount Coupons are organized</h2>
 <p>Each entry in the Events list is a <strong>coupon event</strong>. The event stores the shared rules, while IMS stores the actual coupon code or generated coupon codes associated with that event.</p>
 <div class="table-wrap"><table><thead><tr><th>Area</th><th>Purpose</th></tr></thead><tbody>
@@ -193,8 +193,6 @@
 </tbody></table></div>
 <h2 id="permissions">Permissions</h2>
 <p>Visibility of <strong>Manage → Discount Coupons</strong> is controlled by the IMS <strong>Manage Discount Coupons</strong> access policy. Users without that right do not see this menu item.</p>
-<h2 id="technical-note">How IMS stores a coupon event</h2>
-<p>The event header is stored separately from the coupon IDs. A single-code event creates one coupon record; a series creates one coupon record for every generated Prefix + sequence value. When the event is limited to selected stores, IMS also records the allowed store mappings for those coupon IDs.</p>
 <h2 id="related">Related documentation</h2>
 <div class="doc-list">
 <a class="doc-link" href="special-offers.html"><div>←</div><div><strong>Special Offers</strong><span>Use for conditional POS promotions based on stores, clients, items and receipt rules.</span></div></a>

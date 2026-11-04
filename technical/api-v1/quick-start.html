@@ -26,7 +26,7 @@
 <div class="table-wrap"><table><thead><tr><th>Value</th><th>Example</th><th>Notes</th></tr></thead><tbody>
 <tr><td>Base URL</td><td><code>https://api.example.com</code></td><td>Use the HTTPS base URL supplied for the IMS environment.</td></tr>
 <tr><td>Company ID</td><td><code>1</code></td><td>The company must be assigned to your API client.</td></tr>
-<tr><td>API key</td><td><code>ims_live_...</code></td><td>Send it in <code>X-IMS-API-Key</code>. Treat it as a secret.</td></tr>
+<tr><td>API key</td><td><code>YOUR_API_KEY</code></td><td>Use the complete key issued by your administrator in <code>X-IMS-API-Key</code>. Treat it as a secret.</td></tr>
 </tbody></table></div>
 <p>The Stores and Sales examples need <code>stores.read</code> and <code>sales.read</code> respectively. For a partner-only key, start with the <a href="partner-data.html#initial-sync">Partner Data handshake</a>.</p><h2>2. First request: Stores</h2>
 <pre><code>curl "https://api.example.com/api/v1/companies/1/stores"   -H "X-IMS-API-Key: YOUR_API_KEY"   -H "Accept: application/json"</code></pre>

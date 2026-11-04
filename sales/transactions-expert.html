@@ -167,16 +167,10 @@
 <p>A Cash Sale exposes the broadest set of correction tools because it can contain direct payment methods, Multiple Payments, vouchers, Credit/Exchange Notes, loyalty redemption and terminal/card authorization codes.</p>
 <p>The Transaction Log also links later activity to the original sale. In the example above, the original receipt records the subsequent return and size-exchange receipts, giving the user one place to follow the receipt history.</p>
 <h2 id="return">Cash Return</h2>
-<figure class="screenshot">
-<img alt="Transactions Expert showing a Cash Return with negative quantities and negative totals" src="../assets/images/sales-transactions-expert-return.webp"/>
-<figcaption>This historical Cash Return shows negative quantities and values. Automatic full-basket promotional reversals may instead display normalized positive magnitudes; the displayed reversal amount is not the actual customer refund.</figcaption>
-</figure>
+
 <p>Ordinary historical Cash Returns can show negative quantities and values. Automatic full-basket promotional reversals may show normalized positive magnitudes while retaining the original merchandise and pricing context. For a partial promotional refund, inspect the <strong>linked reversal receipt</strong>, the recalculated <strong>Retained Sale</strong> and the <strong>actual customer settlement</strong> together. The reversal display alone does not tell you how much the customer receives. Review the settlement payment breakdown and related loyalty/voucher/note effects.</p>
 <h2 id="exchange">Exchange Size transaction</h2>
-<figure class="screenshot">
-<img alt="Transactions Expert showing an Exchange Size transaction with returned and replacement sizes" src="../assets/images/sales-transactions-expert-exchange.webp"/>
-<figcaption>An Exchange Size receipt contains the returned line and the replacement line together. An equal-value size exchange produces a zero net receipt.</figcaption>
-</figure>
+
 <p>The returned item appears with a negative quantity and the replacement item with a positive quantity. The log retains the original receipt reference, so the user can trace the exchange back to the sale that created it.</p>
 <h2 id="credit">Credit Sales and Credit Returns</h2>
 <p>Credit transactions use the same historical browser but intentionally expose a more restricted edit set than Cash Sales. Transactions Expert can review the credit customer's receipt, item lines, credit information, totals and transaction history, while payment-type/client editing that belongs specifically to Cash Sales is not offered in the same way.</p>
@@ -209,10 +203,7 @@
 <p>Before voiding a Sales receipt, IMS also checks dependent records such as issued/redeemed vouchers, Credit Notes, Exchange Notes, customer credit and loyalty activity. If a dependent value has already been consumed by another receipt, IMS can block the void instead of leaving the transaction history inconsistent.</p>
 <p>When a void is allowed, IMS reverses the affected operational links/balances and records the action. The original item detail is retained so an authorized reviewer can use <strong>View Deleted Items</strong> to inspect what the voided receipt originally contained. The Void Reason is also included in the transaction history.</p>
 <h2 id="transfer">Stock Transfer</h2>
-<figure class="screenshot">
-<img alt="Transactions Expert in Stock Transfer mode showing transfer details, destination, receiving state, totals and transaction log" src="../assets/images/sales-transactions-expert-transfer.webp"/>
-<figcaption>Stock Transfer mode replaces the Sales panels with transfer item details, destination/receiving information, valuation, notes, financial status and transfer history.</figcaption>
-</figure>
+
 <div class="table-wrap"><table><thead><tr><th>Transfer area</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Transfer Details</td><td>Item Code, Description, Style, Color, Size, Qty, Current Price, Total Value and Statistical Period.</td></tr>
 <tr><td>Cost / Total Cost</td><td>Visible only when the active user is allowed to view COGS.</td></tr>
@@ -239,12 +230,9 @@
 <p>See <a href="sales-transactions.html#promotion-refunds">POS promotion refund workflow</a> and <a href="../manage/special-offers.html#offer-returns">historical Special Offer calculation</a>.</p>
 <h2 id="financial">Financial status and Journal Entry</h2>
 <p>The Financial panel distinguishes a transaction with no IMS journal from one whose journal exists and/or has been posted. It shows the journal number, posting user and posting time when available.</p>
-<figure class="screenshot compact-shot">
-<img alt="IMS Journal Entry viewer showing a balanced Sales journal with internal account details obscured" src="../assets/images/sales-transactions-expert-journal.webp"/>
-<figcaption>View Journal can switch between Sales and Cost. Green totals indicate a balanced journal. Internal account details are obscured in this public screenshot.</figcaption>
-</figure>
+
 <p>The Journal Entry viewer shows <strong>Cost Center, Accounting Branch, Account No., Account Name, Debit</strong> and <strong>Credit</strong>. <strong>Sales</strong> and <strong>Cost</strong> switch between the two journal views.</p>
-<div class="callout"><strong>Financial database integration</strong>The <strong>Account Name</strong> displayed in the Journal Entry viewer is read from the connected financial database. In Starco's current deployment that system is <strong>Al-Shamel</strong>. IMS combines its own journal/account mapping with the account description maintained in Al-Shamel.</div>
+<div class="callout"><strong>Financial integration</strong>When the supported financial integration is configured, the Journal Entry viewer shows account descriptions from the connected financial system. The <strong>Fix Account Names</strong> command can refresh displayed account descriptions.</div>
 <p><strong>Fix Account Names</strong> reloads account names from the financial database when required. <strong>Always on top</strong> keeps the Journal Entry window visible while the source transaction is reviewed. Debit/Credit totals are highlighted green when the journal balances and red when it does not.</p>
 <h3 id="rebuild">Rebuild Journal</h3>
 <p><strong>Rebuild</strong> regenerates the IMS journal using the selected transaction's current items, costs, discounts, payment allocation and voucher/note information. For Stock Transfers, it rebuilds the transfer journal from the source/destination and transfer values.</p>
