@@ -335,7 +335,7 @@
     },
     {
       "path": "system/users-activity.html",
-      "summary": "Users Activity (window title System Log): audited IMS actions filtered by date, one user or All Users, and ModelsToAudit selections; results include Model, timestamp, Center, transaction no., IMS version, optional User Name, PC Name, IP address and Action Details; links to a separate Access Log viewer."
+      "summary": "Users Activity (window title System Log): audited IMS actions filtered by date, one user or All Users, and the selected System Models; results include Model, timestamp, Center, transaction no., IMS version, optional User Name, PC Name, IP address and Action Details; links to a separate Access Log viewer."
     },
     {
       "path": "system/workstation-admin.html",

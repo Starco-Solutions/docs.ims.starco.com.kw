@@ -104,7 +104,7 @@
 - https://docs.ims.starco.com.kw/system/settings.html — Company settings, time zone, maintenance, email/WhatsApp receipt channels, loyalty, operators, transaction policies and VAT.
 - https://docs.ims.starco.com.kw/system/system-dashboard.html — Client versions, connection statistics, Workstation Info, Access Log, database sessions and Performance Monitor; cluster health is monitored separately in IMS Global.
 - https://docs.ims.starco.com.kw/system/users-accounts.html — Global identity and company-local user access, Store/Supplier/Group Policy assignments, temporary access credentials and first-login password change.
-- https://docs.ims.starco.com.kw/system/users-activity.html — Users Activity (window title System Log): audited IMS actions filtered by date, one user or All Users, and ModelsToAudit selections; results include Model, timestamp, Center, transaction no., IMS version, optional User Name, PC Name, IP address and Action Details; links to a separate Access Log viewer.
+- https://docs.ims.starco.com.kw/system/users-activity.html — Users Activity (window title System Log): audited IMS actions filtered by date, one user or All Users, and the selected System Models; results include Model, timestamp, Center, transaction no., IMS version, optional User Name, PC Name, IP address and Action Details; links to a separate Access Log viewer.
 - https://docs.ims.starco.com.kw/system/workstation-admin.html — Central workstation authorization through IMS Global: current fields, Refresh, Approve, Block and self-block safeguard.
 
 ## Business API
