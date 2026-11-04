@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Integration Setup | IMS User Guide</title>
-<meta content="IMS Financial Integration Setup guide: current Al-Shamel connection and core account mappings for sales, returns, COGS, discounts, depreciation, discrepancies and VAT." name="description"/>
+<meta content="IMS Financial Integration Setup guide: supported financial connection and core account mappings for sales, returns, COGS, discounts, depreciation, discrepancies and VAT." name="description"/>
 <link href="https://docs.ims.starco.com.kw/financial/integration-setup.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Integration Setup","url":"https://docs.ims.starco.com.kw/financial/integration-setup.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -135,10 +135,7 @@
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/financial.webp"/><h1>Integration Setup</h1></div>
 <p class="lead">Integration Setup defines how IMS connects to the current financial system, maps the main accounting functions and, when VAT is enabled, maintains the Purchase VAT / Tax Codes used by purchasing.</p>
 <div class="callout"><strong>Open the screen</strong>Financial → Integration Setup.</div>
-<div class="callout tip">
-<strong>Current deployment: Al-Shamel</strong>
-The DSN, User ID and Password currently connect IMS to the local <strong>Al-Shamel Financial Management System</strong>. These settings are separate from the IMS PostgreSQL database connection.
-</div>
+<div class="callout tip"><strong>Financial-system connection</strong>Use the DSN, User ID and Password fields for the financial connector supported and configured for this IMS installation. These settings are independent of IMS company database connectivity.</div>
 <h2 id="connection">Financial-system connection</h2>
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>DSN</td><td>ODBC Data Source Name used for the current financial-system connection.</td></tr>
@@ -194,11 +191,11 @@ The DSN, User ID and Password currently connect IMS to the local <strong>Al-Sham
 <p>If no financial setup exists yet, IMS requires the DSN connection information before creating the first setup record. Later saves update the existing configuration and record an audit-log entry for the financial-integration settings change.</p>
 <div class="callout warning"><strong>Administrative setting</strong>Changing account mappings changes how later Financial Posting journals are constructed. Only users responsible for the IMS/accounting integration should modify this screen.</div>
 <h2 id="architecture">Current financial integration</h2>
-<p>For current users, Al-Shamel is the financial system connected to IMS. The mappings determine the accounts used in IMS financial journals.</p>
+<p>The mappings determine the accounts used in IMS financial journals and must match the organization's configured financial integration.</p>
 <h2 id="related">Related documentation</h2>
 <div class="doc-list"><a class="doc-link" href="vat-tax-configuration.html"><div>↗</div><div><strong>VAT &amp; Tax Configuration</strong><span>Complete VAT workflow across System Settings, tax codes, Suppliers, Purchases and Sales.</span></div></a>
 <a class="doc-link" href="close-fin-period.html"><div>↗</div><div><strong>Close Fin Period</strong><span>Control the accounting date boundary after posting periods are closed.</span></div></a>
-<a class="doc-link" href="../inventory/purchases.html"><div>↗</div><div><strong>Purchases</strong><span>See a current operational example of IMS-to-Al-Shamel Financial Posting.</span></div></a>
+<a class="doc-link" href="../inventory/purchases.html"><div>↗</div><div><strong>Purchases</strong><span>See how IMS prepares and posts authorized purchase journals.</span></div></a>
 </div>
 <footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.8.0</span></footer>
 </main></div>

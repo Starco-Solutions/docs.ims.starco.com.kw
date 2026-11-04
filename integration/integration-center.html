@@ -152,11 +152,11 @@
 <tr><td>HTTP Method</td><td>POST, PUT or PATCH.</td></tr>
 <tr><td>Auth Type</td><td>NONE, BEARER or HEADER.</td></tr>
 <tr><td>Auth Header</td><td>Required when Auth Type is HEADER.</td></tr>
-<tr><td>API Key</td><td>Required for BEARER/HEADER authentication. The IMS client saves replacements through IMS Security Guard &amp; Secure Bootstrap. IMS Autos retrieves the authorized credential when it runs the endpoint.</td></tr>
+<tr><td>API Key</td><td>Required for BEARER/HEADER authentication. Enter or replace it only through the protected IMS configuration field; confirm authorization with the next scheduled connection test.</td></tr>
 <tr><td>Trigger Type</td><td>MORNING_SHIFT or MANUAL.</td></tr>
 <tr><td>Advanced Settings</td><td>Required JSON configuration used by the integration engine to determine dates and construct the outbound payload.</td></tr>
 </tbody></table></div>
-<div class="callout tip"><strong>Stored API keys</strong>When editing an existing integration, the API Key box is intentionally blank. Leave it blank to keep an existing stored key. Enter a value only when the key must be replaced. Auth Type NONE sends requests without authentication; changing to NONE does not establish deletion of a previously saved vault secret.</div>
+<div class="callout tip"><strong>Existing API keys</strong>When editing an existing integration, the API Key box is intentionally blank. Leave it blank to retain the configured key. Enter a value only when the key must be replaced. Auth Type NONE sends requests without authentication; consult the administrator if a previously configured key also needs to be revoked.</div>
 <div class="callout tip"><strong>Verify endpoint operation</strong>After configuring or replacing a key, review the authorized company's next scheduled run in the Sync Log. A stored-key indicator confirms configuration; a SUCCESS result confirms that request was accepted by the destination.</div>
 <h2 id="source-contract">Source view and Preview Source</h2>
 <p>The integration engine filters the Source View by <code>__business_date</code>, groups rows by <code>__request_key</code> and sends one request per key to the configured <strong>Endpoint URL</strong>. <code>__target_code</code> identifies the business target in the sync log; it does not select another URL. The engine counts distinct <code>__record_key</code> values as the records sent.</p>
@@ -171,7 +171,7 @@
 <tr><td>payload.root_fields</td><td>Columns written once at the root of the JSON object.</td></tr>
 <tr><td>payload.groups</td><td>Nested array definitions. Each group supplies a name and fields; an optional group_by array combines rows by the listed columns.</td></tr>
 </tbody></table></div>
-<p>The Settings field must not be blank. The saved value is stored as JSON; malformed JSON is rejected when IMS saves it to the database.</p>
+<p>The Settings field must not be blank. Enter valid JSON; IMS validates the setting when you save it.</p>
 <div class="callout warning"><strong>Complete the payload definition before execution</strong>The new-record template intentionally starts with empty <code>payload.root_fields</code> and <code>payload.groups</code> arrays. Before an endpoint can run successfully, define at least the payload group structure and make sure every field named in the JSON exists in the Source View. The current payload builder starts from the first configured group.</div>
 <h2 id="schedule">Triggers and execution</h2>
 <p><strong>MORNING_SHIFT</strong> endpoints are selected by the IMS Autos background integration engine after daily maintenance has cleared its transaction-blocking state. For each active endpoint, the engine calculates the Business Date window from the Advanced Settings, reads the Source View and submits one request per <code>__request_key</code>.</p>

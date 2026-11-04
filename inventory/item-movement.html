@@ -135,10 +135,7 @@
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/inventory.webp"/><h1>Item Movement</h1></div>
 <p class="lead">Item Movement is the transaction history for one inventory item. It brings purchases, purchase returns, stock transfers, sales and returns, stock depreciation, stock adjustments and the opening balance into one chronological view so users can trace how an item's quantity moved through IMS.</p>
 <div class="callout"><strong>Open the screen</strong>Inventory → Item Movement.</div>
-<figure class="screenshot report-shot">
-<img alt="IMS Item Movement showing a selected store, item information, product image, transaction history, running balance and online order column" src="../assets/images/inventory-item-movement.webp"/>
-<figcaption>With a Store selected, Item Movement adds a running Balance and Online Order reference to the chronological transaction history.</figcaption>
-</figure>
+
 <h2 id="find-item">Find the item</h2>
 <p>Enter an <strong>Item Code</strong>, the item's main <strong>Barcode</strong>, or an <strong>alternate barcode</strong>, then run the search. IMS resolves the value to one inventory Item Code before loading the movement history.</p>
 <p>If the item is found, the Item Info panel shows its <strong>Season, Style, Description, Color Code, Color Name, Size, Original Price and Current Price</strong>, together with the stored Style + Color product image when available.</p>
@@ -153,7 +150,7 @@
 <p><strong>Date From</strong> and <strong>To</strong> each have an <strong>Any</strong> option. Leave both as Any to review the complete recorded history. Clear either Any checkbox to apply that boundary to the movement date.</p>
 <div class="callout tip"><strong>Running Balance and date filters</strong>When a specific Store is selected, Balance is calculated from the movements included in the current result. For the clearest full balance trail, leave <strong>Date From = Any</strong> so the opening balance and earlier movements are not excluded.</div>
 <h2 id="sources">Transactions included</h2>
-<p>IMS collects the item's history from the inventory and sales transaction tables and combines the rows into one date/time sequence.</p>
+<p>Item Movement combines the item's relevant purchasing, sales and inventory activity in one chronological view.</p>
 <div class="table-wrap"><table><thead><tr><th>Movement</th><th>Qty treatment</th><th>What Store / To represent</th></tr></thead><tbody>
 <tr><td>Purchase</td><td>Positive receipt quantity.</td><td>Store is the receiving location.</td></tr>
 <tr><td>Purchase Return</td><td>Shown as a negative receipt quantity.</td><td>Store is the location returning the stock.</td></tr>

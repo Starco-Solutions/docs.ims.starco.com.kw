@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Posted Transactions | IMS User Guide</title>
-<meta content="IMS Posted Transactions guide: review posted Sales, COGS and Stock Transfer journals, compare IMS and current Al-Shamel totals, and unpost authorized open-period journals." name="description"/>
+<meta content="IMS Posted Transactions guide: review posted Sales, COGS and Stock Transfer journals, compare IMS and configured financial-system totals, and unpost authorized open-period journals." name="description"/>
 <link href="https://docs.ims.starco.com.kw/financial/posted-transactions.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Posted Transactions","url":"https://docs.ims.starco.com.kw/financial/posted-transactions.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -163,11 +163,11 @@
 </tbody></table></div>
 <p>The bottom of the screen shows the Total Debit and Total Credit for the current result.</p>
 <h2 id="financial-totals">View financial system's totals</h2>
-<p>Enable <strong>View financial system's totals</strong> to perform a direct reconciliation check against the current financial system. IMS queries the Al-Shamel journal-detail records using the accounting branch, journal number and posting/reset type, then displays the financial-system Debit and Credit totals beside the IMS totals.</p>
-<p>This makes the screen useful for confirming that the journal recorded as posted by IMS still exists in Al-Shamel with the expected totals.</p>
+<p>Enable <strong>View financial system's totals</strong> to perform a direct reconciliation check against the current financial system. IMS displays the connected financial system's Debit and Credit totals beside the IMS totals for the selected posted journals.</p>
+<p>Use this comparison to confirm that the journal exists in the connected financial system with the expected totals.</p>
 <h2 id="unpost">UnPost</h2>
 <p>UnPost is a controlled correction action. Select exactly one journal row and click <strong>UnPost</strong>. IMS requires Financial Posting permission, verifies that the transaction date is still in an open financial period, confirms the financial-system connection and asks the user to confirm removal.</p>
-<p>After confirmation, the current implementation removes the journal header/details from Al-Shamel, clears the corresponding Journal No./posting metadata in IMS and writes an audit-log entry describing the unposted store, journal and accounting branch.</p>
+<p>After confirmation, IMS performs the supported financial-system unposting action, updates the posted status and records the authorized change in its audit history.</p>
 <div class="callout warning"><strong>Closed-period protection</strong>A journal cannot be unposted from this screen when its transaction date is inside a closed financial period. Reopening a period is a separate controlled finance action.</div>
 <h2 id="interrupted-unposting">Interrupted or uncertain UnPost</h2>
 <p>The financial-system deletion, IMS acknowledgement and audit-log entry are separate steps. If UnPost is interrupted, keep the journal number, posting type, branch/store and error details. Before retrying, have an authorized finance administrator compare the financial journal with IMS posting status. A missing acknowledgement does not prove that deletion failed.</p>
@@ -178,7 +178,7 @@
 <li>Click <strong>Get Transactions</strong>.</li>
 <li>Select the required stores.</li>
 <li>Review Journal No., IMS Debit/Credit and posting user/time.</li>
-<li>Enable <strong>View financial system's totals</strong> when an Al-Shamel comparison is required.</li>
+<li>Enable <strong>View financial system's totals</strong> when a financial-system comparison is required.</li>
 <li>Investigate any mismatch before using UnPost or reposting.</li>
 </ol>
 <h2 id="related">Related documentation</h2>

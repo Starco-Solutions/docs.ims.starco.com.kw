@@ -182,7 +182,7 @@
 </tbody></table></div>
 <p>Include a header row in every text file and separate two-column values with a tab. Itemcode selects exact Item Codes; Style expands to matching Item Codes, and Style - Color expands to codes matching that combination. Standard List A / List B is a separate operating mode; its two-list format does not apply to As buy get Itemcode or Style imports. See <a href="#item-import">Item selection and import files</a> for the full import guide.</p>
 <h3 id="keep-highest-full-price">Keep one highest-priced eligible unit</h3>
-<p>For an incremental <strong>Step Discount → As buy get</strong> offer, <strong>Keep highest-priced eligible item at full price</strong> (<code>StepKeepHighestFullPrice</code>) is optional and starts unchecked. Leave it unchecked to keep the existing Step Discount calculation. The checkbox is available in New/Edit after at least one <strong>Discounts Policy</strong> entry exists; leaving this mode or removing all policy entries clears it.</p>
+<p>For an incremental <strong>Step Discount → As buy get</strong> offer, <strong>Keep highest-priced eligible item at full price</strong> is optional and starts unchecked. Leave it unchecked to keep the existing Step Discount calculation. The checkbox is available in New/Edit after at least one <strong>Discounts Policy</strong> entry exists; leaving this mode or removing all policy entries clears it.</p>
 <ol class="steps">
 <li>Open <strong>Manage → Special Offers</strong>, choose New or Edit, then select <strong>Step Discount</strong> and <strong>As buy get</strong>.</li>
 <li>In <strong>Discounts Policy</strong>, add quantity <strong>2 → 20%</strong> and quantity <strong>3 → 25%</strong>. These are total eligible-unit thresholds. No separate 4-unit tier is needed for this campaign.</li>
@@ -202,7 +202,7 @@
 <p>Before enabling this option, have your administrator confirm that every POS and refund workstation handling the offer supports it. The setting does not enable itself on existing campaigns.</p>
 <h2 id="cashback">Cash Back</h2>
 <p>Cash Back is the most specialized mode because it can issue a value for later use or apply the benefit immediately to the current receipt.</p>
-<figure class="screenshot"><img alt="IMS Special Offers Cash Back configuration with thresholds, expiry and redemption stores" src="../assets/images/manage-special-offers-cashback.webp"/><figcaption>Cash Back adds threshold/value criteria, voucher terms, expiry and redemption-store controls. Choose current-receipt or later-voucher behavior before setting the terms.</figcaption></figure>
+
 <h3>Cash Back Criteria</h3>
 <p>Each criterion pairs a qualifying total with a benefit. The benefit can be a fixed currency value or, when <strong>Give percent from Total</strong> is selected, a percentage.</p>
 <div class="callout"><strong>Example</strong>50.000 → 10.000, 100.000 → 20.000, 150.000 → 30.000. The list is ordered by the qualifying total.</div>

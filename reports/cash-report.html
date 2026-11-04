@@ -159,10 +159,10 @@
 <p>If the branch has only one configured POS, IMS automatically enables <strong>All</strong> and disables the POS selector because the branch-wide result and the single-POS result represent the same terminal.</p>
 <h2 id="single-pos">Single POS report</h2>
 <p>With <strong>All</strong> cleared, IMS generates the POS-specific version of the Daily Cash Closing Report. The report header identifies the selected <strong>Store</strong>, <strong>POS</strong> and <strong>Date</strong>.</p>
-<figure class="screenshot"><img alt="IMS Daily Cash Report for one POS terminal" src="../assets/images/cash-report-single-pos.webp"/><figcaption>Single-POS report. The report header includes Store, POS and Date.</figcaption></figure>
+
 <h2 id="all-pos">All POS report</h2>
 <p>Enable <strong>All</strong> when the closing report should represent the complete branch rather than one terminal. IMS switches to the branch-wide cash report and disables the POS selector.</p>
-<figure class="screenshot"><img alt="IMS Daily Cash Report with All POS terminals selected" src="../assets/images/cash-report-all-pos.webp"/><figcaption>All-POS report. The closing figures are consolidated for the selected branch.</figcaption></figure>
+
 <div class="callout warning"><strong>Do not confuse All POS with All Stores</strong>The Daily Cash Report is always for one selected branch. <strong>All</strong> only changes the report from one POS terminal to all POS terminals in that branch.</div>
 <h2 id="sections">What the closing report contains</h2>
 <p>The exact payment lines depend on the selected date and the payment methods used by the store. The supplied IMS closing format includes the following sections:</p>
@@ -177,7 +177,7 @@
 <tr><td>Issued From</td><td>Report section available for issue/source information where applicable.</td></tr>
 <tr><td>Notes</td><td>Provides the printed report's notes area.</td></tr>
 </tbody></table></div>
-<figure class="screenshot"><img alt="Lower part of IMS Daily Cash Closing Report showing consolidated total, grand total, discounts, services, gift vouchers and notes" src="../assets/images/cash-report-sections.webp"/><figcaption>Lower report sections: Consolidated Total, Grand Total, Authorized Discount, Services Sales, Gift Vouchers Usage and Notes.</figcaption></figure>
+
 <div class="callout tip"><strong>Payment methods vary by store</strong>Names such as Cash, Exchange Note, K-NET or card/payment-provider lines come from the transactions represented in the report. A payment method with no activity may be absent or show zero depending on the underlying closing report layout.</div>
 <h2 id="preview-print">Preview and printing</h2>
 <p><strong>Get Report</strong> generates a read-only Crystal Reports preview inside the Daily Cash Report window. The embedded preview deliberately hides the standard Crystal toolbar; printing is handled through the IMS <strong>Print</strong> button.</p>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Technical Overview | IMS Documentation</title>
-<meta name="description" content="Technical reference for IMS architecture, multi-company administration, security, API/bootstrap services, secrets, observability, PostgreSQL and IT operations.">
+<meta name="description" content="Technical guide to independently installing, configuring and maintaining IMS with supported administrator, integration and troubleshooting workflows.">
 <link rel="canonical" href="https://docs.ims.starco.com.kw/technical/index.html">
 <link rel="stylesheet" href="../assets/css/docs.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Technical Overview","url":"https://docs.ims.starco.com.kw/technical/index.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -20,10 +20,10 @@
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Technical › Overview</div>
 <span class="badge">IMS Build 9.4.8.0 documentation</span>
 <h1>Technical Overview</h1>
-<p class="lead">Technical reference for IMS architecture, multi-company administration, security, API/bootstrap services, secrets, observability, PostgreSQL and IT operations.</p>
-<div class="callout"><strong>Scope</strong>This track explains how IMS is assembled and operated. User-facing module procedures remain in the normal Sales, Inventory, Financial, Reports, Manage, Tools, System, Shopify and Integration guides.</div>
+<p class="lead">Technical guide to independently installing, configuring and maintaining IMS with supported administrator, integration and troubleshooting workflows.</p>
+<div class="callout"><strong>Scope</strong>This track explains supported installation, configuration, administration and troubleshooting workflows. User-facing module procedures remain in the normal Sales, Inventory, Financial, Reports, Manage, Tools, System, Shopify and Integration guides.</div>
 <h2>Technical map</h2><div class="card-grid">
-<article class="card"><div class="eyebrow">Installation and recovery</div><h3><a href="ims-server-deployment.html">IMS Server Deployment</a></h3><p>Offline prerequisites, Fresh Installation, Disaster Recovery, first-workstation approval and verification.</p></article>
+<article class="card"><div class="eyebrow">Installation and recovery</div><h3><a href="ims-server-deployment.html">IMS Server Deployment</a></h3><p>Independent Fresh Installation, Disaster Recovery, supported workstation authorization and verification.</p></article>
 <article class="card"><div class="eyebrow">Software delivery</div><h3><a href="ims-update-server.html">IMS Update Server</a></h3><p>Authorized Client and Global update sources, protected configuration, two-node operation and troubleshooting.</p></article>
 <article class="card"><div class="eyebrow">Architecture</div><h3><a href="architecture.html">IMS Architecture</a></h3><p>Client, IMS.Api, IMS Global, company databases, background services and integration boundaries.</p></article>
 <article class="card"><div class="eyebrow">Multi-company</div><h3><a href="multi-company.html">Multi-Company Architecture</a></h3><p>Global identity, company registry, independent databases, routing and company-local authorization.</p></article>
@@ -34,12 +34,12 @@
 <article class="card"><div class="eyebrow">Administrators</div><h3><a href="ims-global-api-administration.html">API Administration</a></h3><p>IMS Global client access, company scopes, Partner Data policies, API keys, quotas and audit logs.</p></article>
 <article class="card"><div class="eyebrow">Services</div><h3><a href="ims-api.html">IMS API</a></h3><p>Central API responsibilities for bootstrap, Global administration and the External Business API v1.</p></article>
 <article class="card"><div class="eyebrow">External developer reference</div><h3><a href="api-v1/index.html">Business API v1</a></h3><p>External developer guide with authentication, scopes, endpoints, data semantics, errors, rate limits and ready-to-run examples.</p></article>
-<article class="card"><div class="eyebrow">Secrets</div><h3><a href="secret-vault.html">Secret Vault</a></h3><p>Server-mediated storage and controlled retrieval of sensitive credentials.</p></article>
+<article class="card"><div class="eyebrow">Credentials</div><h3><a href="secret-vault.html">Credential Administration</a></h3><p>Manage and replace protected credentials using IMS administrator screens.</p></article>
 <article class="card"><div class="eyebrow">Observability</div><h3><a href="system-dashboard-observability.html">System Dashboard &amp; Observability</a></h3><p>Client versions, latency, workstations, sessions and transaction performance; read-only cluster monitoring in IMS Global → System → HA Health.</p></article>
 <article class="card"><div class="eyebrow">Database</div><h3><a href="postgresql/index.html">PostgreSQL Deployment &amp; Operations</a></h3><p>Database hosting, replication/failover, backup, maintenance and company database provisioning boundaries.</p></article>
 <article class="card"><div class="eyebrow">Operations</div><h3><a href="it-operations-troubleshooting.html">IT Operations &amp; Troubleshooting</a></h3><p>Practical service checks, access diagnosis, new-company validation and incident triage.</p></article>
-<article class="card"><div class="eyebrow">Service administration</div><h3><a href="service-administration.html">Autos and Shopify services</a></h3><p>Separate identities and company grants, secure bootstrap, recovery enrollment and Windows runtime requirements.</p></article>
-<article class="card"><div class="eyebrow">Provisioning</div><h3><a href="service-provisioning.html">Autos and Shopify provisioning</a></h3><p>Administrator-run identity registration, company grants, published package layout, single-use recovery installation and post-install checks.</p></article></div>
+<article class="card"><div class="eyebrow">Service administration</div><h3><a href="service-administration.html">Autos and Shopify services</a></h3><p>Company authorization, installation through Generate Recovery Package, requirements and operational checks.</p></article>
+</div>
 <p><a href="source-baseline.html">Component Versions and Compatibility</a> — documentation versions, supported interfaces and deployment prerequisites.</p>
 <p><a href="api-v1/partner-data.html">Partner Data &amp; Stock Delta</a> — partner policy setup, authorized catalog and incremental synchronization.</p>
 <footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.8.0</span></footer>

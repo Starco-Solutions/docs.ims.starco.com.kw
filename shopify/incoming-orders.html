@@ -129,7 +129,7 @@
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/shopify.webp"/><h1>Incoming Orders</h1></div>
 <p class="lead">Incoming Orders is the operational center for online orders. It combines the online order, customer/delivery data, merchandise, fulfillment source, IMS totals, order history and the actions that create the corresponding IMS Sales, Refund or Exchange transactions.</p>
 <div class="callout"><strong>Open the screen</strong>Shopify → Incoming Orders.</div>
-<figure class="screenshot"><img alt="IMS Incoming Orders screen with Profile and Store filters, order information, item details and order log" src="../assets/images/shopify-incoming-orders.webp"/><figcaption>The screen keeps online order data on the left, item/fulfillment detail on the right and the order audit log below.</figcaption></figure>
+
 <h2>Find an order</h2>
 <div class="table-wrap"><table><thead><tr><th>Filter</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>Profile</td><td>Selects the online profile/channel defined in Manage Profiles.</td></tr>
@@ -141,7 +141,7 @@
 </tbody></table></div>
 <h2>How orders arrive from Shopify</h2>
 <p>For API-connected Stores, the background <a href="integration-server.html">Shopify Integration Server</a> retrieves Shopify orders whose fulfillment status is <strong>unfulfilled</strong>. It prevents duplicate imports, reads each Shopify variant to obtain its barcode/SKU/options and prices, and stores the Shopify Order Number as the IMS Order Reference.</p>
-<p>The integration also maps the order currency and payment information, represents any Shopify shipping charge with the Store's configured <strong>Shipping Item</strong>, and for Kuwait customers can match/create the Loyalty Customer and delivery address using the customer's mobile number.</p>
+<p>The integration also maps the order currency and payment information, represents any Shopify shipping charge with the Store's configured <strong>Shipping Item</strong>, and, when supported for the configured company, can associate customer and delivery details with the Loyalty Customer record.</p>
 <p>If a Shopify barcode is missing from IMS, the server can create the item when the Shopify Vendor maps unambiguously to an IMS brand belonging to a Just-In-Time supplier. Normal IMS-stock items then continue into automatic Store fulfillment.</p>
 <div class="callout tip"><strong>JIT supplier notification</strong>The supplier email does <strong>not</strong> wait for invoicing or the purchasing stage. Once the Shopify Integration Server has created the new online order in IMS <strong>Orders / Order Details</strong>, <a href="../tools/ims-autos.html">IMS Autos</a> detects the new order in its recurring new-order check, groups the items by Supplier/Brand, and sends the order request to the addresses maintained in <a href="../manage/suppliers.html">Manage → Suppliers → Mailing List</a>. The purchasing transaction itself is handled later by the Incoming Orders invoicing workflow for JIT merchandise.</div>
 <h2>Order information</h2>

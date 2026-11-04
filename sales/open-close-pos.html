@@ -141,16 +141,13 @@
 <tr><td>Day is Closed</td><td>The POS day has been permanently ended for that POS date. Sales cannot be made for that closed day, and IMS will not reopen the same day.</td></tr>
 </tbody></table></div>
 <h2>Open a shift</h2>
-<figure class="screenshot"><img alt="IMS Open Close POS screen while preparing to open a shift with Open Cash and selected card machine" src="../assets/images/sales-open-pos.webp"/><figcaption>Opening a shift records the opening cash and the credit/debit-card machines active for that POS shift.</figcaption></figure>
+
 <ol class="steps"><li>Select the required <strong>Branch</strong> and <strong>POS</strong>. IMS normally identifies the local POS from the workstation IP where a matching POS configuration exists.</li><li>Click <strong>Open Shift</strong>.</li><li>Review the POS Date and opening time.</li><li>Enter the <strong>Open Cash</strong>. If left blank, IMS records zero.</li><li>Select at least one active <strong>Credit/Debit Cards Machine</strong>.</li><li>Enter an optional opening Note.</li><li>Click <strong>Save</strong>.</li></ol>
 <div class="callout warning"><strong>At least one bank/card machine is required</strong>IMS will not open a shift until at least one configured Credit/Debit Cards Machine is selected. If no Banks are registered in IMS, shifts cannot be opened.</div>
 <p>After a successful open, the main toolbar changes from <strong>Open POS</strong> to <strong>Close POS</strong>. The main screen also shows the active POS date and the card/bank machines selected for that shift.</p>
 <h2 id="close-pos">Close the active POS shift</h2>
 <p>When a shift is active, click <strong>Close POS</strong> from the main toolbar. IMS opens the closing state of Open/Close POS and enables the closing information for the current shift.</p>
-<figure class="screenshot">
-<img alt="IMS Open Close POS while closing an active shift with Close Cash entered" src="../assets/images/sales-close-pos-entry.webp"/>
-<figcaption>Closing the active shift records the physical Close Cash. The shift is not closed until Save is confirmed.</figcaption>
-</figure>
+
 <ol class="steps">
 <li>Open <strong>Close POS</strong> for the active Branch/POS.</li>
 <li>Review the POS Date, Open Date and Open Cash.</li>
@@ -161,10 +158,7 @@
 <p>Closing the shift records the closing time/user and cash count, but it does <strong>not</strong> permanently end the POS business day. After Save, the POS state becomes <strong>POS is closed</strong>.</p>
 <h2 id="close-day">Reconcile and Close Day</h2>
 <p>Once the shift has been closed, IMS displays the cash reconciliation for the POS date. This is the checkpoint before the authorized user permanently closes the business day.</p>
-<figure class="screenshot">
-<img alt="IMS Open Close POS after the shift is closed showing Cash Sales, Total In Drawer, Close Cash, Variance and Close Day" src="../assets/images/sales-close-pos-reconciliation.webp"/>
-<figcaption>After the shift is closed, IMS calculates Cash Sales, Total In Drawer and Variance. Close Day is the separate action that permanently ends the POS date.</figcaption>
-</figure>
+
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Open Cash</td><td>The cash float recorded when the POS shift was opened.</td></tr>
 <tr><td>Cash Sales</td><td>The net cash movement calculated by IMS for the selected POS and POS Date. Because refunds reduce cash activity, this value can be negative.</td></tr>

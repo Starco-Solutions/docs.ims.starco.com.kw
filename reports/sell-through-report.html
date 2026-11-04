@@ -139,7 +139,7 @@
 <li>Review the report grid and the summary KPIs at the bottom.</li>
 </ol>
 <p>While the report is running, <strong>Get Data</strong> changes to <strong>Cancel</strong>. Click Cancel if you need to stop a long-running report.</p>
-<figure class="screenshot"><img alt="IMS Sell Through report criteria and grouping screen" src="../assets/images/sell-through-screen.webp"/><figcaption>The Sell Through screen combines detailed merchandise criteria, flexible grouping and stock/sales KPIs.</figcaption></figure>
+
 <section class="ims-multiselect-guide" id="multi-select">
 <h2>Using IMS multi-selection fields</h2>
 <p>Some IMS criteria fields open a compact multi-selection list instead of a normal drop-down. You can select several values without holding Ctrl.</p>
@@ -224,7 +224,7 @@
 <tr><td>GPM</td><td><strong>Gross Profit ÷ Sold Amt</strong>.</td></tr>
 </tbody></table></div>
 <h2 id="returns">Purchases, sales and returns</h2>
-<p>For historical reconstruction, purchase code 1 increases received quantity/cost and purchase-return code 2 reduces it. Sales returns using transaction codes 53 and 54 are treated as negative sales quantities and amounts, so Sell Through is based on net movement rather than gross sales alone.</p>
+<p>Purchases add received quantity and cost while Purchase Returns reduce them. Customer returns reduce sales quantity and amount, so Sell Through is based on net movement rather than gross sales alone.</p>
 <h2 id="totals">Summary at the bottom</h2>
 <p>The summary area totals the displayed rows and shows <strong>Rcvd Qty, Sold Qty, OH Qty, Rcvd Cost, Sold Cost, OH Cost, Gross Amt, Sold Amt, Gross Profit, Sell Thr., ADR, Count, GPM</strong> and <strong>M.Up</strong>.</p>
 <p><strong>Count</strong> is the number of generated report rows. Sell Through, ADR, GPM and M.Up are recalculated from the overall totals rather than averaged from the individual row percentages.</p>

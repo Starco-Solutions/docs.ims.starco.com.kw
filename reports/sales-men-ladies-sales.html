@@ -158,10 +158,10 @@
 <tr><td>Date From / To</td><td>Defines the reporting period.</td></tr>
 <tr><td>Include inactive stores</td><td>Loads inactive stores into the Store selection. This option is shown only to users with access to all departments.</td></tr>
 </tbody></table></div>
-<div class="callout tip"><strong>Transaction handling</strong>Cash Sales uses transaction codes 51 and 53, Credit Sales uses 52 and 54, and All Types uses 51, 52, 53 and 54. Returns therefore reduce the salesperson's net quantities and amounts rather than being ignored.</div>
+<div class="callout tip"><strong>Transaction handling</strong>Cash Sales includes cash sales and cash returns; Credit Sales includes credit sales and credit returns; All Types includes both groups. Returns therefore reduce the salesperson's net quantities and amounts rather than being ignored.</div>
 <h2 id="consolidated">Consolidated view</h2>
 <p><strong>Consolidated</strong> is selected by default. IMS combines the complete selected date range and produces a summarized row for each salesperson instead of separating the result by time period.</p>
-<figure class="screenshot"><img alt="IMS Sales Men/Ladies Sales consolidated view" src="../assets/images/sales-men-ladies-consolidated.webp"/><figcaption>Consolidated view: one summarized result per salesperson for the selected criteria.</figcaption></figure>
+
 <p>While Consolidated is selected, the Daily, Weekly, Monthly, Yearly and Hours controls are disabled, and the period columns are hidden.</p>
 <p>If <strong>All Stores</strong> and a specific <strong>Sman ID</strong> are selected together, IMS can also show the Store column so the selected salesperson's activity can be separated by store.</p>
 <h2 id="periods">Period views</h2>
@@ -175,7 +175,7 @@
 </tbody></table></div>
 <h3 id="daily">Daily salesperson performance</h3>
 <p>The Daily view is useful when reviewing one salesperson across several dates. In the example below, Sman ID 1445 is shown day by day with quantities, amounts, rewards, services, invoice count, ATV and UPT.</p>
-<figure class="screenshot"><img alt="IMS Sales Men/Ladies Sales daily view filtered by salesperson ID" src="../assets/images/sales-men-ladies-daily.webp"/><figcaption>Daily view filtered by Sman ID. The period breakdown is available whenever Consolidated is cleared.</figcaption></figure>
+
 <h3 id="weekly">Weekly view</h3>
 <p>No separate screenshot is required to use Weekly. Clear Consolidated, select <strong>Weekly</strong>, choose the date range and run the report. IMS groups the salesperson's results by calendar year and week.</p>
 <h3 id="monthly">Monthly view</h3>

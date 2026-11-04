@@ -139,7 +139,7 @@
 <li>Review the result grid and the totals at the bottom of the screen.</li>
 </ol>
 <p>While IMS is retrieving the report, <strong>Generate</strong> changes to <strong>Cancel</strong>. Click Cancel to stop the current report request.</p>
-<figure class="screenshot"><img alt="IMS Purchasing Report criteria, Group By options and summary totals" src="../assets/images/purchasing-report-screen.webp"/><figcaption>The Purchasing Report supports detailed merchandise filters, time grouping, invoice analysis and cost KPIs.</figcaption></figure>
+
 <section class="ims-multiselect-guide" id="multi-select">
 <h2>Using IMS multi-selection fields</h2>
 <p>Some IMS criteria fields open a compact multi-selection list instead of a normal drop-down. You can select several values without holding Ctrl.</p>
@@ -225,7 +225,7 @@
 <p>The summary values are recalculated from the generated rows. <strong>AV. Markup = total Retail Price ÷ total Local Cost</strong>, while <strong>AV. Cost Rate = total Landed Cost ÷ total FR Cost</strong>. Row Markup uses Landed Cost, including the reported expense allocation; bottom AV. Markup uses Local Cost before those expenses. They are different ratios, and AV. Markup is not an arithmetic average of the row Markup values.</p>
 <div class="callout"><strong>Illustrative expense example</strong>For a single generated row with Local Cost 100, Expenses 20, Landed Cost 120 and Retail Price 150, row Markup is 150 ÷ 120 = 1.250. Bottom AV. Markup is 150 ÷ 100 = 1.500000. These illustrative values show why nonzero expenses make the ratios differ.</div>
 <h2 id="purchase-returns">Purchase returns</h2>
-<p>The report includes transaction codes 1 and 2. Code 1 is treated as a purchase and code 2 as a purchase return. For received quantity and the cost fields, purchase returns are subtracted from purchases so the result represents net purchasing movement for the selected criteria and dates.</p>
+<p>The report includes Purchases and Purchase Returns. For received quantity and cost, purchase returns are subtracted from purchases so the result represents net purchasing movement for the selected criteria and dates.</p>
 <h2 id="images">View Image</h2>
 <p><strong>View Image</strong> loads item thumbnails into the generated report. The report must contain both <strong>Style</strong> and <strong>Color Code</strong>, because IMS creates the thumbnail lookup from those two values.</p>
 <p>If the report contains more than 10,000 rows, IMS asks for confirmation before loading images. For Excel exports above 5,000 rows, IMS asks whether to export with images, export data only, or cancel.</p>

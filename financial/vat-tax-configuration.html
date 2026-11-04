@@ -175,7 +175,7 @@
 </tbody></table></div>
 <h2 id="suppliers">3. Maintain Supplier VAT information</h2>
 <p>When VAT is enabled, <strong>Manage → Suppliers</strong> shows a VAT Information section. Select <strong>VAT Registered</strong> for a registered supplier and enter its <strong>VAT Account No.</strong>. IMS will not save a VAT-registered supplier with a blank VAT Account No.</p>
-<p>Purchases reads these fields when a supplier is selected. The current IMS 9.4.8 Bahrain defaults attempt to select <code>BH_STD_10</code> for a VAT-registered supplier and <code>BH_OUT_SCOPE</code> for a non-registered supplier; if that code is not present, IMS selects the first active tax code.</p>
+<p>Purchases reads these fields when a supplier is selected. IMS can propose an available tax treatment for the supplier based on configured VAT details. Review the proposed treatment and company tax setup before saving.</p>
 <h2 id="purchases">4. Record VAT on Purchases</h2>
 <p>When VAT is enabled, the Purchase screen adds Supplier Invoice and VAT/tax fields. Tax values are saved with the purchase document so the selected tax treatment and calculated split are retained with the invoice.</p>
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>Behavior</th></tr></thead><tbody>

@@ -7,10 +7,52 @@ generated discovery files.
 
 ## Editorial policy
 
-Public IMS documentation is a reference for users, administrators, and
-developers. It is not a changelog, a bug tracker, or an engineering remediation
-report. Document genuine capabilities and existing supported behavior accurately,
-with the prerequisites, component versions, and limitations readers need.
+Public IMS documentation explains what IMS can do and how to use, configure,
+maintain, troubleshoot, and implement a fresh installation independently. It is
+a reference for users, administrators, implementers, and supported external API
+consumers. It is not a changelog, a bug tracker, an engineering remediation
+report, or a translation of the source code. Document genuine capabilities and
+existing supported behavior accurately, with the prerequisites, component
+versions, and limitations readers need.
+
+## Public product boundary
+
+Source code, tests, and an owner's deployment observations are evidence used to
+verify the guide; they are not automatically publishable material. Public pages
+must be written from the reader's supported **IMS screen, installer, report,
+administrator task, or external API contract** rather than from the database
+tables or implementation paths encountered during source review.
+
+- Keep complete user-facing workflows, installer prompts, supported Fresh and
+  Disaster Recovery procedures, product-level prerequisites, permission rules,
+  report calculations, troubleshooting steps, and actual external Business API
+  request/response contracts. Do not make a public API reference inaccurate by
+  concealing fields that are part of its shipped contract.
+- Do not disclose underlying table/column names, database transaction codes,
+  document-counter mappings, internal identifiers, SQL maintenance shortcuts,
+  exact security/bootstrap routes, authentication implementation mechanics,
+  secret-storage locations, encryption-key recovery, credential provisioning,
+  source/release paths, packaging scripts, or internal test parameters merely
+  because source code contains them. Seek explicit owner approval before
+  publishing any such technical interface as a supported public contract.
+- Do not identify what Starco or any other installation actually uses: server
+  addresses, selected SSL settings, financial connectors, tax-code defaults,
+  integration credentials, schedules, company/store names, operational metrics,
+  or test-environment configuration. Generic product options and regional
+  capabilities can still be documented without identifying a deployment.
+- Screenshots and examples must be synthetic or demonstrably free of business,
+  personal, financial, credential, and company-specific configuration data.
+  Remove unsafe screenshots from HTML, the image directory, and discovery text;
+  keep clean menu/empty-form images and meaningful text instructions.
+- When an installer or UI cannot complete a necessary operation, identify the
+  unsupported/self-service gap for the owner. Never publish a database edit or
+  privileged workaround to paper over that gap.
+
+The editor's test is: **Can a user, implementer, or administrator complete a
+supported task from this page without learning IMS persistence internals or
+facts about a particular company's deployment?** If no, rewrite the page or
+raise a specific product gap. This does not prohibit a genuinely supported
+technical contract or a normal administrator workflow.
 
 Do not include defects, even resolved defects, in public documentation. Do not
 present hidden repairs, refactoring, atomicity changes, locking or race fixes,
@@ -50,17 +92,19 @@ When editing security references, check nearby summaries, navigation and discove
 
 ## Preserve useful technical documentation
 
-Retain accurate public architecture, schema, API, deployment, and generic
-security guidance. Useful detail is not itself a secret. Keep reader-facing
-prerequisites, configuration shapes, permissions, and supported operational
-procedures when they are safe and verified.
+Retain accurate public product architecture, supported external API schemas,
+installation and deployment steps, generic security guidance, and necessary
+administrator configuration interfaces. Technical depth is welcome when it
+helps perform a supported product operation; implementation detail is not
+automatically necessary because it exists in source code.
 
-Remove actual secrets and environment-specific privileged details, such as live
-credentials or restricted production access information. Use clearly marked
-placeholders where a configuration example needs such a value. Do not broadly
-delete technical content under the label of security. If a proposed removal is
-uncertain, identify the exact disclosure risk for private review rather than
-inventing it or suppressing an entire guide.
+Remove internal persistence mappings, environment-specific privileged details,
+actual secrets, and customer-specific configuration. Use generic placeholders
+for required installer/API inputs. Do not broadly delete technical content
+merely because it is technical: prefer rewriting it as a complete supported UI
+or installer workflow. If uncertain, flag the exact disclosure and usability
+tradeoff for owner review instead of inventing behavior or hiding a required
+external API field.
 
 ## Evidence and private correction ledger
 

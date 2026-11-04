@@ -135,10 +135,7 @@
 <div class="page-title"><img alt="" aria-hidden="true" class="section-icon" src="../assets/icons/inventory.webp"/><h1>Replenishment</h1></div>
 <p class="lead">Replenishment helps a store convert recent sales into a suggested Stock Transfer from another store or warehouse. IMS analyzes the items sold by the destination store, shows available stock by source location, lets the user choose the quantity to transfer, and then opens Stock Transfer with the selected items already prepared.</p>
 <div class="callout"><strong>Open the screen</strong>Inventory → Replenishment.</div>
-<figure class="screenshot">
-<img alt="IMS Replenishment screen showing destination store, source store, sales dates, item details and Create Stock Transfer" src="../assets/images/inventory-replenishment.webp"/>
-<figcaption>Replenishment compares recent sales in the destination store with stock available in the selected source store or other stores.</figcaption>
-</figure>
+
 <h2 id="stores">Select the stores</h2>
 <p><strong>Replenish</strong> is the destination store that needs stock. <strong>From</strong> is the store or warehouse that will supply the replenishment. The available locations follow the user's Stock Transfer permissions.</p>
 <p>If only one authorized location is available, IMS can fill the store automatically and disable the store-selection buttons. When the From and Replenish stores are the same location, transfer-quantity actions are not available.</p>
@@ -147,7 +144,7 @@
 <p>Use <strong>Sales Date From</strong> and <strong>To</strong> to define the sales period IMS should analyze for the destination store.</p>
 <p>Enable <strong>Hours From</strong> to limit the calculation to a time-of-day range. IMS validates that the starting hour is not later than the ending hour.</p>
 <h2 id="report">Generate the replenishment report</h2>
-<p>Click <strong>Get Report</strong>. IMS reads the destination store's sales and returns during the selected period and calculates a net <strong>Sold</strong> quantity for inventory items. Sales transaction types 51/52 add quantity while return types 53/54 reduce it. Only items with a positive net sold quantity are included.</p>
+<p>Click <strong>Get Report</strong>. IMS reads the destination store's sales and returns during the selected period and calculates a net <strong>Sold</strong> quantity for inventory items. Cash and credit sales increase the net sold quantity, while corresponding customer returns reduce it. Only items with a positive net sold quantity are included.</p>
 <p>The report then joins those sold items to positive stock balances. By default, the stock view is limited to the selected <strong>From</strong> store and the <strong>Replenish</strong> store.</p>
 <div class="callout tip"><strong>Show Other Store's Balance</strong>Enable this option when you want IMS to show positive stock balances from other stores as well. Each store appears as an additional quantity column, which can help identify an alternative replenishment source.</div>
 <h2 id="columns">Report columns</h2>
