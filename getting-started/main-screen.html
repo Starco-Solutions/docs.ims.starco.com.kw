@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Getting Started with IMS: Login &amp; Main Screen | IMS User Guide</title>
-<meta content="IMS 9.4.6 startup, workstation authorization, login, toolbar, permissions, notifications, installed build and available-update notices." name="description"/>
+<meta content="IMS 9.4.8 startup, workstation authorization, login, toolbar, permissions, notifications, installed build and available-update notices." name="description"/>
 <link href="https://docs.ims.starco.com.kw/getting-started/main-screen.html" rel="canonical"/>
 <link href="../assets/css/docs.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Getting Started with IMS: Login & Main Screen","about":"IMS startup, login and desktop navigation","url":"https://docs.ims.starco.com.kw/getting-started/main-screen.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
@@ -128,7 +128,7 @@
 <main>
 <div class="breadcrumbs"><a href="../index.html">IMS Documentation</a> › Getting Started › Login &amp; Main Screen</div>
 <h1>Getting Started: Login &amp; Main Screen</h1>
-<p class="lead">This page covers IMS 9.4.6 startup, global user sign-in, company selection when required, the selected-company workspace, toolbar/menu access, connection information and navigation between open IMS screens.</p>
+<p class="lead">This page covers IMS 9.4.8 startup, global user sign-in, company selection when required, the selected-company workspace, toolbar/menu access, connection information and navigation between open IMS screens.</p>
 <div class="callout tip" data-search-item="startup overview workstation login main menu permissions"><strong>Two separate approvals</strong>A workstation must be authorized to run IMS, and then a user must sign in with an authorized IMS account. Workstation authorization happens before the normal user login.</div>
 <h2 data-search-item="start IMS startup database update workstation authorization login" id="startup">What happens when IMS starts</h2>
 <ol class="steps">
@@ -139,17 +139,16 @@
 <li><strong>The company workspace loads.</strong> IMS applies initialization/update checks and loads the local company account and access.</li>
 </ol>
 <div class="callout"><strong>Startup troubleshooting</strong>Check the stage that failed: API availability, workstation authorization, global credentials, company membership or selected-company database reachability. A company database connection is opened after global sign-in and company selection.</div>
-<h2 data-search-item="workstation not authorized pending approval workstation ID machine name hardware changed IT approval auto approve" id="workstation">Workstation authorization</h2>
-<p>IMS controls access at workstation level as well as user level. A new computer may be registered automatically. Whether it can continue immediately or must wait for approval depends on the workstation approval setting managed by IT.</p>
+<h2 data-search-item="workstation not authorized pending approval workstation ID machine name hardware changed IT approval" id="workstation">Workstation authorization</h2>
+<p>IMS controls access at workstation level as well as user level. A new computer is registered as pending approval and cannot continue to user login until an authorized IMS administrator approves it. Registration alone does not grant access.</p>
 <div class="table-wrap"><table><thead><tr><th>Situation</th><th>What happens</th><th>What the user should do</th></tr></thead><tbody>
-<tr><td>New workstation, automatic approval enabled</td><td>The workstation can be registered and approved automatically.</td><td>Continue to the IMS login screen.</td></tr>
 <tr><td>New workstation, approval required</td><td>The workstation is added as pending approval and IMS does not continue to user login.</td><td>Send the displayed <strong>Workstation ID</strong> and <strong>Machine Name</strong> to IT.</td></tr>
 <tr><td>Registered workstation is blocked or not yet approved</td><td>IMS shows a <strong>Workstation Not Authorized</strong> warning and exits.</td><td>Contact the system administrator.</td></tr>
 <tr><td>Workstation hardware identity changed</td><td>IMS may require IT to review and approve the workstation again.</td><td>Provide the Workstation ID and Machine Name shown in the warning.</td></tr>
 </tbody></table></div>
 <div class="callout warning"><strong>User login cannot bypass workstation approval</strong>If the workstation itself is not authorized, IMS stops before the normal user login. Approval must be handled by an IMS administrator.</div>
 <h2 data-search-item="login user name password incorrect disabled account create password remembered username cancel" id="login">Signing in to IMS</h2>
-<p>IMS 9.4.6 authenticates the user against the <strong>IMS Global</strong> user store before connecting to a company database. Enter the Login Name and Password, then click <strong>Login</strong>.</p>
+<p>IMS 9.4.8 authenticates the user against the <strong>IMS Global</strong> user store before connecting to a company database. Enter the Login Name and Password, then click <strong>Login</strong>.</p>
 <ol class="steps">
 <li>IMS verifies the Login Name and password against the global user identity.</li>
 <li>If the account is disabled, login stops and IMS asks the user to contact the system administrator.</li>
@@ -245,7 +244,7 @@
 <details data-search-item="close POS Sales Transactions"><summary>Why can I not close the POS?</summary><p>If Sales Transactions is still running, IMS blocks the POS close action and asks you to close Sales Transactions first.</p></details>
 </div>
 <div class="search-empty" data-search-empty="">No matching section on this page.</div>
-<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.6.0</span></footer>
+<footer class="page-footer"><span>IMS Documentation</span><span>Applies to IMS Build 9.4.8.0</span></footer>
 </main></div>
 <script src="../assets/js/docs.js"></script>
 </body></html>

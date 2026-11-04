@@ -51,19 +51,19 @@
     },
     {
       "path": "financial/vat-tax-configuration.html",
-      "summary": "IMS 9.4.6 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns."
+      "summary": "IMS 9.4.8 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns."
     },
     {
       "path": "getting-started/main-screen.html",
-      "summary": "IMS 9.4.6 startup, workstation authorization, login, company selection, main toolbar, permissions, notifications and installed-build versus available-update title notices."
+      "summary": "IMS 9.4.8 startup, workstation authorization, login, company selection, main toolbar, permissions, notifications and installed-build versus available-update title notices."
     },
     {
       "path": "index.html",
-      "summary": "IMS 9.4.6 product reference for employees, administrators and external Business API developers; module guides, Promotions & Loyalty and component compatibility."
+      "summary": "IMS 9.4.8 product reference for employees, administrators and external Business API developers; module guides, Promotions & Loyalty and component compatibility."
     },
     {
       "path": "integration/index.html",
-      "summary": "IMS 9.4.6 Integration overview: Starco Stock Take, V-Count Settings and Integration Center. Integration Center manages configurable outbound endpoints, source previews, health status and sync logs."
+      "summary": "IMS 9.4.8 Integration overview: Starco Stock Take, V-Count Settings and Integration Center. Integration Center manages configurable outbound endpoints, source previews, health status and sync logs."
     },
     {
       "path": "integration/integration-center.html",
@@ -123,7 +123,7 @@
     },
     {
       "path": "manage/discount-coupons.html",
-      "summary": "Single-code or coupon-series discount events."
+      "summary": "Discount Coupons: conditions, discounted-item eligibility with applied Special Offers, coupon validity and operational use."
     },
     {
       "path": "manage/email-contacts.html",
@@ -395,11 +395,19 @@
     },
     {
       "path": "technical/ims-global.html",
-      "summary": "IMS Global 1.7.0 companies and provisioning, users, supplier cloning, Items Master preview/synchronization, service access, Recovery Packages and read-only HA Health."
+      "summary": "IMS Global 1.7.0 companies and provisioning, users and Developer Access, workstation approval, supplier cloning, service access, Recovery Packages and read-only HA Health."
+    },
+    {
+      "path": "technical/ims-server-deployment.html",
+      "summary": "IMS Server Deployment 1.1.0: offline prerequisites, PostgreSQL 18.3+ within 18.x, Fresh Installation, Disaster Recovery, encryption-key preservation, first-workstation approval and verification."
+    },
+    {
+      "path": "technical/ims-update-server.html",
+      "summary": "IMS API-authorized Client and Global updates: local/UNC sources, Global_Update.zip assembly detection, workstation approval, protected ticket keys, two nodes, legacy migration and troubleshooting."
     },
     {
       "path": "technical/index.html",
-      "summary": "IMS technical reference map for API, Client, Global, security, databases, operations, Autos/Shopify services and the provisioning runbook."
+      "summary": "IMS technical reference map for server installation/recovery, authorized updates, API, Client, Global, security, databases, operations and Autos/Shopify services."
     },
     {
       "path": "technical/it-operations-troubleshooting.html",
@@ -439,7 +447,7 @@
     },
     {
       "path": "technical/source-baseline.html",
-      "summary": "Component versions and compatibility: Client 9.4.6, Global 1.7.0, API 1.1.0, Autos 9.2 and Shopify 4.4.0; runtime, provisioning and service prerequisites."
+      "summary": "Component versions and compatibility: Client 9.4.8, Global 1.7.0, API 1.1.0, Updater 8.0.3, PostgreSQL 18.x minimum 18.3, Autos 9.2 and Shopify 4.4.0."
     },
     {
       "path": "technical/system-dashboard-observability.html",

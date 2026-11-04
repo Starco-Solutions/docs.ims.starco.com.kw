@@ -15,16 +15,16 @@
 - https://docs.ims.starco.com.kw/financial/posting.html — Posting: date range, Cash/Credit Sales and Returns, COGS, Stock Transfers and Purchases; optional consolidated period journals; unposted-store selection; Debit/Credit review tabs; active-store posting lock; current direct Al-Shamel posting and IMS post metadata.
 - https://docs.ims.starco.com.kw/financial/purchasing-expenses.html — Purchasing Expenses: reusable expense ID, Arabic/English description and Account No.; expense amounts are entered on Purchase invoices, contribute to landed cost and use the configured account in the Purchase journal.
 - https://docs.ims.starco.com.kw/financial/sales-payment-types.html — Payment method setup, account mapping, card authorization and selection behavior.
-- https://docs.ims.starco.com.kw/financial/vat-tax-configuration.html — IMS 9.4.6 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns.
+- https://docs.ims.starco.com.kw/financial/vat-tax-configuration.html — IMS 9.4.8 VAT workflow across System Settings, Purchase VAT / Tax Codes, Supplier VAT registration, Purchases and VAT-inclusive Sales/Returns.
 
 ## Getting Started
-- https://docs.ims.starco.com.kw/getting-started/main-screen.html — IMS 9.4.6 startup, workstation authorization, login, company selection, main toolbar, permissions, notifications and installed-build versus available-update title notices.
+- https://docs.ims.starco.com.kw/getting-started/main-screen.html — IMS 9.4.8 startup, workstation authorization, login, company selection, main toolbar, permissions, notifications and installed-build versus available-update title notices.
 
 ## Overview
-- https://docs.ims.starco.com.kw/index.html — IMS 9.4.6 product reference for employees, administrators and external Business API developers; module guides, Promotions & Loyalty and component compatibility.
+- https://docs.ims.starco.com.kw/index.html — IMS 9.4.8 product reference for employees, administrators and external Business API developers; module guides, Promotions & Loyalty and component compatibility.
 
 ## Integration
-- https://docs.ims.starco.com.kw/integration/index.html — IMS 9.4.6 Integration overview: Starco Stock Take, V-Count Settings and Integration Center. Integration Center manages configurable outbound endpoints, source previews, health status and sync logs.
+- https://docs.ims.starco.com.kw/integration/index.html — IMS 9.4.8 Integration overview: Starco Stock Take, V-Count Settings and Integration Center. Integration Center manages configurable outbound endpoints, source previews, health status and sync logs.
 - https://docs.ims.starco.com.kw/integration/integration-center.html — Integration Center endpoint configuration, source previews, company-authorized service credentials, scheduling, health and synchronization logs.
 - https://docs.ims.starco.com.kw/integration/starco-stock-take.html — Exports Store inventory for the handheld physical-stock-taking workflow. Supports all Suppliers or one Supplier. Balance export is XML with schema and includes Supplier/Brand, Statistical Period, EAN, Item Code, Style, Description, Color, Size, Store Qty, Cost and Price. Pathfinder export creates the handheld scanning/item file.
 - https://docs.ims.starco.com.kw/integration/v-count-settings.html — Maintains V-Count credentials and hourly/daily/category/traffic endpoints. Daily mode clears the duty window; Hourly mode stores valid 0–23 start/end hours for IMS Autos. V-Count traffic is used by IMS Store traffic/conversion reporting.
@@ -43,7 +43,7 @@
 ## Manage
 - https://docs.ims.starco.com.kw/manage/age-ranges.html — Age Range master.
 - https://docs.ims.starco.com.kw/manage/categories.html — Category/Sub Category hierarchy.
-- https://docs.ims.starco.com.kw/manage/discount-coupons.html — Single-code or coupon-series discount events.
+- https://docs.ims.starco.com.kw/manage/discount-coupons.html — Discount Coupons: conditions, discounted-item eligibility with applied Special Offers, coupon validity and operational use.
 - https://docs.ims.starco.com.kw/manage/email-contacts.html — Reusable report email recipients and group membership.
 - https://docs.ims.starco.com.kw/manage/email-groups.html — Private/public reusable email distribution groups.
 - https://docs.ims.starco.com.kw/manage/genders.html — Gender master.
@@ -123,8 +123,10 @@
 - https://docs.ims.starco.com.kw/technical/architecture.html — Roles and boundaries of IMS Client, IMS Global, IMS API, IMS Autos and IMS Shopify, with separate global administration and company operational databases.
 - https://docs.ims.starco.com.kw/technical/ims-api.html — IMS API 1.1.0 service responsibilities and separate boundaries for external Business API, workstation bootstrap, Global administration and internal service authentication.
 - https://docs.ims.starco.com.kw/technical/ims-global-api-administration.html — API clients, company access, scopes, ordinary supplier/store contracts, financial permission, Partner Data policies, keys, quotas and request/audit logs.
-- https://docs.ims.starco.com.kw/technical/ims-global.html — IMS Global 1.7.0 companies and provisioning, users, supplier cloning, Items Master preview/synchronization, service access, Recovery Packages and read-only HA Health.
-- https://docs.ims.starco.com.kw/technical/index.html — IMS technical reference map for API, Client, Global, security, databases, operations, Autos/Shopify services and the provisioning runbook.
+- https://docs.ims.starco.com.kw/technical/ims-global.html — IMS Global 1.7.0 companies and provisioning, users and Developer Access, workstation approval, supplier cloning, service access, Recovery Packages and read-only HA Health.
+- https://docs.ims.starco.com.kw/technical/ims-server-deployment.html — IMS Server Deployment 1.1.0: offline prerequisites, PostgreSQL 18.3+ within 18.x, Fresh Installation, Disaster Recovery, encryption-key preservation, first-workstation approval and verification.
+- https://docs.ims.starco.com.kw/technical/ims-update-server.html — IMS API-authorized Client and Global updates: local/UNC sources, Global_Update.zip assembly detection, workstation approval, protected ticket keys, two nodes, legacy migration and troubleshooting.
+- https://docs.ims.starco.com.kw/technical/index.html — IMS technical reference map for server installation/recovery, authorized updates, API, Client, Global, security, databases, operations and Autos/Shopify services.
 - https://docs.ims.starco.com.kw/technical/it-operations-troubleshooting.html — IT Operations & Troubleshooting for access, company routing, databases, API/bootstrap, workstations and new-company rollout.
 - https://docs.ims.starco.com.kw/technical/multi-company.html — Multi-Company Architecture: global identity/company membership with independent company databases and company-local operational permissions. New company databases are created and initialized by IMS Global through Companies → Create DB; use the supported provisioning workflow rather than manual company database creation.
 - https://docs.ims.starco.com.kw/technical/postgresql/index.html — PostgreSQL Deployment & Operations, including the rule that company database provisioning is performed by IMS Global.
@@ -134,7 +136,7 @@
 - https://docs.ims.starco.com.kw/technical/security.html — Security Architecture: workstation authorization, global authentication, Global Administrator sessions, company membership and company-local permissions.
 - https://docs.ims.starco.com.kw/technical/service-administration.html — IMS Autos and Shopify service identities, grants, company bootstrap, protected runtime settings, recovery enrollment, company jobs and detailed provisioning runbook.
 - https://docs.ims.starco.com.kw/technical/service-provisioning.html — Autos 9.2 and Shopify 4.4 provisioning: source, x64 Release and installed IMS Global Tools/IMS.AutosProvisioner paths; approved three-bundle hashes, company grants and single-use recovery.
-- https://docs.ims.starco.com.kw/technical/source-baseline.html — Component versions and compatibility: Client 9.4.6, Global 1.7.0, API 1.1.0, Autos 9.2 and Shopify 4.4.0; runtime, provisioning and service prerequisites.
+- https://docs.ims.starco.com.kw/technical/source-baseline.html — Component versions and compatibility: Client 9.4.8, Global 1.7.0, API 1.1.0, Updater 8.0.3, PostgreSQL 18.x minimum 18.3, Autos 9.2 and Shopify 4.4.0.
 - https://docs.ims.starco.com.kw/technical/system-dashboard-observability.html — Monitoring locations across IMS Client, IMS Global and IMS Shopify, with links to dashboard, performance, HA Health, API activity, Autos and Integration Center guides.
 
 ## Tools
