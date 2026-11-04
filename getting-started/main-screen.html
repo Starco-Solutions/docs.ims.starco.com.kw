@@ -139,10 +139,9 @@
 <li><strong>The company workspace loads.</strong> IMS applies initialization/update checks and loads the local company account and access.</li>
 </ol>
 <div class="callout"><strong>Startup troubleshooting</strong>Check the stage that failed: API availability, workstation authorization, global credentials, company membership or selected-company database reachability. A company database connection is opened after global sign-in and company selection.</div>
-<h2 data-search-item="workstation not authorized pending approval workstation ID machine name hardware changed IT approval auto approve" id="workstation">Workstation authorization</h2>
-<p>IMS controls access at workstation level as well as user level. A new computer may be registered automatically. Whether it can continue immediately or must wait for approval depends on the workstation approval setting managed by IT.</p>
+<h2 data-search-item="workstation not authorized pending approval workstation ID machine name hardware changed IT approval" id="workstation">Workstation authorization</h2>
+<p>IMS controls access at workstation level as well as user level. A new computer is registered as pending approval and cannot continue to user login until an authorized IMS administrator approves it. Registration alone does not grant access.</p>
 <div class="table-wrap"><table><thead><tr><th>Situation</th><th>What happens</th><th>What the user should do</th></tr></thead><tbody>
-<tr><td>New workstation, automatic approval enabled</td><td>The workstation can be registered and approved automatically.</td><td>Continue to the IMS login screen.</td></tr>
 <tr><td>New workstation, approval required</td><td>The workstation is added as pending approval and IMS does not continue to user login.</td><td>Send the displayed <strong>Workstation ID</strong> and <strong>Machine Name</strong> to IT.</td></tr>
 <tr><td>Registered workstation is blocked or not yet approved</td><td>IMS shows a <strong>Workstation Not Authorized</strong> warning and exits.</td><td>Contact the system administrator.</td></tr>
 <tr><td>Workstation hardware identity changed</td><td>IMS may require IT to review and approve the workstation again.</td><td>Provide the Workstation ID and Machine Name shown in the warning.</td></tr>
