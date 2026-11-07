@@ -21,7 +21,7 @@
 - https://docs.ims.starco.com.kw/getting-started/main-screen.html — IMS 9.4.8 startup, workstation authorization, login, company selection, main toolbar, permissions, notifications and installed-build versus available-update title notices.
 
 ## Overview
-- https://docs.ims.starco.com.kw/index.html — IMS 9.4.8 product reference for employees, administrators and external Business API developers; module guides, Promotions & Loyalty and component compatibility.
+- https://docs.ims.starco.com.kw/index.html — IMS 9.4.8 retail management documentation developed by the Starco IT Department of Starco International Company, Kuwait, part of Starco Holding; module guides, administration, installation and Business API reference.
 
 ## Integration
 - https://docs.ims.starco.com.kw/integration/index.html — IMS 9.4.8 Integration overview: Starco Stock Take, V-Count Settings and Integration Center. Integration Center manages configurable outbound endpoints, source previews, health status and sync logs.

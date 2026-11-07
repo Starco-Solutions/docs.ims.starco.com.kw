@@ -28,6 +28,7 @@ class Page(HTMLParser):
 pages={}
 for f in ROOT.rglob('*.html'):
     if '.git' in f.parts:continue
+    if f.parent==ROOT and re.fullmatch(r'google[0-9a-f]{16}\.html',f.name) and f.read_text().strip()==f'google-site-verification: {f.name}':continue
     p=Page();p.path=f.relative_to(ROOT).as_posix();p.feed(f.read_text());pages[p.path]=p
 manifest=json.loads((ROOT/'maintainer/site-manifest.json').read_text());origin=manifest['origin'].rstrip('/')
 listed=[x['path'] for x in manifest['pages']]
