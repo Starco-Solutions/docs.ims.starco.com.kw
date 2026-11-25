@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Customer Delta Synchronization | IMS Documentation</title>
+<meta name="description" content="Ordinary Business API item and inventory Delta: initial synchronization, safe windows, keyset continuation, current snapshots and recovery.">
+<link rel="canonical" href="https://docs.ims.starco.com.kw/technical/api-v1/ordinary-delta.html">
+<link rel="stylesheet" href="../../assets/css/docs.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Items and Inventory Delta","url":"https://docs.ims.starco.com.kw/technical/api-v1/ordinary-delta.html","isPartOf":{"@type":"WebSite","name":"IMS Documentation","url":"https://docs.ims.starco.com.kw/"}}</script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+<a class="brand" href="../../index.html"><span>IMS</span> Documentation</a>
+<button class="mobile-nav" type="button" data-mobile-nav>Menu</button>
+<nav class="topnav" aria-label="Primary"><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../sales/index.html">Sales</a><a href="../../inventory/index.html">Inventory</a><a href="../../financial/index.html">Financial</a><a href="../../reports/index.html">Reports</a><a href="../../manage/index.html">Manage</a><a href="../../tools/index.html">Tools</a><a href="../../system/index.html">System</a><a href="../../shopify/index.html">Shopify</a><a href="../../integration/index.html">Integration</a><a href="../../technical/index.html">Technical</a><a class="active" href="index.html">Business API</a></nav>
+<div class="top-search"><span class="icon">⌕</span><input data-doc-search type="search" placeholder="Search this page…" aria-label="Search documentation"></div>
+</div></header>
+<div class="layout"><aside class="sidebar" aria-label="Documentation navigation"><h3>Documentation</h3><a href="../../index.html">Documentation home</a><a href="../../getting-started/main-screen.html">Getting started</a><a href="../../system/index.html">System</a><a href="../../integration/index.html">Integration</a><h3>Business API</h3><a href="index.html">Business API overview</a><a href="quick-start.html">Quick Start</a><a href="authentication.html">Authentication &amp; Access</a><a href="requests.html">Requests &amp; Responses</a><a href="reference.html">Resource Reference</a><a href="data-semantics.html">Data Semantics</a><a href="errors-rate-limits.html">Errors &amp; Rate Limits</a><a href="examples.html">Examples &amp; Downloads</a><a href="partner-data.html">Partner Data &amp; Stock Delta</a><a href="customer-delta.html">Customer Delta synchronization</a><a class="active" href="ordinary-delta.html">Items &amp; Inventory Delta</a><h3>Technical</h3><a href="../index.html">Technical Overview</a><a href="../architecture.html">IMS Architecture</a><a href="../multi-company.html">Multi-Company Architecture</a><a href="../security.html">Security Architecture</a><a href="../secure-bootstrap.html">IMS Security Guard &amp; Secure Bootstrap</a><a href="../ims-global.html">IMS Global</a><a href="../ims-global-api-administration.html">API Administration (administrators)</a><a href="../ims-api.html">IMS API</a><a href="../secret-vault.html">Secret Vault</a><a href="../system-dashboard-observability.html">System Dashboard & Observability</a><a href="../postgresql/index.html">PostgreSQL Deployment & Operations</a><a href="../it-operations-troubleshooting.html">IT Operations & Troubleshooting</a><a href="../service-administration.html">Autos and Shopify services</a></aside>
+<main>
+<div class="breadcrumbs"><a href="../../index.html">IMS Documentation</a> › <a href="index.html">Business API v1</a> › Items and Inventory Delta</div>
+<span class="badge">IMS API 1.1.0.0 • Business API v1</span>
+<h1>Items and Inventory Delta</h1><p class="lead">Keep authorized ordinary item-master and stock-balance mirrors current with incremental snapshots, using the same company contracts and fields as the full exports.</p>
+<div class="table-wrap"><table><thead><tr><th>Endpoint</th><th>Scope</th><th>Row identity / output</th></tr></thead><tbody>
+<tr><td><code>/items/changes</code></td><td><code>items.read</code></td><td>(companyId, itemId): ordinary item master fields</td></tr>
+<tr><td><code>/inventory/changes</code></td><td><code>inventory.read</code></td><td>(companyId, storeId, itemId): ordinary inventory quantities and valuations</td></tr>
+</tbody></table></div>
+<p>Use the same authorized key, company and ordinary contract as the corresponding full endpoint. These operations do not use the <a href="partner-data.html">Partner Data availability policy</a>. Inventory rows preserve actual on-hand quantities, including zero and negative values, and financial-data permission still applies to costs. Items retain classifications and permitted purchase/cost information. See <a href="reference.html#items-changes">Items Delta reference</a> and <a href="reference.html#inventory-changes">Inventory Delta reference</a>.</p>
+<h2 id="initial-sync">Initial full synchronization</h2>
+<ol><li>Call the applicable changes endpoint without since. Capture its baselineSince and policyVersion before exporting the ordinary full resource.</li><li>Read every page of <code>/items?page=1&amp;pageSize=200</code> or <code>/inventory?page=1&amp;pageSize=200</code>. Do not filter out zero, inactive or damage stock if maintaining a complete authorized inventory mirror. Stage or apply the full export; reconcile removals only once the entire export succeeds.</li><li>Poll the same changes endpoint with since set to its saved baselineSince and its saved policyVersion. Omit through and continuation keys on the first poll.</li><li>Apply every incremental page as an idempotent upsert. If fullSyncRequired arrives, restart the corresponding full synchronization using the newly supplied baseline and version.</li></ol>
+<h2 id="cursors">Parameters and cursor rules</h2>
+<ul><li><code>since</code> and <code>through</code> are ISO offset timestamps. Use Z or a correctly URL-encoded offset; preserve full precision. Both change-time bounds are inclusive.</li><li><code>policyVersion</code> is opaque and must be copied exactly from the corresponding endpoint. Each client, company and endpoint has its own synchronization state.</li><li>The server chooses a safe through on the first poll. Keep since, through and policyVersion unchanged for every continuation. Do not guess or replace through with the current time.</li><li><code>afterItemId</code> is the returned item key. Inventory continuation also requires <code>afterStoreId</code>. Supply both inventory keys or neither. Items Delta accepts only the item key.</li><li><code>pageSize</code> defaults to 200; accepted range 1–1000. No page number, totalCount, nonZeroOnly or other ordinary resource filter is supported on these Delta routes.</li></ul>
+<h2 id="sequence">Worked synchronization examples</h2><p>All examples are fictional. Substitute the actual values returned by your own authorized API. The two examples illustrate separate, independent synchronization sequences.</p>
+<h3>Items Delta</h3><p>Initial request:</p><pre><code>GET https://api.example.com/api/v1/companies/1/items/changes HTTP/1.1
+X-IMS-API-Key: YOUR_AUTHORIZED_TEST_API_KEY
+Accept: application/json</code></pre><pre><code>{
+  &quot;companyId&quot;: 1,
+  &quot;fullSyncRequired&quot;: true,
+  &quot;reason&quot;: &quot;initial_sync_required&quot;,
+  &quot;baselineSince&quot;: &quot;2026-10-01T10:00:00+00:00&quot;,
+  &quot;policyVersion&quot;: &quot;EXAMPLE_ITEMS_SERVER_VERSION&quot;,
+  &quot;count&quot;: 0,
+  &quot;data&quot;: []
+}</code></pre><p>After the full <a href="reference.html#items">items</a> export succeeds, request the first incremental page:</p><pre><code>GET https://api.example.com/api/v1/companies/1/items/changes?since=2026-10-01T10%3A00%3A00Z&amp;policyVersion=EXAMPLE_ITEMS_SERVER_VERSION&amp;pageSize=1 HTTP/1.1
+X-IMS-API-Key: YOUR_AUTHORIZED_TEST_API_KEY
+Accept: application/json</code></pre><pre><code>{
+  &quot;companyId&quot;: 1,
+  &quot;companyCode&quot;: &quot;EXAMPLE&quot;,
+  &quot;currencyCode&quot;: &quot;USD&quot;,
+  &quot;fullSyncRequired&quot;: false,
+  &quot;since&quot;: &quot;2026-10-01T10:00:00+00:00&quot;,
+  &quot;through&quot;: &quot;2026-10-01T10:05:00+00:00&quot;,
+  &quot;policyVersion&quot;: &quot;EXAMPLE_ITEMS_SERVER_VERSION&quot;,
+  &quot;count&quot;: 1,
+  &quot;hasMore&quot;: true,
+  &quot;nextAfterItemId&quot;: &quot;DEMO-SHIRT-M&quot;,
+  &quot;nextAfterStoreId&quot;: null,
+  &quot;nextSince&quot;: &quot;2026-10-01T10:00:00+00:00&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;itemId&quot;: &quot;DEMO-SHIRT-M&quot;,
+      &quot;barcode&quot;: &quot;DEMO000001&quot;,
+      &quot;style&quot;: &quot;DEMO-SHIRT&quot;,
+      &quot;theme&quot;: null,
+      &quot;itemName&quot;: &quot;Example shirt&quot;,
+      &quot;itemNameAr&quot;: null,
+      &quot;itemType&quot;: 1,
+      &quot;colorCode&quot;: null,
+      &quot;colorName&quot;: null,
+      &quot;size&quot;: &quot;M&quot;,
+      &quot;unit&quot;: 1,
+      &quot;supplierId&quot;: 7,
+      &quot;supplierName&quot;: &quot;Example Supplier&quot;,
+      &quot;brandId&quot;: null,
+      &quot;brandName&quot;: &quot;Example Supplier&quot;,
+      &quot;categoryId&quot;: null,
+      &quot;categoryName&quot;: null,
+      &quot;subcategoryId&quot;: null,
+      &quot;subcategoryName&quot;: null,
+      &quot;productGroupId&quot;: null,
+      &quot;productGroupName&quot;: null,
+      &quot;productSubgroupId&quot;: null,
+      &quot;productSubgroupName&quot;: null,
+      &quot;receivedSeasonId&quot;: null,
+      &quot;receivedSeason&quot;: null,
+      &quot;salesPeriodId&quot;: null,
+      &quot;salesPeriod&quot;: null,
+      &quot;ageRangeId&quot;: null,
+      &quot;ageRange&quot;: null,
+      &quot;genderId&quot;: null,
+      &quot;gender&quot;: null,
+      &quot;countryId&quot;: null,
+      &quot;countryName&quot;: null,
+      &quot;itemState&quot;: 0,
+      &quot;isOnline&quot;: false,
+      &quot;originalPrice&quot;: 20,
+      &quot;currentPrice&quot;: 18,
+      &quot;averageLocalCost&quot;: null,
+      &quot;lastPurchaseDate&quot;: null,
+      &quot;lastPurchaseCurrencyId&quot;: null,
+      &quot;lastPurchaseCurrency&quot;: null,
+      &quot;lastPurchasePrice&quot;: null,
+      &quot;firstDisplayDate&quot;: null
+    }
+  ]
+}</code></pre><p>Apply the row. Continue with exactly the same window, version and returned key:</p><pre><code>GET https://api.example.com/api/v1/companies/1/items/changes?since=2026-10-01T10%3A00%3A00Z&amp;policyVersion=EXAMPLE_ITEMS_SERVER_VERSION&amp;pageSize=1&amp;through=2026-10-01T10%3A05%3A00Z&amp;afterItemId=DEMO-SHIRT-M HTTP/1.1
+X-IMS-API-Key: YOUR_AUTHORIZED_TEST_API_KEY
+Accept: application/json</code></pre><p>Illustrative final response:</p><pre><code>{
+  &quot;companyId&quot;: 1,
+  &quot;companyCode&quot;: &quot;EXAMPLE&quot;,
+  &quot;currencyCode&quot;: &quot;USD&quot;,
+  &quot;fullSyncRequired&quot;: false,
+  &quot;since&quot;: &quot;2026-10-01T10:00:00+00:00&quot;,
+  &quot;through&quot;: &quot;2026-10-01T10:05:00+00:00&quot;,
+  &quot;policyVersion&quot;: &quot;EXAMPLE_ITEMS_SERVER_VERSION&quot;,
+  &quot;count&quot;: 1,
+  &quot;hasMore&quot;: false,
+  &quot;nextAfterItemId&quot;: null,
+  &quot;nextAfterStoreId&quot;: null,
+  &quot;nextSince&quot;: &quot;2026-10-01T10:05:00+00:00&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;itemId&quot;: &quot;DEMO-SHIRT-S&quot;,
+      &quot;barcode&quot;: &quot;DEMO000002&quot;,
+      &quot;style&quot;: &quot;DEMO-SHIRT&quot;,
+      &quot;theme&quot;: null,
+      &quot;itemName&quot;: &quot;Example shirt&quot;,
+      &quot;itemNameAr&quot;: null,
+      &quot;itemType&quot;: 1,
+      &quot;colorCode&quot;: null,
+      &quot;colorName&quot;: null,
+      &quot;size&quot;: &quot;S&quot;,
+      &quot;unit&quot;: 1,
+      &quot;supplierId&quot;: 7,
+      &quot;supplierName&quot;: &quot;Example Supplier&quot;,
+      &quot;brandId&quot;: null,
+      &quot;brandName&quot;: &quot;Example Supplier&quot;,
+      &quot;categoryId&quot;: null,
+      &quot;categoryName&quot;: null,
+      &quot;subcategoryId&quot;: null,
+      &quot;subcategoryName&quot;: null,
+      &quot;productGroupId&quot;: null,
+      &quot;productGroupName&quot;: null,
+      &quot;productSubgroupId&quot;: null,
+      &quot;productSubgroupName&quot;: null,
+      &quot;receivedSeasonId&quot;: null,
+      &quot;receivedSeason&quot;: null,
+      &quot;salesPeriodId&quot;: null,
+      &quot;salesPeriod&quot;: null,
+      &quot;ageRangeId&quot;: null,
+      &quot;ageRange&quot;: null,
+      &quot;genderId&quot;: null,
+      &quot;gender&quot;: null,
+      &quot;countryId&quot;: null,
+      &quot;countryName&quot;: null,
+      &quot;itemState&quot;: 0,
+      &quot;isOnline&quot;: false,
+      &quot;originalPrice&quot;: 20,
+      &quot;currentPrice&quot;: 18,
+      &quot;averageLocalCost&quot;: null,
+      &quot;lastPurchaseDate&quot;: null,
+      &quot;lastPurchaseCurrencyId&quot;: null,
+      &quot;lastPurchaseCurrency&quot;: null,
+      &quot;lastPurchasePrice&quot;: null,
+      &quot;firstDisplayDate&quot;: null
+    }
+  ]
+}</code></pre><p>After all pages are durably applied, save nextSince and policyVersion. Clear continuation keys. Poll again using nextSince as since, the same version, and no through or after key.</p>
+<h3>Inventory Delta</h3><p>Initial request:</p><pre><code>GET https://api.example.com/api/v1/companies/1/inventory/changes HTTP/1.1
+X-IMS-API-Key: YOUR_AUTHORIZED_TEST_API_KEY
+Accept: application/json</code></pre><pre><code>{
+  &quot;companyId&quot;: 1,
+  &quot;fullSyncRequired&quot;: true,
+  &quot;reason&quot;: &quot;initial_sync_required&quot;,
+  &quot;baselineSince&quot;: &quot;2026-10-01T10:00:00+00:00&quot;,
+  &quot;policyVersion&quot;: &quot;EXAMPLE_INVENTORY_SERVER_VERSION&quot;,
+  &quot;count&quot;: 0,
+  &quot;data&quot;: []
+}</code></pre><p>After the full <a href="reference.html#inventory">inventory</a> export succeeds, request the first incremental page:</p><pre><code>GET https://api.example.com/api/v1/companies/1/inventory/changes?since=2026-10-01T10%3A00%3A00Z&amp;policyVersion=EXAMPLE_INVENTORY_SERVER_VERSION&amp;pageSize=1 HTTP/1.1
+X-IMS-API-Key: YOUR_AUTHORIZED_TEST_API_KEY
+Accept: application/json</code></pre><pre><code>{
+  &quot;companyId&quot;: 1,
+  &quot;companyCode&quot;: &quot;EXAMPLE&quot;,
+  &quot;currencyCode&quot;: &quot;USD&quot;,
+  &quot;fullSyncRequired&quot;: false,
+  &quot;since&quot;: &quot;2026-10-01T10:00:00+00:00&quot;,
+  &quot;through&quot;: &quot;2026-10-01T10:05:00+00:00&quot;,
+  &quot;policyVersion&quot;: &quot;EXAMPLE_INVENTORY_SERVER_VERSION&quot;,
+  &quot;count&quot;: 1,
+  &quot;hasMore&quot;: true,
+  &quot;nextAfterItemId&quot;: &quot;DEMO-SHIRT-M&quot;,
+  &quot;nextAfterStoreId&quot;: 101,
+  &quot;nextSince&quot;: &quot;2026-10-01T10:00:00+00:00&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;storeId&quot;: 101,
+      &quot;storeName&quot;: &quot;Example Store&quot;,
+      &quot;isMainStore&quot;: false,
+      &quot;isOnlineStore&quot;: false,
+      &quot;isDamageStore&quot;: false,
+      &quot;isActive&quot;: true,
+      &quot;itemId&quot;: &quot;DEMO-SHIRT-M&quot;,
+      &quot;onHandQty&quot;: 0,
+      &quot;unitCost&quot;: null,
+      &quot;stockValue&quot;: null,
+      &quot;currentRetailPrice&quot;: 18,
+      &quot;retailValue&quot;: 0
+    }
+  ]
+}</code></pre><p>Apply the row. Continue with exactly the same window, version and returned key pair:</p><pre><code>GET https://api.example.com/api/v1/companies/1/inventory/changes?since=2026-10-01T10%3A00%3A00Z&amp;policyVersion=EXAMPLE_INVENTORY_SERVER_VERSION&amp;pageSize=1&amp;through=2026-10-01T10%3A05%3A00Z&amp;afterItemId=DEMO-SHIRT-M&amp;afterStoreId=101 HTTP/1.1
+X-IMS-API-Key: YOUR_AUTHORIZED_TEST_API_KEY
+Accept: application/json</code></pre><p>Illustrative final response:</p><pre><code>{
+  &quot;companyId&quot;: 1,
+  &quot;companyCode&quot;: &quot;EXAMPLE&quot;,
+  &quot;currencyCode&quot;: &quot;USD&quot;,
+  &quot;fullSyncRequired&quot;: false,
+  &quot;since&quot;: &quot;2026-10-01T10:00:00+00:00&quot;,
+  &quot;through&quot;: &quot;2026-10-01T10:05:00+00:00&quot;,
+  &quot;policyVersion&quot;: &quot;EXAMPLE_INVENTORY_SERVER_VERSION&quot;,
+  &quot;count&quot;: 1,
+  &quot;hasMore&quot;: false,
+  &quot;nextAfterItemId&quot;: null,
+  &quot;nextAfterStoreId&quot;: null,
+  &quot;nextSince&quot;: &quot;2026-10-01T10:05:00+00:00&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;storeId&quot;: 102,
+      &quot;storeName&quot;: &quot;Example Store 2&quot;,
+      &quot;isMainStore&quot;: false,
+      &quot;isOnlineStore&quot;: false,
+      &quot;isDamageStore&quot;: false,
+      &quot;isActive&quot;: true,
+      &quot;itemId&quot;: &quot;DEMO-SHIRT-M&quot;,
+      &quot;onHandQty&quot;: 7,
+      &quot;unitCost&quot;: null,
+      &quot;stockValue&quot;: null,
+      &quot;currentRetailPrice&quot;: 18,
+      &quot;retailValue&quot;: 126
+    }
+  ]
+}</code></pre><p>After all pages are durably applied, save nextSince and policyVersion. Clear continuation keys. Poll again using nextSince as since, the same version, and no through or after keys.</p>
+<h2 id="responses">Envelope field dictionary</h2><p>Fields appear only in the stated envelope shape. All fields are nonnull except the continuation keys; data is an array even for empty results.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type / shape</th><th>Meaning</th></tr></thead><tbody>
+<tr><td><code>companyId</code></td><td>integer; both shapes</td><td>Authorized company.</td></tr>
+<tr><td><code>fullSyncRequired</code></td><td>boolean; both shapes</td><td>True instructs a full rebuild; false is incremental.</td></tr>
+<tr><td><code>reason</code></td><td>string; full-sync only</td><td>initial_sync_required, history_not_available, policy_version_required or policy_or_catalog_changed.</td></tr>
+<tr><td><code>baselineSince</code></td><td>offset timestamp; full-sync only</td><td>Capture before exporting the full ordinary resource.</td></tr>
+<tr><td><code>policyVersion</code></td><td>string; both shapes</td><td>Opaque endpoint-, client-, company- and policy-specific synchronization version.</td></tr>
+<tr><td><code>companyCode / currencyCode</code></td><td>strings; incremental only</td><td>Company code and currency code; no companyName in Delta.</td></tr>
+<tr><td><code>since / through</code></td><td>offset timestamps; incremental only</td><td>Accepted fixed window bounds.</td></tr>
+<tr><td><code>count</code></td><td>integer; both shapes</td><td>Rows in data; zero for full-sync instruction.</td></tr>
+<tr><td><code>hasMore</code></td><td>boolean; incremental only</td><td>Whether another page is available.</td></tr>
+<tr><td><code>nextAfterItemId</code></td><td>string or null; incremental only</td><td>Last item key when hasMore; otherwise null.</td></tr>
+<tr><td><code>nextAfterStoreId</code></td><td>integer or null; incremental only</td><td>Last store key for Inventory Delta when hasMore; null otherwise and always null for Items Delta.</td></tr>
+<tr><td><code>nextSince</code></td><td>offset timestamp; incremental only</td><td>since while hasMore=true; through on completion.</td></tr>
+<tr><td><code>data</code></td><td>array; both shapes</td><td>Ordinary item or inventory rows; empty on full-sync instruction.</td></tr>
+</tbody></table></div>
+<h2 id="recovery">Full synchronization and recovery</h2><p>Initial requests, unavailable historical change coverage, missing policyVersion, and changed policy or authorized catalog membership can return fullSyncRequired=true. The policy can change when catalog members are added, removed or reassigned, when applicable permissions change, or when the inventory store catalog changes. Do not simply replace the policyVersion on an old cursor; rebuild the relevant complete mirror. No removal tombstones are emitted.</p>
+<p>If a request or local write fails, retain the last durable cursor and replay. Persist a continuation key only together with the exact window and version and after its rows are durably applied. A completed empty incremental window still advances nextSince. Boundary rows may repeat; upsert rather than accumulate them.</p>
+<p>During <a href="errors-rate-limits.html#maintenance">company maintenance</a>, requests may return 503 with Retry-After. Retry the same request, without advancing the cursor. Maintenance alone does not invalidate policyVersion and does not require a full export. Follow a full-sync instruction if the actual policy or catalog has changed.</p>
+<h2 id="coverage">What Delta does and does not represent</h2><p>Items Delta returns current item snapshots for tracked item-master or stock changes. Inventory Delta returns current balances for tracked store/item stock changes and authorized rows affected by tracked item-master changes, such as price changes. This is not a field-by-field change journal or a list of stock movements. Values are current when read and are not frozen historically at through. The safe window selects changes; each page is a separate request.</p>
+<p>Some updates outside the supported change-tracked operations, lookup changes, cost-only background changes or direct removals of stock rows may require a deliberate full refresh. Reconcile periodically according to your integration's needs. A full export is paged, not a single frozen cross-request snapshot.</p>
+<p>Use <a href="reference.html#inventory-movements">inventory movements</a> for transaction flow and <a href="requests.html#timestamp-filters">timestamp filters</a> for recorded sales, purchases and movement events; these are distinct from Delta snapshots.</p>
+<footer class="page-footer"><span>IMS Documentation</span><span>Business API v1 developer guide</span></footer>
+</main></div><script src="../../assets/js/docs.js"></script></body></html>
