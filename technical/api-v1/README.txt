@@ -11,6 +11,7 @@ Pages:
 - examples.html
 - partner-data.html
 - customer-delta.html
+- ordinary-delta.html
 
 Developer downloads:
 - IMS_API_v1.http
@@ -19,7 +20,10 @@ Developer downloads:
 Customers examples require approved access and customers.read. Use full-catalog
 pagination for full exports; capture the Delta baseline and revision first when
 maintaining an incremental mirror. Footfall requires footfall.read.
-Both downloadable collections cover all 24 GET operations.
+Both downloadable collections cover all 26 GET operations, plus ordinary Delta
+poll/continuation and transaction timestamp examples. Use returned baseline,
+policyVersion, through and continuation keys, not synthetic values. Honor
+maintenance HTTP 503 and Retry-After; do not advance a failed cursor.
 Replace synthetic host/company/key values before use. Never use real customer
 data in shared examples. Global administrator procedures are documented at
 ../ims-global-api-administration.html.
