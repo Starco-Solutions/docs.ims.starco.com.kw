@@ -1,8 +1,8 @@
 {
   "info": {
-    "name": "IMS Business API v1 — 24 operations",
+    "name": "IMS Business API v1 — 26 operations",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": "Synthetic examples. Set authorized test credentials locally; preserve server-provided Delta cursors."
+    "description": "Synthetic examples. Set authorized test credentials locally. Complete the initial full export and substitute returned Delta window, policy and continuation values. Transaction timestamp examples use company-local time; Delta uses offset timestamps (URL-encode offsets). Respect maintenance HTTP 503 and Retry-After."
   },
   "variable": [
     {
@@ -36,6 +36,50 @@
     {
       "key": "cashbackPromotionId",
       "value": "12"
+    },
+    {
+      "key": "fromTimestamp",
+      "value": "2026-10-01T00:00:00"
+    },
+    {
+      "key": "toTimestamp",
+      "value": "2026-10-02T00:00:00"
+    },
+    {
+      "key": "itemsSince",
+      "value": "REPLACE_WITH_ITEMS_BASELINE_OR_NEXT_SINCE"
+    },
+    {
+      "key": "itemsThrough",
+      "value": "REPLACE_WITH_ITEMS_THROUGH"
+    },
+    {
+      "key": "itemsPolicyVersion",
+      "value": "REPLACE_WITH_ITEMS_POLICY_VERSION"
+    },
+    {
+      "key": "itemsAfterItemId",
+      "value": "REPLACE_WITH_ITEMS_NEXT_AFTER_ITEM_ID"
+    },
+    {
+      "key": "inventorySince",
+      "value": "REPLACE_WITH_INVENTORY_BASELINE_OR_NEXT_SINCE"
+    },
+    {
+      "key": "inventoryThrough",
+      "value": "REPLACE_WITH_INVENTORY_THROUGH"
+    },
+    {
+      "key": "inventoryPolicyVersion",
+      "value": "REPLACE_WITH_INVENTORY_POLICY_VERSION"
+    },
+    {
+      "key": "inventoryAfterItemId",
+      "value": "REPLACE_WITH_INVENTORY_NEXT_AFTER_ITEM_ID"
+    },
+    {
+      "key": "inventoryAfterStoreId",
+      "value": "REPLACE_WITH_INVENTORY_NEXT_AFTER_STORE_ID"
     }
   ],
   "item": [
@@ -143,7 +187,7 @@
               "value": "application/json"
             }
           ],
-          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"barcode\": \"DEMO000001\",\n      \"style\": \"DEMO-SHIRT\",\n      \"theme\": null,\n      \"itemName\": \"Example shirt\",\n      \"itemNameAr\": null,\n      \"itemType\": 1,\n      \"colorCode\": null,\n      \"colorName\": null,\n      \"size\": \"M\",\n      \"unit\": 1,\n      \"supplierId\": 7,\n      \"supplierName\": \"Example Supplier\",\n      \"brandId\": null,\n      \"brandName\": null,\n      \"categoryId\": null,\n      \"categoryName\": null,\n      \"subcategoryId\": null,\n      \"subcategoryName\": null,\n      \"productGroupId\": null,\n      \"productGroupName\": null,\n      \"productSubgroupId\": null,\n      \"productSubgroupName\": null,\n      \"receivedSeasonId\": null,\n      \"receivedSeason\": null,\n      \"salesPeriodId\": null,\n      \"salesPeriod\": null,\n      \"ageRangeId\": null,\n      \"ageRange\": null,\n      \"genderId\": null,\n      \"gender\": null,\n      \"countryId\": null,\n      \"countryName\": null,\n      \"itemState\": 0,\n      \"isOnline\": false,\n      \"originalPrice\": 20,\n      \"currentPrice\": 18,\n      \"averageLocalCost\": null,\n      \"lastPurchaseDate\": null,\n      \"lastPurchaseCurrencyId\": null,\n      \"lastPurchaseCurrency\": null,\n      \"lastPurchasePrice\": null,\n      \"firstDisplayDate\": null\n    }\n  ]\n}"
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"barcode\": \"DEMO000001\",\n      \"style\": \"DEMO-SHIRT\",\n      \"theme\": null,\n      \"itemName\": \"Example shirt\",\n      \"itemNameAr\": null,\n      \"itemType\": 1,\n      \"colorCode\": null,\n      \"colorName\": null,\n      \"size\": \"M\",\n      \"unit\": 1,\n      \"supplierId\": 7,\n      \"supplierName\": \"Example Supplier\",\n      \"brandId\": null,\n      \"brandName\": \"Example Supplier\",\n      \"categoryId\": null,\n      \"categoryName\": null,\n      \"subcategoryId\": null,\n      \"subcategoryName\": null,\n      \"productGroupId\": null,\n      \"productGroupName\": null,\n      \"productSubgroupId\": null,\n      \"productSubgroupName\": null,\n      \"receivedSeasonId\": null,\n      \"receivedSeason\": null,\n      \"salesPeriodId\": null,\n      \"salesPeriod\": null,\n      \"ageRangeId\": null,\n      \"ageRange\": null,\n      \"genderId\": null,\n      \"gender\": null,\n      \"countryId\": null,\n      \"countryName\": null,\n      \"itemState\": 0,\n      \"isOnline\": false,\n      \"originalPrice\": 20,\n      \"currentPrice\": 18,\n      \"averageLocalCost\": null,\n      \"lastPurchaseDate\": null,\n      \"lastPurchaseCurrencyId\": null,\n      \"lastPurchaseCurrency\": null,\n      \"lastPurchasePrice\": null,\n      \"firstDisplayDate\": null\n    }\n  ]\n}"
         }
       ]
     },
@@ -215,7 +259,7 @@
               "value": "application/json"
             }
           ],
-          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"movementDate\": \"2026-10-01\",\n      \"movementTime\": \"10:00:00\",\n      \"movementType\": \"SALE\",\n      \"transactionType\": 51,\n      \"storeId\": 101,\n      \"relatedStoreId\": null,\n      \"documentCenterId\": 101,\n      \"documentNo\": 9001,\n      \"lineNo\": 1,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"movementQty\": -2,\n      \"unitCost\": null,\n      \"stockValueMovement\": null\n    }\n  ]\n}"
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"fromTimestamp\": null,\n  \"toTimestamp\": null,\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"movementDate\": \"2026-10-01\",\n      \"stockEffectiveAt\": \"2026-10-01T10:00:00\",\n      \"movementTime\": \"10:00:00\",\n      \"movementType\": \"SALE\",\n      \"transactionType\": 51,\n      \"storeId\": 101,\n      \"relatedStoreId\": null,\n      \"documentCenterId\": 101,\n      \"documentNo\": 9001,\n      \"lineNo\": 1,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"movementQty\": -2,\n      \"unitCost\": null,\n      \"stockValueMovement\": null\n    }\n  ]\n}"
         }
       ]
     },
@@ -251,7 +295,7 @@
               "value": "application/json"
             }
           ],
-          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"saleDate\": \"2026-10-01\",\n      \"saleTimestamp\": \"2026-10-01T10:00:00\",\n      \"storeId\": 101,\n      \"storeName\": \"Example Store\",\n      \"transactionType\": 51,\n      \"transactionTypeName\": null,\n      \"invoiceNo\": 9001,\n      \"lineNo\": 1,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"itemType\": 1,\n      \"salespersonId\": null,\n      \"salespersonName\": null,\n      \"customerId\": null,\n      \"loyaltyCustomerId\": null,\n      \"promotionId\": 10,\n      \"markdownId\": null,\n      \"couponEventId\": 20,\n      \"quantity\": 2,\n      \"originalUnitPrice\": 20,\n      \"discountPercent\": 10,\n      \"discountAmount\": 2,\n      \"invoiceDiscountAmount\": 0,\n      \"lineAmount\": 36,\n      \"unitCost\": null,\n      \"saleState\": null,\n      \"isReturn\": false,\n      \"isDiscounted\": true,\n      \"isItemDiscounted\": true,\n      \"isInvoiceDiscounted\": false,\n      \"netQuantity\": 2,\n      \"grossSalesAmount\": 40,\n      \"netSalesAmount\": 36,\n      \"cogsAmount\": null\n    }\n  ]\n}"
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"fromTimestamp\": null,\n  \"toTimestamp\": null,\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"saleDate\": \"2026-10-01\",\n      \"saleTimestamp\": \"2026-10-01T10:00:00\",\n      \"storeId\": 101,\n      \"storeName\": \"Example Store\",\n      \"transactionType\": 51,\n      \"transactionTypeName\": null,\n      \"invoiceNo\": 9001,\n      \"lineNo\": 1,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"itemType\": 1,\n      \"salespersonId\": null,\n      \"salespersonName\": null,\n      \"customerId\": null,\n      \"loyaltyCustomerId\": null,\n      \"promotionId\": 10,\n      \"markdownId\": null,\n      \"couponEventId\": 20,\n      \"quantity\": 2,\n      \"originalUnitPrice\": 20,\n      \"discountPercent\": 10,\n      \"discountAmount\": 2,\n      \"invoiceDiscountAmount\": 0,\n      \"lineAmount\": 36,\n      \"unitCost\": null,\n      \"saleState\": null,\n      \"isReturn\": false,\n      \"isDiscounted\": true,\n      \"isItemDiscounted\": true,\n      \"isInvoiceDiscounted\": false,\n      \"netQuantity\": 2,\n      \"grossSalesAmount\": 40,\n      \"netSalesAmount\": 36,\n      \"cogsAmount\": null\n    }\n  ]\n}"
         }
       ]
     },
@@ -287,7 +331,7 @@
               "value": "application/json"
             }
           ],
-          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"purchaseDate\": \"2026-10-01\",\n      \"purchaseCenterId\": 101,\n      \"purchaseCenterName\": null,\n      \"transactionType\": 1,\n      \"transactionTypeName\": \"Purchase\",\n      \"purchaseNo\": 9002,\n      \"lineNo\": 1,\n      \"documentState\": 2,\n      \"documentStateName\": \"Finalized\",\n      \"supplierId\": 7,\n      \"supplierName\": \"Example Supplier\",\n      \"supplierInvoiceNo\": null,\n      \"supplierInvoiceDate\": null,\n      \"supplierVatNo\": null,\n      \"receivingStoreId\": 101,\n      \"receivingStoreName\": null,\n      \"statisticalPeriodId\": null,\n      \"statisticalPeriod\": null,\n      \"shipmentNo\": null,\n      \"currencyId\": null,\n      \"currencyName\": null,\n      \"currencySymbol\": null,\n      \"exchangeRate\": null,\n      \"costRate\": null,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"unit\": 1,\n      \"quantity\": 2,\n      \"unitPurchasePrice\": null,\n      \"lineForeignAmount\": null,\n      \"currentRetailPrice\": 18,\n      \"netQuantity\": 2,\n      \"foreignCostAmount\": null,\n      \"localCostAmount\": null,\n      \"landedCostAmount\": null,\n      \"landedExpenseAmount\": null,\n      \"documentForeignTotal\": null,\n      \"documentDiscountEarned\": null,\n      \"documentNetForeignAmount\": null,\n      \"documentExpenses\": null\n    }\n  ]\n}"
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": \"2026-10-01\",\n  \"toDate\": \"2026-10-01\",\n  \"fromTimestamp\": null,\n  \"toTimestamp\": null,\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"purchaseDate\": \"2026-10-01\",\n      \"stockEffectiveAt\": \"2026-10-01T11:00:00\",\n      \"purchaseCenterId\": 101,\n      \"purchaseCenterName\": null,\n      \"transactionType\": 1,\n      \"transactionTypeName\": \"Purchase\",\n      \"purchaseNo\": 9002,\n      \"lineNo\": 1,\n      \"documentState\": 2,\n      \"documentStateName\": \"Finalized\",\n      \"supplierId\": 7,\n      \"supplierName\": \"Example Supplier\",\n      \"supplierInvoiceNo\": null,\n      \"supplierInvoiceDate\": null,\n      \"supplierVatNo\": null,\n      \"receivingStoreId\": 101,\n      \"receivingStoreName\": null,\n      \"statisticalPeriodId\": null,\n      \"statisticalPeriod\": null,\n      \"shipmentNo\": null,\n      \"currencyId\": null,\n      \"currencyName\": null,\n      \"currencySymbol\": null,\n      \"exchangeRate\": null,\n      \"costRate\": null,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"unit\": 1,\n      \"quantity\": 2,\n      \"unitPurchasePrice\": null,\n      \"lineForeignAmount\": null,\n      \"currentRetailPrice\": 18,\n      \"netQuantity\": 2,\n      \"foreignCostAmount\": null,\n      \"localCostAmount\": null,\n      \"landedCostAmount\": null,\n      \"landedExpenseAmount\": null,\n      \"documentForeignTotal\": null,\n      \"documentDiscountEarned\": null,\n      \"documentNetForeignAmount\": null,\n      \"documentExpenses\": null\n    }\n  ]\n}"
         }
       ]
     },
@@ -900,6 +944,378 @@
             }
           ],
           "body": "{\n  \"companyId\": 1,\n  \"fullSyncRequired\": true,\n  \"reason\": \"initial_sync_required\",\n  \"baselineSince\": \"2026-10-01T10:00:00+00:00\",\n  \"policyVersion\": \"EXAMPLE_SERVER_VERSION\",\n  \"count\": 0,\n  \"data\": []\n}"
+        }
+      ]
+    },
+    {
+      "name": "Items Delta — initial handshake",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/items/changes?pageSize=200",
+        "description": "Requires items.read. Capture baselineSince and policyVersion; export the full ordinary items resource before polling."
+      },
+      "response": [
+        {
+          "name": "Synthetic full-sync response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/items/changes?pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"fullSyncRequired\": true,\n  \"reason\": \"initial_sync_required\",\n  \"baselineSince\": \"2026-10-01T10:00:00+00:00\",\n  \"policyVersion\": \"EXAMPLE_ITEMS_SERVER_VERSION\",\n  \"count\": 0,\n  \"data\": []\n}"
+        },
+        {
+          "name": "Company maintenance",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/items/changes?pageSize=200"
+          },
+          "status": "Service Unavailable",
+          "code": 503,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Retry-After",
+              "value": "60"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ],
+          "body": "{\n  \"error\": \"maintenance_active\",\n  \"message\": \"IMS maintenance is in progress for this company. Retry after maintenance has finished.\",\n  \"companyId\": 1\n}"
+        }
+      ]
+    },
+    {
+      "name": "Items Delta — first poll",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/items/changes?since={{itemsSince}}&policyVersion={{itemsPolicyVersion}}&pageSize=1",
+        "description": "Replace since and policyVersion with actual values from a completed initial export or last completed window. Encode offsets; Z timestamps are convenient."
+      },
+      "response": [
+        {
+          "name": "Synthetic incremental page",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/items/changes?since={{itemsSince}}&policyVersion={{itemsPolicyVersion}}&pageSize=1"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"currencyCode\": \"USD\",\n  \"fullSyncRequired\": false,\n  \"since\": \"2026-10-01T10:00:00+00:00\",\n  \"through\": \"2026-10-01T10:05:00+00:00\",\n  \"policyVersion\": \"EXAMPLE_ITEMS_SERVER_VERSION\",\n  \"count\": 1,\n  \"hasMore\": true,\n  \"nextAfterItemId\": \"DEMO-SHIRT-M\",\n  \"nextAfterStoreId\": null,\n  \"nextSince\": \"2026-10-01T10:00:00+00:00\",\n  \"data\": [\n    {\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"barcode\": \"DEMO000001\",\n      \"style\": \"DEMO-SHIRT\",\n      \"theme\": null,\n      \"itemName\": \"Example shirt\",\n      \"itemNameAr\": null,\n      \"itemType\": 1,\n      \"colorCode\": null,\n      \"colorName\": null,\n      \"size\": \"M\",\n      \"unit\": 1,\n      \"supplierId\": 7,\n      \"supplierName\": \"Example Supplier\",\n      \"brandId\": null,\n      \"brandName\": \"Example Supplier\",\n      \"categoryId\": null,\n      \"categoryName\": null,\n      \"subcategoryId\": null,\n      \"subcategoryName\": null,\n      \"productGroupId\": null,\n      \"productGroupName\": null,\n      \"productSubgroupId\": null,\n      \"productSubgroupName\": null,\n      \"receivedSeasonId\": null,\n      \"receivedSeason\": null,\n      \"salesPeriodId\": null,\n      \"salesPeriod\": null,\n      \"ageRangeId\": null,\n      \"ageRange\": null,\n      \"genderId\": null,\n      \"gender\": null,\n      \"countryId\": null,\n      \"countryName\": null,\n      \"itemState\": 0,\n      \"isOnline\": false,\n      \"originalPrice\": 20,\n      \"currentPrice\": 18,\n      \"averageLocalCost\": null,\n      \"lastPurchaseDate\": null,\n      \"lastPurchaseCurrencyId\": null,\n      \"lastPurchaseCurrency\": null,\n      \"lastPurchasePrice\": null,\n      \"firstDisplayDate\": null\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Items Delta — continuation",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/items/changes?since={{itemsSince}}&policyVersion={{itemsPolicyVersion}}&pageSize=1&through={{itemsThrough}}&afterItemId={{itemsAfterItemId}}",
+        "description": "Preserve the exact since, through and policyVersion and substitute returned continuation keys. Only use after a page with hasMore=true; advance the durable cursor after the final page."
+      },
+      "response": [
+        {
+          "name": "Synthetic final page",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/items/changes?since={{itemsSince}}&policyVersion={{itemsPolicyVersion}}&pageSize=1&through={{itemsThrough}}&afterItemId={{itemsAfterItemId}}"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"currencyCode\": \"USD\",\n  \"fullSyncRequired\": false,\n  \"since\": \"2026-10-01T10:00:00+00:00\",\n  \"through\": \"2026-10-01T10:05:00+00:00\",\n  \"policyVersion\": \"EXAMPLE_ITEMS_SERVER_VERSION\",\n  \"count\": 1,\n  \"hasMore\": false,\n  \"nextAfterItemId\": null,\n  \"nextAfterStoreId\": null,\n  \"nextSince\": \"2026-10-01T10:05:00+00:00\",\n  \"data\": [\n    {\n      \"itemId\": \"DEMO-SHIRT-S\",\n      \"barcode\": \"DEMO000002\",\n      \"style\": \"DEMO-SHIRT\",\n      \"theme\": null,\n      \"itemName\": \"Example shirt\",\n      \"itemNameAr\": null,\n      \"itemType\": 1,\n      \"colorCode\": null,\n      \"colorName\": null,\n      \"size\": \"S\",\n      \"unit\": 1,\n      \"supplierId\": 7,\n      \"supplierName\": \"Example Supplier\",\n      \"brandId\": null,\n      \"brandName\": \"Example Supplier\",\n      \"categoryId\": null,\n      \"categoryName\": null,\n      \"subcategoryId\": null,\n      \"subcategoryName\": null,\n      \"productGroupId\": null,\n      \"productGroupName\": null,\n      \"productSubgroupId\": null,\n      \"productSubgroupName\": null,\n      \"receivedSeasonId\": null,\n      \"receivedSeason\": null,\n      \"salesPeriodId\": null,\n      \"salesPeriod\": null,\n      \"ageRangeId\": null,\n      \"ageRange\": null,\n      \"genderId\": null,\n      \"gender\": null,\n      \"countryId\": null,\n      \"countryName\": null,\n      \"itemState\": 0,\n      \"isOnline\": false,\n      \"originalPrice\": 20,\n      \"currentPrice\": 18,\n      \"averageLocalCost\": null,\n      \"lastPurchaseDate\": null,\n      \"lastPurchaseCurrencyId\": null,\n      \"lastPurchaseCurrency\": null,\n      \"lastPurchasePrice\": null,\n      \"firstDisplayDate\": null\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Inventory Delta — initial handshake",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/changes?pageSize=200",
+        "description": "Requires inventory.read. Capture baselineSince and policyVersion; export the full ordinary inventory resource before polling."
+      },
+      "response": [
+        {
+          "name": "Synthetic full-sync response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/changes?pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"fullSyncRequired\": true,\n  \"reason\": \"initial_sync_required\",\n  \"baselineSince\": \"2026-10-01T10:00:00+00:00\",\n  \"policyVersion\": \"EXAMPLE_INVENTORY_SERVER_VERSION\",\n  \"count\": 0,\n  \"data\": []\n}"
+        },
+        {
+          "name": "Company maintenance",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/changes?pageSize=200"
+          },
+          "status": "Service Unavailable",
+          "code": 503,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Retry-After",
+              "value": "60"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ],
+          "body": "{\n  \"error\": \"maintenance_active\",\n  \"message\": \"IMS maintenance is in progress for this company. Retry after maintenance has finished.\",\n  \"companyId\": 1\n}"
+        }
+      ]
+    },
+    {
+      "name": "Inventory Delta — first poll",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/changes?since={{inventorySince}}&policyVersion={{inventoryPolicyVersion}}&pageSize=1",
+        "description": "Replace since and policyVersion with actual values from a completed initial export or last completed window. Encode offsets; Z timestamps are convenient."
+      },
+      "response": [
+        {
+          "name": "Synthetic incremental page",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/changes?since={{inventorySince}}&policyVersion={{inventoryPolicyVersion}}&pageSize=1"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"currencyCode\": \"USD\",\n  \"fullSyncRequired\": false,\n  \"since\": \"2026-10-01T10:00:00+00:00\",\n  \"through\": \"2026-10-01T10:05:00+00:00\",\n  \"policyVersion\": \"EXAMPLE_INVENTORY_SERVER_VERSION\",\n  \"count\": 1,\n  \"hasMore\": true,\n  \"nextAfterItemId\": \"DEMO-SHIRT-M\",\n  \"nextAfterStoreId\": 101,\n  \"nextSince\": \"2026-10-01T10:00:00+00:00\",\n  \"data\": [\n    {\n      \"storeId\": 101,\n      \"storeName\": \"Example Store\",\n      \"isMainStore\": false,\n      \"isOnlineStore\": false,\n      \"isDamageStore\": false,\n      \"isActive\": true,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"onHandQty\": 0,\n      \"unitCost\": null,\n      \"stockValue\": null,\n      \"currentRetailPrice\": 18,\n      \"retailValue\": 0\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Inventory Delta — continuation",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/changes?since={{inventorySince}}&policyVersion={{inventoryPolicyVersion}}&pageSize=1&through={{inventoryThrough}}&afterItemId={{inventoryAfterItemId}}&afterStoreId={{inventoryAfterStoreId}}",
+        "description": "Preserve the exact since, through and policyVersion and substitute returned continuation keys. Only use after a page with hasMore=true; advance the durable cursor after the final page."
+      },
+      "response": [
+        {
+          "name": "Synthetic final page",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/changes?since={{inventorySince}}&policyVersion={{inventoryPolicyVersion}}&pageSize=1&through={{inventoryThrough}}&afterItemId={{inventoryAfterItemId}}&afterStoreId={{inventoryAfterStoreId}}"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"currencyCode\": \"USD\",\n  \"fullSyncRequired\": false,\n  \"since\": \"2026-10-01T10:00:00+00:00\",\n  \"through\": \"2026-10-01T10:05:00+00:00\",\n  \"policyVersion\": \"EXAMPLE_INVENTORY_SERVER_VERSION\",\n  \"count\": 1,\n  \"hasMore\": false,\n  \"nextAfterItemId\": null,\n  \"nextAfterStoreId\": null,\n  \"nextSince\": \"2026-10-01T10:05:00+00:00\",\n  \"data\": [\n    {\n      \"storeId\": 102,\n      \"storeName\": \"Example Store 2\",\n      \"isMainStore\": false,\n      \"isOnlineStore\": false,\n      \"isDamageStore\": false,\n      \"isActive\": true,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"onHandQty\": 7,\n      \"unitCost\": null,\n      \"stockValue\": null,\n      \"currentRetailPrice\": 18,\n      \"retailValue\": 126\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Sales — timestamp range",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/sales?fromTimestamp={{fromTimestamp}}&toTimestamp={{toTimestamp}}&page=1&pageSize=200",
+        "description": "Alternative to fromDate/toDate; company-local timestamps without offsets, inclusive start and exclusive end. Timestamp selection uses saleTimestamp, not saleDate. It can include backdated invoices; it is not a last-modified feed."
+      },
+      "response": [
+        {
+          "name": "Synthetic timestamp-filtered response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/sales?fromTimestamp={{fromTimestamp}}&toTimestamp={{toTimestamp}}&page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": null,\n  \"toDate\": null,\n  \"fromTimestamp\": \"2026-10-01T00:00:00\",\n  \"toTimestamp\": \"2026-10-02T00:00:00\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"saleDate\": \"2026-10-01\",\n      \"saleTimestamp\": \"2026-10-01T10:00:00\",\n      \"storeId\": 101,\n      \"storeName\": \"Example Store\",\n      \"transactionType\": 51,\n      \"transactionTypeName\": null,\n      \"invoiceNo\": 9001,\n      \"lineNo\": 1,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"itemType\": 1,\n      \"salespersonId\": null,\n      \"salespersonName\": null,\n      \"customerId\": null,\n      \"loyaltyCustomerId\": null,\n      \"promotionId\": 10,\n      \"markdownId\": null,\n      \"couponEventId\": 20,\n      \"quantity\": 2,\n      \"originalUnitPrice\": 20,\n      \"discountPercent\": 10,\n      \"discountAmount\": 2,\n      \"invoiceDiscountAmount\": 0,\n      \"lineAmount\": 36,\n      \"unitCost\": null,\n      \"saleState\": null,\n      \"isReturn\": false,\n      \"isDiscounted\": true,\n      \"isItemDiscounted\": true,\n      \"isInvoiceDiscounted\": false,\n      \"netQuantity\": 2,\n      \"grossSalesAmount\": 40,\n      \"netSalesAmount\": 36,\n      \"cogsAmount\": null\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Purchases — timestamp range",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/purchases?fromTimestamp={{fromTimestamp}}&toTimestamp={{toTimestamp}}&page=1&pageSize=200",
+        "description": "Alternative to fromDate/toDate; company-local timestamps without offsets, inclusive start and exclusive end. Timestamp selection uses stockEffectiveAt and includes finalized vouchers only when that timestamp is known. Date selection still includes other document states unless filtered. Newly finalized purchases may have a null stockEffectiveAt until scheduled processing completes; use date-based reconciliation when needed."
+      },
+      "response": [
+        {
+          "name": "Synthetic timestamp-filtered response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/purchases?fromTimestamp={{fromTimestamp}}&toTimestamp={{toTimestamp}}&page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": null,\n  \"toDate\": null,\n  \"fromTimestamp\": \"2026-10-01T00:00:00\",\n  \"toTimestamp\": \"2026-10-02T00:00:00\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"purchaseDate\": \"2026-09-28\",\n      \"stockEffectiveAt\": \"2026-10-01T11:00:00\",\n      \"purchaseCenterId\": 101,\n      \"purchaseCenterName\": null,\n      \"transactionType\": 1,\n      \"transactionTypeName\": \"Purchase\",\n      \"purchaseNo\": 9002,\n      \"lineNo\": 1,\n      \"documentState\": 2,\n      \"documentStateName\": \"Finalized\",\n      \"supplierId\": 7,\n      \"supplierName\": \"Example Supplier\",\n      \"supplierInvoiceNo\": null,\n      \"supplierInvoiceDate\": null,\n      \"supplierVatNo\": null,\n      \"receivingStoreId\": 101,\n      \"receivingStoreName\": null,\n      \"statisticalPeriodId\": null,\n      \"statisticalPeriod\": null,\n      \"shipmentNo\": null,\n      \"currencyId\": null,\n      \"currencyName\": null,\n      \"currencySymbol\": null,\n      \"exchangeRate\": null,\n      \"costRate\": null,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"unit\": 1,\n      \"quantity\": 2,\n      \"unitPurchasePrice\": null,\n      \"lineForeignAmount\": null,\n      \"currentRetailPrice\": 18,\n      \"netQuantity\": 2,\n      \"foreignCostAmount\": null,\n      \"localCostAmount\": null,\n      \"landedCostAmount\": null,\n      \"landedExpenseAmount\": null,\n      \"documentForeignTotal\": null,\n      \"documentDiscountEarned\": null,\n      \"documentNetForeignAmount\": null,\n      \"documentExpenses\": null\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Inventory Movements — timestamp range",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-IMS-API-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/movements?fromTimestamp={{fromTimestamp}}&toTimestamp={{toTimestamp}}&page=1&pageSize=200",
+        "description": "Alternative to fromDate/toDate; company-local timestamps without offsets, inclusive start and exclusive end. Timestamp selection uses stockEffectiveAt. For purchase and purchase-return rows this is the recorded stock-affecting time when available; for other movement types it is the recorded transaction timestamp. The original movementDate and movementTime remain unchanged."
+      },
+      "response": [
+        {
+          "name": "Synthetic timestamp-filtered response",
+          "originalRequest": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/companies/{{companyId}}/inventory/movements?fromTimestamp={{fromTimestamp}}&toTimestamp={{toTimestamp}}&page=1&pageSize=200"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"companyId\": 1,\n  \"companyCode\": \"EXAMPLE\",\n  \"companyName\": \"Example Company\",\n  \"fromDate\": null,\n  \"toDate\": null,\n  \"fromTimestamp\": \"2026-10-01T00:00:00\",\n  \"toTimestamp\": \"2026-10-02T00:00:00\",\n  \"page\": 1,\n  \"pageSize\": 200,\n  \"count\": 1,\n  \"totalCount\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"movementDate\": \"2026-10-01\",\n      \"stockEffectiveAt\": \"2026-10-01T10:00:00\",\n      \"movementTime\": \"10:00:00\",\n      \"movementType\": \"SALE\",\n      \"transactionType\": 51,\n      \"storeId\": 101,\n      \"relatedStoreId\": null,\n      \"documentCenterId\": 101,\n      \"documentNo\": 9001,\n      \"lineNo\": 1,\n      \"itemId\": \"DEMO-SHIRT-M\",\n      \"movementQty\": -2,\n      \"unitCost\": null,\n      \"stockValueMovement\": null\n    }\n  ]\n}"
         }
       ]
     }

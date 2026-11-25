@@ -6,6 +6,17 @@
 @promotionId = 10
 @cashbackPromotionId = 12
 @couponEventId = 20
+@fromTimestamp = 2026-10-01T00:00:00
+@toTimestamp = 2026-10-02T00:00:00
+@itemsSince = REPLACE_WITH_ITEMS_BASELINE_OR_NEXT_SINCE
+@itemsThrough = REPLACE_WITH_ITEMS_THROUGH
+@itemsPolicyVersion = REPLACE_WITH_ITEMS_POLICY_VERSION
+@itemsAfterItemId = REPLACE_WITH_ITEMS_NEXT_AFTER_ITEM_ID
+@inventorySince = REPLACE_WITH_INVENTORY_BASELINE_OR_NEXT_SINCE
+@inventoryThrough = REPLACE_WITH_INVENTORY_THROUGH
+@inventoryPolicyVersion = REPLACE_WITH_INVENTORY_POLICY_VERSION
+@inventoryAfterItemId = REPLACE_WITH_INVENTORY_NEXT_AFTER_ITEM_ID
+@inventoryAfterStoreId = REPLACE_WITH_INVENTORY_NEXT_AFTER_STORE_ID
 
 ### Stores — stores.read
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/stores
@@ -126,3 +137,58 @@ Accept: application/json
 GET {{baseUrl}}/api/v1/companies/{{companyId}}/partner-data/items/changes?pageSize=200
 X-IMS-API-Key: {{apiKey}}
 Accept: application/json
+
+### Items Delta — items.read — initial handshake
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/items/changes?pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+# Complete the full items export before polling. Use the actual returned baseline/nextSince and policyVersion; encode any offset (or use Z).
+
+### Items Delta — first poll
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/items/changes?since={{itemsSince}}&policyVersion={{itemsPolicyVersion}}&pageSize=1
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+# Continue only when hasMore=true; keep the same window and version, use returned key(s).
+
+### Items Delta — continuation
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/items/changes?since={{itemsSince}}&policyVersion={{itemsPolicyVersion}}&pageSize=1&through={{itemsThrough}}&afterItemId={{itemsAfterItemId}}
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Inventory Delta — inventory.read — initial handshake
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/inventory/changes?pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+# Complete the full inventory export before polling. Use the actual returned baseline/nextSince and policyVersion; encode any offset (or use Z).
+
+### Inventory Delta — first poll
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/inventory/changes?since={{inventorySince}}&policyVersion={{inventoryPolicyVersion}}&pageSize=1
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+# Continue only when hasMore=true; keep the same window and version, use returned key(s).
+
+### Inventory Delta — continuation
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/inventory/changes?since={{inventorySince}}&policyVersion={{inventoryPolicyVersion}}&pageSize=1&through={{inventoryThrough}}&afterItemId={{inventoryAfterItemId}}&afterStoreId={{inventoryAfterStoreId}}
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Sales — alternative local timestamp range
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/sales?fromTimestamp={{fromTimestamp}}&toTimestamp={{toTimestamp}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Purchases — alternative local timestamp range
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/purchases?fromTimestamp={{fromTimestamp}}&toTimestamp={{toTimestamp}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+### Inventory Movements — alternative local timestamp range
+GET {{baseUrl}}/api/v1/companies/{{companyId}}/inventory/movements?fromTimestamp={{fromTimestamp}}&toTimestamp={{toTimestamp}}&page=1&pageSize=200
+X-IMS-API-Key: {{apiKey}}
+Accept: application/json
+
+# Affected requests can return HTTP 503 during company maintenance. Retain the same page/window/cursor and honor Retry-After.

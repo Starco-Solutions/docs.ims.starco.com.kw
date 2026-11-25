@@ -108,21 +108,22 @@
 - https://docs.ims.starco.com.kw/system/workstation-admin.html — Central workstation authorization through IMS Global: current fields, Refresh, Approve, Block and self-block safeguard.
 
 ## Business API
-- https://docs.ims.starco.com.kw/technical/api-v1/authentication.html — Business API keys, company access, scopes, supplier/store contracts, financial masking and trusted-internal exception; distinct Partner Data authorization.
+- https://docs.ims.starco.com.kw/technical/api-v1/authentication.html — Business API keys, scopes, company contracts, financial masking and trusted-internal exception; ordinary Delta inherits existing permissions; separate Partner Data authorization.
 - https://docs.ims.starco.com.kw/technical/api-v1/customer-delta.html — Full customer synchronization, baseline and revision, keyset pagination, safe cursor advancement and recovery for IMS Business API.
-- https://docs.ims.starco.com.kw/technical/api-v1/data-semantics.html — Signed quantities, transaction dates, sales and purchase returns, cost, repeated document totals and promotion semantics.
-- https://docs.ims.starco.com.kw/technical/api-v1/errors-rate-limits.html — 400/401/403/404/429 behavior and rate-limit handling.
-- https://docs.ims.starco.com.kw/technical/api-v1/examples.html — Synthetic executable HTTP and Postman request collections for all 24 operations, with approved test-key placeholders and synchronization examples.
-- https://docs.ims.starco.com.kw/technical/api-v1/index.html — Standalone external Business API: 22 ordinary GET operations plus two Partner Data operations; scopes, company contracts, Customer Delta and Footfall.
-- https://docs.ims.starco.com.kw/technical/api-v1/partner-data.html — Partner catalog and Stock Delta policy, baseline handshake, policy version, fixed windows, keyset pagination and safe cursor advancement.
-- https://docs.ims.starco.com.kw/technical/api-v1/quick-start.html — Business API prerequisites and first requests using X-IMS-API-Key, company routing, least-privilege scopes and contract visibility.
-- https://docs.ims.starco.com.kw/technical/api-v1/reference.html — All 24 Business API GET operations with exact routes, scopes, parameters, defaults, JSON response fields/nullability, contract visibility, pagination, errors and integration scenarios.
-- https://docs.ims.starco.com.kw/technical/api-v1/requests.html — Dates, paging (default 200, max 1000), filtering and response-envelope conventions.
+- https://docs.ims.starco.com.kw/technical/api-v1/data-semantics.html — Signed quantities, business dates and recorded timestamps, stock-effective purchase and movement times, brand fallback, cost and promotion semantics.
+- https://docs.ims.starco.com.kw/technical/api-v1/errors-rate-limits.html — HTTP validation, authorization, Delta and rate-limit errors; company maintenance 503, Retry-After and safe recovery.
+- https://docs.ims.starco.com.kw/technical/api-v1/examples.html — Synthetic HTTP and Postman requests for all 26 operations, timestamp alternatives and ordinary Delta polling and continuation.
+- https://docs.ims.starco.com.kw/technical/api-v1/index.html — Standalone Business API: 24 ordinary GET operations plus two Partner Data operations; scopes, company contracts, Delta, event timestamp filters and maintenance.
+- https://docs.ims.starco.com.kw/technical/api-v1/ordinary-delta.html — Ordinary item and inventory Delta: existing scopes and response fields, full-sync baseline, fixed safe windows, composite keyset pagination, zero balances, maintenance and recovery.
+- https://docs.ims.starco.com.kw/technical/api-v1/partner-data.html — Independent partner catalog and Stock Delta policy, safe windows, keyset pagination, availability, maintenance and recovery.
+- https://docs.ims.starco.com.kw/technical/api-v1/quick-start.html — Business API first requests, dates and local timestamp ranges, ordinary Delta handshake, least-privilege scopes and contract visibility.
+- https://docs.ims.starco.com.kw/technical/api-v1/reference.html — All 26 Business API GET operations: routes, scopes, parameters, JSON response fields/nullability, timestamp and Delta examples, contract visibility and errors.
+- https://docs.ims.starco.com.kw/technical/api-v1/requests.html — Date and local transaction timestamp selection, offset Delta windows, paging, filters, response envelopes and maintenance retry conventions.
 
 ## Technical
 - https://docs.ims.starco.com.kw/technical/architecture.html — Roles and boundaries of IMS Client, IMS Global, IMS API, IMS Autos and IMS Shopify, with separate global administration and company operational databases.
-- https://docs.ims.starco.com.kw/technical/ims-api.html — IMS API 1.1.0 service responsibilities and separate boundaries for external Business API, workstation bootstrap, Global administration and internal service authentication.
-- https://docs.ims.starco.com.kw/technical/ims-global-api-administration.html — API clients, company access, scopes, ordinary supplier/store contracts, financial permission, Partner Data policies, keys, quotas and request/audit logs.
+- https://docs.ims.starco.com.kw/technical/ims-api.html — IMS API service responsibilities, external Business API, ordinary Delta, local transaction timestamp filtering and maintenance; separate internal authorization boundaries.
+- https://docs.ims.starco.com.kw/technical/ims-global-api-administration.html — IMS Global administration of API clients, keys, scopes, ordinary company contracts and Partner Data policy; existing ordinary Delta permissions.
 - https://docs.ims.starco.com.kw/technical/ims-global.html — IMS Global 1.7.0 companies and provisioning, users and Developer Access, workstation approval, supplier cloning, service access, Recovery Packages and read-only HA Health.
 - https://docs.ims.starco.com.kw/technical/ims-server-deployment.html — IMS Server Deployment 1.1.0: Windows prerequisites, PostgreSQL 18.3+ within 18.x, Fresh Installation, Disaster Recovery, initial workstation requirements and verification.
 - https://docs.ims.starco.com.kw/technical/ims-update-server.html — IMS API-authorized Client and Global updates: approved local/shared release sources, workstation approval, single- or two-node configuration, migration and troubleshooting.
@@ -135,7 +136,7 @@
 - https://docs.ims.starco.com.kw/technical/security-guidance.html — General security recommendations for IMS administrators: workstation protection, credentials and keys, logs, network access, recovery and incident handling; distinct from verified IMS controls.
 - https://docs.ims.starco.com.kw/technical/security.html — Security Architecture: workstation authorization, global authentication, Global Administrator sessions, company membership and company-local permissions.
 - https://docs.ims.starco.com.kw/technical/service-administration.html — Install and maintain Autos and Shopify through IMS Global company grants and Generate Recovery Package, with operational checks and troubleshooting.
-- https://docs.ims.starco.com.kw/technical/source-baseline.html — Component versions and compatibility: Client 9.4.8, Global 1.7.0, API 1.1.0, Updater 8.0.3, PostgreSQL 18.x minimum 18.3, Autos 9.2 and Shopify 4.4.0.
+- https://docs.ims.starco.com.kw/technical/source-baseline.html — Component versions and compatibility boundaries for IMS, deployment tools, service consumers and Business API capabilities.
 - https://docs.ims.starco.com.kw/technical/system-dashboard-observability.html — Monitoring locations across IMS Client, IMS Global and IMS Shopify, with links to dashboard, performance, HA Health, API activity, Autos and Integration Center guides.
 
 ## Tools
